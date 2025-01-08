@@ -31,6 +31,7 @@
     --secondary: theme("colors.neutral.100");
     --secondary-dark: theme("colors.neutral.200");
     --ring: theme("colors.blue.300");
+    --ring-error: theme("colors.red.300");
   }
 
   .dark {
@@ -47,12 +48,13 @@
     --secondary: theme("colors.neutral.700");
     --secondary-dark: theme("colors.neutral.600");
     --ring: theme("colors.blue.800");
+    --ring-error: theme("colors.red.800");
   }
 }
 
 @layer base {
   body {
-    @apply text-main bg-background;
+    @apply bg-background text-main;
   }
 
   button,
@@ -65,11 +67,11 @@
   }
 
   .focus-input-ring {
-    @apply ring-primary-lighter border border-primary outline-none ring-[3px] ring-offset-0;
+    @apply border border-primary outline-none ring-[3px] ring-primary-lighter ring-offset-0;
   }
 
   .focus-input-ring-error {
-    @apply ring-error-lighter border border-error outline-none ring-[3px] ring-offset-0;
+    @apply border border-error outline-none ring-[3px] ring-error-lighter ring-offset-0;
   }
 
   .disable-focus-ring {

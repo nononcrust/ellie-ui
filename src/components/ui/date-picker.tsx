@@ -91,7 +91,7 @@ export const DatePicker = ({
             required={required}
           />
         </div>
-        <div className="border-border flex items-center gap-2 border-t p-3">
+        <div className="flex items-center gap-2 border-t border-border p-3">
           <Button variant="outlined" className="w-full" onClick={onCancel}>
             취소하기
           </Button>
@@ -186,7 +186,7 @@ export const DateRangePicker = ({
             {...props}
           />
         </div>
-        <div className="border-border flex items-center gap-2 border-t p-3">
+        <div className="flex items-center gap-2 border-t border-border p-3">
           <Button variant="outlined" className="w-full" type="button" onClick={onCancel}>
             취소하기
           </Button>
@@ -214,7 +214,7 @@ export const Trigger = ({
     <Popover.Trigger asChild>
       <button
         className={cn(
-          "text-main border-border flex h-9 w-full items-center gap-2 rounded-[8px] border bg-background px-3 text-sm font-medium outline-none transition-colors hover:bg-background-hover",
+          "flex h-9 w-full items-center gap-2 rounded-[8px] border border-border bg-background px-3 text-sm font-medium text-main outline-none",
           "disable-focus-ring focus-visible:focus-input-ring",
           "disabled:pointer-events-none disabled:opacity-50",
           ariaInvalid && "focus-visible:focus-input-ring-error border-error",
@@ -227,7 +227,7 @@ export const Trigger = ({
           {children ? (
             children
           ) : placeholder ? (
-            <span className="text-sub">{placeholder}</span>
+            <span className="text-placeholder">{placeholder}</span>
           ) : null}
         </span>
       </button>

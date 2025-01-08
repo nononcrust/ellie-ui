@@ -6,8 +6,9 @@ export const Input = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: In
   return (
     <input
       className={cn(
-        "border-border text-main flex h-9 w-full rounded-[8px] border bg-background px-3 text-sm shadow-sm",
+        "flex h-9 w-full rounded-[8px] border border-border bg-background px-3 text-sm text-main shadow-sm",
         "focus-visible:focus-input-ring",
+        "placeholder-placeholder",
         "disabled:pointer-events-none disabled:opacity-50",
         ariaInvalid && "focus-visible:focus-input-ring-error border-error",
         className,

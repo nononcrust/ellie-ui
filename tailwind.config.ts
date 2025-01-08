@@ -40,7 +40,10 @@ export default {
           dark: "var(--error-dark)",
           lighter: "var(--error-lighter)",
         },
-        ring: "var(--ring)",
+        ring: {
+          DEFAULT: "var(--ring)",
+          error: "var(--ring-error)",
+        },
       },
       keyframes: {
         "dropdown-open": {

@@ -14,19 +14,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DefaultRender = () => {
-  const bananaId = useId();
-  const appleId = useId();
+  const id = useId();
 
   return (
     <RadioGroup>
-      <RadioGroup.Container>
-        <RadioGroup.Item value="1" id={bananaId} />
-        <RadioGroup.Label htmlFor={bananaId}>바나나</RadioGroup.Label>
-      </RadioGroup.Container>
-      <RadioGroup.Container>
-        <RadioGroup.Item value="2" id={appleId} />
-        <RadioGroup.Label htmlFor={appleId}>사과</RadioGroup.Label>
-      </RadioGroup.Container>
+      <RadioGroup.Option>
+        <RadioGroup.Item value="1" id={`${id}-1`} />
+        <RadioGroup.Label htmlFor={`${id}-1`}>바나나</RadioGroup.Label>
+      </RadioGroup.Option>
+      <RadioGroup.Option>
+        <RadioGroup.Item value="2" id={`${id}-2`} />
+        <RadioGroup.Label htmlFor={`${id}-2`}>사과</RadioGroup.Label>
+      </RadioGroup.Option>
     </RadioGroup>
   );
 };

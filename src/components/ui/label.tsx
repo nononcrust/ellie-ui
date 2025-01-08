@@ -5,7 +5,7 @@ type LabelProps = React.ComponentPropsWithRef<typeof LabelPrimitives.Root>;
 
 export const Label = ({ className, children, ...props }: LabelProps) => {
   return (
-    <LabelPrimitives.Root className={cn("text-[13px] font-medium", className)} {...props}>
+    <LabelPrimitives.Root className={cn("text-sm font-medium", className)} {...props}>
       {children}
     </LabelPrimitives.Root>
   );

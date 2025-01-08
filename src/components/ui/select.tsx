@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "lucide-react";
 import React from "react";
 
 type SelectProps = Omit<
-  React.ComponentPropsWithRef<typeof SelectPrimitives.Trigger>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitives.Trigger>,
   "onChange"
 > & {
   value?: string;
@@ -15,43 +15,53 @@ type SelectProps = Omit<
   placeholder?: string;
 };
 
-export const Select = ({
-  value,
-  onChange,
-  className,
-  children,
-  placeholder,
-  defaultValue,
-  ["aria-invalid"]: ariaInvalid,
-  ...props
-}: SelectProps) => {
-  return (
-    <SelectPrimitives.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
-      <SelectPrimitives.Trigger
-        className={cn(
-          "border-border text-main flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border bg-background px-3 text-start text-[14px] font-semibold shadow-sm outline-none",
-          "data-[placeholder]:text-placeholder",
-          "[&>span]:min-w-0",
-          "hover:bg-background-hover",
-          "disable-focus-ring focus-visible:focus-input-ring",
-          "disabled:pointer-events-none disabled:opacity-50",
-          ariaInvalid && "focus-visible:focus-input-ring-error border-error",
-          className,
-        )}
-        aria-invalid={ariaInvalid}
-        {...props}
-      >
-        <span className="truncate">
-          <SelectPrimitives.Value placeholder={placeholder} />
-        </span>
-        <SelectPrimitives.Icon asChild>
-          <ChevronDownIcon size={16} strokeWidth={2} className="text-sub shrink-0" />
-        </SelectPrimitives.Icon>
-      </SelectPrimitives.Trigger>
-      <SelectContent>{children}</SelectContent>
-    </SelectPrimitives.Root>
-  );
-};
+const SelectImpl = React.forwardRef<
+  React.ComponentRef<typeof SelectPrimitives.Trigger>,
+  SelectProps
+>(
+  (
+    {
+      value,
+      onChange,
+      className,
+      children,
+      placeholder,
+      defaultValue,
+      ["aria-invalid"]: ariaInvalid,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <SelectPrimitives.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
+        <SelectPrimitives.Trigger
+          ref={ref}
+          className={cn(
+            "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-semibold text-main shadow-sm outline-none",
+            "data-[placeholder]:text-placeholder",
+            "[&>span]:min-w-0",
+            "placeholder-placeholder",
+            "disable-focus-ring focus-visible:focus-input-ring",
+            "disabled:pointer-events-none disabled:opacity-50",
+            ariaInvalid && "focus-visible:focus-input-ring-error border-error",
+            className,
+          )}
+          aria-invalid={ariaInvalid}
+          {...props}
+        >
+          <span className="truncate">
+            <SelectPrimitives.Value placeholder={placeholder} />
+          </span>
+          <SelectPrimitives.Icon asChild>
+            <ChevronDownIcon size={16} strokeWidth={2} className="shrink-0 text-sub" />
+          </SelectPrimitives.Icon>
+        </SelectPrimitives.Trigger>
+        <SelectContent>{children}</SelectContent>
+      </SelectPrimitives.Root>
+    );
+  },
+);
+SelectImpl.displayName = SelectPrimitives.Root.displayName;
 
 type SelectContentProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Content>;
 
@@ -65,7 +75,7 @@ const SelectContent = ({
     <SelectPrimitives.Portal>
       <SelectPrimitives.Content
         className={cn(
-          "border-border text-main relative z-50 min-w-[8rem] max-w-[calc(100vw-12px)] overflow-hidden rounded-lg border bg-background shadow-lg",
+          "relative z-50 min-w-[8rem] max-w-[calc(100vw-12px)] overflow-hidden rounded-lg border border-border bg-background text-main shadow-lg",
           "[&_[role=group]]:py-1",
           "max-h-[var(--radix-select-content-available-height)]",
           position === "popper" &&
@@ -93,7 +103,7 @@ type SelectLabelProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Labe
 const SelectLabel = ({ className, children, ...props }: SelectLabelProps) => {
   return (
     <SelectPrimitives.Label
-      className={cn("text-subtle px-2 py-1.5 text-xs font-medium", className)}
+      className={cn("px-2 py-1.5 text-xs font-medium text-subtle", className)}
       {...props}
     >
       {children}
@@ -108,7 +118,7 @@ const SelectItem = ({ className, children, ...props }: SelectItemProps) => {
     <SelectPrimitives.Item
       className={cn(
         "relative flex w-full cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none",
-        "focus:text-main focus:bg-background-hover",
+        "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:font-bold data-[state=checked]:text-primary",
         "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className,
@@ -124,14 +134,16 @@ type SelectSeparatorProps = React.ComponentPropsWithRef<typeof SelectPrimitives.
 
 const SelectSeparator = ({ className, children, ...props }: SelectSeparatorProps) => {
   return (
-    <SelectPrimitives.Separator className={cn("bg-border -mx-1 my-1 h-px", className)} {...props}>
+    <SelectPrimitives.Separator className={cn("-mx-1 my-1 h-px bg-border", className)} {...props}>
       {children}
     </SelectPrimitives.Separator>
   );
 };
 
-Select.Group = SelectPrimitives.Group;
-Select.Content = SelectContent;
-Select.Label = SelectLabel;
-Select.Item = SelectItem;
-Select.Separator = SelectSeparator;
+export const Select = Object.assign(SelectImpl, {
+  Group: SelectPrimitives.Group,
+  Content: SelectContent,
+  Label: SelectLabel,
+  Item: SelectItem,
+  Separator: SelectSeparator,
+});

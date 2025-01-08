@@ -1,29 +1,42 @@
 "use client";
 
+import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import * as RadioGroupPrimitives from "@radix-ui/react-radio-group";
-import React from "react";
+import React, { useId } from "react";
 import { Label } from "./label";
 
 type RadioGroupProps = React.ComponentPropsWithRef<typeof RadioGroupPrimitives.Root>;
 
-export const RadioGroup = ({ className, children, ...props }: RadioGroupProps) => {
+export const RadioGroup = ({
+  className,
+  children,
+  ["aria-invalid"]: ariaInvalid,
+  ...props
+}: RadioGroupProps) => {
   return (
-    <RadioGroupPrimitives.Root className={cn("grid gap-3", className)} {...props}>
-      {children}
-    </RadioGroupPrimitives.Root>
+    <RadioGroupContext value={{ ariaInvalid }}>
+      <RadioGroupPrimitives.Root className={cn("grid gap-3", className)} {...props}>
+        {children}
+      </RadioGroupPrimitives.Root>
+    </RadioGroupContext>
   );
 };
 
 type RadioGroupItemProps = React.ComponentPropsWithRef<typeof RadioGroupPrimitives.Item>;
 
 const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
+  const id = useId();
+  const { ariaInvalid } = useRadioGroupContext();
+
   return (
     <RadioGroupPrimitives.Item
+      id={id}
       className={cn(
-        "aspect-sqaure border-border size-4 rounded-full border shadow-sm outline-none",
+        "aspect-sqaure size-4 min-w-4 rounded-full border border-border shadow-sm outline-none",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
+        ariaInvalid && "focus-visible:ring-ring-error border-error",
         className,
       )}
       {...props}
@@ -45,7 +58,7 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
 
 type RadioGroupContainerProps = React.ComponentPropsWithRef<"div">;
 
-const RadioGroupContainer = ({ className, children, ...props }: RadioGroupContainerProps) => {
+const RadioGroupOption = ({ className, children, ...props }: RadioGroupContainerProps) => {
   return (
     <div className={cn("flex items-center gap-2", className)} {...props}>
       {children}
@@ -66,5 +79,12 @@ const RadioGroupLabel = ({
 };
 
 RadioGroup.Item = RadioGroupItem;
-RadioGroup.Container = RadioGroupContainer;
+RadioGroup.Option = RadioGroupOption;
 RadioGroup.Label = RadioGroupLabel;
+
+type RadioGroupContextValue = {
+  ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
+};
+
+const [RadioGroupContext, useRadioGroupContext] =
+  createContextFactory<RadioGroupContextValue>("RadioGroup");

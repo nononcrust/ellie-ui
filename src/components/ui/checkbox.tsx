@@ -2,21 +2,44 @@
 
 import { cn } from "@/lib/utils";
 import * as CheckboxPrimitives from "@radix-ui/react-checkbox";
+import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
-type CheckboxProps = React.ComponentPropsWithRef<typeof CheckboxPrimitives.Root>;
+type CheckboxProps = React.ComponentPropsWithRef<typeof CheckboxPrimitives.Root> &
+  VariantProps<typeof checkboxVariants>;
 
-export const Checkbox = ({ className, checked, ...props }: CheckboxProps) => {
+const checkboxVariants = cva("", {
+  variants: {
+    size: {
+      small: "size-4",
+      medium: "size-5",
+      large: "size-6",
+    },
+  },
+  defaultVariants: {
+    size: "small",
+  },
+});
+
+export const Checkbox = React.forwardRef<
+  React.ComponentRef<typeof CheckboxPrimitives.Root>,
+  CheckboxProps
+>(({ className, checked, ["aria-invalid"]: ariaInvalid, size, ...props }, ref) => {
   return (
     <CheckboxPrimitives.Root
+      ref={ref}
       className={cn(
-        "border-border peer size-4 shrink-0 rounded border shadow-sm outline-none",
+        "peer size-4 shrink-0 rounded border border-border shadow-sm outline-none",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
+        checkboxVariants({ size }),
+        ariaInvalid &&
+          "focus-visible:ring-ring-error border-error data-[state=checked]:border-error data-[state=checked]:bg-error",
         className,
       )}
       checked={checked}
+      aria-invalid={ariaInvalid}
       {...props}
     >
       <CheckboxPrimitives.Indicator className="flex items-center justify-center">
@@ -52,4 +75,5 @@ export const Checkbox = ({ className, checked, ...props }: CheckboxProps) => {
       </CheckboxPrimitives.Indicator>
     </CheckboxPrimitives.Root>
   );
-};
+});
+Checkbox.displayName = CheckboxPrimitives.Root.displayName;

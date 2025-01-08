@@ -20,6 +20,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-main hover:bg-secondary-dark",
         outlined: "border-border text-main hover:bg-background-hover",
         ghost: "hover:bg-background-hover",
+        error: "bg-error text-white hover:bg-error-dark",
       },
       size: {
         small: "px-[10px] h-8 text-xs",

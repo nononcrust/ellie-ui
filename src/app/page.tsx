@@ -14,7 +14,6 @@ import { Form } from "@/components/ui/form";
 import { IconButton } from "@/components/ui/icon-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Popover } from "@/components/ui/popover";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
@@ -26,7 +25,6 @@ import { useDateRangePicker } from "@/hooks/use-date-range-picker";
 import { useSelect } from "@/hooks/use-select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  BellIcon,
   CheckIcon,
   EllipsisIcon,
   LogOutIcon,
@@ -45,7 +43,7 @@ export default function Home() {
   const frameworkSelect = useSelect("");
 
   return (
-    <main className="bg-background-100 flex min-h-dvh items-center justify-center">
+    <main className="flex min-h-dvh items-center justify-center">
       <Card className="m-8 max-w-[1280px] gap-2">
         <div className="flex gap-2">
           <Tooltip variant="outlined" content="툴팁 내용">
@@ -128,7 +126,7 @@ export default function Home() {
           <Switch />
         </div>
         <div className="flex gap-2">
-          <div className="border-border h-fit rounded-[12px] border p-3">
+          <div className="h-fit rounded-[12px] border border-border p-3">
             <Calendar mode="range" />
           </div>
           <div className="flex flex-col gap-2">
@@ -138,18 +136,18 @@ export default function Home() {
             </div>
             <div className="flex gap-2 p-3">
               <RadioGroup className="w-[120px]" defaultValue="1">
-                <RadioGroup.Container>
+                <RadioGroup.Option>
                   <RadioGroup.Item value="1" />
                   <RadioGroup.Label>학생</RadioGroup.Label>
-                </RadioGroup.Container>
-                <RadioGroup.Container>
+                </RadioGroup.Option>
+                <RadioGroup.Option>
                   <RadioGroup.Item value="2" />
                   <RadioGroup.Label>교사</RadioGroup.Label>
-                </RadioGroup.Container>
-                <RadioGroup.Container>
+                </RadioGroup.Option>
+                <RadioGroup.Option>
                   <RadioGroup.Item value="3" />
                   <RadioGroup.Label>학부모</RadioGroup.Label>
-                </RadioGroup.Container>
+                </RadioGroup.Option>
               </RadioGroup>
               <div className="flex flex-col gap-3">
                 <div className="flex h-fit items-center gap-2">
@@ -191,7 +189,6 @@ export default function Home() {
                 </DropdownMenu.Item>
               </DropdownMenu.Content>
             </DropdownMenu>
-            <Notifications />
             <DatePickerSection />
             <ChipSection />
             <BadgeSection />
@@ -202,52 +199,6 @@ export default function Home() {
     </main>
   );
 }
-
-const Notifications = () => {
-  return (
-    <Popover>
-      <div className="relative w-fit">
-        <Popover.Trigger asChild>
-          <IconButton
-            className="rounded-[12px] text-primary shadow-md"
-            size="small"
-            variant="outlined"
-            aria-label="알림"
-          >
-            <BellIcon size={16} strokeWidth={2.5} />
-          </IconButton>
-        </Popover.Trigger>
-        <Badge variant="primary" className="absolute -top-2 left-full -translate-x-4">
-          9
-        </Badge>
-      </div>
-      <Popover.Content>
-        <ul className="flex w-[320px] flex-col p-2">
-          <NotificationItem />
-          <NotificationItem />
-          <NotificationItem />
-          <NotificationItem />
-        </ul>
-      </Popover.Content>
-    </Popover>
-  );
-};
-
-const NotificationItem = () => {
-  return (
-    <li>
-      <button className="flex w-full flex-col gap-2 rounded-[10px] px-4 py-3 transition-colors hover:bg-background-hover">
-        <span className="text-[12px] font-semibold text-primary">커리어 성장</span>
-        <p className="text-left text-sm font-medium">
-          {
-            "백엔드 챌린지 이제는 꼭 알아야 할 AWS\n실전에 바로 적용할 수 있는 AWS 기술을 2주 완성 학습하고 개발 역량을 높여보세요."
-          }
-        </p>
-        <span className="text-subtle text-xs font-medium">2024.12.26 (목)</span>
-      </button>
-    </li>
-  );
-};
 
 const BadgeSection = () => {
   return (
@@ -409,7 +360,7 @@ const FormSection = () => {
         </Form.Control>
         <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
         <div
-          className="bg-border mb-4 mt-3 h-1 w-full overflow-hidden rounded-full"
+          className="mb-4 mt-3 h-1 w-full overflow-hidden rounded-full bg-border"
           role="progressbar"
           aria-valuenow={strengthScore}
           aria-valuemin={0}
@@ -421,7 +372,7 @@ const FormSection = () => {
             style={{ width: `${(strengthScore / 4) * 100}%` }}
           ></div>
         </div>
-        <p id="password-strength" className="mb-2 text-sm font-medium text-foreground">
+        <p id="password-strength" className="text-foreground mb-2 text-sm font-medium">
           {getStrengthText(strengthScore)}.
         </p>
         <ul className="space-y-1.5" aria-label="Password requirements">

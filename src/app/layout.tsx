@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+import { Sidebar } from "@/components/layouts/sidebar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
@@ -49,7 +50,12 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body className={`${pretendard.variable} antialiased`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex">
+            <Sidebar />
+            <div className="flex flex-1 flex-col">{children}</div>
+          </div>
+        </Providers>
       </body>
     </html>
   );
