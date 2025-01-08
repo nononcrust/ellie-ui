@@ -26,6 +26,7 @@ export const Sidebar = () => {
         <SidebarItem title="Popover" href="/popover" />
         <SidebarItem title="Tooltip" href="/tooltip" />
         <SidebarItem title="Form" href="/form" />
+        <SidebarItem title="Board" href="/board" />
       </nav>
     </aside>
   );

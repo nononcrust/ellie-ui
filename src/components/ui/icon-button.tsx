@@ -23,10 +23,10 @@ const iconButtonVariants = cva(
         ghost: "hover:bg-background-hover",
       },
       size: {
-        xsmall: "size-7",
-        small: "size-8",
-        medium: "size-9",
-        large: "size-10",
+        xsmall: "size-7 text-xs",
+        small: "size-8 text-sm",
+        medium: "size-9 text-base",
+        large: "size-10 text-lg",
       },
     },
     defaultVariants: {

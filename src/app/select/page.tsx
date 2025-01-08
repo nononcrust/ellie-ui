@@ -1,8 +1,14 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
+import { Command } from "@/components/ui/command";
 import { Label } from "@/components/ui/label";
+import { Popover } from "@/components/ui/popover";
 import { Select } from "@/components/ui/select";
+import { usePopover } from "@/hooks/use-popover";
+import { cn } from "@/lib/utils";
+import { CheckIcon, ChevronDownIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function SelectPage() {
   return (
@@ -24,7 +30,7 @@ export default function SelectPage() {
             <Select.Item value="1">한국어</Select.Item>
             <Select.Item value="2">영어</Select.Item>
             <Select.Item value="3">일본어</Select.Item>
-            <Select.Item value="3">중국어</Select.Item>
+            <Select.Item value="4">중국어</Select.Item>
           </Select>
         </div>
       </Grid.Item>
@@ -124,6 +130,129 @@ export default function SelectPage() {
           </Select>
         </div>
       </Grid.Item>
+      <Grid.Item>
+        <Select1 />
+      </Grid.Item>
     </Grid>
   );
 }
+
+const Select1 = () => {
+  const popover = usePopover();
+  const [value, setValue] = useState("");
+
+  return (
+    <div className="flex w-full flex-col">
+      <Label className="mb-2">프레임워크 선택</Label>
+      <Popover open={popover.isOpen} onOpenChange={popover.onOpenChange}>
+        <Popover.Trigger asChild>
+          <button
+            className={cn(
+              "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-semibold text-main shadow-sm outline-none",
+              "data-[placeholder]:text-placeholder",
+              "[&>span]:min-w-0",
+              "placeholder-placeholder",
+              "disable-focus-ring focus-visible:focus-input-ring",
+              "disabled:pointer-events-none disabled:opacity-50",
+            )}
+          >
+            <span className={cn("truncate", !value && "text-placeholder")}>
+              {value
+                ? frameworks.find((framework) => framework.value === value)?.label
+                : "프레임워크 선택"}
+            </span>
+            <ChevronDownIcon size={16} className="shrink-0 text-sub" />
+          </button>
+        </Popover.Trigger>
+        <Popover.Content className="w-full min-w-[var(--radix-popper-anchor-width)] border-border p-0">
+          <Command>
+            <Command.Input placeholder="프레임워크를 검색해주세요." />
+            <Command.List>
+              <Command.Empty>검색 결과가 없습니다.</Command.Empty>
+              {frameworks.map((framework) => (
+                <Command.Item
+                  key={framework.value}
+                  value={framework.value}
+                  onSelect={(currentValue) => {
+                    setValue(currentValue === value ? "" : currentValue);
+                    popover.close();
+                  }}
+                >
+                  {framework.label}
+                  {framework.value === value && <CheckIcon size={16} className="ml-auto" />}
+                </Command.Item>
+              ))}
+            </Command.List>
+          </Command>
+        </Popover.Content>
+      </Popover>
+    </div>
+  );
+};
+
+const frameworks = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+  {
+    value: "angular",
+    label: "Angular",
+  },
+  {
+    value: "vue",
+    label: "Vue.js",
+  },
+  {
+    value: "react",
+    label: "React",
+  },
+  {
+    value: "ember",
+    label: "Ember.js",
+  },
+  {
+    value: "gatsby",
+    label: "Gatsby",
+  },
+  {
+    value: "eleventy",
+    label: "Eleventy",
+  },
+  {
+    value: "solid",
+    label: "SolidJS",
+  },
+  {
+    value: "preact",
+    label: "Preact",
+  },
+  {
+    value: "qwik",
+    label: "Qwik",
+  },
+  {
+    value: "alpine",
+    label: "Alpine.js",
+  },
+  {
+    value: "lit",
+    label: "Lit",
+  },
+];

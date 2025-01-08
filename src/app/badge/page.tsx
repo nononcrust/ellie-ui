@@ -13,6 +13,15 @@ export default function BadgePage() {
       <Grid.Item>
         <Badge>뱃지</Badge>
       </Grid.Item>
+      <Grid.Item>
+        <Badge variant="secondary">1</Badge>
+      </Grid.Item>
+      <Grid.Item>
+        <Badge variant="secondary">99+</Badge>
+      </Grid.Item>
+      <Grid.Item>
+        <Badge variant="secondary">뱃지</Badge>
+      </Grid.Item>
     </Grid>
   );
 }

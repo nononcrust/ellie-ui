@@ -12,6 +12,7 @@ export default function DatePickerPage() {
   const dateRangePicker = useDateRangePicker();
   const disabledDatePicker = useDatePicker();
   const invalidDatePicker = useDatePicker();
+  const rangeLimitDatePicker = useDatePicker();
 
   return (
     <Grid>
@@ -32,6 +33,9 @@ export default function DatePickerPage() {
             value={dateRangePicker.value}
             onChange={dateRangePicker.onChange}
             placeholder="날짜 범위 선택"
+            hidden={{
+              before: new Date(),
+            }}
           />
         </div>
       </Grid.Item>
@@ -43,6 +47,19 @@ export default function DatePickerPage() {
             onChange={disabledDatePicker.onChange}
             placeholder="날짜 선택"
             disabled
+          />
+        </div>
+      </Grid.Item>
+      <Grid.Item>
+        <div className="flex w-full flex-col">
+          <Label className="mb-2">날짜 선택</Label>
+          <DatePicker
+            value={rangeLimitDatePicker.value}
+            onChange={rangeLimitDatePicker.onChange}
+            placeholder="날짜 선택"
+            hidden={{
+              before: new Date(),
+            }}
           />
         </div>
       </Grid.Item>

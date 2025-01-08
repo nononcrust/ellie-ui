@@ -7,6 +7,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         primary: "border-transparent bg-primary text-white",
+        secondary: "border-transparent bg-secondary text-main",
       },
       size: {
         small: "h-4 min-w-4 text-[10px]",

@@ -11,7 +11,7 @@ import { Calendar } from "./calendar";
 import { Popover } from "./popover";
 
 type DatePickerProps = Omit<
-  PropsBase & PropsSingle & React.ComponentPropsWithRef<"button">,
+  PropsBase & PropsSingle & Omit<React.ComponentPropsWithRef<"button">, "hidden">,
   "selected" | "onSelect" | "mode" | "onChange" | "value"
 > & {
   value?: Date;
@@ -87,8 +87,8 @@ export const DatePicker = ({
             mode="single"
             selected={date}
             onSelect={onDateChange}
-            {...props}
             required={required}
+            {...props}
           />
         </div>
         <div className="flex items-center gap-2 border-t border-border p-3">

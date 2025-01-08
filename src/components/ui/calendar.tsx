@@ -50,6 +50,7 @@ const classNames = {
   outside: "text-sub",
   disabled: "text-subtle",
   range_middle: "bg-primary-lighter !text-primary [&>button]:hover:bg-primary-lighter",
+  hidden: "opacity-20",
 };
 
 const Day = ({ children, day, className, ...props }: DayProps) => {
@@ -67,7 +68,14 @@ const Day = ({ children, day, className, ...props }: DayProps) => {
     selectedDates.to.toISOString() !== day.date.toISOString();
 
   if (hidden) {
-    return <td className={className}>{day.date.getDate()}</td>;
+    return (
+      <td className={className}>
+        {day.date.getDate()}
+        {today && (
+          <span className={cn("absolute right-[5px] top-[5px] size-1 rounded-full bg-primary")} />
+        )}
+      </td>
+    );
   }
 
   return (
