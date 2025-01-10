@@ -58,9 +58,9 @@ export const Form1 = () => {
           render={({ field }) => (
             <Form.Control>
               <Select {...field} placeholder="타입을 선택해주세요.">
-                <Select.Item value="1">개인</Select.Item>
-                <Select.Item value="2">기업</Select.Item>
-                <Select.Item value="3">단체</Select.Item>
+                <Select.Option value="1">개인</Select.Option>
+                <Select.Option value="2">기업</Select.Option>
+                <Select.Option value="3">단체</Select.Option>
               </Select>
             </Form.Control>
           )}

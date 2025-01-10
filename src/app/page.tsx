@@ -61,26 +61,26 @@ export default function Home() {
             {Array(20)
               .fill(0)
               .map((_, index) => (
-                <Select.Item key={index} value={String(index + 1)}>
+                <Select.Option key={index} value={String(index + 1)}>
                   React {index + 1}
-                </Select.Item>
+                </Select.Option>
               ))}
           </Select>
           <Select className="w-[160px]" placeholder="과일 선택">
             <Select.Group>
               <Select.Label>과일</Select.Label>
-              <Select.Item value="1">사과사과사과사과사과사과사과사</Select.Item>
-              <Select.Item value="2">바나나</Select.Item>
-              <Select.Item value="3">수박</Select.Item>
-              <Select.Item value="4">복숭아</Select.Item>
+              <Select.Option value="1">사과사과사과사과사과사과사과사</Select.Option>
+              <Select.Option value="2">바나나</Select.Option>
+              <Select.Option value="3">수박</Select.Option>
+              <Select.Option value="4">복숭아</Select.Option>
             </Select.Group>
             <Select.Separator />
             <Select.Group>
               <Select.Label>야채</Select.Label>
-              <Select.Item value="5">당근</Select.Item>
-              <Select.Item value="6">오이</Select.Item>
-              <Select.Item value="7">양파</Select.Item>
-              <Select.Item value="8">마늘</Select.Item>
+              <Select.Option value="5">당근</Select.Option>
+              <Select.Option value="6">오이</Select.Option>
+              <Select.Option value="7">양파</Select.Option>
+              <Select.Option value="8">마늘</Select.Option>
             </Select.Group>
           </Select>
           <Dialog>
@@ -404,9 +404,9 @@ const FormSection = () => {
           render={({ field }) => (
             <Form.Control>
               <Select placeholder="유형 선택" {...field}>
-                <Select.Item value="student">학생</Select.Item>
-                <Select.Item value="teacher">교사</Select.Item>
-                <Select.Item value="parent">학부모</Select.Item>
+                <Select.Option value="student">학생</Select.Option>
+                <Select.Option value="teacher">교사</Select.Option>
+                <Select.Option value="parent">학부모</Select.Option>
               </Select>
             </Form.Control>
           )}

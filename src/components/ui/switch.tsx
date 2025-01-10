@@ -21,7 +21,7 @@ export const Switch = ({ className, ...props }: SwitchProps) => {
           "data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0",
           "transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
         )}
-      ></SwitchPrimitives.Thumb>
+      />
     </SwitchPrimitives.Root>
   );
 };

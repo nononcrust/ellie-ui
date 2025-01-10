@@ -111,9 +111,9 @@ const SelectLabel = ({ className, children, ...props }: SelectLabelProps) => {
   );
 };
 
-type SelectItemProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Item>;
+type SelectOptionProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Item>;
 
-const SelectItem = ({ className, children, ...props }: SelectItemProps) => {
+const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
@@ -144,6 +144,6 @@ export const Select = Object.assign(SelectImpl, {
   Group: SelectPrimitives.Group,
   Content: SelectContent,
   Label: SelectLabel,
-  Item: SelectItem,
+  Option: SelectOption,
   Separator: SelectSeparator,
 });

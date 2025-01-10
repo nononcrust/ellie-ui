@@ -21,7 +21,7 @@ const DropdownMenuContent = ({
     <DropdownMenuPrimitives.Portal>
       <DropdownMenuPrimitives.Content
         className={cn(
-          "border-border text-main z-50 min-w-40 overflow-hidden rounded-[8px] border bg-background p-1 shadow-lg",
+          "z-50 min-w-40 overflow-hidden rounded-[8px] border border-border bg-background p-1 text-main shadow-lg",
           "animate-in fade-in-0",
           "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           className,
@@ -41,7 +41,7 @@ const DropdownMenuItem = ({ className, children, ...props }: DropdownMenuItemPro
   return (
     <DropdownMenuPrimitives.Item
       className={cn(
-        "text-main relative flex cursor-pointer select-none items-center gap-2 rounded-[6px] px-2 py-1.5 text-sm font-medium outline-none",
+        "relative flex cursor-pointer select-none items-center gap-2 rounded-[6px] px-2 py-1.5 text-sm font-medium text-main outline-none",
         "focus:bg-background-hover",
         "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         "[&_svg]:shrink-0",
@@ -59,7 +59,7 @@ type DropdownMenuLabelProps = React.ComponentPropsWithRef<typeof DropdownMenuPri
 const DropdownMenuLabel = ({ className, children, ...props }: DropdownMenuLabelProps) => {
   return (
     <DropdownMenuPrimitives.Label
-      className={cn("text-subtle px-2 py-1.5 text-xs font-medium", className)}
+      className={cn("px-2 py-1.5 text-xs font-medium text-subtle", className)}
       {...props}
     >
       {children}
@@ -74,27 +74,9 @@ type DropdownMenuSeparatorProps = React.ComponentPropsWithRef<
 const DropdownMenuSeparator = ({ className, ...props }: DropdownMenuSeparatorProps) => {
   return (
     <DropdownMenuPrimitives.Separator
-      className={cn("bg-border -mx-1 my-1 h-px", className)}
+      className={cn("-mx-1 my-1 h-px bg-border", className)}
       {...props}
     />
-  );
-};
-
-const DropdownMenuShortcut = ({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithRef<"span">) => {
-  return (
-    <span
-      className={cn(
-        "border-border text-sub -me-1 ms-auto inline-flex h-5 max-h-full items-center rounded-[4px] border bg-background px-1 text-[10px] font-medium",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </span>
   );
 };
 
@@ -104,4 +86,3 @@ DropdownMenu.Content = DropdownMenuContent;
 DropdownMenu.Item = DropdownMenuItem;
 DropdownMenu.Label = DropdownMenuLabel;
 DropdownMenu.Separator = DropdownMenuSeparator;
-DropdownMenu.Shortcut = DropdownMenuShortcut;
