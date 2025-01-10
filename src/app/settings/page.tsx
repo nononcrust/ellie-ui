@@ -1,14 +1,19 @@
+"use client";
+
 import profileImage from "@/assets/images/nonon.png";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
 import { Divider } from "@/components/ui/divider";
+import { Form } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Tooltip } from "@/components/ui/tooltip";
-import { ChevronRightIcon, CircleHelpIcon } from "lucide-react";
+import { ArrowUpRightIcon, ChevronRightIcon, CircleHelpIcon } from "lucide-react";
 
 export default function SettingsPage() {
   return (
-    <main className="mx-auto mt-16 w-full max-w-3xl">
+    <main className="mx-auto w-full max-w-3xl py-16">
       <h2 className="text-lg font-semibold">프로필</h2>
       <Divider className="my-3" />
       <div className="flex pt-2">
@@ -78,6 +83,53 @@ export default function SettingsPage() {
           </Button>
         </div>
       </div>
+      <h2 className="mt-8 flex items-center gap-2 text-lg font-semibold">워크스페이스</h2>
+      <Divider className="my-3" />
+      <div className="flex flex-col gap-6">
+        <Form.Item className="flex flex-col">
+          <Form.Label>이름</Form.Label>
+          <Input placeholder="예: 회사 이름" />
+          <Form.Description>
+            조직이나 회사 이름을 사용할 수 있습니다. 간단한 이름을 사용하세요.
+          </Form.Description>
+        </Form.Item>
+      </div>
+      <h2 className="mt-8 flex items-center gap-2 text-lg font-semibold">공개 설정</h2>
+      <Divider className="my-3" />
+      <div className="flex flex-col gap-6">
+        <Form.Item className="flex flex-col">
+          <Form.Label>허용된 이메일 도메인</Form.Label>
+          <Input placeholder="이메일 도메인을 입력하세요" />
+          <Form.Description>
+            이 도메인의 이메일 주소를 가진 사람은 모두 자동으로 워크스페이스에 참여할 수 있습니다.
+          </Form.Description>
+        </Form.Item>
+      </div>
+      <div className="mt-6 flex justify-end gap-2">
+        <Button>변경</Button>
+        <Button variant="outlined">취소</Button>
+      </div>
+      <div>
+        <h3 className="flex items-center gap-2 text-sm font-medium">
+          멤버 목록 내보내기
+          <Chip variant="info">
+            비즈니스
+            <ArrowUpRightIcon className="ml-1" size={12} />
+          </Chip>
+        </h3>
+        <Button className="mt-3" variant="outlined">
+          멤버 목록 CSV로 내보내기
+        </Button>
+      </div>
+      <Button className="mt-2 -translate-x-3 text-subtle" variant="ghost">
+        <CircleHelpIcon size={16} className="text-subtle" />
+        멤버 목록 내보내기에 대해 자세히 알아보세요.
+      </Button>
+      <Divider className="my-3" />
+      <h3 className="text-sm font-medium">위험 구역</h3>
+      <Button variant="outlined" className="mt-3 border-error text-error">
+        워크스페이스 삭제
+      </Button>
     </main>
   );
 }
