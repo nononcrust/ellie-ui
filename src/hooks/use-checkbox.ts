@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useCheckbox = (defaultChecked = false) => {
-  const [checked, setChecked] = useState(defaultChecked);
+export const useCheckbox = (initialChecked = false) => {
+  const [checked, setChecked] = useState(initialChecked);
 
   const toggle = () => {
     setChecked((prev) => !prev);

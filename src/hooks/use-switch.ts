@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useSwitch = (defaultValue = false) => {
-  const [value, setValue] = useState(defaultValue);
+export const useSwitch = (initialValue = false) => {
+  const [value, setValue] = useState(initialValue);
 
   const onChange = () => {
     setValue((prev) => !prev);

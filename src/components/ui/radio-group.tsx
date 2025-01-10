@@ -56,16 +56,6 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
   );
 };
 
-type RadioGroupContainerProps = React.ComponentPropsWithRef<"div">;
-
-const RadioGroupOption = ({ className, children, ...props }: RadioGroupContainerProps) => {
-  return (
-    <div className={cn("flex items-center gap-2", className)} {...props}>
-      {children}
-    </div>
-  );
-};
-
 const RadioGroupLabel = ({
   className,
   children,
@@ -78,9 +68,21 @@ const RadioGroupLabel = ({
   );
 };
 
+type RadioGroupOptionProps = RadioGroupItemProps;
+
+const RadioGroupOption = ({ className, children, ...props }: RadioGroupOptionProps) => {
+  const id = useId();
+
+  return (
+    <div className={cn("flex items-center gap-2", className)}>
+      <RadioGroupItem id={id} {...props} />
+      <RadioGroupLabel htmlFor={id}>{children}</RadioGroupLabel>
+    </div>
+  );
+};
+
 RadioGroup.Item = RadioGroupItem;
 RadioGroup.Option = RadioGroupOption;
-RadioGroup.Label = RadioGroupLabel;
 
 type RadioGroupContextValue = {
   ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;

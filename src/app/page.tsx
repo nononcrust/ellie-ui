@@ -136,18 +136,9 @@ export default function Home() {
             </div>
             <div className="flex gap-2 p-3">
               <RadioGroup className="w-[120px]" defaultValue="1">
-                <RadioGroup.Option>
-                  <RadioGroup.Item value="1" />
-                  <RadioGroup.Label>학생</RadioGroup.Label>
-                </RadioGroup.Option>
-                <RadioGroup.Option>
-                  <RadioGroup.Item value="2" />
-                  <RadioGroup.Label>교사</RadioGroup.Label>
-                </RadioGroup.Option>
-                <RadioGroup.Option>
-                  <RadioGroup.Item value="3" />
-                  <RadioGroup.Label>학부모</RadioGroup.Label>
-                </RadioGroup.Option>
+                <RadioGroup.Option value="1">학생</RadioGroup.Option>
+                <RadioGroup.Option value="2">교사</RadioGroup.Option>
+                <RadioGroup.Option value="3">학부모</RadioGroup.Option>
               </RadioGroup>
               <div className="flex flex-col gap-3">
                 <div className="flex h-fit items-center gap-2">

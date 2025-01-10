@@ -10,6 +10,7 @@ export const Sidebar = () => {
       <nav className="flex flex-col gap-1 p-6 pt-12">
         <SidebarItem title="Home" href="/" />
         <SidebarItem title="Button" href="/button" />
+        <SidebarItem title="Icon Button" href="/icon-button" />
         <SidebarItem title="Input" href="/input" />
         <SidebarItem title="Select" href="/select" />
         <SidebarItem title="Checkbox" href="/checkbox" />

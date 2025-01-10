@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useFileInput = (defaultValue = null) => {
-  const [value, setValue] = useState<File | null>(defaultValue);
+export const useFileInput = (initialValue = null) => {
+  const [value, setValue] = useState<File | null>(initialValue);
 
   const onChange = (value: File | null) => {
     setValue(value);

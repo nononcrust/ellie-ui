@@ -11,18 +11,9 @@ export default function RadioGroupPage() {
         <div className="flex w-full flex-col">
           <Label className="mb-2">프레임워크 선택</Label>
           <RadioGroup defaultValue="1">
-            <RadioGroup.Option>
-              <RadioGroup.Item value="1" />
-              <RadioGroup.Label>React</RadioGroup.Label>
-            </RadioGroup.Option>
-            <RadioGroup.Option>
-              <RadioGroup.Item value="2" />
-              <RadioGroup.Label>Astro</RadioGroup.Label>
-            </RadioGroup.Option>
-            <RadioGroup.Option>
-              <RadioGroup.Item value="3" />
-              <RadioGroup.Label>Remix</RadioGroup.Label>
-            </RadioGroup.Option>
+            <RadioGroup.Option value="1">React</RadioGroup.Option>
+            <RadioGroup.Option value="2">Astro</RadioGroup.Option>
+            <RadioGroup.Option value="3">Remix</RadioGroup.Option>
           </RadioGroup>
         </div>
       </Grid.Item>
@@ -30,18 +21,11 @@ export default function RadioGroupPage() {
         <div className="flex w-full flex-col">
           <Label className="mb-2">프레임워크 선택</Label>
           <RadioGroup defaultValue="1">
-            <RadioGroup.Option>
-              <RadioGroup.Item value="1" />
-              <RadioGroup.Label>React</RadioGroup.Label>
+            <RadioGroup.Option value="1">React</RadioGroup.Option>
+            <RadioGroup.Option value="2" disabled>
+              Astro
             </RadioGroup.Option>
-            <RadioGroup.Option>
-              <RadioGroup.Item value="2" disabled />
-              <RadioGroup.Label>Astro</RadioGroup.Label>
-            </RadioGroup.Option>
-            <RadioGroup.Option>
-              <RadioGroup.Item value="3" />
-              <RadioGroup.Label>Remix</RadioGroup.Label>
-            </RadioGroup.Option>
+            <RadioGroup.Option value="3">Remix</RadioGroup.Option>
           </RadioGroup>
         </div>
       </Grid.Item>

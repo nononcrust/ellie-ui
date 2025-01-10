@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const usePopover = (defaultIsOpen = false) => {
-  const [isOpen, setIsOpen] = useState(defaultIsOpen);
+export const usePopover = (initialIsOpen = false) => {
+  const [isOpen, setIsOpen] = useState(initialIsOpen);
 
   const open = () => {
     setIsOpen(true);

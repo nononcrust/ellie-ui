@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useRadioGroup = (defaultValue = "") => {
-  const [value, setValue] = useState(defaultValue);
+export const useRadioGroup = (initialValue = "") => {
+  const [value, setValue] = useState(initialValue);
 
   return {
     value,
