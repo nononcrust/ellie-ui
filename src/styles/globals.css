@@ -18,7 +18,7 @@
     --background-200: theme("colors.neutral.200");
     --background-hover: theme("colors.neutral.100");
     --main: theme("colors.neutral.800");
-    --sub: theme("colors.neutral.600");
+    --sub: theme("colors.neutral.500");
     --subtle: theme("colors.neutral.400");
     --border: theme("colors.neutral.200");
     --placeholder: theme("colors.neutral.400");
@@ -40,7 +40,7 @@
     --background-200: theme("colors.neutral.700");
     --background-hover: theme("colors.neutral.700");
     --main: theme("colors.neutral.100");
-    --sub: theme("colors.neutral.300");
+    --sub: theme("colors.neutral.400");
     --subtle: theme("colors.neutral.400");
     --border: theme("colors.neutral.600");
     --placeholder: theme("colors.neutral.400");

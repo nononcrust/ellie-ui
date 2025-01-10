@@ -28,6 +28,7 @@ export const Sidebar = () => {
         <SidebarItem title="Tooltip" href="/tooltip" />
         <SidebarItem title="Form" href="/form" />
         <SidebarItem title="Board" href="/board" />
+        <SidebarItem title="Settings" href="/settings" />
       </nav>
     </aside>
   );
