@@ -96,8 +96,6 @@ const BottomSheetSelectGroup = ({
   onChange,
   ...props
 }: BottomSheetSelectGroupProps) => {
-  console.log("value", value, "onChange", onChange);
-
   return (
     <BottomSheetSelectContext value={{ value, onChange }}>
       <ul className={cn("flex flex-col", className)} {...props}>
@@ -124,7 +122,11 @@ const BottomSheetSelectItem = ({
   return (
     <li>
       <DialogPrimitives.Close
-        className={cn("flex w-full justify-between py-4 text-start text-lg font-medium", className)}
+        className={cn(
+          "flex w-full justify-between py-4 text-start text-lg font-medium",
+          "hover:text-primary",
+          className,
+        )}
         onClick={() => onChange(value)}
         {...props}
       >
@@ -137,7 +139,7 @@ const BottomSheetSelectItem = ({
 
 const BottomSheetButton = ({ className, children, ...props }: ButtonProps) => {
   return (
-    <Button className={cn("h-[56px] rounded-2xl text-xl", className)} {...props}>
+    <Button className={cn("min-h-[56px] rounded-xl text-lg", className)} {...props}>
       {children}
     </Button>
   );

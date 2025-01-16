@@ -18,6 +18,9 @@ export default function ButtonPage() {
         <Button variant="ghost">버튼</Button>
       </Grid.Item>
       <Grid.Item>
+        <Button variant="primaryLow">버튼</Button>
+      </Grid.Item>
+      <Grid.Item>
         <Button>
           <PlusIcon size={14} />
           버튼

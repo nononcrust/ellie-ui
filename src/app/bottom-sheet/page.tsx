@@ -28,6 +28,7 @@ const BottomSheet1 = () => {
       </BottomSheet.Trigger>
       <BottomSheet.Content>
         <BottomSheet.Title>1인 가구 종류를 선택하세요.</BottomSheet.Title>
+
         <BottomSheet.Description className="sr-only">
           1인 가구 종류를 선택하세요.
         </BottomSheet.Description>
@@ -55,7 +56,9 @@ const BottomSheet2 = () => {
           1인 가구의 종류에 따라 알맞는 방을 추천해드립니다.
         </BottomSheet.Description>
         <div className="h-[320px]" />
-        <BottomSheet.Button>적용하기</BottomSheet.Button>
+        <BottomSheet.Close asChild>
+          <BottomSheet.Button>적용하기</BottomSheet.Button>
+        </BottomSheet.Close>
       </BottomSheet.Content>
     </BottomSheet>
   );

@@ -30,6 +30,7 @@ export default {
           DEFAULT: "var(--primary)",
           dark: "var(--primary-dark)",
           lighter: "var(--primary-lighter)",
+          "lighter-hover": "var(--primary-lighter-hover)",
         },
         secondary: {
           DEFAULT: "var(--secondary)",
