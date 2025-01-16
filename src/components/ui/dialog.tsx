@@ -34,7 +34,7 @@ const DialogContent = ({ className, children, ...props }: DialogContentProps) =>
       <DialogPrimitives.Content
         className={cn(
           "fixed left-1/2 top-1/2 z-50 grid max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 rounded-[12px] bg-background p-5",
-          "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] duration-200",
+          "duration-200 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
           className,
         )}
         {...props}
@@ -87,7 +87,7 @@ type DialogDescriptionProps = React.ComponentPropsWithRef<typeof DialogPrimitive
 
 const DialogDescription = ({ className, children, ...props }: DialogDescriptionProps) => {
   return (
-    <DialogPrimitives.Description className={cn("text-sub text-sm", className)} {...props}>
+    <DialogPrimitives.Description className={cn("text-sm text-sub", className)} {...props}>
       {children}
     </DialogPrimitives.Description>
   );

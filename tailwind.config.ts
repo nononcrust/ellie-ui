@@ -63,6 +63,9 @@ export default {
           to: { height: "0" },
         },
       },
+      animationTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
       animation: {
         "dropdown-open": "dropdown-open 0.15s ease-out",
         "dialog-open": "dialog-open 0.15s ease-out",

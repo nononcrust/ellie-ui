@@ -21,6 +21,7 @@ export const Sidebar = () => {
         <SidebarItem title="Chip" href="/chip" />
         <SidebarItem title="Avatar" href="/avatar" />
         <SidebarItem title="Dialog" href="/dialog" />
+        <SidebarItem title="Bottom Sheet" href="/bottom-sheet" />
         <SidebarItem title="Badge" href="/badge" />
         <SidebarItem title="Skeleton" href="/skeleton" />
         <SidebarItem title="Dropdown Menu" href="/dropdown-menu" />
