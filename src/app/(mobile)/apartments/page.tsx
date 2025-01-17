@@ -41,21 +41,50 @@ export default function AppartmentApplicationPage() {
         </FilterChip>
       </div>
       <ul className="mt-8 flex flex-col gap-4">
-        {Array.from({ length: 3 }).map((_, index) => (
+        {Array.from({ length: 10 }).map((_, index) => (
           <li key={index} className="h-[120px] w-full rounded-xl bg-background-100" />
         ))}
       </ul>
-      <div className="mt-12 flex gap-2 pb-4">
-        <Button size="xlarge" className="w-full" variant="primaryLow">
+      <p className="mt-8 text-lg leading-loose text-sub">
+        온 가족이 오랜만에 모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기
+        누군가 아프다면 문 연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이
+        오랜만에 모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가
+        아프다면 문 연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이 오랜만에
+        모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가 아프다면 문
+        연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이 오랜만에 모여
+        도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가 아프다면 문 연
+        병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요.
+      </p>
+      <CTAContainer>
+        <Button className="w-full" size="xlarge">
+          청약 신청하러 가기
+        </Button>
+      </CTAContainer>
+      <div className="my-8 hidden gap-4 md:flex">
+        <Button className="w-full" size="xlarge" variant="primaryLow">
           청약 알림받기
         </Button>
-        <Button className="w-full" size="xlarge">
-          청약 신청하기
+        <Button className="w-full" size="xlarge" variant="primary">
+          신청하기
         </Button>
       </div>
     </Mobile>
   );
 }
+
+const CTAContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <>
+      <div className="flex h-[96px] md:hidden" />
+      <div className="sticky bottom-0 left-0 right-0 flex flex-col bg-background pb-4 pt-0 md:hidden">
+        <div className="relative">
+          <div className="absolute -top-8 left-0 right-0 z-10 h-8 bg-gradient-to-b from-transparent to-background" />
+          <div className="relative z-20">{children}</div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const AllFilter = () => {
   return (
