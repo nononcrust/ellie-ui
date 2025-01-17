@@ -20,6 +20,12 @@ export const menu = [
       { title: "Dropdown Menu", href: "/dropdown-menu" },
       { title: "Popover", href: "/popover" },
       { title: "Tooltip", href: "/tooltip" },
+      { title: "Fab", href: "/fab" },
+    ],
+  },
+  {
+    title: "desktop",
+    items: [
       { title: "Form", href: "/form" },
       { title: "Board", href: "/board" },
       { title: "Settings", href: "/settings" },
@@ -30,6 +36,7 @@ export const menu = [
     items: [
       { title: "Apartments", href: "/apartments" },
       { title: "Permissions", href: "/permissions" },
+      { title: "Terms", href: "/terms" },
     ],
   },
 ] as const;

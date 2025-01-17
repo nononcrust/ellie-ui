@@ -112,6 +112,7 @@ export const Form1 = () => {
             render={({ field }) => (
               <Form.Control>
                 <Checkbox
+                  size="small"
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   id={checkboxId}

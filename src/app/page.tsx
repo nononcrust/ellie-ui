@@ -290,8 +290,6 @@ const FormSection = () => {
     return "아주 강력한 비밀번호입니다!";
   };
 
-  console.log("@", form.register("name"));
-
   return (
     <Form className="flex max-w-[320px] flex-col gap-3" onSubmit={onSubmit}>
       <Form.Item error={!!form.formState.errors.name}>
