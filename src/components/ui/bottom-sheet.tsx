@@ -3,8 +3,9 @@
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import * as DialogPrimitives from "@radix-ui/react-dialog";
-import { CheckIcon } from "lucide-react";
+import { CheckIcon, XIcon } from "lucide-react";
 import { Button, ButtonProps } from "./button";
+import { IconButton } from "./icon-button";
 
 type BottomSheetProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Root>;
 
@@ -39,7 +40,7 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
         className={cn(
           "fixed bottom-0 left-0 right-0 z-50 mx-auto",
           "flex max-h-[calc(100%-4rem)] w-full max-w-[560px] flex-col",
-          "rounded-t-[32px] bg-background p-5 outline-none",
+          "rounded-t-[32px] bg-background outline-none",
           "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-1/2",
           "!duration-500",
           "ease-out-expo",
@@ -48,8 +49,49 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
         {...props}
       >
         {children}
+        <DialogPrimitives.Close className="absolute right-4 top-8" asChild>
+          <IconButton variant="ghost" aria-label="닫기">
+            <XIcon size={24} />
+          </IconButton>
+        </DialogPrimitives.Close>
       </DialogPrimitives.Content>
     </DialogPrimitives.Portal>
+  );
+};
+
+type BottomSheetHeaderProps = React.ComponentPropsWithRef<"div">;
+
+const BottomSheetHeader = ({ className, children, ...props }: BottomSheetHeaderProps) => {
+  return (
+    <div className="relative flex flex-col">
+      <div className={cn("flex flex-col gap-1.5 p-5 pb-0", className)} {...props}>
+        {children}
+      </div>
+      <div className="absolute -bottom-5 left-2 right-2 h-5 bg-gradient-to-t from-transparent to-white" />
+    </div>
+  );
+};
+
+type BottomSheetBodyProps = React.ComponentPropsWithRef<"div">;
+
+const BottomSheetBody = ({ className, children, ...props }: BottomSheetBodyProps) => {
+  return (
+    <div className={cn("flex flex-col gap-1.5 overflow-y-auto px-5 py-3", className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+type BottomSheetFooterProps = React.ComponentPropsWithRef<"div">;
+
+const BottomSheetFooter = ({ className, children, ...props }: BottomSheetFooterProps) => {
+  return (
+    <div className="relative flex flex-col">
+      <div className="absolute -top-5 left-2 right-2 h-5 bg-gradient-to-t from-white to-transparent" />
+      <div className={cn("flex p-5 pt-0", className)} {...props}>
+        {children}
+      </div>
+    </div>
   );
 };
 
@@ -57,7 +99,7 @@ type BottomSheetTitleProps = React.ComponentPropsWithRef<typeof DialogPrimitives
 
 const BottomSheetTitle = ({ className, children, ...props }: BottomSheetTitleProps) => {
   return (
-    <DialogPrimitives.Title className={cn("my-3 text-[22px] font-semibold", className)} {...props}>
+    <DialogPrimitives.Title className={cn("mt-3 text-[22px] font-semibold", className)} {...props}>
       {children}
     </DialogPrimitives.Title>
   );
@@ -139,7 +181,7 @@ const BottomSheetSelectItem = ({
 
 const BottomSheetButton = ({ className, children, ...props }: ButtonProps) => {
   return (
-    <Button className={cn("min-h-[56px] rounded-xl text-lg", className)} {...props}>
+    <Button className={cn("min-h-[56px] w-full rounded-xl text-lg", className)} {...props}>
       {children}
     </Button>
   );
@@ -153,3 +195,6 @@ BottomSheet.Content = BottomSheetContent;
 BottomSheet.SelectGroup = BottomSheetSelectGroup;
 BottomSheet.SelectItem = BottomSheetSelectItem;
 BottomSheet.Button = BottomSheetButton;
+BottomSheet.Header = BottomSheetHeader;
+BottomSheet.Body = BottomSheetBody;
+BottomSheet.Footer = BottomSheetFooter;
