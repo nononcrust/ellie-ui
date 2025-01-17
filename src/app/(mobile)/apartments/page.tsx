@@ -5,9 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { ChipButton } from "@/components/ui/chip-button";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { useSelect } from "@/hooks/use-select";
-import { cn } from "@/lib/utils";
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -23,22 +23,22 @@ export default function AppartmentApplicationPage() {
       <div className="mt-6 flex flex-wrap gap-2">
         <AllFilter />
         <TypeFilter />
-        <FilterChip>
+        <ChipButton>
           청약 종료일
           <ChevronDownIcon size={16} />
-        </FilterChip>
-        <FilterChip>
+        </ChipButton>
+        <ChipButton>
           잔여 세대 수
           <ChevronDownIcon size={16} />
-        </FilterChip>
-        <FilterChip>
+        </ChipButton>
+        <ChipButton>
           지원 조건
           <ChevronDownIcon size={16} />
-        </FilterChip>
-        <FilterChip>
+        </ChipButton>
+        <ChipButton>
           공급 위치
           <ChevronDownIcon size={16} />
-        </FilterChip>
+        </ChipButton>
       </div>
       <ul className="mt-8 flex flex-col gap-4">
         {Array.from({ length: 10 }).map((_, index) => (
@@ -91,9 +91,9 @@ const AllFilter = () => {
     <BottomSheet>
       <div className="relative">
         <BottomSheet.Trigger asChild>
-          <FilterChip active className="w-9 px-0">
+          <ChipButton active className="w-9 px-0">
             <SlidersHorizontalIcon size={16} />
-          </FilterChip>
+          </ChipButton>
         </BottomSheet.Trigger>
         <Badge className="absolute -top-2 left-full -translate-x-4">3</Badge>
       </div>
@@ -103,21 +103,21 @@ const AllFilter = () => {
           <BottomSheet.Description className="sr-only">상세 필터</BottomSheet.Description>
         </BottomSheet.Header>
         <BottomSheet.Body>
-          <span className="text-semibold mt-4">청약 종료일</span>
+          <span className="mt-4 font-semibold">청약 종료일</span>
           <RadioGroup className="mt-3" size="large" defaultValue="전체">
             <RadioGroup.Option value="전체">전체</RadioGroup.Option>
             <RadioGroup.Option value="1개월 이내">1개월 이내</RadioGroup.Option>
             <RadioGroup.Option value="3개월 이내">3개월 이내</RadioGroup.Option>
             <RadioGroup.Option value="6개월 이내">6개월 이내</RadioGroup.Option>
           </RadioGroup>
-          <span className="text-semibold mt-4">지원 조건</span>
+          <span className="mt-4 font-semibold">지원 조건</span>
           <RadioGroup className="mt-3" size="large" defaultValue="전체">
             <RadioGroup.Option value="전체">전체</RadioGroup.Option>
             <RadioGroup.Option value="1개월 이내">사회 초년생</RadioGroup.Option>
             <RadioGroup.Option value="3개월 이내">다자녀 가구</RadioGroup.Option>
             <RadioGroup.Option value="6개월 이내">미혼 여성</RadioGroup.Option>
           </RadioGroup>
-          <span className="text-semibold mt-8">잔여 세대 수</span>
+          <span className="mt-8 font-semibold">잔여 세대 수</span>
           <div className="mt-3 flex flex-col gap-6">
             <label className="flex items-center gap-3">
               <Checkbox size="large" />
@@ -128,7 +128,7 @@ const AllFilter = () => {
               <span className="font-medium">1세대</span>
             </label>
           </div>
-          <span className="text-semibold mt-8">공급 위치</span>
+          <span className="mt-8 font-semibold">공급 위치</span>
           <div className="flex items-center justify-between py-4">
             <span className="text-lg font-medium text-sub">성남시 분당구 서현동</span>
             <ChevronRightIcon size={20} />
@@ -156,10 +156,10 @@ const TypeFilter = () => {
   return (
     <BottomSheet>
       <BottomSheet.Trigger asChild>
-        <FilterChip>
+        <ChipButton>
           주거 형태
           <ChevronDownIcon size={16} />
-        </FilterChip>
+        </ChipButton>
       </BottomSheet.Trigger>
       <BottomSheet.Content>
         <BottomSheet.Header>
@@ -174,24 +174,5 @@ const TypeFilter = () => {
         </BottomSheet.Body>
       </BottomSheet.Content>
     </BottomSheet>
-  );
-};
-
-type FilterChipProps = React.ComponentPropsWithRef<"button"> & {
-  active?: boolean;
-};
-
-const FilterChip = ({ className, active, children, ...props }: FilterChipProps) => {
-  return (
-    <button
-      className={cn(
-        "inline-flex h-9 items-center justify-center gap-1.5 rounded-full border border-transparent bg-background-100 px-3.5 text-sm font-medium",
-        active && "border-primary bg-primary-lighter text-primary",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </button>
   );
 };

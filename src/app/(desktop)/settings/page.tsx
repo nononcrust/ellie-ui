@@ -7,9 +7,11 @@ import { Chip } from "@/components/ui/chip";
 import { Divider } from "@/components/ui/divider";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Tooltip } from "@/components/ui/tooltip";
 import { ArrowUpRightIcon, ChevronRightIcon, CircleHelpIcon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function SettingsPage() {
   return (
@@ -21,6 +23,17 @@ export default function SettingsPage() {
           <Avatar.Image src={profileImage.src} />
           <Avatar.Fallback>N</Avatar.Fallback>
         </Avatar>
+      </div>
+      <h2 className="mt-8 text-lg font-semibold">테마</h2>
+      <Divider className="my-3" />
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-1">
+          <span className="text-sm font-medium">테마 변경</span>
+          <span className="text-xs text-sub">
+            밝은 테마, 어두운 테마, 시스템 설정 중에서 선택하세요.
+          </span>
+        </div>
+        <ThemeSelect />
       </div>
       <h2 className="mt-8 text-lg font-semibold">계정 보안</h2>
       <Divider className="my-3" />
@@ -133,3 +146,17 @@ export default function SettingsPage() {
     </main>
   );
 }
+
+const ThemeSelect = () => {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <Select className="w-[116px]" value={theme} onChange={setTheme}>
+      <Select.Content>
+        <Select.Option value="light">밝은 테마</Select.Option>
+        <Select.Option value="dark">어두운 테마</Select.Option>
+        <Select.Option value="system">시스템 설정</Select.Option>
+      </Select.Content>
+    </Select>
+  );
+};

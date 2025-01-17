@@ -1,12 +1,29 @@
+"use client";
+
 import { menu } from "@/configs/menu";
+import { useIsScrollTop } from "@/hooks/use-is-scroll-top";
+import { cn } from "@/lib/utils";
 import * as DialogPrimitives from "@radix-ui/react-dialog";
 import { MenuIcon, XIcon } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { IconButton } from "../ui/icon-button";
 
+const HIDDEN_ROUTES = ["/search"];
+
 export const Header = () => {
+  const pathname = usePathname();
+  const { isScrollTop } = useIsScrollTop();
+
   return (
-    <header className="sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b bg-background px-2">
+    <header
+      className={cn(
+        "sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b bg-background px-2 transition-colors",
+        HIDDEN_ROUTES.includes(pathname) && "hidden",
+        isScrollTop ? "border-transparent" : "border-border",
+      )}
+    >
       <div />
       <MobileMenu />
     </header>
@@ -33,7 +50,11 @@ const MobileMenu = () => {
               </IconButton>
             </DialogPrimitives.Close>
           </div>
-          <div className="scrollbar-hide flex flex-col gap-6 overflow-y-auto p-4">
+          <motion.nav
+            initial={{ opacity: 0, transform: "translateY(-16px)" }}
+            animate={{ opacity: 1, transform: "translateY(0)" }}
+            className="flex flex-col gap-6 overflow-y-auto p-4 scrollbar-hide"
+          >
             {menu.map((group) => (
               <MobileMenuGroup key={group.title}>
                 <MobileMenuSubtitle title={group.title} />
@@ -42,7 +63,7 @@ const MobileMenu = () => {
                 ))}
               </MobileMenuGroup>
             ))}
-          </div>
+          </motion.nav>
         </DialogPrimitives.Content>
       </DialogPrimitives.Portal>
     </DialogPrimitives.Root>

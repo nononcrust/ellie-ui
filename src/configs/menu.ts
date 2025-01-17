@@ -38,6 +38,9 @@ export const menu = [
       { title: "Permissions", href: "/permissions" },
       { title: "Terms", href: "/terms" },
       { title: "Landing", href: "/landing" },
+      { title: "Community", href: "/community" },
+      { title: "Products", href: "/products" },
+      { title: "Search", href: "/search" },
     ],
   },
 ] as const;
