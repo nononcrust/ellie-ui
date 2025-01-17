@@ -47,6 +47,9 @@ export default function CommunityPage() {
           <Post key={post.id} post={post} />
         ))}
       </ul>
+      <div className="flex justify-center py-16">
+        <span className="font-medium text-subtle">마지막 글입니다.</span>
+      </div>
       <Fab.Container>
         <Fab>
           <PlusIcon />
