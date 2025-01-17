@@ -24,18 +24,7 @@ import { useDatePicker } from "@/hooks/use-date-picker";
 import { useDateRangePicker } from "@/hooks/use-date-range-picker";
 import { useSelect } from "@/hooks/use-select";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  CheckIcon,
-  EllipsisIcon,
-  LogOutIcon,
-  MoonIcon,
-  SettingsIcon,
-  SunIcon,
-  UserIcon,
-  XIcon,
-} from "lucide-react";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { CheckIcon, EllipsisIcon, LogOutIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -132,7 +121,6 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <Input className="w-[320px]" placeholder="이메일을 입력해주세요" />
-              <DarkModeToggleButton />
             </div>
             <div className="flex gap-2 p-3">
               <RadioGroup className="w-[120px]" defaultValue="1">
@@ -236,28 +224,6 @@ const DatePickerSection = () => {
         aria-invalid
       />
     </div>
-  );
-};
-
-const DarkModeToggleButton = () => {
-  const { resolvedTheme, setTheme } = useTheme();
-
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
-  return (
-    <IconButton
-      variant="outlined"
-      aria-label="다크 모드 전환"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-    >
-      {resolvedTheme === "dark" ? <MoonIcon size={16} /> : <SunIcon size={16} />}
-    </IconButton>
   );
 };
 
