@@ -51,7 +51,7 @@ export default function CheckboxPage() {
       </Grid.Item>
       <Grid.Item>
         <Checkbox checked="indeterminate" size="large" id="8" />
-        <Label className="ml-2 text-base" htmlFor="8">
+        <Label className="ml-3 text-base" htmlFor="8">
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>

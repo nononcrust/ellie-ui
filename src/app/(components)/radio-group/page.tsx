@@ -9,8 +9,8 @@ export default function RadioGroupPage() {
     <Grid>
       <Grid.Item>
         <div className="flex w-full flex-col">
-          <Label className="mb-2">프레임워크 선택</Label>
-          <RadioGroup defaultValue="1">
+          <Label className="mb-2">Small</Label>
+          <RadioGroup defaultValue="1" size="small">
             <RadioGroup.Option value="1">React</RadioGroup.Option>
             <RadioGroup.Option value="2">Astro</RadioGroup.Option>
             <RadioGroup.Option value="3">Remix</RadioGroup.Option>
@@ -19,8 +19,20 @@ export default function RadioGroupPage() {
       </Grid.Item>
       <Grid.Item>
         <div className="flex w-full flex-col">
-          <Label className="mb-2">프레임워크 선택</Label>
-          <RadioGroup defaultValue="1">
+          <Label className="mb-2">Medium</Label>
+          <RadioGroup defaultValue="1" size="medium">
+            <RadioGroup.Option value="1">React</RadioGroup.Option>
+            <RadioGroup.Option value="2" disabled>
+              Astro
+            </RadioGroup.Option>
+            <RadioGroup.Option value="3">Remix</RadioGroup.Option>
+          </RadioGroup>
+        </div>
+      </Grid.Item>
+      <Grid.Item>
+        <div className="flex w-full flex-col">
+          <Label className="mb-2">Large</Label>
+          <RadioGroup defaultValue="1" size="large">
             <RadioGroup.Option value="1">React</RadioGroup.Option>
             <RadioGroup.Option value="2" disabled>
               Astro

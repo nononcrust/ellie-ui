@@ -8,7 +8,7 @@ import { Label } from "./label";
 
 const DEFAULT_SIZE: RadioGroupSize = "medium";
 
-type RadioGroupSize = "medium" | "large";
+type RadioGroupSize = "small" | "medium" | "large";
 
 type RadioGroupProps = React.ComponentPropsWithRef<typeof RadioGroupPrimitives.Root> & {
   size?: RadioGroupSize;
@@ -22,7 +22,8 @@ export const RadioGroup = ({
   ...props
 }: RadioGroupProps) => {
   const styleBySize = {
-    medium: "gap-3",
+    small: "gap-3",
+    medium: "gap-4",
     large: "gap-6",
   };
 
@@ -42,8 +43,15 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
   const { ariaInvalid, size } = useRadioGroupContext();
 
   const styleBySize = {
-    medium: "size-4",
+    small: "size-4",
+    medium: "size-5",
     large: "size-6",
+  };
+
+  const indicatorSize = {
+    small: "6",
+    medium: "8",
+    large: "10",
   };
 
   return (
@@ -61,8 +69,8 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
     >
       <RadioGroupPrimitives.Indicator className="flex items-center justify-center">
         <svg
-          width={size === "medium" ? "6" : "10"}
-          height={size === "medium" ? "6" : "10"}
+          width={indicatorSize[size]}
+          height={indicatorSize[size]}
           viewBox="0 0 6 6"
           fill="currentcolor"
           xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +90,8 @@ const RadioGroupLabel = ({
   const { size } = useRadioGroupContext();
 
   const styleBySize = {
-    medium: "text-sm",
+    small: "text-sm",
+    medium: "text-base",
     large: "text-base w-full",
   };
 
@@ -100,7 +109,8 @@ const RadioGroupOption = ({ className, children, ...props }: RadioGroupOptionPro
   const id = useId();
 
   const styleBySize = {
-    medium: "gap-2",
+    small: "gap-2",
+    medium: "gap-3",
     large: "gap-3",
   };
 
