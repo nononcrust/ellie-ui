@@ -74,6 +74,9 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      boxShadow: {
+        fab: "0px 2px 6px 0px rgba(0, 0, 0, .16)",
+      },
     },
   },
   plugins: [animatePlugin, scrollbarHidePlugin],

@@ -13,7 +13,7 @@ type FabProps = HTMLMotionProps<"button"> &
 const fabVariants = cva(
   cn(
     "flex items-center justify-center gap-2 rounded-full font-semibold transition-colors text-lg whitespace-nowrap shrink-0",
-    "shadow-md",
+    "shadow-fab",
   ),
   {
     variants: {

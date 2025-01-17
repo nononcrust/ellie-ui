@@ -21,6 +21,11 @@ export default function FabPage() {
           추가하기
         </Fab>
       </Grid.Item>
+      <Grid.Item>
+        <Fab variant="secondary">
+          <PlusIcon />
+        </Fab>
+      </Grid.Item>
       <Fab.Container>
         <Fab onClick={fabMenu.open}>
           <MenuIcon size={20} />
