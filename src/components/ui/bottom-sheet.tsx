@@ -41,7 +41,7 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
           "fixed bottom-0 left-0 right-0 z-50 mx-auto",
           "flex max-h-[calc(100%-4rem)] w-full max-w-[560px] flex-col",
           "rounded-t-[32px] bg-background outline-none",
-          "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-1/2",
+          "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom",
           "!duration-500",
           "ease-out-expo",
           className,
@@ -165,8 +165,8 @@ const BottomSheetSelectItem = ({
     <li>
       <DialogPrimitives.Close
         className={cn(
-          "flex w-full justify-between py-4 text-start text-lg font-medium",
-          "hover:text-primary",
+          "flex w-full items-center justify-between py-4 text-start text-lg font-medium",
+          "md:hover:text-primary",
           className,
         )}
         onClick={() => onChange(value)}

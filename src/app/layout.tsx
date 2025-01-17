@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+import { Header } from "@/components/layouts/header";
 import { Sidebar } from "@/components/layouts/sidebar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -51,9 +52,10 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <body className={`${pretendard.variable} antialiased`}>
         <Providers>
+          <Header />
           <div className="flex">
             <Sidebar />
-            <div className="flex flex-1 flex-col">{children}</div>
+            <div className="flex flex-1 flex-col md:pl-[240px]">{children}</div>
           </div>
         </Providers>
       </body>

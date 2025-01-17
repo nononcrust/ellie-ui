@@ -55,6 +55,9 @@ export default function ButtonPage() {
       <Grid.Item>
         <Button variant="error">버튼</Button>
       </Grid.Item>
+      <Grid.Item>
+        <Button size="xlarge">이메일로 가입하기</Button>
+      </Grid.Item>
     </Grid>
   );
 }

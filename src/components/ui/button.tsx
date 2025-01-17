@@ -24,9 +24,10 @@ const buttonVariants = cva(
         error: "bg-error text-white hover:bg-error-dark",
       },
       size: {
-        small: "px-[10px] h-8 text-xs",
-        medium: "px-[12px] h-9 text-sm",
-        large: "px-[14px] h-10 text-base",
+        small: "px-[10px] min-h-8 text-xs",
+        medium: "px-[12px] min-h-9 text-sm",
+        large: "px-[14px] min-h-10 text-base",
+        xlarge: "px-[20px] min-h-[56px] rounded-xl text-lg",
       },
     },
     defaultVariants: {

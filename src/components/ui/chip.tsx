@@ -13,8 +13,8 @@ const chipVariant = cva("inline-flex font-medium justify-center items-center", {
       danger: "bg-red-50 text-red-700",
     },
     size: {
-      medium: "px-2 h-6 text-xs rounded-[6px]",
-      large: "px-[10px] h-7 text-[13px] rounded-[8px]",
+      medium: "px-2 min-h-6 text-xs rounded-[6px]",
+      large: "px-[10px] min-h-7 text-[13px] rounded-[8px]",
     },
   },
   defaultVariants: {

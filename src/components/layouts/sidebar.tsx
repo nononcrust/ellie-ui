@@ -1,35 +1,22 @@
 "use client";
 
+import { menu } from "@/configs/menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
   return (
-    <aside className="sticky left-0 top-0 w-[240px]">
-      <nav className="flex flex-col gap-1 p-6 pt-12">
-        <SidebarItem title="Home" href="/" />
-        <SidebarItem title="Button" href="/button" />
-        <SidebarItem title="Icon Button" href="/icon-button" />
-        <SidebarItem title="Input" href="/input" />
-        <SidebarItem title="Select" href="/select" />
-        <SidebarItem title="Checkbox" href="/checkbox" />
-        <SidebarItem title="Radio Group" href="/radio-group" />
-        <SidebarItem title="Date Picker" href="/date-picker" />
-        <SidebarItem title="Switch" href="/switch" />
-        <SidebarItem title="Textarea" href="/textarea" />
-        <SidebarItem title="Chip" href="/chip" />
-        <SidebarItem title="Avatar" href="/avatar" />
-        <SidebarItem title="Dialog" href="/dialog" />
-        <SidebarItem title="Bottom Sheet" href="/bottom-sheet" />
-        <SidebarItem title="Badge" href="/badge" />
-        <SidebarItem title="Skeleton" href="/skeleton" />
-        <SidebarItem title="Dropdown Menu" href="/dropdown-menu" />
-        <SidebarItem title="Popover" href="/popover" />
-        <SidebarItem title="Tooltip" href="/tooltip" />
-        <SidebarItem title="Form" href="/form" />
-        <SidebarItem title="Board" href="/board" />
-        <SidebarItem title="Settings" href="/settings" />
+    <aside className="scrollbar-hide fixed left-0 top-[56px] hidden h-[calc(100vh-56px)] min-w-[240px] flex-col overflow-y-auto bg-background py-12 md:flex">
+      <nav className="flex flex-col gap-6 px-6">
+        {menu.map((group) => (
+          <SidebarGroup key={group.title}>
+            <SidebarSubtitle key={group.title} title={group.title} />
+            {group.items.map((item) => (
+              <SidebarItem key={item.title} title={item.title} href={item.href} />
+            ))}
+          </SidebarGroup>
+        ))}
       </nav>
     </aside>
   );
@@ -56,4 +43,16 @@ const SidebarItem = ({ title, href }: SidebarItemProps) => {
       {title}
     </Link>
   );
+};
+
+type SidebarSubtitleProps = {
+  title: string;
+};
+
+const SidebarSubtitle = ({ title }: SidebarSubtitleProps) => {
+  return <span className="px-3 text-[13px] font-medium text-subtle">{title}</span>;
+};
+
+const SidebarGroup = ({ children }: { children: React.ReactNode }) => {
+  return <div className="flex flex-col">{children}</div>;
 };
