@@ -1,4 +1,4 @@
-import { Chip } from "../ui/chip";
+import { Chip } from "../../../../components/ui/chip";
 
 type BoardListItemProps = {
   title: string;

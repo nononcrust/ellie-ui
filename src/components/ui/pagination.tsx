@@ -8,7 +8,7 @@ import {
   ChevronsLeftIcon,
   ChevronsRightIcon,
 } from "lucide-react";
-import { IconButton } from "../ui/icon-button";
+import { IconButton } from "./icon-button";
 
 type PaginationContextValue = {
   page: number;

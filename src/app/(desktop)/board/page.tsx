@@ -1,8 +1,8 @@
 "use client";
 
-import { BoardListItem } from "@/components/board/board-list-item";
-import { Pagination } from "@/components/board/pagination";
+import { Pagination } from "@/components/ui/pagination";
 import { useState } from "react";
+import { BoardListItem } from "./_components/board-list-item";
 
 export default function BoardPage() {
   const [page, setPage] = useState(1);
