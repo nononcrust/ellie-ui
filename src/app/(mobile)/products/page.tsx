@@ -1,16 +1,15 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
+import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { Chip } from "@/components/ui/chip";
 import { ChipButton } from "@/components/ui/chip-button";
-import { cn } from "@/lib/utils";
-import { StarIcon } from "lucide-react";
+import { ChevronDownIcon, StarIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function ProductsPage() {
-  const [currentCategory, setCurrentCategory] = useState<(typeof categories)[number]>(
-    categories[0],
-  );
+  const [sort, setSort] = useState("추천 순");
+  const [currentCategory, setCurrentCategory] = useState("추천");
 
   return (
     <Mobile>
@@ -19,7 +18,8 @@ export default function ProductsPage() {
         {categories.map((category) => (
           <li key={category}>
             <ChipButton
-              className={cn(category === currentCategory && "bg-primary text-white")}
+              variant="primary"
+              active={category === currentCategory}
               onClick={() => setCurrentCategory(category)}
             >
               {category}
@@ -27,7 +27,11 @@ export default function ProductsPage() {
           </li>
         ))}
       </ul>
-      <ul className="mt-6 grid grid-cols-2 gap-4">
+      <div className="mt-6 flex justify-between">
+        <span className="font-semibold">전체 13,048개</span>
+        <Sort initialValue={sort} onChange={setSort} />
+      </div>
+      <ul className="mt-3 grid grid-cols-2 gap-4">
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}
@@ -39,6 +43,41 @@ export default function ProductsPage() {
   );
 }
 
+const sorts = ["추천 순", "가격 낮은 순", "가격 높은 순", "판매 순", "리뷰 많은 순"];
+const categories = ["추천", "예쁜", "유용한", "귀여운", "오늘의딜"];
+
+type SortProps = {
+  initialValue: string;
+  onChange: (value: string) => void;
+};
+
+const Sort = ({ initialValue }: SortProps) => {
+  const [sort, setSort] = useState<string>(initialValue);
+
+  return (
+    <BottomSheet>
+      <BottomSheet.Trigger className="flex items-center gap-1 text-sm font-medium">
+        {sort}
+        <ChevronDownIcon size={18} />
+      </BottomSheet.Trigger>
+      <BottomSheet.Content>
+        <BottomSheet.Header>
+          <BottomSheet.Title>상품 정렬</BottomSheet.Title>
+        </BottomSheet.Header>
+        <BottomSheet.Body>
+          <BottomSheet.SelectGroup value={sort} onChange={setSort}>
+            {sorts.map((sort) => (
+              <BottomSheet.SelectItem key={sort} value={sort}>
+                {sort}
+              </BottomSheet.SelectItem>
+            ))}
+          </BottomSheet.SelectGroup>
+        </BottomSheet.Body>
+      </BottomSheet.Content>
+    </BottomSheet>
+  );
+};
+
 type ProductProps = {
   product: Product;
 };
@@ -48,9 +87,9 @@ const Product = ({ product }: ProductProps) => {
     <li>
       <div className="flex flex-col">
         <div className="aspect-square rounded-lg bg-background-100" />
-        <div className="mt-2 flex flex-col">
+        <div className="mt-2 flex h-[144px] flex-col">
           <span className="text-[13px] font-medium text-subtle">{product.vendor}</span>
-          <span className="text-sm">{product.title}</span>
+          <span className="line-clamp-2 text-sm">{product.title}</span>
           <div className="flex items-center gap-1">
             <span className="text-lg font-semibold text-primary">
               {(product.discountRate * 100).toFixed(0)}%
@@ -78,8 +117,6 @@ const Product = ({ product }: ProductProps) => {
     </li>
   );
 };
-
-const categories = ["추천", "예쁜", "유용한", "귀여운", "오늘의딜"] as const;
 
 type Product = {
   id: string;

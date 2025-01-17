@@ -21,12 +21,12 @@ export const menu = [
       { title: "Popover", href: "/popover" },
       { title: "Tooltip", href: "/tooltip" },
       { title: "Fab", href: "/fab" },
+      { title: "Form", href: "/form" },
     ],
   },
   {
     title: "desktop",
     items: [
-      { title: "Form", href: "/form" },
       { title: "Board", href: "/board" },
       { title: "Settings", href: "/settings" },
     ],
