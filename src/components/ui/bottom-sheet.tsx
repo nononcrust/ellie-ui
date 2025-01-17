@@ -4,7 +4,6 @@ import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import * as DialogPrimitives from "@radix-ui/react-dialog";
 import { CheckIcon, XIcon } from "lucide-react";
-import { Button, ButtonProps } from "./button";
 import { IconButton } from "./icon-button";
 
 type BottomSheetProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Root>;
@@ -179,14 +178,6 @@ const BottomSheetSelectItem = ({
   );
 };
 
-const BottomSheetButton = ({ className, children, ...props }: ButtonProps) => {
-  return (
-    <Button className={cn("min-h-[56px] w-full rounded-xl text-lg", className)} {...props}>
-      {children}
-    </Button>
-  );
-};
-
 BottomSheet.Trigger = DialogPrimitives.Trigger;
 BottomSheet.Close = DialogPrimitives.Close;
 BottomSheet.Title = BottomSheetTitle;
@@ -194,7 +185,6 @@ BottomSheet.Description = BottomSheetDescription;
 BottomSheet.Content = BottomSheetContent;
 BottomSheet.SelectGroup = BottomSheetSelectGroup;
 BottomSheet.SelectItem = BottomSheetSelectItem;
-BottomSheet.Button = BottomSheetButton;
 BottomSheet.Header = BottomSheetHeader;
 BottomSheet.Body = BottomSheetBody;
 BottomSheet.Footer = BottomSheetFooter;

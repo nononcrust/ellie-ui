@@ -68,7 +68,9 @@ const BottomSheet2 = () => {
         <div className="h-[320px]" />
         <BottomSheet.Footer>
           <BottomSheet.Close asChild>
-            <BottomSheet.Button>적용하기</BottomSheet.Button>
+            <Button size="xlarge" className="w-full">
+              적용하기
+            </Button>
           </BottomSheet.Close>
         </BottomSheet.Footer>
       </BottomSheet.Content>
@@ -109,14 +111,14 @@ const BottomSheet3 = () => {
         </BottomSheet.Body>
         <BottomSheet.Footer className="gap-4">
           <BottomSheet.Close asChild>
-            <BottomSheet.Button className="flex-1" variant="primaryLow">
+            <Button size="xlarge" className="w-full" variant="primaryLow">
               취소
-            </BottomSheet.Button>
+            </Button>
           </BottomSheet.Close>
           <BottomSheet.Close asChild>
-            <BottomSheet.Button className="flex-1" variant="primary">
+            <Button size="xlarge" className="w-full" variant="primary">
               적용하기
-            </BottomSheet.Button>
+            </Button>
           </BottomSheet.Close>
         </BottomSheet.Footer>
       </BottomSheet.Content>

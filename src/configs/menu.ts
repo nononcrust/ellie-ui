@@ -37,6 +37,7 @@ export const menu = [
       { title: "Apartments", href: "/apartments" },
       { title: "Permissions", href: "/permissions" },
       { title: "Terms", href: "/terms" },
+      { title: "Landing", href: "/landing" },
     ],
   },
 ] as const;
