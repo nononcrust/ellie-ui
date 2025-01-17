@@ -25,16 +25,26 @@ const DialogOverlay = ({ className, children, ...props }: DialogOverlayProps) =>
   );
 };
 
-type DialogContentProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Content>;
+type DialogContentProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Content> & {
+  animation?: "pop" | "slide";
+};
 
-const DialogContent = ({ className, children, ...props }: DialogContentProps) => {
+const DialogContent = ({
+  className,
+  children,
+  animation = "pop",
+  ...props
+}: DialogContentProps) => {
   return (
     <DialogPrimitives.Portal>
       <DialogOverlay />
       <DialogPrimitives.Content
         className={cn(
           "fixed left-1/2 top-1/2 z-50 grid max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 rounded-[12px] bg-background p-5",
-          "duration-200 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+          animation === "pop" &&
+            "duration-200 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+          animation === "slide" &&
+            "ease-out-expo !duration-500 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[600px] data-[state=open]:slide-in-from-left-1/2",
           className,
         )}
         {...props}
