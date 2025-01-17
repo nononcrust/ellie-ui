@@ -60,14 +60,14 @@ export default function AppartmentApplicationPage() {
 const AllFilter = () => {
   return (
     <BottomSheet>
-      <BottomSheet.Trigger asChild>
-        <div className="relative">
+      <div className="relative">
+        <BottomSheet.Trigger asChild>
           <FilterChip active className="w-9 px-0">
             <SlidersHorizontalIcon size={16} />
           </FilterChip>
-          <Badge className="absolute -top-2 left-full -translate-x-4">3</Badge>
-        </div>
-      </BottomSheet.Trigger>
+        </BottomSheet.Trigger>
+        <Badge className="absolute -top-2 left-full -translate-x-4">3</Badge>
+      </div>
       <BottomSheet.Content>
         <BottomSheet.Header>
           <BottomSheet.Title>상세 필터</BottomSheet.Title>

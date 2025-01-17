@@ -42,7 +42,7 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
           "rounded-t-[32px] bg-background outline-none",
           "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom",
           "!duration-500",
-          "ease-out-expo",
+          "ease-out-quint",
           className,
         )}
         {...props}

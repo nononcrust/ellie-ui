@@ -13,7 +13,7 @@ export default function LandingPage() {
           <ChevronRightIcon size={18} />
         </button>
       </div>
-      <ChipButtonTabs>
+      <ChipButtonTabs defaultValue="주거/청약">
         <ChipButtonTabsList className="mt-4">
           <ChipButtonTabsTrigger value="주거/청약">주거/청약</ChipButtonTabsTrigger>
           <ChipButtonTabsTrigger value="지원금">지원금</ChipButtonTabsTrigger>
