@@ -18,8 +18,7 @@ export default function ProductsPage() {
         {categories.map((category) => (
           <li key={category}>
             <ChipButton
-              variant="primary"
-              active={category === currentCategory}
+              variant={category === currentCategory ? "primary" : "secondary"}
               onClick={() => setCurrentCategory(category)}
             >
               {category}

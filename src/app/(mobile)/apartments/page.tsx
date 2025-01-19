@@ -15,27 +15,29 @@ import {
   SlidersHorizontalIcon,
 } from "lucide-react";
 import React from "react";
+import { SearchInput } from "../_components/search-input";
 
 export default function AppartmentApplicationPage() {
   return (
     <Mobile>
+      <SearchInput placeholder="청약 제목으로 검색하세요" />
       <h1 className="mt-12 text-3xl font-bold">주거/청약</h1>
       <div className="mt-6 flex flex-wrap gap-2">
         <AllFilter />
         <TypeFilter />
-        <ChipButton>
+        <ChipButton variant="secondary">
           청약 종료일
           <ChevronDownIcon size={16} />
         </ChipButton>
-        <ChipButton>
+        <ChipButton variant="secondary">
           잔여 세대 수
           <ChevronDownIcon size={16} />
         </ChipButton>
-        <ChipButton>
+        <ChipButton variant="secondary">
           지원 조건
           <ChevronDownIcon size={16} />
         </ChipButton>
-        <ChipButton>
+        <ChipButton variant="secondary">
           공급 위치
           <ChevronDownIcon size={16} />
         </ChipButton>
@@ -91,7 +93,7 @@ const AllFilter = () => {
     <BottomSheet>
       <div className="relative">
         <BottomSheet.Trigger asChild>
-          <ChipButton active className="w-9 px-0">
+          <ChipButton variant="primaryLow" className="w-9 px-0">
             <SlidersHorizontalIcon size={16} />
           </ChipButton>
         </BottomSheet.Trigger>
@@ -156,8 +158,8 @@ const TypeFilter = () => {
   return (
     <BottomSheet>
       <BottomSheet.Trigger asChild>
-        <ChipButton>
-          주거 형태
+        <ChipButton variant={typeSelect.value ? "primaryLow" : "secondary"}>
+          {typeSelect.value || "주거 형태"}
           <ChevronDownIcon size={16} />
         </ChipButton>
       </BottomSheet.Trigger>
@@ -167,9 +169,9 @@ const TypeFilter = () => {
         </BottomSheet.Header>
         <BottomSheet.Body>
           <BottomSheet.SelectGroup value={typeSelect.value} onChange={typeSelect.onChange}>
-            <BottomSheet.SelectItem value="apartment">아파트</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="house">주택</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="아파트">아파트</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="주택">주택</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="오피스텔">오피스텔</BottomSheet.SelectItem>
           </BottomSheet.SelectGroup>
         </BottomSheet.Body>
       </BottomSheet.Content>

@@ -101,7 +101,7 @@ const Filter = () => {
     <BottomSheet>
       <div className="relative">
         <BottomSheet.Trigger asChild>
-          <ChipButton active>
+          <ChipButton variant="primaryLow">
             <SlidersHorizontalIcon size={16} />
             필터
           </ChipButton>

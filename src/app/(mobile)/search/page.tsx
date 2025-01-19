@@ -2,9 +2,10 @@
 
 import { Mobile } from "@/components/layouts/mobile";
 import { ChipButton } from "@/components/ui/chip-button";
-import { ChevronLeftIcon, SearchIcon, XIcon } from "lucide-react";
+import { ChevronLeftIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { SearchInput } from "../_components/search-input";
 
 const initialRecentSearches = ["회덮밥", "커피", "피자", "치킨", "햄버거", "초밥", "라면"];
 
@@ -29,7 +30,7 @@ export default function SearchPage() {
         >
           <ChevronLeftIcon size={28} />
         </Link>
-        <SearchInput />
+        <SearchInput placeholder="먹고 싶은 메뉴나 가게를 찾아보세요" />
       </div>
       {recentSearches.length > 0 && (
         <section className="my-6">
@@ -42,7 +43,7 @@ export default function SearchPage() {
           <ul className="mt-4 flex flex-wrap gap-2">
             {recentSearches.map((search) => (
               <li key={search}>
-                <ChipButton onClick={() => removeRecentSearch(search)}>
+                <ChipButton variant="secondary" onClick={() => removeRecentSearch(search)}>
                   {search}
                   <XIcon size={16} />
                 </ChipButton>
@@ -62,20 +63,6 @@ export default function SearchPage() {
     </Mobile>
   );
 }
-
-const SearchInput = () => {
-  return (
-    <div className="relative w-full">
-      <input
-        className="h-[48px] w-full rounded-xl bg-background-100 px-4 pr-4 text-[15px] font-medium outline-none placeholder:text-placeholder"
-        placeholder="먹고 싶은 메뉴나 가게를 찾아보세요"
-      />
-      <button aria-label="검색" className="absolute right-4 top-1/2 -translate-y-1/2 text-sub">
-        <SearchIcon size={20} />
-      </button>
-    </div>
-  );
-};
 
 type PopularSearchProps = {
   rank: number;
