@@ -49,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" suppressHydrationWarning>
-      <body className={`${pretendard.variable} antialiased`}>
+    <html lang="ko" suppressHydrationWarning className={pretendard.variable}>
+      <body className="antialiased">
         <Providers>
           <Header />
           <div className="flex">

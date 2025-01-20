@@ -12,6 +12,7 @@ export const menu = [
       { title: "Switch", href: "/switch" },
       { title: "Textarea", href: "/textarea" },
       { title: "Chip", href: "/chip" },
+      { title: "ChipButton", href: "/chip-button" },
       { title: "Avatar", href: "/avatar" },
       { title: "Dialog", href: "/dialog" },
       { title: "Bottom Sheet", href: "/bottom-sheet" },

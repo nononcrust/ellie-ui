@@ -35,7 +35,7 @@ export default function SearchPage() {
       {recentSearches.length > 0 && (
         <section className="my-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold">최근 검색어</h2>
+            <h2 className="text-xl font-semibold">최근 검색어</h2>
             <button className="text-sm font-semibold text-subtle" onClick={clearRecentSearches}>
               전체 삭제
             </button>
@@ -53,7 +53,7 @@ export default function SearchPage() {
         </section>
       )}
       <section className="mt-6">
-        <h2 className="text-xl font-bold">인기 검색어</h2>
+        <h2 className="text-xl font-semibold">인기 검색어</h2>
         <ul className="mt-3 flex flex-col px-3">
           {popularSearches.map((search, index) => (
             <PopularSearch key={search} rank={index + 1} title={search} />

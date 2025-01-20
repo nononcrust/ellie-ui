@@ -18,7 +18,7 @@ export default function CommunityPage() {
 
   return (
     <Mobile>
-      <h1 className="mt-12 text-3xl font-bold">커뮤니티</h1>
+      <h1 className="mt-12 text-3xl font-semibold">커뮤니티</h1>
       <div className="mt-6 flex items-center justify-between">
         <Filter />
         <div className="flex justify-end gap-3">

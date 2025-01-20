@@ -8,7 +8,7 @@ export default function PermissionsPage() {
     <div className="h-[calc(100vh-56px)] bg-black/40">
       <Mobile>
         <div className="mx-12 mt-[120px] rounded-2xl bg-background p-6">
-          <h1 className="whitespace-pre-wrap text-xl font-bold">
+          <h1 className="whitespace-pre-wrap text-xl font-semibold">
             {"편리한 서비스 이용을 위해\n필요한 권한을 안내해 드려요"}
           </h1>
           <h2 className="mt-2 whitespace-pre-wrap text-sm font-medium text-subtle">

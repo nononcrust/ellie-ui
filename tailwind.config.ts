@@ -4,17 +4,17 @@ import animatePlugin from "tailwindcss-animate";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  fontFamily: {
-    sans: ["var(--font-pretendard)", ...defaultTheme.fontFamily.sans],
-  },
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-pretendard)", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         background: {
           DEFAULT: "var(--background)",

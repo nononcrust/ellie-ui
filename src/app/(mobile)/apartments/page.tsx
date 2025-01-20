@@ -21,7 +21,7 @@ export default function AppartmentApplicationPage() {
   return (
     <Mobile>
       <SearchInput placeholder="청약 제목으로 검색하세요" />
-      <h1 className="mt-12 text-3xl font-bold">주거/청약</h1>
+      <h1 className="mt-12 text-3xl font-semibold">주거/청약</h1>
       <div className="mt-6 flex flex-wrap gap-2">
         <AllFilter />
         <TypeFilter />

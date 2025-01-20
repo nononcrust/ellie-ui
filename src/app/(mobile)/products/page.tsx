@@ -13,7 +13,7 @@ export default function ProductsPage() {
 
   return (
     <Mobile>
-      <h1 className="mt-12 text-3xl font-bold">상품 목록</h1>
+      <h1 className="mt-12 text-3xl font-semibold">상품 목록</h1>
       <ul className="mt-4 flex flex-wrap gap-2">
         {categories.map((category) => (
           <li key={category}>

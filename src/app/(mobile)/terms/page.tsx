@@ -21,7 +21,7 @@ export default function TermsPage() {
 
   return (
     <Mobile>
-      <h1 className="mt-12 text-3xl font-bold">약관 동의</h1>
+      <h1 className="mt-12 text-3xl font-semibold">약관 동의</h1>
       <p className="mt-2 text-lg font-medium text-subtle">
         이용약관과 개인정보 처리방침에 동의해주세요.
       </p>
@@ -38,7 +38,7 @@ export default function TermsPage() {
           선택 항목에 대한 동의 모두 포함
         </span>
       </label>
-      <h2 className="mt-12 text-2xl font-bold">약관 동의 항목</h2>
+      <h2 className="mt-12 text-2xl font-semibold">약관 동의 항목</h2>
       <ul className="mt-4 flex flex-col gap-4">
         <TermsItem
           title="만 14세 이상입니다."

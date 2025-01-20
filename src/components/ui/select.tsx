@@ -37,7 +37,7 @@ const SelectImpl = React.forwardRef<
         <SelectPrimitives.Trigger
           ref={ref}
           className={cn(
-            "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-semibold text-main shadow-sm outline-none",
+            "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-medium text-main shadow-sm outline-none",
             "data-[placeholder]:text-placeholder",
             "[&>span]:min-w-0",
             "placeholder-placeholder",
@@ -119,7 +119,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
       className={cn(
         "relative flex w-full cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none",
         "focus:bg-background-hover focus:text-main",
-        "data-[state=checked]:font-bold data-[state=checked]:text-primary",
+        "data-[state=checked]:font-semibold data-[state=checked]:text-primary",
         "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className,
       )}

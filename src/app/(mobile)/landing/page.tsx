@@ -7,7 +7,7 @@ export default function LandingPage() {
   return (
     <Mobile>
       <div className="mt-12 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">노논님을 위한 혜택</h1>
+        <h1 className="text-2xl font-semibold">노논님을 위한 혜택</h1>
         <button className="flex items-center gap-1 font-medium text-sub">
           더보기
           <ChevronRightIcon size={18} />
