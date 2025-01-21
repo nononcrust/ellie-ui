@@ -126,7 +126,7 @@ const Filter = () => {
           <ul className="mt-3 flex flex-wrap gap-2">
             {categories.map((category) => (
               <li key={category}>
-                <ChipButton>{category}</ChipButton>
+                <ChipButton variant="secondary">{category}</ChipButton>
               </li>
             ))}
           </ul>
