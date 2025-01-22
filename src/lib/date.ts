@@ -21,3 +21,28 @@ export const formatToTimeAgo = (isoDateString: string): string => {
     return `${Math.floor(diffMs / Duration.years(1))}년 전`;
   }
 };
+
+// 오후 8:30
+export const formatToTime = (isoDateString: string): string => {
+  const date = new Date(isoDateString);
+
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  const ampm = hours < 12 ? "오전" : "오후";
+  const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+
+  return `${ampm} ${formattedHours}:${formattedMinutes}`;
+};
+
+// 2025년 1월 22일
+export const formatToDate = (isoDateString: string): string => {
+  const date = new Date(isoDateString);
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  return `${year}년 ${month}월 ${day}일`;
+};
