@@ -12,6 +12,7 @@ import { Switch } from "@/components/ui/switch";
 import { Tooltip } from "@/components/ui/tooltip";
 import { ArrowUpRightIcon, ChevronRightIcon, CircleHelpIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function SettingsPage() {
   return (
@@ -148,7 +149,14 @@ export default function SettingsPage() {
 }
 
 const ThemeSelect = () => {
+  const [isClient, setIsClient] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
 
   return (
     <Select className="w-[116px]" value={theme} onChange={setTheme}>
