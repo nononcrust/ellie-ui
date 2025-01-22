@@ -1,15 +1,19 @@
-import chatEmoticon from "@/assets/images/chat-emoticon.webp";
-import chatImage from "@/assets/images/chat-image.jpeg";
+"use client";
+
 import profileImage from "@/assets/images/nonon.png";
-import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
-import { useState } from "react";
+import {
+  ChatMessage,
+  ChatMessageGroup,
+  Reaction,
+  ReactionType,
+} from "@/components/chat/chat-message";
+import { isNonEmptyArray, NonEmptyArray } from "@/lib/array";
+import { useChatMessageGroupContext } from "../_contexts/chat-message-group-context";
 import { useSession } from "./use-session";
 
 export const useChatMessageGroups = () => {
+  const { chatMessageGroups, setChatMessageGroups } = useChatMessageGroupContext();
   const { session } = useSession();
-
-  const [chatMessageGroups, setChatMessageGroups] =
-    useState<ChatMessageGroup[]>(initialChatMessageGroups);
 
   const chat = (chatMessage: ChatMessage) => {
     const lastGroup = chatMessageGroups[chatMessageGroups.length - 1];
@@ -34,117 +38,78 @@ export const useChatMessageGroups = () => {
     }
   };
 
+  const toggleReaction = (messageId: string, type: ReactionType) => {
+    const updatedChatMessageGroups: ChatMessageGroup[] = chatMessageGroups.map((group) => {
+      if (!group.messages.some((message) => message.id === messageId)) {
+        return group;
+      }
+
+      return {
+        ...group,
+        messages: group.messages.map((message) => {
+          if (message.id !== messageId) {
+            return message;
+          }
+
+          const newReaction = {
+            type,
+            author: {
+              id: session.user.id,
+            },
+          };
+
+          // 리액션이 존재하지 않는 경우
+          if (!message.reactions) {
+            const newReactions: NonEmptyArray<Reaction> = [newReaction];
+
+            return {
+              ...message,
+              reactions: newReactions,
+            };
+          }
+
+          const reactions = message.reactions.filter((reaction) => reaction.type === type);
+
+          // 리액션이 이미 존재하는 경우
+          if (reactions.length > 0) {
+            // 내가 누른 리액션이 있는 경우
+            if (reactions.some((reaction) => reaction.author.id === session.user.id)) {
+              const filteredReactions = message.reactions.filter(
+                (reaction) => reaction.author.id !== session.user.id,
+              );
+
+              if (isNonEmptyArray(filteredReactions)) {
+                return {
+                  ...message,
+                  reactions: filteredReactions,
+                };
+              } else {
+                return {
+                  ...message,
+                };
+              }
+            } else {
+              // 내가 누른 리액션이 없는 경우
+              const newReactions: NonEmptyArray<Reaction> = [...message.reactions, newReaction];
+
+              return {
+                ...message,
+                reactions: newReactions,
+              };
+            }
+          }
+
+          return message;
+        }),
+      };
+    });
+
+    setChatMessageGroups(updatedChatMessageGroups);
+  };
+
   return {
     chatMessageGroups,
+    toggleReaction,
     chat,
   };
 };
-
-const chatImageMessage = {
-  type: "image",
-  src: chatImage.src,
-  width: 1290,
-  height: 2211,
-} as const;
-
-const initialChatMessageGroups: ChatMessageGroup[] = [
-  {
-    author: {
-      id: "1",
-      name: "노논",
-      profileImageUrl: profileImage.src,
-    },
-    messages: [
-      {
-        type: "text",
-        content: "판매 중이신가요?",
-        reactions: [
-          {
-            type: "check",
-            count: 1,
-          },
-          {
-            type: "love",
-            count: 1,
-          },
-        ],
-      },
-      {
-        type: "emoticon",
-        src: chatEmoticon.src,
-      },
-    ],
-    createdAt: "2025-01-22T14:26:13Z",
-  },
-  {
-    author: {
-      id: "2",
-      name: "나",
-      profileImageUrl: profileImage.src,
-    },
-    messages: [
-      {
-        type: "text",
-        content: "넵",
-      },
-    ],
-    createdAt: "2025-01-22T14:26:13Z",
-  },
-  {
-    author: {
-      id: "1",
-      name: "노논",
-      profileImageUrl: profileImage.src,
-    },
-    messages: [
-      {
-        type: "text",
-        content: "박스랑 중고 고려해서 8만원에 판매 가능하신가요??",
-      },
-    ],
-    createdAt: "2025-01-22T14:26:13Z",
-  },
-  {
-    author: {
-      id: "1",
-      name: "노논",
-      profileImageUrl: profileImage.src,
-    },
-    messages: [
-      {
-        ...chatImageMessage,
-        reactions: [
-          {
-            type: "check",
-            count: 1,
-          },
-          {
-            type: "love",
-            count: 1,
-          },
-        ],
-      },
-    ],
-    createdAt: "2025-01-22T14:26:13Z",
-  },
-  {
-    author: {
-      id: "2",
-      name: "나",
-      profileImageUrl: profileImage.src,
-    },
-    messages: [
-      {
-        type: "text",
-        content: "넵 가능합니다",
-      },
-      {
-        type: "text",
-        content:
-          "fwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeaw",
-        read: true,
-      },
-    ],
-    createdAt: "2025-01-22T14:26:13Z",
-  },
-];

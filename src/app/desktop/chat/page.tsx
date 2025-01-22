@@ -1,14 +1,30 @@
 "use client";
 
-import { ChatMessage } from "@/components/chat/chat-message";
+import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
+import { useState } from "react";
 import { ChatMessageInput } from "../../../components/chat/chat-message-input";
 import { ChatMessageList } from "./_components/chat-message-list";
+import {
+  ChatMessageGroupsContextProvider,
+  initialChatMessageGroups,
+} from "./_contexts/chat-message-group-context";
 import { useChatMessageGroups } from "./_hooks/use-chat-message-groups";
 
 export const dynamic = "force-dynamic";
 
 export default function ChatPage() {
+  const [chatMessageGroups, setChatMessageGroups] =
+    useState<ChatMessageGroup[]>(initialChatMessageGroups);
+
+  return (
+    <ChatMessageGroupsContextProvider value={{ chatMessageGroups, setChatMessageGroups }}>
+      <Chat />
+    </ChatMessageGroupsContextProvider>
+  );
+}
+
+const Chat = () => {
   const { scrollEndRef, scrollToBottom } = useScrollToBottom({
     scrollOnMount: true,
   });
@@ -35,4 +51,4 @@ export default function ChatPage() {
       </div>
     </main>
   );
-}
+};

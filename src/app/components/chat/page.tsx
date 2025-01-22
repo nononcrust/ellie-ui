@@ -29,8 +29,8 @@ export default function ChatPage() {
       </Tooltip>
       <Tooltip variant="outlined" content="ChatMessage.Reaction">
         <div className="flex w-fit gap-1">
-          <ChatMessage.Reaction reaction="love" count={1} />
-          <ChatMessage.Reaction reaction="check" count={1} />
+          <ChatMessage.Reaction type="love" count={1} />
+          <ChatMessage.Reaction type="check" count={1} />
         </div>
       </Tooltip>
       <ChatMessageInput />

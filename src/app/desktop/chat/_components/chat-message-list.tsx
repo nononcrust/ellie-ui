@@ -1,5 +1,11 @@
-import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
+import {
+  ChatMessage,
+  ChatMessageGroup,
+  Reaction,
+  REACTION_TYPES,
+} from "@/components/chat/chat-message";
 import { cn } from "@/lib/utils";
+import { useChatMessageGroups } from "../_hooks/use-chat-message-groups";
 import { useSession } from "../_hooks/use-session";
 
 type ChatMessageListProps = {
@@ -23,26 +29,13 @@ export const ChatMessageList = ({ list }: ChatMessageListProps) => {
                 const isLastItem = index === item.messages.length - 1;
 
                 return (
-                  <div key={index} className="flex flex-col">
-                    <div className={cn("flex gap-2", isMyMessage && "flex-row-reverse")}>
-                      <ChatMessage.Body chatMessage={chatMessage} isMyMessage={isMyMessage} />
-                      <div className="flex flex-col items-end justify-end">
-                        {chatMessage.read && <ChatMessage.ReadIndicator />}
-                        {(isMyMessage || isLastItem) && <ChatMessage.Time time={item.createdAt} />}
-                      </div>
-                    </div>
-                    {chatMessage.reactions && (
-                      <div className="mt-1 flex gap-1">
-                        {chatMessage.reactions.map((reaction, index) => (
-                          <ChatMessage.Reaction
-                            key={index}
-                            reaction={reaction.type}
-                            count={reaction.count}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <ChatMessageItem
+                    key={chatMessage.id}
+                    chatMessage={chatMessage}
+                    isMyMessage={isMyMessage}
+                    isLastItem={isLastItem}
+                    createdAt={item.createdAt}
+                  />
                 );
               })}
             </div>
@@ -50,5 +43,59 @@ export const ChatMessageList = ({ list }: ChatMessageListProps) => {
         );
       })}
     </ul>
+  );
+};
+
+type ChatMessageItemProps = {
+  chatMessage: ChatMessage;
+  isLastItem: boolean;
+  isMyMessage: boolean;
+  createdAt: string;
+};
+
+const ChatMessageItem = ({
+  chatMessage,
+  isLastItem,
+  isMyMessage,
+  createdAt,
+}: ChatMessageItemProps) => {
+  const { toggleReaction } = useChatMessageGroups();
+
+  return (
+    <div className="flex flex-col">
+      <div className={cn("flex gap-2", isMyMessage && "flex-row-reverse")}>
+        <ChatMessage.Body
+          chatMessage={chatMessage}
+          isMyMessage={isMyMessage}
+          onReactionClick={(type) => toggleReaction(chatMessage.id, type)}
+        />
+        <div className="flex flex-col items-end justify-end">
+          {chatMessage.read && <ChatMessage.ReadIndicator />}
+          {(isMyMessage || isLastItem) && <ChatMessage.Time time={createdAt} />}
+        </div>
+      </div>
+      {chatMessage.reactions && (
+        <ChatMessageReactions reactions={chatMessage.reactions} isMyMessage={isMyMessage} />
+      )}
+    </div>
+  );
+};
+
+type ChatMessageReactionsProps = {
+  isMyMessage: boolean;
+  reactions: Reaction[];
+};
+
+const ChatMessageReactions = ({ reactions, isMyMessage }: ChatMessageReactionsProps) => {
+  return (
+    <div className={cn("mt-1 flex gap-1", isMyMessage && "justify-end")}>
+      {REACTION_TYPES.map((reactionType) => {
+        const count = reactions.filter((reaction) => reaction.type === reactionType).length;
+
+        if (count === 0) return null;
+
+        return <ChatMessage.Reaction key={reactionType} type={reactionType} count={count} />;
+      })}
+    </div>
   );
 };

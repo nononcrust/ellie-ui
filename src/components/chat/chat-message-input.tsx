@@ -5,6 +5,7 @@ import { useInput } from "@/hooks/use-input";
 import { cn, noop } from "@/lib/utils";
 import { isMobile } from "is-mobile";
 import { SendHorizontalIcon } from "lucide-react";
+import { nanoid } from "nanoid";
 import React, { useRef } from "react";
 
 type ChatMessageInputProps = {
@@ -27,6 +28,7 @@ export const ChatMessageInput = ({ onSend = noop, onLineBreak = noop }: ChatMess
     if (input.value.length === 0) return;
 
     onSend({
+      id: nanoid(),
       type: "text",
       content: input.value,
     });

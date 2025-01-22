@@ -2,7 +2,8 @@
 
 import { NonEmptyArray } from "@/lib/array";
 import { formatToTime } from "@/lib/date";
-import { cn } from "@/lib/utils";
+import { objectEntries } from "@/lib/object";
+import { cn, noop } from "@/lib/utils";
 import { CheckIcon, HeartIcon } from "lucide-react";
 import React from "react";
 import { IconButton } from "../ui/icon-button";
@@ -72,22 +73,17 @@ const ChatMessageReactionIcon = {
   Love: () => <HeartIcon className="fill-rose-500 text-rose-500" size={16} />,
 };
 
-const chatMessageReactionIcon: Record<ReactionType, React.ReactNode> = {
+const iconByReactionType: Record<ReactionType, React.ReactNode> = {
   check: <ChatMessageReactionIcon.Check />,
   love: <ChatMessageReactionIcon.Love />,
 };
 
 type ChatMessageReactionProps = React.ComponentPropsWithRef<"div"> & {
-  reaction: ReactionType;
+  type: ReactionType;
   count: number;
 };
 
-const ChatMessageReaction = ({
-  className,
-  count,
-  reaction,
-  ...props
-}: ChatMessageReactionProps) => {
+const ChatMessageReaction = ({ className, count, type, ...props }: ChatMessageReactionProps) => {
   return (
     <div
       className={cn(
@@ -96,7 +92,7 @@ const ChatMessageReaction = ({
       )}
       {...props}
     >
-      {chatMessageReactionIcon[reaction]}
+      {iconByReactionType[type]}
       {count}
     </div>
   );
@@ -148,9 +144,14 @@ const ChatMessageGroup = ({ isMyMessage, children }: ChatMessageGroupProps) => {
 type ChatMessageBodyProps = {
   isMyMessage: boolean;
   chatMessage: ChatMessage;
+  onReactionClick?: (type: ReactionType) => void;
 };
 
-const ChatMessageBody = ({ isMyMessage, chatMessage }: ChatMessageBodyProps) => {
+const ChatMessageBody = ({
+  isMyMessage,
+  chatMessage,
+  onReactionClick = noop,
+}: ChatMessageBodyProps) => {
   const renderChatMessageBody = () => {
     switch (chatMessage.type) {
       case "text":
@@ -179,9 +180,14 @@ const ChatMessageBody = ({ isMyMessage, chatMessage }: ChatMessageBodyProps) => 
     <Popover>
       <Popover.Trigger className="rounded-xl">{renderChatMessageBody()}</Popover.Trigger>
       <Popover.Content className="flex min-w-0 rounded-xl p-1">
-        {Object.values(chatMessageReactionIcon).map((icon, index) => (
+        {objectEntries(iconByReactionType).map(([type, icon], index) => (
           <Popover.Close asChild key={index}>
-            <IconButton variant="ghost" size="xsmall" aria-label="이모티콘">
+            <IconButton
+              variant="ghost"
+              size="xsmall"
+              aria-label="이모티콘"
+              onClick={() => onReactionClick(type)}
+            >
               {icon}
             </IconButton>
           </Popover.Close>
@@ -204,16 +210,20 @@ export const ChatMessage = {
   ReadIndicator: ChatMessageReadIndicator,
 };
 
-type ReactionType = "love" | "check";
+export const REACTION_TYPES = ["love", "check"] as const;
+export type ReactionType = (typeof REACTION_TYPES)[number];
 
-type Reaction = {
+export type Reaction = {
   type: ReactionType;
-  count: number;
+  author: {
+    id: string;
+  };
 };
 
 type ChatMessageType = "text" | "image" | "emoticon";
 
 type ChatBaseMessage = {
+  id: string;
   type: ChatMessageType;
   reactions?: NonEmptyArray<Reaction>;
   read?: boolean;
