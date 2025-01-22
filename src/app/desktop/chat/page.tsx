@@ -78,7 +78,7 @@ const chatImageMessage = {
   height: 2211,
 } as const;
 
-export const initialChatMessageGroups: ChatMessageGroup[] = [
+const initialChatMessageGroups: ChatMessageGroup[] = [
   {
     author: {
       id: "1",
