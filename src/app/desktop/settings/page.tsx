@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 
 export default function SettingsPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl py-16">
+    <main className="mx-auto w-full max-w-3xl px-4 py-16">
       <h2 className="text-lg font-semibold">프로필</h2>
       <Divider className="my-3" />
       <div className="flex pt-2">

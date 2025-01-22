@@ -13,10 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning className={pretendard.variable}>
-      <body className="antialiased">
+      <body className="flex min-h-dvh flex-col antialiased">
         <Providers>
           <Header />
-          <div className="flex">
+          <div className="flex flex-1">
             <Sidebar />
             <div className="flex flex-1 flex-col md:pl-[240px]">{children}</div>
           </div>

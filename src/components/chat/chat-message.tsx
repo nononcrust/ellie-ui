@@ -23,15 +23,16 @@ type ChatMessageBubbleProps = {
 
 const ChatMessageBubble = ({ variant, message }: ChatMessageBubbleProps) => {
   return (
-    <div
+    <p
       className={cn(
-        "flex rounded-xl px-3 py-2 transition-colors",
+        "rounded-xl px-3 py-2 transition-colors",
+        "whitespace-pre-wrap break-all text-start text-sm font-medium",
         variant === "primary" && "hover:bg-primary-hover bg-primary text-white",
         variant === "secondary" && "bg-secondary hover:bg-background-hover",
       )}
     >
-      <p className="whitespace-pre-wrap text-start text-sm font-medium">{message}</p>
-    </div>
+      {message}
+    </p>
   );
 };
 

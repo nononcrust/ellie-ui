@@ -58,7 +58,7 @@ export default function ChatPage() {
   if (!isInitialized) return null;
 
   return (
-    <main className="mx-auto flex h-screen w-full max-w-xl flex-col px-4">
+    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col border-x px-4">
       <div className="flex flex-1 flex-col">
         <span className="my-4 text-center text-sm text-subtle">2025년 1월 22일</span>
         <ChatMessageList list={chatMessageGroups} />
@@ -79,20 +79,6 @@ const chatImageMessage = {
 } as const;
 
 export const initialChatMessageGroups: ChatMessageGroup[] = [
-  {
-    author: {
-      id: "1",
-      name: "노논",
-      profileImageUrl: profileImage.src,
-    },
-    messages: [
-      {
-        type: "text",
-        content: "판매 중이신가요?",
-      },
-    ],
-    createdAt: "2025-01-22T14:26:13Z",
-  },
   {
     author: {
       id: "1",
@@ -182,6 +168,11 @@ export const initialChatMessageGroups: ChatMessageGroup[] = [
       {
         type: "text",
         content: "넵 가능합니다",
+      },
+      {
+        type: "text",
+        content:
+          "fwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeawfwafeaw",
         read: true,
       },
     ],
