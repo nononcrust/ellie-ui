@@ -17,7 +17,7 @@ export const useScrollToBottom = (options: Options = defaultOptions) => {
 
   useEffect(() => {
     if (options.scrollOnMount) {
-      setTimeout(scrollToBottom, 0);
+      scrollToBottom();
     }
   }, [options.scrollOnMount]);
 

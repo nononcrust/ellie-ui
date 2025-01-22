@@ -1,15 +1,14 @@
 "use client";
 
 import { ChatMessage } from "@/components/chat/chat-message";
-import { useIsClient } from "@/hooks/use-is-client";
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 import { ChatMessageInput } from "../../../components/chat/chat-message-input";
 import { ChatMessageList } from "./_components/chat-message-list";
 import { useChatMessageGroups } from "./_hooks/use-chat-message-groups";
 
-export default function ChatPage() {
-  const { isClient } = useIsClient();
+export const dynamic = "force-dynamic";
 
+export default function ChatPage() {
   const { scrollEndRef, scrollToBottom } = useScrollToBottom({
     scrollOnMount: true,
   });
@@ -20,8 +19,6 @@ export default function ChatPage() {
     chat(chatMessage);
     setTimeout(scrollToBottom, 0);
   };
-
-  if (!isClient) return null;
 
   return (
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col border-x px-4">

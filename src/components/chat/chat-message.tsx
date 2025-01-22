@@ -4,7 +4,7 @@ import { NonEmptyArray } from "@/lib/array";
 import { formatToTime } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { CheckIcon, HeartIcon } from "lucide-react";
-import React, { useState } from "react";
+import React from "react";
 import { IconButton } from "../ui/icon-button";
 import { Popover } from "../ui/popover";
 
@@ -58,23 +58,8 @@ type ChatMessageImageProps = React.ComponentPropsWithRef<"img"> & {
 };
 
 const ChatMessageImage = ({ className, alt = "이미지", ...props }: ChatMessageImageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const onLoad = () => {
-    setIsLoaded(true);
-  };
-
   return (
-    <img
-      onLoad={onLoad}
-      className={cn(
-        "w-[280px] rounded-2xl bg-secondary transition-opacity",
-        !isLoaded && "opacity-0",
-        className,
-      )}
-      alt={alt}
-      {...props}
-    />
+    <img className={cn("w-[280px] rounded-2xl bg-secondary", className)} alt={alt} {...props} />
   );
 };
 
