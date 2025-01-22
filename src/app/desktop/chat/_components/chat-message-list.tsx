@@ -1,15 +1,18 @@
 import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
 import { cn } from "@/lib/utils";
+import { useSession } from "../_hooks/use-session";
 
 type ChatMessageListProps = {
   list: ChatMessageGroup[];
 };
 
 export const ChatMessageList = ({ list }: ChatMessageListProps) => {
+  const { session } = useSession();
+
   return (
     <ul className="flex flex-col gap-4 py-4">
       {list.map((item, index) => {
-        const isMyMessage = item.author.id === "2";
+        const isMyMessage = item.author.id === session.user.id;
 
         return (
           <ChatMessage.Group isMyMessage={isMyMessage} key={index}>

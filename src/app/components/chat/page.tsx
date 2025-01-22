@@ -1,9 +1,9 @@
 "use client";
 
-import { ChatMessageInput } from "@/app/desktop/chat/_components/chat-message-input";
 import chatEmoticon from "@/assets/images/chat-emoticon.webp";
 import profileImage from "@/assets/images/nonon.png";
 import { ChatMessage } from "@/components/chat/chat-message";
+import { ChatMessageInput } from "@/components/chat/chat-message-input";
 import { Tooltip } from "@/components/ui/tooltip";
 
 export default function ChatPage() {
