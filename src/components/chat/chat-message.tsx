@@ -4,55 +4,60 @@ import { NonEmptyArray } from "@/lib/array";
 import { formatToTime } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { CheckIcon, HeartIcon } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { IconButton } from "../ui/icon-button";
 import { Popover } from "../ui/popover";
 
-type ChatMessageAvatarProps = {
-  src: string;
+type ChatMessageAvatarProps = React.ComponentPropsWithRef<"img">;
+
+export const ChatMessageAvatar = ({
+  className,
+  alt = "프로필 이미지",
+  ...props
+}: ChatMessageAvatarProps) => {
+  return <img className={cn("size-10 rounded-2xl bg-secondary", className)} alt={alt} {...props} />;
 };
 
-const ChatMessageAvatar = ({ src }: ChatMessageAvatarProps) => {
-  return <img className="size-10 rounded-2xl bg-secondary" src={src} alt="프로필 이미지" />;
-};
-
-type ChatMessageBubbleProps = {
+type ChatMessageBubbleProps = React.ComponentPropsWithRef<"p"> & {
   variant: "primary" | "secondary";
   message: string;
 };
 
-const ChatMessageBubble = ({ variant, message }: ChatMessageBubbleProps) => {
+const ChatMessageBubble = ({ className, variant, message, ...props }: ChatMessageBubbleProps) => {
   return (
     <p
       className={cn(
-        "rounded-xl px-3 py-2 transition-colors",
+        "w-fit rounded-xl px-3 py-2 transition-colors",
         "whitespace-pre-wrap break-all text-start text-sm font-medium",
         variant === "primary" && "hover:bg-primary-hover bg-primary text-white",
         variant === "secondary" && "bg-secondary hover:bg-background-hover",
+        className,
       )}
+      {...props}
     >
       {message}
     </p>
   );
 };
 
-type ChatMessageEmoticonProps = {
-  src: string;
-  alt?: string;
+type ChatMessageEmoticonProps = React.ComponentPropsWithRef<"img">;
+
+const ChatMessageEmoticon = ({
+  className,
+  alt = "이모티콘",
+  ...props
+}: ChatMessageEmoticonProps) => {
+  return (
+    <img className={cn("size-[120px] rounded-2xl bg-secondary", className)} alt={alt} {...props} />
+  );
 };
 
-const ChatMessageEmoticon = ({ src, alt = "이모티콘" }: ChatMessageEmoticonProps) => {
-  return <img className="size-[120px] rounded-2xl bg-secondary" src={src} alt={alt} />;
-};
-
-type ChatMessageImageProps = {
-  src: string;
+type ChatMessageImageProps = React.ComponentPropsWithRef<"img"> & {
   width: number;
   height: number;
-  alt?: string;
 };
 
-const ChatMessageImage = ({ src, alt = "이미지", width, height }: ChatMessageImageProps) => {
+const ChatMessageImage = ({ className, alt = "이미지", ...props }: ChatMessageImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const onLoad = () => {
@@ -65,11 +70,10 @@ const ChatMessageImage = ({ src, alt = "이미지", width, height }: ChatMessage
       className={cn(
         "w-[280px] rounded-2xl bg-secondary transition-opacity",
         !isLoaded && "opacity-0",
+        className,
       )}
-      src={src}
       alt={alt}
-      width={width}
-      height={height}
+      {...props}
     />
   );
 };
@@ -88,38 +92,63 @@ const chatMessageReactionIcon: Record<ReactionType, React.ReactNode> = {
   love: <ChatMessageReactionIcon.Love />,
 };
 
-type ChatMessageReactionProps = {
+type ChatMessageReactionProps = React.ComponentPropsWithRef<"div"> & {
   reaction: ReactionType;
   count: number;
 };
 
-const ChatMessageReaction = ({ count, reaction }: ChatMessageReactionProps) => {
+const ChatMessageReaction = ({
+  className,
+  count,
+  reaction,
+  ...props
+}: ChatMessageReactionProps) => {
   return (
-    <div className="flex w-fit items-center gap-1 rounded-full bg-secondary px-1.5 py-1 text-xs font-medium">
+    <div
+      className={cn(
+        "flex w-fit items-center gap-1 rounded-full bg-secondary px-1.5 py-1 text-xs font-medium",
+        className,
+      )}
+      {...props}
+    >
       {chatMessageReactionIcon[reaction]}
       {count}
     </div>
   );
 };
 
-type ChatMessageNameProps = {
+type ChatMessageNameProps = React.ComponentPropsWithRef<"span"> & {
   name: string;
 };
 
-const ChatMessageName = ({ name }: ChatMessageNameProps) => {
-  return <span className="whitespace-nowrap text-[13px] text-subtle">{name}</span>;
+const ChatMessageName = ({ className, name, ...props }: ChatMessageNameProps) => {
+  return (
+    <span className={cn("w-fit whitespace-nowrap text-[13px] text-subtle", className)} {...props}>
+      {name}
+    </span>
+  );
 };
 
-type ChatMessageTimeProps = {
+type ChatMessageTimeProps = React.ComponentPropsWithRef<"span"> & {
   time: string;
 };
 
-const ChatMessageTime = ({ time }: ChatMessageTimeProps) => {
-  return <span className="whitespace-nowrap text-xs text-subtle">{formatToTime(time)}</span>;
+const ChatMessageTime = ({ className, time, ...props }: ChatMessageTimeProps) => {
+  return (
+    <span className={cn("w-fit whitespace-nowrap text-xs text-subtle", className)} {...props}>
+      {formatToTime(time)}
+    </span>
+  );
 };
 
-const ChatMessageReadIndicator = () => {
-  return <span className="text-xs text-subtle">읽음</span>;
+type ChatMessageReadIndicatorProps = React.ComponentPropsWithRef<"span">;
+
+const ChatMessageReadIndicator = ({ className, ...props }: ChatMessageReadIndicatorProps) => {
+  return (
+    <span className={cn("w-fit text-xs text-subtle", className)} {...props}>
+      읽음
+    </span>
+  );
 };
 
 type ChatMessageGroupProps = {
