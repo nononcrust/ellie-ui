@@ -59,7 +59,7 @@ export const ChatMessageInput = ({ onSend = noop, onInput = noop }: ChatMessageI
       <textarea
         ref={inputRef}
         placeholder="메시지 보내기"
-        className="flex w-full resize-none rounded-3xl bg-background-100 py-3 pl-4 pr-12 text-sm outline-none placeholder:text-placeholder"
+        className="flex w-full resize-none rounded-3xl bg-background-100 py-3 pl-4 pr-12 text-sm font-medium outline-none placeholder:text-placeholder"
         rows={1}
         value={input.value}
         onChange={onInputChange}

@@ -95,8 +95,8 @@ const ChatMessageReaction = ({
   return (
     <div
       className={cn(
-        "flex w-fit items-center gap-1 rounded-full border border-transparent px-1.5 py-1 text-xs font-medium",
-        variant === "secondary" && "bg-secondary",
+        "flex w-fit items-center gap-1 rounded-full border px-1.5 py-1 text-xs font-medium",
+        variant === "secondary" && "border-transparent bg-secondary",
         variant === "primaryLow" && "border-primary bg-primary-lighter",
         className,
       )}
