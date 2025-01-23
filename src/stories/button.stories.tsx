@@ -38,6 +38,24 @@ export const Ghost: Story = {
   },
 };
 
+export const PrimaryLow: Story = {
+  render: () => {
+    return makeButtonSetByVariant("primaryLow");
+  },
+};
+
+export const Error: Story = {
+  render: () => {
+    return makeButtonSetByVariant("error");
+  },
+};
+
+export const Disabled: Story = {
+  render: () => {
+    return makeButtonSetByProps({ disabled: true });
+  },
+};
+
 export const Small: Story = {
   render: () => {
     return (
@@ -74,9 +92,31 @@ export const Large: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const XLarge: Story = {
   render: () => {
-    return makeButtonSetByProps({ disabled: true });
+    return (
+      <div className="flex gap-2">
+        <Button size="xlarge">버튼</Button>
+        <Button size="xlarge">
+          <Trash2Icon width={20} />
+          삭제
+        </Button>
+        <Button size="xlarge">
+          이동하기
+          <ArrowRightIcon width={20} />
+        </Button>
+      </div>
+    );
+  },
+};
+
+export const CTA: Story = {
+  render: () => {
+    return (
+      <div className="flex w-[320px] flex-col gap-2">
+        <Button size="xlarge">버튼</Button>
+      </div>
+    );
   },
 };
 

@@ -78,27 +78,6 @@ export const Ghost: Story = {
   },
 };
 
-export const Grouped: Story = {
-  render: () => {
-    return (
-      <>
-        <IconButton variant="outlined" size="large" aria-label="추가">
-          <PlusIcon width={16} />
-        </IconButton>
-        <IconButton variant="outlined" size="large" aria-label="삭제">
-          <Trash2Icon width={16} />
-        </IconButton>
-        <IconButton variant="outlined" size="large" aria-label="이전">
-          <ChevronLeftIcon width={16} />
-        </IconButton>
-        <IconButton variant="outlined" size="large" aria-label="다음">
-          <ChevronRightIcon width={16} />
-        </IconButton>
-      </>
-    );
-  },
-};
-
 const iconSet = [
   {
     size: "small",

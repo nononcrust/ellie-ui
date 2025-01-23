@@ -16,6 +16,9 @@ const eslintConfig = [
       "@next/next/no-img-element": "off",
     },
   },
+  {
+    ignores: ["**/*.stories.tsx"],
+  },
 ];
 
 export default eslintConfig;
