@@ -10,10 +10,10 @@ import React, { useRef } from "react";
 
 type ChatMessageInputProps = {
   onSend?: (chatMessage: ChatMessage) => void;
-  onLineBreak?: () => void;
+  onInput?: () => void;
 };
 
-export const ChatMessageInput = ({ onSend = noop, onLineBreak = noop }: ChatMessageInputProps) => {
+export const ChatMessageInput = ({ onSend = noop, onInput = noop }: ChatMessageInputProps) => {
   const input = useInput();
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -40,6 +40,7 @@ export const ChatMessageInput = ({ onSend = noop, onLineBreak = noop }: ChatMess
   const onInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = (event) => {
     input.onChange(event);
     resizeInput();
+    onInput();
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
@@ -49,10 +50,6 @@ export const ChatMessageInput = ({ onSend = noop, onLineBreak = noop }: ChatMess
       if (!event.shiftKey) {
         event.preventDefault();
         sendChatMessage();
-      }
-
-      if (event.shiftKey) {
-        onLineBreak();
       }
     }
   };

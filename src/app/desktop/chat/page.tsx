@@ -1,39 +1,44 @@
 "use client";
 
-import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
-import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
-import { useState } from "react";
+import { ChatMessage } from "@/components/chat/chat-message";
 import { ChatMessageInput } from "../../../components/chat/chat-message-input";
 import { ChatMessageList } from "./_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
-  initialChatMessageGroups,
+  useChatMessageGroups,
 } from "./_contexts/chat-message-group-context";
-import { useChatMessageGroups } from "./_hooks/use-chat-message-groups";
+import { ScrollBottomContextProvider, useScrollBottom } from "./_contexts/scroll-bottom-context";
 
 export const dynamic = "force-dynamic";
 
 export default function ChatPage() {
-  const [chatMessageGroups, setChatMessageGroups] =
-    useState<ChatMessageGroup[]>(initialChatMessageGroups);
-
   return (
-    <ChatMessageGroupsContextProvider value={{ chatMessageGroups, setChatMessageGroups }}>
-      <Chat />
+    <ChatMessageGroupsContextProvider>
+      <ScrollBottomContextProvider>
+        <Chat />
+      </ScrollBottomContextProvider>
     </ChatMessageGroupsContextProvider>
   );
 }
 
 const Chat = () => {
-  const { scrollEndRef, scrollToBottom } = useScrollToBottom({
-    scrollOnMount: true,
-  });
+  const { scrollEndRef, keepScrollAtBottomAsync, scrollToBottomAsync } = useScrollBottom();
 
-  const { chatMessageGroups, chat } = useChatMessageGroups();
+  const { chatMessageGroups, dispatch } = useChatMessageGroups();
 
   const onSendMessage = (chatMessage: ChatMessage) => {
-    chat(chatMessage);
-    setTimeout(scrollToBottom, 0);
+    dispatch({
+      type: "chat",
+      payload: {
+        chatMessage,
+      },
+    });
+
+    scrollToBottomAsync();
+  };
+
+  const onInput = () => {
+    keepScrollAtBottomAsync();
   };
 
   return (
@@ -44,10 +49,7 @@ const Chat = () => {
         <div ref={scrollEndRef} />
       </div>
       <div className="sticky bottom-0 left-0 right-0 flex bg-background pb-4 pt-1">
-        <ChatMessageInput
-          onSend={onSendMessage}
-          onLineBreak={() => setTimeout(scrollToBottom, 0)}
-        />
+        <ChatMessageInput onSend={onSendMessage} onInput={onInput} />
       </div>
     </main>
   );

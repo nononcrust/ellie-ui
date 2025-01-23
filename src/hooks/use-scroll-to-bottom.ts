@@ -2,17 +2,34 @@ import { useEffect, useRef } from "react";
 
 type Options = {
   scrollOnMount?: boolean;
+  offset?: number;
 };
 
-const defaultOptions: Options = {
+const defaultOptions = {
   scrollOnMount: false,
+  offset: 0,
 };
 
-export const useScrollToBottom = (options: Options = defaultOptions) => {
+export const useScrollToBottom = (rawOptions?: Options) => {
+  const options = {
+    ...defaultOptions,
+    ...rawOptions,
+  };
+
   const scrollEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     scrollEndRef.current?.scrollIntoView();
+  };
+
+  const isAtBottom = () => {
+    const scrollEnd = scrollEndRef.current;
+    if (!scrollEnd) {
+      return false;
+    }
+
+    const scrollEndRect = scrollEnd.getBoundingClientRect();
+    return scrollEndRect.top <= window.innerHeight - options.offset;
   };
 
   useEffect(() => {
@@ -21,5 +38,5 @@ export const useScrollToBottom = (options: Options = defaultOptions) => {
     }
   }, [options.scrollOnMount]);
 
-  return { scrollEndRef, scrollToBottom };
+  return { scrollEndRef, scrollToBottom, isAtBottom };
 };
