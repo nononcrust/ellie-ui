@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "@/app/desktop/chat/_hooks/use-session";
 import { NonEmptyArray } from "@/lib/array";
 import { formatToTime } from "@/lib/date";
 import { objectEntries } from "@/lib/object";
@@ -152,6 +153,8 @@ const ChatMessageBody = ({
   chatMessage,
   onReactionClick = noop,
 }: ChatMessageBodyProps) => {
+  const { session } = useSession();
+
   const renderChatMessageBody = () => {
     switch (chatMessage.type) {
       case "text":
@@ -176,14 +179,20 @@ const ChatMessageBody = ({
     }
   };
 
+  const isMyReaction = (type: ReactionType) => {
+    return chatMessage.reactions?.some(
+      (reaction) => reaction.type === type && reaction.author.id === session.user.id,
+    );
+  };
+
   return (
     <Popover>
       <Popover.Trigger className="rounded-xl">{renderChatMessageBody()}</Popover.Trigger>
-      <Popover.Content className="flex min-w-0 rounded-xl p-1">
+      <Popover.Content className="flex min-w-0 gap-0.5 rounded-xl p-1">
         {objectEntries(iconByReactionType).map(([type, icon], index) => (
           <Popover.Close asChild key={index}>
             <IconButton
-              variant="ghost"
+              variant={isMyReaction(type) ? "secondary" : "ghost"}
               size="xsmall"
               aria-label="이모티콘"
               onClick={() => onReactionClick(type)}

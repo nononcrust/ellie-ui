@@ -25,7 +25,7 @@ export default function SearchPage() {
       <div className="mt-4 flex items-center gap-3">
         <Link
           className="flex size-10 items-center justify-center"
-          href="/products"
+          href="/mobile/products"
           aria-label="뒤로 가기"
         >
           <ChevronLeftIcon size={28} />
