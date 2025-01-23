@@ -101,22 +101,24 @@ type ChatMessageReactionsProps = {
 };
 
 type GroupedReactions = {
-  reaction: Reaction;
+  type: ReactionType;
   count: number;
 }[];
 
 const ChatMessageReactions = ({ reactions, isMyMessage }: ChatMessageReactionsProps) => {
+  const { session } = useSession();
+
   const groupReaction = (reactions: Reaction[]): GroupedReactions => {
     return reactions.reduce<GroupedReactions>((groupedReactions, reaction) => {
       const existingReaction = groupedReactions.find(
-        (groupedReaction) => groupedReaction.reaction.type === reaction.type,
+        (groupedReaction) => groupedReaction.type === reaction.type,
       );
 
       if (existingReaction) {
         existingReaction.count += 1;
       } else {
         groupedReactions.push({
-          reaction,
+          type: reaction.type,
           count: 1,
         });
       }
@@ -127,10 +129,21 @@ const ChatMessageReactions = ({ reactions, isMyMessage }: ChatMessageReactionsPr
 
   const groupedReactions = groupReaction(reactions);
 
+  const isContainingMyReaction = (reactionType: ReactionType) => {
+    return reactions.some(
+      (reaction) => reaction.type === reactionType && reaction.author.id === session.user.id,
+    );
+  };
+
   return (
     <div className={cn("mt-1 flex gap-1", isMyMessage && "justify-end")}>
-      {groupedReactions.map(({ reaction, count }) => (
-        <ChatMessage.Reaction key={reaction.type} type={reaction.type} count={count} />
+      {groupedReactions.map(({ type, count }) => (
+        <ChatMessage.Reaction
+          key={type}
+          type={type}
+          count={count}
+          variant={isContainingMyReaction(type) ? "primaryLow" : "secondary"}
+        />
       ))}
     </div>
   );

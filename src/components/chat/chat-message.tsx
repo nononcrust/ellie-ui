@@ -82,13 +82,22 @@ const iconByReactionType: Record<ReactionType, React.ReactNode> = {
 type ChatMessageReactionProps = React.ComponentPropsWithRef<"div"> & {
   type: ReactionType;
   count: number;
+  variant?: "secondary" | "primaryLow";
 };
 
-const ChatMessageReaction = ({ className, count, type, ...props }: ChatMessageReactionProps) => {
+const ChatMessageReaction = ({
+  className,
+  count,
+  type,
+  variant = "secondary",
+  ...props
+}: ChatMessageReactionProps) => {
   return (
     <div
       className={cn(
-        "flex w-fit items-center gap-1 rounded-full bg-secondary px-1.5 py-1 text-xs font-medium",
+        "flex w-fit items-center gap-1 rounded-full border border-transparent px-1.5 py-1 text-xs font-medium",
+        variant === "secondary" && "bg-secondary",
+        variant === "primaryLow" && "border-primary bg-primary-lighter",
         className,
       )}
       {...props}

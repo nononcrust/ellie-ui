@@ -31,7 +31,6 @@ export const menu = [
     items: [
       { title: "Board", href: "/desktop/board" },
       { title: "Settings", href: "/desktop/settings" },
-      { title: "Live Chat", href: "/desktop/live-chat" },
       { title: "Chat", href: "/desktop/chat" },
     ],
   },
