@@ -2,7 +2,7 @@
 
 ## 배포 URL
 
-https://design-system-nononcrusts-projects.vercel.app/search
+https://design-system-nononcrusts-projects.vercel.app
 
 ## 로컬 개발 환경
 
