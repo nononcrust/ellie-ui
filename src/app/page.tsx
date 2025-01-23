@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main className="flex min-h-dvh items-center justify-center">
       <Card className="m-8 max-w-[1280px] gap-2">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Tooltip variant="outlined" content="툴팁 내용">
             <Button>버튼</Button>
           </Tooltip>
@@ -114,8 +114,8 @@ export default function Home() {
           </DropdownMenu>
           <Switch />
         </div>
-        <div className="flex gap-2">
-          <div className="h-fit rounded-[12px] border border-border p-3">
+        <div className="flex flex-col gap-2 md:flex-row">
+          <div className="h-fit w-fit rounded-[12px] border border-border p-3">
             <Calendar mode="range" />
           </div>
           <div className="flex flex-col gap-2">
@@ -181,7 +181,7 @@ export default function Home() {
 
 const BadgeSection = () => {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
       <Badge variant="primary">1</Badge>
       <Badge variant="primary">2</Badge>
       <Badge variant="primary">3</Badge>
