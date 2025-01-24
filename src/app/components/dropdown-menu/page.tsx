@@ -2,6 +2,8 @@
 
 import { Grid } from "@/components/layouts/grid";
 import { Avatar } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Dialog } from "@/components/ui/dialog";
 import { DropdownMenu } from "@/components/ui/dropdown-menu";
 import { IconButton } from "@/components/ui/icon-button";
 import {
@@ -12,6 +14,8 @@ import {
   LinkIcon,
   LogOutIcon,
   MessageSquareWarningIcon,
+  PencilIcon,
+  Trash2Icon,
   UserIcon,
   UserRoundMinusIcon,
 } from "lucide-react";
@@ -88,6 +92,43 @@ export default function DropdownMenuPage() {
             </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu>
+      </Grid.Item>
+      <Grid.Item>
+        <Dialog>
+          <Dialog.Content className="max-w-[320px]">
+            <Dialog.Header>
+              <Dialog.Title>삭제할까요?</Dialog.Title>
+              <Dialog.Description className="sr-only">삭제할까요?</Dialog.Description>
+            </Dialog.Header>
+            <Dialog.Footer className="mt-8">
+              <Dialog.Close asChild>
+                <Button variant="secondary">취소하기</Button>
+              </Dialog.Close>
+              <Dialog.Close asChild>
+                <Button>삭제하기</Button>
+              </Dialog.Close>
+            </Dialog.Footer>
+          </Dialog.Content>
+          <DropdownMenu>
+            <Dialog.Trigger asChild>
+              <DropdownMenu.Trigger asChild>
+                <Button variant="outlined">메뉴</Button>
+              </DropdownMenu.Trigger>
+            </Dialog.Trigger>
+            <DropdownMenu.Content>
+              <DropdownMenu.Item>
+                <PencilIcon size={16} />
+                수정하기
+              </DropdownMenu.Item>
+              <Dialog.Trigger asChild>
+                <DropdownMenu.Item>
+                  <Trash2Icon size={16} />
+                  삭제하기
+                </DropdownMenu.Item>
+              </Dialog.Trigger>
+            </DropdownMenu.Content>
+          </DropdownMenu>
+        </Dialog>
       </Grid.Item>
     </Grid>
   );
