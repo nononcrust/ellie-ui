@@ -6,7 +6,7 @@ export const Textarea = ({ className, ["aria-invalid"]: ariaInvalid, ...props }:
   return (
     <textarea
       className={cn(
-        "border-border text-main flex min-h-[80px] w-full rounded-[8px] border bg-background px-3 py-2 text-sm shadow-sm",
+        "border-border text-main flex min-h-[80px] w-full rounded-[8px] border bg-background px-3 py-2 text-sm shadow-xs",
         "focus-visible:focus-input-ring",
         "disabled:pointer-events-none disabled:opacity-50",
         ariaInvalid && "focus-visible:focus-input-ring-error border-error",

@@ -40,17 +40,17 @@ const DialogContent = ({
       <DialogOverlay />
       <DialogPrimitives.Content
         className={cn(
-          "fixed left-1/2 top-1/2 z-50 grid max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 rounded-[12px] bg-background p-5",
+          "bg-background fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 rounded-[12px] p-5",
           animation === "pop" &&
-            "duration-200 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+            "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 duration-200",
           animation === "slide" &&
-            "ease-out-expo !duration-500 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[600px] data-[state=open]:slide-in-from-left-1/2",
+            "ease-out-expo data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[600px] duration-500!",
           className,
         )}
         {...props}
       >
         {children}
-        <DialogPrimitives.Close asChild className="absolute right-4 top-4">
+        <DialogPrimitives.Close asChild className="absolute top-4 right-4">
           <IconButton variant="ghost" aria-label="닫기" size="xsmall">
             <XIcon size={16} />
           </IconButton>
@@ -97,7 +97,7 @@ type DialogDescriptionProps = React.ComponentPropsWithRef<typeof DialogPrimitive
 
 const DialogDescription = ({ className, children, ...props }: DialogDescriptionProps) => {
   return (
-    <DialogPrimitives.Description className={cn("text-sm text-sub", className)} {...props}>
+    <DialogPrimitives.Description className={cn("text-sub text-sm", className)} {...props}>
       {children}
     </DialogPrimitives.Description>
   );

@@ -214,7 +214,7 @@ export const Trigger = ({
     <Popover.Trigger asChild>
       <button
         className={cn(
-          "flex h-9 w-full items-center gap-2 rounded-[8px] border border-border bg-background px-3 text-sm font-medium text-main outline-none",
+          "flex h-9 w-full items-center gap-2 rounded-[8px] border border-border bg-background px-3 text-sm font-medium text-main outline-hidden",
           "disable-focus-ring focus-visible:focus-input-ring",
           "disabled:pointer-events-none disabled:opacity-50",
           ariaInvalid && "focus-visible:focus-input-ring-error border-error",

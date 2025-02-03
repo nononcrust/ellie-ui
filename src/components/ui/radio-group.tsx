@@ -58,7 +58,7 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
     <RadioGroupPrimitives.Item
       id={id}
       className={cn(
-        "aspect-sqaure size-4 shrink-0 rounded-full border border-border shadow-sm outline-none",
+        "aspect-sqaure size-4 shrink-0 rounded-full border border-border shadow-xs outline-hidden",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
         ariaInvalid && "border-error focus-visible:ring-ring-error",

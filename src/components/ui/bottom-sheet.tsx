@@ -39,9 +39,9 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
         className={cn(
           "fixed bottom-0 left-0 right-0 z-50 mx-auto",
           "flex max-h-[calc(100%-4rem)] w-full max-w-[560px] flex-col",
-          "rounded-t-[32px] bg-background outline-none",
+          "rounded-t-[32px] bg-background outline-hidden",
           "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom",
-          "!duration-500",
+          "duration-500!",
           "ease-out-quint",
           className,
         )}
@@ -66,7 +66,7 @@ const BottomSheetHeader = ({ className, children, ...props }: BottomSheetHeaderP
       <div className={cn("flex flex-col gap-1.5 p-5 pb-0", className)} {...props}>
         {children}
       </div>
-      <div className="absolute -bottom-5 left-2 right-2 h-5 bg-gradient-to-t from-transparent to-white" />
+      <div className="absolute -bottom-5 left-2 right-2 h-5 bg-linear-to-t from-transparent to-white" />
     </div>
   );
 };
@@ -86,7 +86,7 @@ type BottomSheetFooterProps = React.ComponentPropsWithRef<"div">;
 const BottomSheetFooter = ({ className, children, ...props }: BottomSheetFooterProps) => {
   return (
     <div className="relative flex flex-col">
-      <div className="absolute -top-5 left-2 right-2 h-5 bg-gradient-to-t from-white to-transparent" />
+      <div className="absolute -top-5 left-2 right-2 h-5 bg-linear-to-t from-white to-transparent" />
       <div className={cn("flex p-5 pt-0", className)} {...props}>
         {children}
       </div>

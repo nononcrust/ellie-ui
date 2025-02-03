@@ -80,7 +80,7 @@ const CTAContainer = ({ children }: { children: React.ReactNode }) => {
       <div className="flex h-[96px] md:hidden" />
       <div className="sticky bottom-0 left-0 right-0 flex flex-col bg-background pb-4 pt-0 md:hidden">
         <div className="relative">
-          <div className="absolute -top-8 left-0 right-0 z-10 h-8 bg-gradient-to-b from-transparent to-background" />
+          <div className="absolute -top-8 left-0 right-0 z-10 h-8 bg-linear-to-b from-transparent to-background" />
           <div className="relative z-20">{children}</div>
         </div>
       </div>

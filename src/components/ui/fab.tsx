@@ -54,7 +54,7 @@ export const Fab = ({
 
 const FabContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="pointer-events-none fixed bottom-4 right-4 flex flex-col items-center gap-3 [&>*]:pointer-events-auto">
+    <div className="pointer-events-none fixed bottom-4 right-4 flex flex-col items-center gap-3 *:pointer-events-auto">
       {children}
     </div>
   );

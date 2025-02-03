@@ -102,7 +102,7 @@ export default function SelectPage() {
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">프레임워크 선택</Label>
-          <Select placeholder="프레임워크" className="[&_[data-desc]]:hidden">
+          <Select placeholder="프레임워크" className="**:data-desc:hidden">
             <Select.Option value="1">
               <div className="flex flex-col">
                 <span>React</span>
@@ -148,8 +148,8 @@ const Select1 = () => {
         <Popover.Trigger asChild>
           <button
             className={cn(
-              "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-semibold text-main shadow-sm outline-none",
-              "data-[placeholder]:text-placeholder",
+              "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-semibold text-main shadow-xs outline-hidden",
+              "data-placeholder:text-placeholder",
               "[&>span]:min-w-0",
               "placeholder-placeholder",
               "disable-focus-ring focus-visible:focus-input-ring",

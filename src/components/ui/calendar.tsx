@@ -45,11 +45,11 @@ const classNames = {
   week: "flex w-full mt-2 gap-2",
   day: "text-[13px] font-medium relative rounded-[8px] size-8 flex justify-center items-center p-0 text-center text-main",
   day_button:
-    "text-[13px] font-medium outline-none text-center w-full h-full p-0 rounded-[8px] disabled:pointer-events-none hover:bg-background-200",
-  selected: "bg-primary text-white [&>button]:hover:bg-primary-dark",
+    "text-[13px] font-medium outline-hidden text-center w-full h-full p-0 rounded-[8px] disabled:pointer-events-none hover:bg-background-200",
+  selected: "bg-primary text-white hover:[&>button]:bg-primary-dark",
   outside: "text-sub",
   disabled: "text-subtle",
-  range_middle: "bg-primary-lighter !text-primary [&>button]:hover:bg-primary-lighter",
+  range_middle: "bg-primary-lighter text-primary! hover:[&>button]:bg-primary-lighter",
   hidden: "opacity-20",
 };
 

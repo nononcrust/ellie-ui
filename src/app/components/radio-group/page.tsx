@@ -43,7 +43,7 @@ export default function RadioGroupPage() {
       </Grid.Item>
       <Grid.Item>
         <RadioGroup>
-          <div className="relative flex w-full items-start justify-between gap-2 rounded-lg border border-border p-4 shadow-sm has-[[data-state=checked]]:border-black">
+          <div className="relative flex w-full items-start justify-between gap-2 rounded-lg border border-border p-4 shadow-xs has-data-[state=checked]:border-black">
             <div className="grid grow gap-2">
               <Label htmlFor="radio-1">Label</Label>
               <p id="1-description" className="text-xs text-subtle">
@@ -57,7 +57,7 @@ export default function RadioGroupPage() {
               aria-describedby="1-description"
             />
           </div>
-          <div className="relative flex w-full items-start justify-between gap-2 rounded-lg border border-border p-4 shadow-sm has-[[data-state=checked]]:border-black">
+          <div className="relative flex w-full items-start justify-between gap-2 rounded-lg border border-border p-4 shadow-xs has-data-[state=checked]:border-black">
             <div className="grid grow gap-2">
               <Label htmlFor="radio-2">Label</Label>
               <p id="2-description" className="text-xs text-subtle">

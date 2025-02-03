@@ -37,8 +37,8 @@ const SelectImpl = React.forwardRef<
         <SelectPrimitives.Trigger
           ref={ref}
           className={cn(
-            "flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border border-border bg-background px-3 text-start text-[14px] font-medium text-main shadow-sm outline-none",
-            "data-[placeholder]:text-placeholder",
+            "border-border bg-background text-main flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-medium shadow-xs outline-hidden",
+            "data-placeholder:text-placeholder",
             "[&>span]:min-w-0",
             "placeholder-placeholder",
             "disable-focus-ring focus-visible:focus-input-ring",
@@ -53,7 +53,7 @@ const SelectImpl = React.forwardRef<
             <SelectPrimitives.Value placeholder={placeholder} />
           </span>
           <SelectPrimitives.Icon asChild>
-            <ChevronDownIcon size={16} strokeWidth={2} className="shrink-0 text-sub" />
+            <ChevronDownIcon size={16} strokeWidth={2} className="text-sub shrink-0" />
           </SelectPrimitives.Icon>
         </SelectPrimitives.Trigger>
         <SelectContent>{children}</SelectContent>
@@ -75,12 +75,13 @@ const SelectContent = ({
     <SelectPrimitives.Portal>
       <SelectPrimitives.Content
         className={cn(
-          "relative z-50 min-w-[8rem] max-w-[calc(100vw-12px)] overflow-hidden rounded-lg border border-border bg-background text-main shadow-lg",
+          "border-border bg-background text-main relative z-50 max-w-[calc(100vw-12px)] min-w-[8rem] overflow-hidden rounded-lg border shadow-lg",
           "[&_[role=group]]:py-1",
           "max-h-[var(--radix-select-content-available-height)]",
           position === "popper" &&
             cn(
               "w-full min-w-[var(--radix-select-trigger-width)] data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+              "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
               "animate-in fade-in-0",
             ),
           className,
@@ -103,7 +104,7 @@ type SelectLabelProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Labe
 const SelectLabel = ({ className, children, ...props }: SelectLabelProps) => {
   return (
     <SelectPrimitives.Label
-      className={cn("px-2 py-1.5 text-xs font-medium text-subtle", className)}
+      className={cn("text-subtle px-2 py-1.5 text-xs font-medium", className)}
       {...props}
     >
       {children}
@@ -117,10 +118,10 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
-        "relative flex w-full cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium outline-none",
+        "relative flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm font-medium outline-hidden select-none",
         "focus:bg-background-hover focus:text-main",
-        "data-[state=checked]:font-semibold data-[state=checked]:text-primary",
-        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
+        "data-disabled:pointer-events-none data-disabled:opacity-50",
         className,
       )}
       {...props}
@@ -134,7 +135,7 @@ type SelectSeparatorProps = React.ComponentPropsWithRef<typeof SelectPrimitives.
 
 const SelectSeparator = ({ className, children, ...props }: SelectSeparatorProps) => {
   return (
-    <SelectPrimitives.Separator className={cn("-mx-1 my-1 h-px bg-border", className)} {...props}>
+    <SelectPrimitives.Separator className={cn("bg-border -mx-1 my-1 h-px", className)} {...props}>
       {children}
     </SelectPrimitives.Separator>
   );

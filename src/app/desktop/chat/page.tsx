@@ -42,13 +42,13 @@ const Chat = () => {
   };
 
   return (
-    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col border-x px-4">
+    <main className="border-border mx-auto flex w-full max-w-xl flex-1 flex-col border-x px-4">
       <div className="flex flex-1 flex-col">
-        <span className="my-4 text-center text-sm text-subtle">2025년 1월 22일</span>
+        <span className="text-subtle my-4 text-center text-sm">2025년 1월 22일</span>
         <ChatMessageList list={chatMessageGroups} />
         <div ref={scrollEndRef} />
       </div>
-      <div className="sticky bottom-0 left-0 right-0 flex bg-background pb-4 pt-1">
+      <div className="bg-background sticky right-0 bottom-0 left-0 flex pt-1 pb-4">
         <ChatMessageInput onSend={onSendMessage} onInput={onInput} />
       </div>
     </main>
