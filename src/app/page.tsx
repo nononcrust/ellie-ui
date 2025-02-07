@@ -85,7 +85,7 @@ export default function Home() {
             <Dialog.Trigger asChild>
               <Button variant="outlined">모달 열기</Button>
             </Dialog.Trigger>
-            <Dialog.Content className="max-w-[400px]">
+            <Dialog.Content className="w-[400px]">
               <Dialog.Header>
                 <Dialog.Title>모달</Dialog.Title>
                 <Dialog.Description>모달 내용은 이렇게 표시됩니다.</Dialog.Description>
@@ -143,9 +143,8 @@ export default function Home() {
               <IconButton variant="primaryLowOutlined" aria-label="검색" size="small">
                 <SearchIcon size={14} />
               </IconButton>
-              <div className="flex gap-2"></div>
-              <Input className="w-[320px]" placeholder="이메일을 입력해주세요" />
             </div>
+            <Input className="w-[320px]" placeholder="이메일을 입력해주세요" />
             <div className="flex gap-2 p-3">
               <RadioGroup className="w-[120px]" defaultValue="1">
                 <RadioGroup.Option value="1">학생</RadioGroup.Option>

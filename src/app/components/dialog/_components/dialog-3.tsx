@@ -32,7 +32,7 @@ const SecondDialog = () => {
       <Dialog.Trigger asChild>
         <Button>두번째 모달 열기</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="max-w-[640px]">
+      <Dialog.Content className="w-[640px]">
         <Dialog.Header>
           <Dialog.Title>두번째 모달</Dialog.Title>
           <Dialog.Description>esc 키를 눌러 닫아주세요.</Dialog.Description>

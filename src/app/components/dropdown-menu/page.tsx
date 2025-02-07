@@ -76,7 +76,7 @@ export default function DropdownMenuPage() {
       </Grid.Item>
       <Grid.Item>
         <Dialog>
-          <Dialog.Content className="max-w-[320px]">
+          <Dialog.Content className="w-[320px]">
             <Dialog.Header>
               <Dialog.Title>삭제할까요?</Dialog.Title>
               <Dialog.Description className="sr-only">삭제할까요?</Dialog.Description>
