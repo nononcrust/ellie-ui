@@ -25,8 +25,16 @@ const DialogOverlay = ({ className, children, ...props }: DialogOverlayProps) =>
   );
 };
 
+type DialogAnimation = "pop" | "slide";
+
 type DialogContentProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Content> & {
-  animation?: "pop" | "slide";
+  animation?: DialogAnimation;
+};
+
+const animationStyle: Record<DialogAnimation, string> = {
+  pop: "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 duration-200",
+  slide:
+    "ease-out-expo data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[600px] duration-500!",
 };
 
 const DialogContent = ({
@@ -41,10 +49,7 @@ const DialogContent = ({
       <DialogPrimitives.Content
         className={cn(
           "bg-background fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 rounded-[12px] p-5",
-          animation === "pop" &&
-            "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 duration-200",
-          animation === "slide" &&
-            "ease-out-expo data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[600px] duration-500!",
+          animationStyle[animation],
           className,
         )}
         {...props}
