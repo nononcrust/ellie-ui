@@ -1,16 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
+import { buttonVariant } from "./button";
 
 const chipButtonVariants = cva(
   "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-colors",
   {
     variants: {
-      variant: {
-        primary: "bg-primary text-white hover:bg-primary-dark",
-        primaryLow: "border-primary bg-primary-lighter text-primary hover:bg-primary-lighter-hover",
-        secondary: "bg-secondary hover:bg-secondary-dark",
-      },
+      variant: buttonVariant,
       size: {
         xsmall: "h-7 gap-0.5 px-2.5 text-[12px]",
         small: "h-8 gap-1 px-3 text-[13px]",

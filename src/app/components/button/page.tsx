@@ -21,6 +21,15 @@ export default function ButtonPage() {
         <Button variant="primaryLow">버튼</Button>
       </Grid.Item>
       <Grid.Item>
+        <Button variant="primaryOutlined">버튼</Button>
+      </Grid.Item>
+      <Grid.Item>
+        <Button variant="primaryLowOutlined">버튼</Button>
+      </Grid.Item>
+      <Grid.Item>
+        <Button variant="contained">버튼</Button>
+      </Grid.Item>
+      <Grid.Item>
         <Button>
           <PlusIcon size={14} />
           버튼

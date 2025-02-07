@@ -24,7 +24,7 @@ export default function CommunityPage() {
         <div className="flex justify-end gap-3">
           <button
             className={cn(
-              "font-semibold text-subtle transition-colors",
+              "text-subtle font-semibold transition-colors",
               sort === "latest" && "text-main",
             )}
             onClick={() => setSort("latest")}
@@ -33,7 +33,7 @@ export default function CommunityPage() {
           </button>
           <button
             className={cn(
-              "font-semibold text-subtle transition-colors",
+              "text-subtle font-semibold transition-colors",
               sort === "popular" && "text-main",
             )}
             onClick={() => setSort("popular")}
@@ -48,7 +48,7 @@ export default function CommunityPage() {
         ))}
       </ul>
       <div className="flex justify-center py-16">
-        <span className="font-medium text-subtle">마지막 글입니다.</span>
+        <span className="text-subtle font-medium">마지막 글입니다.</span>
       </div>
       <Fab.Container>
         <Fab>
@@ -67,7 +67,7 @@ const Post = ({ post }: PostProps) => {
   return (
     <li className="flex flex-col py-3">
       <h3 className="text-lg font-semibold">{post.title}</h3>
-      <p className="line-clamp-2 text-[15px] font-medium text-sub">{post.content}</p>
+      <p className="text-sub line-clamp-2 text-[15px] font-medium">{post.content}</p>
       <div className="mt-2 flex gap-1">
         {post.tags.map((tag) => (
           <Chip key={tag} variant="secondary">
@@ -77,16 +77,16 @@ const Post = ({ post }: PostProps) => {
       </div>
       <div className="mt-3 flex items-center justify-between">
         <div className="flex gap-1">
-          <span className="text-sm font-medium text-subtle">{post.user.nickname}</span>
-          <span className="text-sm font-medium text-subtle">·</span>
-          <span className="text-sm font-medium text-subtle">{formatToTimeAgo(post.createdAt)}</span>
+          <span className="text-subtle text-sm font-medium">{post.user.nickname}</span>
+          <span className="text-subtle text-sm font-medium">·</span>
+          <span className="text-subtle text-sm font-medium">{formatToTimeAgo(post.createdAt)}</span>
         </div>
         <div className="flex gap-3">
-          <span className="flex items-center gap-1 text-sm font-medium text-subtle">
+          <span className="text-subtle flex items-center gap-1 text-sm font-medium">
             <HeartIcon size={16} />
             12
           </span>
-          <span className="flex items-center gap-1 text-sm font-medium text-subtle">
+          <span className="text-subtle flex items-center gap-1 text-sm font-medium">
             <MessageCircleMoreIcon size={16} />
             12
           </span>
@@ -101,7 +101,7 @@ const Filter = () => {
     <BottomSheet>
       <div className="relative">
         <BottomSheet.Trigger asChild>
-          <ChipButton variant="primaryLow">
+          <ChipButton variant="primaryLowOutlined">
             <SlidersHorizontalIcon size={16} />
             필터
           </ChipButton>

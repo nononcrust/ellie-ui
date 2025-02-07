@@ -44,10 +44,10 @@ export default function AppartmentApplicationPage() {
       </div>
       <ul className="mt-8 flex flex-col gap-4">
         {Array.from({ length: 10 }).map((_, index) => (
-          <li key={index} className="h-[120px] w-full rounded-xl bg-background-100" />
+          <li key={index} className="bg-background-100 h-[120px] w-full rounded-xl" />
         ))}
       </ul>
-      <p className="mt-8 text-lg leading-loose text-sub">
+      <p className="text-sub mt-8 text-lg leading-loose">
         온 가족이 오랜만에 모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기
         누군가 아프다면 문 연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이
         오랜만에 모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가
@@ -78,9 +78,9 @@ const CTAContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="flex h-[96px] md:hidden" />
-      <div className="sticky bottom-0 left-0 right-0 flex flex-col bg-background pb-4 pt-0 md:hidden">
+      <div className="bg-background sticky right-0 bottom-0 left-0 flex flex-col pt-0 pb-4 md:hidden">
         <div className="relative">
-          <div className="absolute -top-8 left-0 right-0 z-10 h-8 bg-linear-to-b from-transparent to-background" />
+          <div className="to-background absolute -top-8 right-0 left-0 z-10 h-8 bg-linear-to-b from-transparent" />
           <div className="relative z-20">{children}</div>
         </div>
       </div>
@@ -93,7 +93,7 @@ const AllFilter = () => {
     <BottomSheet>
       <div className="relative">
         <BottomSheet.Trigger asChild>
-          <ChipButton variant="primaryLow" className="w-9 px-0">
+          <ChipButton variant="primaryLowOutlined" className="w-9 px-0">
             <SlidersHorizontalIcon size={16} />
           </ChipButton>
         </BottomSheet.Trigger>
@@ -132,7 +132,7 @@ const AllFilter = () => {
           </div>
           <span className="mt-8 font-semibold">공급 위치</span>
           <div className="flex items-center justify-between py-4">
-            <span className="text-lg font-medium text-sub">성남시 분당구 서현동</span>
+            <span className="text-sub text-lg font-medium">성남시 분당구 서현동</span>
             <ChevronRightIcon size={20} />
           </div>
         </BottomSheet.Body>
@@ -158,7 +158,7 @@ const TypeFilter = () => {
   return (
     <BottomSheet>
       <BottomSheet.Trigger asChild>
-        <ChipButton variant={typeSelect.value ? "primaryLow" : "secondary"}>
+        <ChipButton variant={typeSelect.value ? "primaryLowOutlined" : "secondary"}>
           {typeSelect.value || "주거 형태"}
           <ChevronDownIcon size={16} />
         </ChipButton>

@@ -26,9 +26,9 @@ export const Secondary: Story = {
   },
 };
 
-export const PrimaryLow: Story = {
+export const PrimaryLowOutlined: Story = {
   render: () => {
-    return <ChipButton variant="primaryLow">버튼</ChipButton>;
+    return <ChipButton variant="primaryLowOutlined">버튼</ChipButton>;
   },
 };
 

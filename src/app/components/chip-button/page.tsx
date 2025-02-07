@@ -9,7 +9,7 @@ export default function ChipButtonPage() {
         <ChipButton variant="primary">버튼</ChipButton>
       </Grid.Item>
       <Grid.Item>
-        <ChipButton variant="primaryLow">버튼</ChipButton>
+        <ChipButton variant="primaryLowOutlined">버튼</ChipButton>
       </Grid.Item>
       <Grid.Item>
         <ChipButton variant="secondary">버튼</ChipButton>
@@ -21,7 +21,7 @@ export default function ChipButtonPage() {
         </ChipButton>
       </Grid.Item>
       <Grid.Item>
-        <ChipButton variant="primaryLow">
+        <ChipButton variant="primaryLowOutlined">
           버튼
           <ChevronDownIcon size={18} />
         </ChipButton>
@@ -38,7 +38,7 @@ export default function ChipButtonPage() {
         </ChipButton>
       </Grid.Item>
       <Grid.Item>
-        <ChipButton size="small" variant="primaryLow">
+        <ChipButton size="small" variant="primaryLowOutlined">
           버튼
         </ChipButton>
       </Grid.Item>
@@ -54,7 +54,7 @@ export default function ChipButtonPage() {
         </ChipButton>
       </Grid.Item>
       <Grid.Item>
-        <ChipButton size="small" variant="primaryLow">
+        <ChipButton size="small" variant="primaryLowOutlined">
           버튼
           <ChevronDownIcon size={16} />
         </ChipButton>
@@ -71,7 +71,7 @@ export default function ChipButtonPage() {
         </ChipButton>
       </Grid.Item>
       <Grid.Item>
-        <ChipButton size="xsmall" variant="primaryLow">
+        <ChipButton size="xsmall" variant="primaryLowOutlined">
           버튼
         </ChipButton>
       </Grid.Item>
@@ -87,7 +87,7 @@ export default function ChipButtonPage() {
         </ChipButton>
       </Grid.Item>
       <Grid.Item>
-        <ChipButton size="xsmall" variant="primaryLow">
+        <ChipButton size="xsmall" variant="primaryLowOutlined">
           버튼
           <ChevronDownIcon size={14} />
         </ChipButton>
