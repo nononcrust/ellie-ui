@@ -12,15 +12,35 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const DefaultRender = () => {
-  return (
-    <RadioGroup>
-      <RadioGroup.Option value="1">바나나</RadioGroup.Option>
-      <RadioGroup.Option value="2">사과</RadioGroup.Option>
-    </RadioGroup>
-  );
+export const Small: Story = {
+  render: () => {
+    return (
+      <RadioGroup size="small">
+        <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
 };
 
-export const Default: Story = {
-  render: DefaultRender,
+export const Medium: Story = {
+  render: () => {
+    return (
+      <RadioGroup>
+        <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
+};
+
+export const Large: Story = {
+  render: () => {
+    return (
+      <RadioGroup size="large">
+        <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
 };

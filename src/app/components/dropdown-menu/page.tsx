@@ -1,5 +1,6 @@
 "use client";
 
+import profileImage from "@/assets/images/chat-emoticon.webp";
 import { Grid } from "@/components/layouts/grid";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -33,26 +34,6 @@ export default function DropdownMenuPage() {
           <DropdownMenu.Content>
             <DropdownMenu.Item>수정하기</DropdownMenu.Item>
             <DropdownMenu.Item>삭제하기</DropdownMenu.Item>
-          </DropdownMenu.Content>
-        </DropdownMenu>
-      </Grid.Item>
-      <Grid.Item>
-        <DropdownMenu>
-          <DropdownMenu.Trigger className="rounded-full">
-            <Avatar>
-              <Avatar.Image src="https://avatars.githubusercontent.com/u/30559508?v=4" />
-              <Avatar.Fallback>U</Avatar.Fallback>
-            </Avatar>
-          </DropdownMenu.Trigger>
-          <DropdownMenu.Content>
-            <DropdownMenu.Item>
-              <UserIcon size={16} />
-              프로필
-            </DropdownMenu.Item>
-            <DropdownMenu.Item>
-              <LogOutIcon size={16} />
-              로그아웃
-            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu>
       </Grid.Item>
@@ -129,6 +110,26 @@ export default function DropdownMenuPage() {
             </DropdownMenu.Content>
           </DropdownMenu>
         </Dialog>
+      </Grid.Item>
+      <Grid.Item>
+        <DropdownMenu>
+          <DropdownMenu.Trigger className="rounded-full">
+            <Avatar>
+              <Avatar.Image src={profileImage.src} alt="프로필 이미지" />
+              <Avatar.Fallback>U</Avatar.Fallback>
+            </Avatar>
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content>
+            <DropdownMenu.Item>
+              <UserIcon size={16} />
+              프로필
+            </DropdownMenu.Item>
+            <DropdownMenu.Item>
+              <LogOutIcon size={16} />
+              로그아웃
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu>
       </Grid.Item>
     </Grid>
   );

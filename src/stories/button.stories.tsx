@@ -110,16 +110,6 @@ export const XLarge: Story = {
   },
 };
 
-export const CTA: Story = {
-  render: () => {
-    return (
-      <div className="flex w-[320px] flex-col gap-2">
-        <Button size="xlarge">버튼</Button>
-      </div>
-    );
-  },
-};
-
 const makeButtonSetByVariant = (variant: ButtonProps["variant"]) => {
   return (
     <div className="flex gap-2">

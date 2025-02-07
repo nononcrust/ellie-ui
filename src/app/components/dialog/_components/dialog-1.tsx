@@ -12,7 +12,7 @@ export const Dialog1 = () => {
       <Dialog.Content className="max-w-[400px]">
         <Dialog.Header>
           <Dialog.Title>제출하기</Dialog.Title>
-          <Dialog.Description>제출하시겠습니까?</Dialog.Description>
+          <Dialog.Description>과제를 제출하시겠습니까?</Dialog.Description>
         </Dialog.Header>
         <Dialog.Footer className="mt-8">
           <Dialog.Close asChild>

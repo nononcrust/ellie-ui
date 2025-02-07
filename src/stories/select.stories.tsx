@@ -15,11 +15,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     return (
-      <Select className="w-[120px]" placeholder="프레임워크를 선택하세요" defaultValue="1">
-        <Select.Option value="1">React</Select.Option>
-        <Select.Option value="2">Next.js</Select.Option>
-        <Select.Option value="3">Astro</Select.Option>
-        <Select.Option value="4">Gatsby</Select.Option>
+      <Select className="w-[200px]" placeholder="과일을 선택해주세요." defaultValue="">
+        <Select.Option value="1">바나나</Select.Option>
+        <Select.Option value="2">사과</Select.Option>
+        <Select.Option value="3">포도</Select.Option>
+        <Select.Option value="4">딸기</Select.Option>
       </Select>
     );
   },

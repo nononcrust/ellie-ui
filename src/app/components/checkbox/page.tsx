@@ -8,50 +8,50 @@ export default function CheckboxPage() {
   return (
     <Grid>
       <Grid.Item>
-        <Checkbox size="small" defaultChecked id="1" />
-        <Label htmlFor="1" className="ml-2">
+        <Label className="flex items-center gap-2">
+          <Checkbox size="small" defaultChecked />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox size="small" id="2" disabled />
-        <Label htmlFor="2" className="ml-2">
+        <Label className="flex items-center gap-2">
+          <Checkbox size="small" disabled />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox size="small" id="3" aria-invalid />
-        <Label htmlFor="3" className="ml-2">
+        <Label className="flex items-center gap-2">
+          <Checkbox size="small" aria-invalid />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox checked="indeterminate" size="small" id="4" />
-        <Label className="ml-2 text-base" htmlFor="4">
+        <Label className="flex items-center gap-2 text-base">
+          <Checkbox checked="indeterminate" size="small" />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox defaultChecked size="medium" id="5" />
-        <Label className="ml-2 text-base" htmlFor="5">
+        <Label className="flex items-center gap-2 text-base">
+          <Checkbox defaultChecked size="medium" />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox checked="indeterminate" size="medium" id="6" />
-        <Label className="ml-2 text-base" htmlFor="6">
+        <Label className="flex items-center gap-2 text-base">
+          <Checkbox checked="indeterminate" size="medium" />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox defaultChecked size="large" id="7" />
-        <Label className="ml-3 text-base" htmlFor="7">
+        <Label className="flex items-center gap-3 text-base">
+          <Checkbox defaultChecked size="large" />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox checked="indeterminate" size="large" id="8" />
-        <Label className="ml-3 text-base" htmlFor="8">
+        <Label className="flex items-center gap-3 text-base">
+          <Checkbox checked="indeterminate" size="large" />
           서비스 약관에 동의합니다.
         </Label>
       </Grid.Item>
