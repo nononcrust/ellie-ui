@@ -24,7 +24,15 @@ import { useDatePicker } from "@/hooks/use-date-picker";
 import { useDateRangePicker } from "@/hooks/use-date-range-picker";
 import { useSelect } from "@/hooks/use-select";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckIcon, EllipsisIcon, LogOutIcon, SettingsIcon, UserIcon, XIcon } from "lucide-react";
+import {
+  CheckIcon,
+  EllipsisIcon,
+  LogOutIcon,
+  SearchIcon,
+  SettingsIcon,
+  UserIcon,
+  XIcon,
+} from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -38,6 +46,7 @@ export default function Home() {
           <Tooltip variant="outlined" content="툴팁 내용">
             <Button>버튼</Button>
           </Tooltip>
+          <Button variant="contained">버튼</Button>
           <Button variant="secondary" onClick={() => toast.success("토스트 메시지")}>
             토스트
           </Button>
@@ -86,7 +95,9 @@ export default function Home() {
                 <Dialog.Close asChild>
                   <Button variant="outlined">닫기</Button>
                 </Dialog.Close>
-                <Button>확인</Button>
+                <Dialog.Close asChild>
+                  <Button>확인</Button>
+                </Dialog.Close>
               </Dialog.Footer>
             </Dialog.Content>
           </Dialog>
@@ -119,7 +130,20 @@ export default function Home() {
             <Calendar mode="range" />
           </div>
           <div className="flex flex-col gap-2">
-            <div className="flex gap-2">
+            <div className="flex gap-1">
+              <IconButton variant="primary" aria-label="검색" size="small">
+                <SearchIcon size={14} />
+              </IconButton>
+              <IconButton variant="contained" aria-label="검색" size="small">
+                <SearchIcon size={14} />
+              </IconButton>
+              <IconButton variant="secondary" aria-label="검색" size="small">
+                <SearchIcon size={14} />
+              </IconButton>
+              <IconButton variant="primaryLowOutlined" aria-label="검색" size="small">
+                <SearchIcon size={14} />
+              </IconButton>
+              <div className="flex gap-2"></div>
               <Input className="w-[320px]" placeholder="이메일을 입력해주세요" />
             </div>
             <div className="flex gap-2 p-3">
