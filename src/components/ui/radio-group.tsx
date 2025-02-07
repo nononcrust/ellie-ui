@@ -22,9 +22,9 @@ export const RadioGroup = ({
   ...props
 }: RadioGroupProps) => {
   const styleBySize = {
-    small: "gap-3",
-    medium: "gap-4",
-    large: "gap-6",
+    small: "gap-2",
+    medium: "gap-3",
+    large: "gap-4",
   };
 
   return (
@@ -58,7 +58,7 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
     <RadioGroupPrimitives.Item
       id={id}
       className={cn(
-        "aspect-sqaure size-4 shrink-0 rounded-full border border-border shadow-xs outline-hidden",
+        "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
         ariaInvalid && "border-error focus-visible:ring-ring-error",
