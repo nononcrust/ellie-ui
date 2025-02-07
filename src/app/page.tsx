@@ -115,7 +115,7 @@ export default function Home() {
           <Switch />
         </div>
         <div className="flex flex-col gap-2 md:flex-row">
-          <div className="h-fit w-fit rounded-[12px] border border-border p-3">
+          <div className="border-border h-fit w-fit rounded-[12px] border p-3">
             <Calendar mode="range" />
           </div>
           <div className="flex flex-col gap-2">
@@ -215,13 +215,11 @@ const DatePickerSection = () => {
         placeholder="날짜를 선택해주세요."
         value={datePicker.value}
         onChange={datePicker.onChange}
-        aria-invalid
       />
       <DateRangePicker
         placeholder="날짜 범위를 선택해주세요."
         value={dateRangePicker.value}
         onChange={dateRangePicker.onChange}
-        aria-invalid
       />
     </div>
   );
@@ -315,7 +313,7 @@ const FormSection = () => {
         </Form.Control>
         <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
         <div
-          className="mb-4 mt-3 h-1 w-full overflow-hidden rounded-full bg-border"
+          className="bg-border mt-3 mb-4 h-1 w-full overflow-hidden rounded-full"
           role="progressbar"
           aria-valuenow={strengthScore}
           aria-valuemin={0}
