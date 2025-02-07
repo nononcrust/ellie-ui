@@ -27,7 +27,7 @@ const BottomSheet1 = () => {
   return (
     <BottomSheet>
       <BottomSheet.Trigger asChild>
-        <Button variant="outlined">열기</Button>
+        <Button variant="outlined">가구 유형 선택</Button>
       </BottomSheet.Trigger>
       <BottomSheet.Content>
         <BottomSheet.Header>

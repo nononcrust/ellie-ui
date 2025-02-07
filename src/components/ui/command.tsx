@@ -12,7 +12,7 @@ const CommandImpl = React.forwardRef<React.ComponentRef<typeof CommandPrimitives
     <CommandPrimitives
       ref={ref}
       className={cn(
-        "flex h-full w-full flex-col overflow-hidden rounded-lg bg-background",
+        "bg-background flex h-full w-full flex-col overflow-hidden rounded-lg",
         className,
       )}
       {...props}
@@ -27,12 +27,12 @@ const CommandInput = React.forwardRef<
   React.ComponentRef<typeof CommandPrimitives.Input>,
   CommandInputProps
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center border-b border-border px-3" cmdk-input-wrapper="">
-    <SearchIcon size={18} strokeWidth={2} className="mr-2 text-placeholder" />
+  <div className="border-border flex items-center border-b px-3" cmdk-input-wrapper="">
+    <SearchIcon size={18} strokeWidth={2} className="text-placeholder mr-2" />
     <CommandPrimitives.Input
       ref={ref}
       className={cn(
-        "flex h-10 w-full rounded-lg bg-transparent py-3 text-sm outline-hidden placeholder:text-placeholder",
+        "placeholder:text-placeholder flex h-10 w-full rounded-lg bg-transparent py-3 text-sm outline-hidden",
         "disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
@@ -50,7 +50,7 @@ const CommandList = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <CommandPrimitives.List
     ref={ref}
-    className={cn("max-h-80 overflow-y-auto overflow-x-hidden p-1", className)}
+    className={cn("max-h-80 overflow-x-hidden overflow-y-auto p-1", className)}
     {...props}
   >
     {children}
@@ -66,7 +66,7 @@ const CommandEmpty = React.forwardRef<
 >((props, ref) => (
   <CommandPrimitives.Empty
     ref={ref}
-    className="py-6 text-center text-sm font-medium text-subtle"
+    className="text-subtle py-6 text-center text-sm font-medium"
     {...props}
   />
 ));
@@ -81,7 +81,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitives.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center gap-3 rounded-md px-2 py-1.5 text-sm font-medium outline-hidden",
+      "relative flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 text-sm font-medium outline-hidden select-none",
       "data-[selected=true]:bg-background-100",
       "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
       "[&_svg]:pointer-events-none [&_svg]:shrink-0",

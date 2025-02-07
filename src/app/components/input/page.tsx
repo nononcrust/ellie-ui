@@ -16,7 +16,7 @@ export default function InputPage() {
         <div className="flex w-full flex-col">
           <Label className="mb-2">
             이름
-            <span className="ml-1 text-error">*</span>
+            <span className="text-error ml-1">*</span>
           </Label>
           <Input />
         </div>
@@ -40,7 +40,7 @@ export default function InputPage() {
             <Input className="pl-8" placeholder="검색어를 입력하세요." />
             <SearchIcon
               size={14}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-subtle"
+              className="text-subtle absolute top-1/2 left-3 -translate-y-1/2"
               strokeWidth={3}
             />
           </div>
@@ -53,7 +53,7 @@ export default function InputPage() {
             <Input className="pr-8" placeholder="검색어를 입력하세요." />
             <SearchIcon
               size={14}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-subtle"
+              className="text-subtle absolute top-1/2 right-3 -translate-y-1/2"
               strokeWidth={3}
             />
           </div>

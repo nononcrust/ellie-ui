@@ -19,12 +19,12 @@ const formSchema = z.object({
   name: z.string().nonempty({ message: "이름을 입력해주세요." }),
   email: z.string().email({ message: "유효한 이메일을 입력해주세요." }),
   password: z.string().min(8, { message: "비밀번호는 8자 이상이어야 합니다." }),
-  passwordConfirm: z.string().min(8),
-  date: z.date(),
+  passwordConfirm: z.string().min(8, { message: "비밀번호를 한번 더 입력해주세요." }),
+  date: z.date({ message: "생년월일을 입력해주세요." }),
   terms: z.boolean().refine((data) => data === true, {
     message: "약관에 동의해주세요.",
   }),
-  gender: z.string().nonempty({ message: "성별을 선택해주세요." }),
+  gender: z.string({ message: "성별을 선택해주세요." }),
 });
 
 type FormSchema = z.infer<typeof formSchema>;
@@ -149,13 +149,13 @@ export const Form1 = () => {
           render={({ field }) => (
             <Form.Control>
               <RadioGroup {...field} onValueChange={field.onChange} size="small">
-                <RadioGroup.Option value="1">React</RadioGroup.Option>
-                <RadioGroup.Option value="2">Astro</RadioGroup.Option>
-                <RadioGroup.Option value="3">Remix</RadioGroup.Option>
+                <RadioGroup.Option value="1">남성</RadioGroup.Option>
+                <RadioGroup.Option value="2">여성</RadioGroup.Option>
               </RadioGroup>
             </Form.Control>
           )}
         />
+        <Form.ErrorMessage>{form.formState.errors.gender?.message}</Form.ErrorMessage>
       </Form.Item>
       <Button type="submit">가입하기</Button>
     </Form>

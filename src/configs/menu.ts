@@ -12,7 +12,7 @@ export const menu = [
       { title: "Switch", href: "/components/switch" },
       { title: "Textarea", href: "/components/textarea" },
       { title: "Chip", href: "/components/chip" },
-      { title: "ChipButton", href: "/components/chip-button" },
+      { title: "Chip Button", href: "/components/chip-button" },
       { title: "Avatar", href: "/components/avatar" },
       { title: "Dialog", href: "/components/dialog" },
       { title: "Bottom Sheet", href: "/components/bottom-sheet" },

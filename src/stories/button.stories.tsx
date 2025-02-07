@@ -145,6 +145,9 @@ const makeButtonSetByProps = (props: ButtonProps) => {
       <Button variant="secondary" {...props}>
         버튼
       </Button>
+      <Button variant="primaryLow" {...props}>
+        버튼
+      </Button>
       <Button variant="outlined" {...props}>
         버튼
       </Button>
