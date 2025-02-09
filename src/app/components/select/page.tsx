@@ -49,7 +49,7 @@ const Select1 = () => {
         <Select.Option value="1">인기순</Select.Option>
         <Select.Option value="2">최신순</Select.Option>
         <Select.Option value="3">가격 낮은 순</Select.Option>
-        <Select.Option value="3">가격 높은 순</Select.Option>
+        <Select.Option value="4">가격 높은 순</Select.Option>
       </Select>
     </div>
   );
@@ -152,7 +152,7 @@ const Select7 = () => {
         <Popover.Trigger asChild>
           <button
             className={cn(
-              "border-border bg-background text-main flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-semibold shadow-xs outline-hidden",
+              "border-border bg-background text-main shadow-xs outline-hidden flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-semibold",
               "data-placeholder:text-placeholder",
               "[&>span]:min-w-0",
               "placeholder-placeholder",
