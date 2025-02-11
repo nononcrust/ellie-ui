@@ -1,6 +1,5 @@
 "use client";
 
-import { SearchInput } from "@/app/mobile/_components/search-input";
 import profileImage from "@/assets/images/nonon.png";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import { UsersRoundIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { FeedListItem } from "./_components/feed-list-item";
+import { SearchInput } from "./_components/search-input";
 
 export default function FeedPage() {
   return (
