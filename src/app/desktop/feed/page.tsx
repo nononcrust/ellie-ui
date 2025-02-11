@@ -22,7 +22,7 @@ export default function FeedPage() {
           <FeedListItem user={{ nickname: "노논" }} />
         </ul>
       </main>
-      <aside className="sticky top-[56px] right-0 hidden h-[120px] min-w-[320px] flex-col px-6 md:flex">
+      <aside className="sticky top-[56px] right-0 hidden h-[120px] min-w-[320px] flex-col px-6 lg:flex">
         <SearchInput className="mt-6" placeholder="검색하기" />
         <div className="mt-4 flex flex-col">
           <Button className="mt-4">
@@ -40,20 +40,20 @@ export default function FeedPage() {
           </div>
         </div>
         <div className="text-subtle mt-4 flex items-center gap-1 font-bold">
-          <Link className="text-primary text-sm font-normal hover:underline" href="#">
-            Feedback
+          <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+            피드백
           </Link>
           •
-          <Link className="text-primary text-sm font-normal hover:underline" href="#">
-            Privacy
+          <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+            이용약관
           </Link>
           •
-          <Link className="text-primary text-sm font-normal hover:underline" href="#">
-            Terms
+          <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+            개인정보 처리방침
           </Link>
           •
-          <Link className="text-primary text-sm font-normal hover:underline" href="#">
-            Help
+          <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+            고객센터
           </Link>
         </div>
       </aside>
