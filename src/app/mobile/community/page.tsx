@@ -4,10 +4,10 @@ import { Mobile } from "@/components/layouts/mobile";
 import { Badge } from "@/components/ui/badge";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
 import { ChipButton } from "@/components/ui/chip-button";
 import { Fab } from "@/components/ui/fab";
 import { RadioGroup } from "@/components/ui/radio-group";
+import { Tag } from "@/components/ui/tag";
 import { formatToTimeAgo } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { HeartIcon, MessageCircleMoreIcon, PlusIcon, SlidersHorizontalIcon } from "lucide-react";
@@ -70,9 +70,9 @@ const Post = ({ post }: PostProps) => {
       <p className="text-sub line-clamp-2 text-[15px] font-medium">{post.content}</p>
       <div className="mt-2 flex gap-1">
         {post.tags.map((tag) => (
-          <Chip key={tag} variant="secondary">
+          <Tag key={tag} variant="secondary">
             {tag}
-          </Chip>
+          </Tag>
         ))}
       </div>
       <div className="mt-3 flex items-center justify-between">

@@ -11,6 +11,7 @@ export const menu = [
       { title: "Date Picker", href: "/components/date-picker" },
       { title: "Switch", href: "/components/switch" },
       { title: "Textarea", href: "/components/textarea" },
+      { title: "Tag", href: "/components/tag" },
       { title: "Chip", href: "/components/chip" },
       { title: "Chip Button", href: "/components/chip-button" },
       { title: "Avatar", href: "/components/avatar" },

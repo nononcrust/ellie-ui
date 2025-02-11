@@ -2,8 +2,8 @@
 
 import { Mobile } from "@/components/layouts/mobile";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { Chip } from "@/components/ui/chip";
 import { ChipButton } from "@/components/ui/chip-button";
+import { Tag } from "@/components/ui/tag";
 import { ChevronDownIcon, StarIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -36,7 +36,7 @@ export default function ProductsPage() {
         ))}
       </ul>
       <div className="flex justify-center py-16">
-        <span className="text-sm font-medium text-subtle">마지막 상품입니다.</span>
+        <span className="text-subtle text-sm font-medium">마지막 상품입니다.</span>
       </div>
     </Mobile>
   );
@@ -85,12 +85,12 @@ const Product = ({ product }: ProductProps) => {
   return (
     <li>
       <div className="flex flex-col">
-        <div className="aspect-square rounded-lg bg-background-100" />
+        <div className="bg-background-100 aspect-square rounded-lg" />
         <div className="mt-2 flex h-[144px] flex-col">
-          <span className="text-[13px] font-medium text-subtle">{product.vendor}</span>
+          <span className="text-subtle text-[13px] font-medium">{product.vendor}</span>
           <span className="line-clamp-2 text-sm">{product.title}</span>
           <div className="flex items-center gap-1">
-            <span className="text-lg font-semibold text-primary">
+            <span className="text-primary text-lg font-semibold">
               {(product.discountRate * 100).toFixed(0)}%
             </span>
             <span className="text-lg font-semibold">{product.price.toLocaleString()}</span>
@@ -100,15 +100,15 @@ const Product = ({ product }: ProductProps) => {
               <StarIcon className="fill-primary text-primary" size={12} />
               <span className="text-xs font-semibold">{product.rating.toFixed(1)}</span>
             </div>
-            <span className="text-xs font-medium text-subtle">
+            <span className="text-subtle text-xs font-medium">
               리뷰 {product.reviewCount.toLocaleString()}
             </span>
           </div>
           <div className="mt-1 flex flex-wrap gap-1">
             {product.tags.map((tag) => (
-              <Chip size="medium" variant="secondary" key={tag}>
+              <Tag size="medium" variant="secondary" key={tag}>
                 {tag}
-              </Chip>
+              </Tag>
             ))}
           </div>
         </div>

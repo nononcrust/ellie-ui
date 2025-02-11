@@ -3,12 +3,12 @@
 import profileImage from "@/assets/images/nonon.png";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
 import { Divider } from "@/components/ui/divider";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
+import { Tag } from "@/components/ui/tag";
 import { Tooltip } from "@/components/ui/tooltip";
 import { ArrowUpRightIcon, ChevronRightIcon, CircleHelpIcon } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -30,7 +30,7 @@ export default function SettingsPage() {
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-1">
           <span className="text-sm font-medium">테마 변경</span>
-          <span className="text-xs text-sub">
+          <span className="text-sub text-xs">
             밝은 테마, 어두운 테마, 시스템 설정 중에서 선택하세요.
           </span>
         </div>
@@ -42,7 +42,7 @@ export default function SettingsPage() {
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-sm font-medium">이메일</span>
-            <span className="text-xs text-sub">nononcrust@gmail.com</span>
+            <span className="text-sub text-xs">nononcrust@gmail.com</span>
           </div>
           <Button size="small" variant="outlined">
             이메일 변경
@@ -51,7 +51,7 @@ export default function SettingsPage() {
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-sm font-medium">비밀번호</span>
-            <span className="text-xs text-sub">
+            <span className="text-sub text-xs">
               계정 로그인에 사용할 영구 비밀번호를 설정하세요.
             </span>
           </div>
@@ -60,7 +60,7 @@ export default function SettingsPage() {
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-sm font-medium">2단계 인증</span>
-            <span className="text-xs text-sub">로그인 단계에서 계정 보안 방식을 추가하세요.</span>
+            <span className="text-sub text-xs">로그인 단계에서 계정 보안 방식을 추가하세요.</span>
           </div>
           <Button size="small" variant="outlined">
             인증 방법 추가
@@ -68,8 +68,8 @@ export default function SettingsPage() {
         </div>
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
-            <span className="text-sm font-medium text-error">내 계정 삭제</span>
-            <span className="text-xs text-sub">
+            <span className="text-error text-sm font-medium">내 계정 삭제</span>
+            <span className="text-sub text-xs">
               계정을 영구적으로 삭제하고 모든 워크스페이스에서 액세스 권한을 제거합니다.
             </span>
           </div>
@@ -88,7 +88,7 @@ export default function SettingsPage() {
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-sm font-medium">모든 기기에서 로그아웃</span>
-            <span className="text-xs text-sub">
+            <span className="text-sub text-xs">
               이 기기 외에 다른 기기의 모든 활성 세션에서 로그아웃합니다.
             </span>
           </div>
@@ -126,22 +126,22 @@ export default function SettingsPage() {
       <div>
         <h3 className="flex items-center gap-2 text-sm font-medium">
           멤버 목록 내보내기
-          <Chip variant="info">
+          <Tag variant="info">
             비즈니스
             <ArrowUpRightIcon className="ml-1" size={12} />
-          </Chip>
+          </Tag>
         </h3>
         <Button className="mt-3" variant="outlined">
           멤버 목록 CSV로 내보내기
         </Button>
       </div>
-      <Button className="mt-2 -translate-x-3 text-subtle" variant="ghost">
+      <Button className="text-subtle mt-2 -translate-x-3" variant="ghost">
         <CircleHelpIcon size={16} className="text-subtle" />
         멤버 목록 내보내기에 대해 자세히 알아보세요.
       </Button>
       <Divider className="my-3" />
       <h3 className="text-sm font-medium">위험 구역</h3>
-      <Button variant="outlined" className="mt-3 border-error text-error">
+      <Button variant="outlined" className="border-error text-error mt-3">
         워크스페이스 삭제
       </Button>
     </main>

@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Chip } from "@/components/ui/chip";
 import { DatePicker, DateRangePicker } from "@/components/ui/date-picker";
 import { Dialog } from "@/components/ui/dialog";
 import { DropdownMenu } from "@/components/ui/dropdown-menu";
@@ -17,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
+import { Tag } from "@/components/ui/tag";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
 import { Tooltip } from "@/components/ui/tooltip";
@@ -217,13 +217,13 @@ const BadgeSection = () => {
 const ChipSection = () => {
   return (
     <div className="flex flex-wrap gap-1">
-      <Chip variant="primary">신규 가입 기업</Chip>
-      <Chip variant="secondary">신규 가입 기업</Chip>
-      <Chip variant="outlined">신규 가입 기업</Chip>
-      <Chip variant="info">신규 가입 기업</Chip>
-      <Chip variant="success">신규 가입 기업</Chip>
-      <Chip variant="warning">신규 가입 기업</Chip>
-      <Chip variant="danger">신규 가입 기업</Chip>
+      <Tag variant="primary">신규 가입 기업</Tag>
+      <Tag variant="secondary">신규 가입 기업</Tag>
+      <Tag variant="outlined">신규 가입 기업</Tag>
+      <Tag variant="info">신규 가입 기업</Tag>
+      <Tag variant="success">신규 가입 기업</Tag>
+      <Tag variant="warning">신규 가입 기업</Tag>
+      <Tag variant="danger">신규 가입 기업</Tag>
     </div>
   );
 };
