@@ -42,34 +42,19 @@ export default function AppartmentApplicationPage() {
           <ChevronDownIcon size={16} />
         </ChipButton>
       </div>
-      <ul className="mt-8 flex flex-col gap-4">
+      <ul className="mt-8 flex flex-col gap-6">
         {Array.from({ length: 10 }).map((_, index) => (
-          <li key={index} className="bg-background-100 h-[120px] w-full rounded-xl" />
+          <ApplicationListItem key={index} />
         ))}
       </ul>
-      <p className="text-sub mt-8 text-lg leading-loose">
-        온 가족이 오랜만에 모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기
-        누군가 아프다면 문 연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이
-        오랜만에 모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가
-        아프다면 문 연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이 오랜만에
-        모여 도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가 아프다면 문
-        연 병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요. 온 가족이 오랜만에 모여
-        도란도란 이야기도 하고 맛있는 음식도 먹는 즐거운 추석 명절에 갑자기 누군가 아프다면 문 연
-        병원을 찾아 헤매거나 병원이 문 열 때까지 참아야 하는데요.
-      </p>
+      <div className="flex justify-center py-16">
+        <span className="text-subtle font-medium">마지막 항목입니다.</span>
+      </div>
       <CTAContainer>
         <Button className="w-full" size="xlarge">
           청약 신청하러 가기
         </Button>
       </CTAContainer>
-      <div className="my-8 hidden gap-4 md:flex">
-        <Button className="w-full" size="xlarge" variant="primaryLow">
-          청약 알림받기
-        </Button>
-        <Button className="w-full" size="xlarge" variant="primary">
-          신청하기
-        </Button>
-      </div>
     </Mobile>
   );
 }
@@ -176,5 +161,21 @@ const TypeFilter = () => {
         </BottomSheet.Body>
       </BottomSheet.Content>
     </BottomSheet>
+  );
+};
+
+const ApplicationListItem = () => {
+  return (
+    <li className="flex items-center justify-between">
+      <div className="flex flex-col">
+        <span className="text-primary text-sm font-semibold">무순위/잔여세대</span>
+        <span className="font-medium">의왕고천지구 대방 디에트르 센트럴(B1BL)</span>
+        <span className="text-sub text-sm font-medium">의왕시 고천동</span>
+        <span className="text-subtle mt-2 text-sm font-medium">조회 5,513 알림 수 479</span>
+      </div>
+      <div>
+        <Button>신청</Button>
+      </div>
+    </li>
   );
 };

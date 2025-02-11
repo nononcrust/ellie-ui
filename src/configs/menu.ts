@@ -29,10 +29,10 @@ export const menu = [
   {
     title: "desktop",
     items: [
-      { title: "Board", href: "/desktop/board" },
-      { title: "Settings", href: "/desktop/settings" },
-      { title: "Chat", href: "/desktop/chat" },
       { title: "Feed", href: "/desktop/feed" },
+      { title: "Chat", href: "/desktop/chat" },
+      { title: "Settings", href: "/desktop/settings" },
+      { title: "Board", href: "/desktop/board" },
     ],
   },
   {

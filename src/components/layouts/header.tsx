@@ -1,5 +1,7 @@
 "use client";
 
+import github from "@/assets/images/github-logo.svg";
+import { link } from "@/configs/link";
 import { menu } from "@/configs/menu";
 import { useIsScrollTop } from "@/hooks/use-is-scroll-top";
 import { cn } from "@/lib/utils";
@@ -24,14 +26,24 @@ export const Header = () => {
         isScrollTop ? "border-transparent" : "border-border",
       )}
     >
-      <Logo />
-      <MobileMenu />
+      <div>
+        <MobileMenu />
+      </div>
+      <div className="mr-1">
+        <Github />
+      </div>
     </header>
   );
 };
 
-const Logo = () => {
-  return <div />;
+const Github = () => {
+  return (
+    <IconButton className="rounded-full" aria-label="깃허브" variant="ghost" asChild size="small">
+      <Link href={link.github}>
+        <img className="w-5" src={github.src} alt="" />
+      </Link>
+    </IconButton>
+  );
 };
 
 const MobileMenu = () => {
