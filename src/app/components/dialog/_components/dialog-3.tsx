@@ -9,7 +9,7 @@ export const Dialog3 = () => {
       <Dialog.Trigger asChild>
         <Button>중첩 모달</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="max-w-[320px]">
+      <Dialog.Content className="w-[320px]">
         <Dialog.Header>
           <Dialog.Title>첫번째 모달</Dialog.Title>
           <Dialog.Description>두번째 모달을 열어주세요.</Dialog.Description>

@@ -32,6 +32,7 @@ export const menu = [
       { title: "Board", href: "/desktop/board" },
       { title: "Settings", href: "/desktop/settings" },
       { title: "Chat", href: "/desktop/chat" },
+      { title: "Feed", href: "/desktop/feed" },
     ],
   },
   {
