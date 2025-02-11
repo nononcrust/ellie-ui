@@ -4,6 +4,7 @@ import profileImage from "@/assets/images/chat-emoticon.webp";
 import { Avatar } from "@/components/ui/avatar";
 import { DropdownMenu } from "@/components/ui/dropdown-menu";
 import { IconButton } from "@/components/ui/icon-button";
+import { formatToTimeAgo } from "@/lib/date";
 import {
   CodeIcon,
   EllipsisIcon,
@@ -18,10 +19,18 @@ import {
 type FeedListItemProps = {
   user: {
     nickname: string;
+    email: string;
+  };
+  content: string;
+  createdAt: string;
+  count: {
+    comment: number;
+    like: number;
+    repost: number;
   };
 };
 
-export const FeedListItem = ({ user }: FeedListItemProps) => {
+export const FeedListItem = ({ user, content, count, createdAt }: FeedListItemProps) => {
   return (
     <li className="flex gap-3 px-4 py-3">
       <Avatar>
@@ -31,23 +40,23 @@ export const FeedListItem = ({ user }: FeedListItemProps) => {
       <div className="flex flex-col">
         <span className="text-[15px] font-semibold">
           {user.nickname}
-          <span className="text-subtle ml-1 font-normal">@nononcrust.social</span>
+          <span className="text-subtle ml-1 font-normal">{user.email}</span>
           <span className="mx-1">·</span>
-          <span className="text-sub text-[13px] font-normal">1시간 전</span>
+          <span className="text-sub text-[13px] font-normal">{formatToTimeAgo(createdAt)}</span>
         </span>
-        <p className="text-[15px]">안녕하세요!!!</p>
+        <p className="text-[15px]">{content}</p>
         <div className="text-subtle mt-2 flex items-center gap-16">
           <span className="flex items-center gap-0.5 text-sm">
             <MessageCircleIcon size={16} />
-            16
+            {count.comment}
           </span>
           <span className="flex items-center gap-0.5 text-sm">
             <HeartIcon size={16} />
-            16
+            {count.like}
           </span>
           <span className="flex items-center gap-0.5 text-sm">
             <Repeat2Icon size={16} />
-            16
+            {count.repost}
           </span>
           <DropdownMenu>
             <DropdownMenu.Trigger asChild>
