@@ -99,14 +99,14 @@ const BottomSheet3 = () => {
             <BottomSheet.SelectItem value="all">전체</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="one-room">원룸</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
-            <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="apartment">아파트</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="house">주택</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="villa">빌라</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="detached-house">단독주택</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="row-house">연립주택</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="office">사무실</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="store">상가</BottomSheet.SelectItem>
+            <BottomSheet.SelectItem value="building">건물</BottomSheet.SelectItem>
           </BottomSheet.SelectGroup>
         </BottomSheet.Body>
         <BottomSheet.Footer className="gap-4">

@@ -9,7 +9,7 @@ export const Dialog4 = () => {
       <Dialog.Trigger asChild>
         <Button>스크롤</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[400px]">
+      <Dialog.Content className="w-[640px]">
         <Dialog.Header>
           <Dialog.Title>이용약관</Dialog.Title>
           <Dialog.Description className="sr-only">이용약관</Dialog.Description>

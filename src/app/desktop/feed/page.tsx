@@ -5,6 +5,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ChipButton } from "@/components/ui/chip-button";
 import { IconButton } from "@/components/ui/icon-button";
+import { Tabs } from "@/components/ui/tabs";
 import { UsersRoundIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -15,7 +16,13 @@ export default function FeedPage() {
   return (
     <div className="mx-auto flex w-full md:max-w-4xl">
       <main className="border-border w-full py-16 md:border-x">
-        <ul className="border-border divide-border flex flex-col divide-y border-y">
+        <Tabs defaultValue="1">
+          <Tabs.List fullWidth size="large">
+            <Tabs.Trigger value="1">찾아보기</Tabs.Trigger>
+            <Tabs.Trigger value="2">팔로잉</Tabs.Trigger>
+          </Tabs.List>
+        </Tabs>
+        <ul className="border-border divide-border flex flex-col divide-y border-b">
           {Array.from({ length: 10 }).map((_, index) => (
             <FeedListItem key={index} {...FEED} />
           ))}

@@ -18,6 +18,7 @@ export const menu = [
       { title: "Dialog", href: "/components/dialog" },
       { title: "Bottom Sheet", href: "/components/bottom-sheet" },
       { title: "Badge", href: "/components/badge" },
+      { title: "Tabs", href: "/components/tabs" },
       { title: "Skeleton", href: "/components/skeleton" },
       { title: "Dropdown Menu", href: "/components/dropdown-menu" },
       { title: "Popover", href: "/components/popover" },
