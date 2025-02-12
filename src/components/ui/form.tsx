@@ -18,7 +18,7 @@ const FormLabel = ({ className, children, ...props }: FormLabelProps) => {
   return (
     <Label
       htmlFor={id}
-      className={cn("text-main mb-1 w-fit text-sm font-medium", className)}
+      className={cn("text-main mb-2 w-fit text-sm font-medium", className)}
       {...props}
     >
       {children}
@@ -70,7 +70,7 @@ const FormErrorMessage = ({ className, children, ...props }: FormErrorMessagePro
     <p
       ref={errorMessageRef}
       id={errorMessageId}
-      className={cn("mt-1 text-[13px] font-medium text-error", className)}
+      className={cn("text-error mt-1 text-[13px] font-medium", className)}
       {...props}
     >
       {children}

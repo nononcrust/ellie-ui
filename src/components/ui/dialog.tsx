@@ -48,7 +48,7 @@ const DialogContent = ({
       <DialogOverlay />
       <DialogPrimitives.Content
         className={cn(
-          "bg-background fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 rounded-[12px] p-5",
+          "bg-background fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-auto rounded-[12px]",
           animationStyle[animation],
           className,
         )}
@@ -69,7 +69,17 @@ type DialogHeaderProps = React.ComponentPropsWithRef<"div">;
 
 const DialogHeader = ({ className, children, ...props }: DialogHeaderProps) => {
   return (
-    <div className={cn("flex flex-col gap-1.5", className)} {...props}>
+    <div className={cn("flex flex-col gap-1.5 p-5", className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+type DialogBodyProps = React.ComponentPropsWithRef<"div">;
+
+const DialogBody = ({ className, children, ...props }: DialogBodyProps) => {
+  return (
+    <div className={cn("flex flex-1 flex-col overflow-y-auto px-5", className)} {...props}>
       {children}
     </div>
   );
@@ -79,7 +89,7 @@ type DialogFooterProps = React.ComponentPropsWithRef<"div">;
 
 const DialogFooter = ({ className, children, ...props }: DialogFooterProps) => {
   return (
-    <div className={cn("flex justify-end gap-2", className)} {...props}>
+    <div className={cn("flex justify-end gap-2 p-5", className)} {...props}>
       {children}
     </div>
   );
@@ -112,6 +122,7 @@ Dialog.Trigger = DialogPrimitives.Trigger;
 Dialog.Close = DialogPrimitives.Close;
 Dialog.Content = DialogContent;
 Dialog.Header = DialogHeader;
+Dialog.Body = DialogBody;
 Dialog.Footer = DialogFooter;
 Dialog.Title = DialogTitle;
 Dialog.Description = DialogDescription;
