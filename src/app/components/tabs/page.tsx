@@ -24,6 +24,17 @@ export default function TabsPage() {
           </Tabs.List>
         </Tabs>
       </Grid.Item>
+      <Grid.Item>
+        <Tabs defaultValue="1">
+          <Tabs.List>
+            <Tabs.Trigger value="1">전체</Tabs.Trigger>
+            <Tabs.Trigger value="2">인기글</Tabs.Trigger>
+            <Tabs.Trigger value="3" disabled>
+              공지사항
+            </Tabs.Trigger>
+          </Tabs.List>
+        </Tabs>
+      </Grid.Item>
     </Grid>
   );
 }

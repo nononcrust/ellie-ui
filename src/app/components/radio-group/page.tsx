@@ -38,6 +38,28 @@ export default function RadioGroupPage() {
         </div>
       </Grid.Item>
       <Grid.Item>
+        <div className="flex w-full flex-col">
+          <Label className="mb-2">Disabled</Label>
+          <RadioGroup defaultValue="1" size="small" disabled>
+            <RadioGroup.Option value="1">바나나</RadioGroup.Option>
+            <RadioGroup.Option value="2">사과</RadioGroup.Option>
+            <RadioGroup.Option value="3">딸기</RadioGroup.Option>
+          </RadioGroup>
+        </div>
+      </Grid.Item>
+      <Grid.Item>
+        <div className="flex w-full flex-col">
+          <Label className="mb-2">Option Disabled</Label>
+          <RadioGroup defaultValue="1" size="small">
+            <RadioGroup.Option value="1">바나나</RadioGroup.Option>
+            <RadioGroup.Option value="2" disabled>
+              사과
+            </RadioGroup.Option>
+            <RadioGroup.Option value="3">딸기</RadioGroup.Option>
+          </RadioGroup>
+        </div>
+      </Grid.Item>
+      <Grid.Item>
         <RadioGroup defaultValue="1">
           <div className="border-border has-data-[state=checked]:border-primary relative flex w-full items-start justify-between gap-2 rounded-lg border p-4 shadow-xs">
             <div className="grid grow gap-2">

@@ -1,20 +1,42 @@
 "use client";
 
+import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import * as DialogPrimitives from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { IconButton } from "./icon-button";
 
-type DialogProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Root>;
+type DialogProps = Omit<DialogPrimitives.DialogProps, "open"> & {
+  isOpen?: boolean;
+  triggerRef?: React.RefObject<HTMLElement | null>;
+};
 
-export const Dialog = ({ children, ...props }: DialogProps) => {
-  return <DialogPrimitives.Root {...props}>{children}</DialogPrimitives.Root>;
+export const Dialog = ({ children, isOpen, triggerRef, ...props }: DialogProps) => {
+  return (
+    <DialogContext value={{ triggerRef }}>
+      <DialogPrimitives.Root open={isOpen} {...props}>
+        {children}
+      </DialogPrimitives.Root>
+    </DialogContext>
+  );
 };
 
 type DialogOverlayProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Overlay>;
 
 const DialogOverlay = ({ className, children, ...props }: DialogOverlayProps) => {
+  const { triggerRef } = useDialogContext();
+
+  useEffect(() => {
+    if (!triggerRef) return;
+
+    const triggerElement = triggerRef.current;
+
+    return () => {
+      triggerElement?.focus();
+    };
+  }, [triggerRef]);
+
   return (
     <DialogPrimitives.Overlay
       className={cn("fixed inset-0 z-50 bg-black/70", "animate-in fade-in", className)}
@@ -117,6 +139,12 @@ const DialogDescription = ({ className, children, ...props }: DialogDescriptionP
     </DialogPrimitives.Description>
   );
 };
+
+type DialogContextValue = {
+  triggerRef: DialogProps["triggerRef"];
+};
+
+const [DialogContext, useDialogContext] = createContextFactory<DialogContextValue>("Dialog");
 
 Dialog.Trigger = DialogPrimitives.Trigger;
 Dialog.Close = DialogPrimitives.Close;
