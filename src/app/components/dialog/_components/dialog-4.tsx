@@ -22,7 +22,7 @@ export const Dialog4 = () => {
             <Button variant="outlined">취소</Button>
           </Dialog.Close>
           <Dialog.Close asChild>
-            <Button type="submit">동의합니다.</Button>
+            <Button type="submit">동의합니다</Button>
           </Dialog.Close>
         </Dialog.Footer>
       </Dialog.Content>
