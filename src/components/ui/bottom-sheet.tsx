@@ -37,9 +37,9 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
       <BottomSheetOverlay />
       <DialogPrimitives.Content
         className={cn(
-          "fixed bottom-0 left-0 right-0 z-50 mx-auto",
+          "fixed right-0 bottom-0 left-0 z-50 mx-auto",
           "flex max-h-[calc(100%-4rem)] w-full max-w-[560px] flex-col",
-          "rounded-t-[32px] bg-background outline-hidden",
+          "bg-background rounded-t-[32px] outline-hidden",
           "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom",
           "duration-500!",
           "ease-out-quint",
@@ -48,7 +48,7 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
         {...props}
       >
         {children}
-        <DialogPrimitives.Close className="absolute right-4 top-8" asChild>
+        <DialogPrimitives.Close className="absolute top-8 right-4" asChild>
           <IconButton variant="ghost" aria-label="닫기">
             <XIcon size={24} />
           </IconButton>
@@ -63,10 +63,10 @@ type BottomSheetHeaderProps = React.ComponentPropsWithRef<"div">;
 const BottomSheetHeader = ({ className, children, ...props }: BottomSheetHeaderProps) => {
   return (
     <div className="relative flex flex-col">
-      <div className={cn("flex flex-col gap-1.5 p-5 pb-0", className)} {...props}>
+      <div className={cn("flex flex-col gap-1.5 p-5 pb-1", className)} {...props}>
         {children}
       </div>
-      <div className="absolute -bottom-5 left-2 right-2 h-5 bg-linear-to-t from-transparent to-white" />
+      <div className="absolute right-2 -bottom-5 left-2 h-5 bg-linear-to-t from-transparent to-white" />
     </div>
   );
 };
@@ -75,7 +75,7 @@ type BottomSheetBodyProps = React.ComponentPropsWithRef<"div">;
 
 const BottomSheetBody = ({ className, children, ...props }: BottomSheetBodyProps) => {
   return (
-    <div className={cn("flex flex-col gap-1.5 overflow-y-auto px-5 py-3", className)} {...props}>
+    <div className={cn("flex flex-col gap-1.5 overflow-y-auto p-5", className)} {...props}>
       {children}
     </div>
   );
@@ -86,8 +86,8 @@ type BottomSheetFooterProps = React.ComponentPropsWithRef<"div">;
 const BottomSheetFooter = ({ className, children, ...props }: BottomSheetFooterProps) => {
   return (
     <div className="relative flex flex-col">
-      <div className="absolute -top-5 left-2 right-2 h-5 bg-linear-to-t from-white to-transparent" />
-      <div className={cn("flex p-5 pt-0", className)} {...props}>
+      <div className="absolute -top-5 right-2 left-2 h-5 bg-linear-to-t from-white to-transparent" />
+      <div className={cn("flex p-5 pt-1", className)} {...props}>
         {children}
       </div>
     </div>
@@ -109,7 +109,7 @@ type BottomSheetDescriptionProps = React.ComponentPropsWithRef<typeof DialogPrim
 const BottomSheetDescription = ({ className, children, ...props }: BottomSheetDescriptionProps) => {
   return (
     <DialogPrimitives.Description
-      className={cn("text-lg font-medium text-sub", className)}
+      className={cn("text-sub text-lg font-medium", className)}
       {...props}
     >
       {children}
