@@ -19,6 +19,7 @@ export default function ProductsPage() {
           <li key={category}>
             <ChipButton
               variant={category === currentCategory ? "primary" : "secondary"}
+              aria-pressed={category === currentCategory}
               onClick={() => setCurrentCategory(category)}
             >
               {category}

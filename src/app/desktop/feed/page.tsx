@@ -120,6 +120,7 @@ const FollowRecommendationItem = () => {
         size="small"
         variant={isFollowing ? "primary" : "outlined"}
         onClick={() => setIsFollowing(!isFollowing)}
+        aria-pressed={isFollowing}
       >
         {isFollowing ? "팔로잉" : "팔로우"}
       </ChipButton>
