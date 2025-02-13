@@ -32,7 +32,6 @@ const BottomSheet1 = () => {
       <BottomSheet.Content>
         <BottomSheet.Header>
           <BottomSheet.Title>1인 가구 종류를 선택하세요.</BottomSheet.Title>
-
           <BottomSheet.Description className="sr-only">
             1인 가구 종류를 선택하세요.
           </BottomSheet.Description>
