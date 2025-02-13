@@ -124,7 +124,7 @@ const Chat = () => {
   );
 };
 
-export const initialChatMessageGroups: ChatMessageGroup[] = [
+const initialChatMessageGroups: ChatMessageGroup[] = [
   {
     author: {
       id: "2",
