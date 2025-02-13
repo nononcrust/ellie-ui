@@ -45,7 +45,7 @@ const TabsList = ({
 
 const tabsVariants = cva(
   cn(
-    "bg-background text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
+    "text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
     "disabled:pointer-events-none disabled:opacity-50",
     "data-[state=active]:after:bg-main after:absolute after:inset-x-0 after:bottom-0 after:h-[2px]",
     "data-[state=active]:text-main data-[state=active]:border-main",
@@ -83,7 +83,7 @@ type TabsContentProps = React.ComponentPropsWithRef<typeof TabsPrimitives.Conten
 
 const TabsContent = ({ className, children, ...props }: TabsContentProps) => {
   return (
-    <TabsPrimitives.Content className={cn("", className)} {...props}>
+    <TabsPrimitives.Content tabIndex={-1} className={cn("", className)} {...props}>
       {children}
     </TabsPrimitives.Content>
   );

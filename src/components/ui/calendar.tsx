@@ -31,18 +31,18 @@ const navButton =
 
 const classNames = {
   months: "flex relative",
-  month: "flex flex-col gap-2",
+  month: "flex flex-col gap-2 w-full",
   month_caption: "mb-10 flex justify-center relative items-center",
   caption_label:
     "absolute bottom-0 left-0 right-0 top-4 text-[13px] font-medium flex items-center justify-center text-main",
-  nav: "flex justify-between items-center bg-background-100 rounded-[6px] w-full h-8 p-1 absolute top-0",
+  nav: "flex justify-between items-center bg-background-100 rounded-[6px] w-full h-8 p-1 absolute top-0 left-0 right-0",
   button_previous: cn(navButton, "left-[2px]"),
   button_next: cn(navButton, "right-[2px]"),
   month_grid: "w-full border-collapse gap-2",
-  weekdays: "flex w-full gap-2",
+  weekdays: "flex w-full gap-2 justify-center",
   weekday:
     "text-[13px] font-medium text-sub m-0 box-border flex size-8 items-center justify-center p-0",
-  week: "flex w-full mt-2 gap-2",
+  week: "flex w-full mt-2 gap-2 justify-center",
   day: "text-[13px] font-medium relative rounded-[8px] size-8 flex justify-center items-center p-0 text-center text-main",
   day_button:
     "text-[13px] font-medium outline-hidden text-center w-full h-full p-0 rounded-[8px] disabled:pointer-events-none hover:bg-background-200",
@@ -72,7 +72,7 @@ const Day = ({ children, day, className, ...props }: DayProps) => {
       <td className={className}>
         {day.date.getDate()}
         {today && (
-          <span className={cn("absolute right-[5px] top-[5px] size-1 rounded-full bg-primary")} />
+          <span className={cn("bg-primary absolute top-[5px] right-[5px] size-1 rounded-full")} />
         )}
       </td>
     );
@@ -84,11 +84,11 @@ const Day = ({ children, day, className, ...props }: DayProps) => {
       {today && (
         <span
           className={cn(
-            "absolute right-[5px] top-[5px] size-1 rounded-full",
+            "absolute top-[5px] right-[5px] size-1 rounded-full",
             !selected && "bg-primary",
             selected && "bg-white",
             isRangeMiddle && "bg-primary",
-            disabled && "opacity-0.5 bg-primary",
+            disabled && "bg-primary opacity-0.5",
           )}
         />
       )}

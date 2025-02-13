@@ -17,7 +17,7 @@ export const ChatMessageList = ({ list }: ChatMessageListProps) => {
   const { session } = useSession();
 
   return (
-    <ul className="flex flex-col gap-4 py-4">
+    <ul className="flex flex-col gap-4">
       {list.map((item, index) => {
         const isMyMessage = item.author.id === session.user.id;
 

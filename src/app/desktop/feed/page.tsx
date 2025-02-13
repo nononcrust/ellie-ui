@@ -1,15 +1,13 @@
 "use client";
 
-import profileImage from "@/assets/images/nonon.png";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { ChipButton } from "@/components/ui/chip-button";
 import { IconButton } from "@/components/ui/icon-button";
 import { Tabs } from "@/components/ui/tabs";
-import { UsersRoundIcon, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { FeedListItem } from "./_components/feed-list-item";
+import { FollowRecommendation } from "./_components/follow-recommendation";
 import { SearchInput } from "./_components/search-input";
 
 export default function FeedPage() {
@@ -23,14 +21,14 @@ export default function FeedPage() {
           </Tabs.List>
           <Tabs.Content value="1">
             <ul className="border-border divide-border flex flex-col divide-y border-b">
-              {Array.from({ length: 10 }).map((_, index) => (
+              {Array.from({ length: 30 }).map((_, index) => (
                 <FeedListItem key={index} {...FEED} />
               ))}
             </ul>
           </Tabs.Content>
           <Tabs.Content value="2">
             <ul className="border-border divide-border flex flex-col divide-y border-b">
-              {Array.from({ length: 10 }).map((_, index) => (
+              {Array.from({ length: 30 }).map((_, index) => (
                 <FeedListItem key={index} {...FEED} />
               ))}
             </ul>
@@ -83,64 +81,6 @@ const Trends = () => {
         ))}
       </div>
     </div>
-  );
-};
-
-const FollowRecommendation = () => {
-  const [show, setShow] = useState(true);
-
-  if (!show) return null;
-
-  return (
-    <div className="mt-4 flex flex-col">
-      <div className="mb-3 flex items-center justify-between">
-        <span className="font-semibold">팔로우 추천</span>
-        <IconButton
-          size="xsmall"
-          aria-label="숨기기"
-          variant="ghost"
-          onClick={() => setShow(false)}
-        >
-          <XIcon size={16} />
-        </IconButton>
-      </div>
-      <ul className="flex flex-col gap-5">
-        <FollowRecommendationItem />
-        <FollowRecommendationItem />
-        <FollowRecommendationItem />
-        <FollowRecommendationItem />
-      </ul>
-      <div className="mt-2 flex flex-col">
-        <Button className="mt-4">
-          <UsersRoundIcon size={16} />
-          팔로우할 사람 찾기
-        </Button>
-      </div>
-    </div>
-  );
-};
-
-const FollowRecommendationItem = () => {
-  const [isFollowing, setIsFollowing] = useState(false);
-
-  return (
-    <li className="flex items-center">
-      <Avatar>
-        <Avatar.Image src={profileImage.src} alt="프로필 이미지" />
-      </Avatar>
-      <div className="ml-2 flex flex-1 flex-col">
-        <span className="text-sm font-semibold">노논</span>
-        <span className="text-subtle text-[13px]">@nononcrust.social</span>
-      </div>
-      <ChipButton
-        size="small"
-        variant={isFollowing ? "primary" : "outlined"}
-        onClick={() => setIsFollowing(!isFollowing)}
-        aria-pressed={isFollowing}
-      >
-        {isFollowing ? "팔로잉" : "팔로우"}
-      </ChipButton>
-    </li>
   );
 };
 
