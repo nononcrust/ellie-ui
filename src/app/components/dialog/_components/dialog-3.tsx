@@ -7,39 +7,19 @@ export const Dialog3 = () => {
   return (
     <Dialog>
       <Dialog.Trigger asChild>
-        <Button>중첩 모달</Button>
+        <Button>애니메이션 제외</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[320px]">
+      <Dialog.Content className="w-[400px]" animation="none">
         <Dialog.Header>
-          <Dialog.Title>첫번째 모달</Dialog.Title>
-          <Dialog.Description>두번째 모달을 열어주세요.</Dialog.Description>
+          <Dialog.Title>제출하기</Dialog.Title>
+          <Dialog.Description>과제를 제출하시겠습니까?</Dialog.Description>
         </Dialog.Header>
-        <div className="h-[240px]" />
-        <Dialog.Footer className="mt-8">
-          <SecondDialog />
+        <Dialog.Footer className="mt-3">
           <Dialog.Close asChild>
-            <Button variant="outlined">닫기</Button>
+            <Button variant="outlined">취소</Button>
           </Dialog.Close>
-        </Dialog.Footer>
-      </Dialog.Content>
-    </Dialog>
-  );
-};
-
-const SecondDialog = () => {
-  return (
-    <Dialog>
-      <Dialog.Trigger asChild>
-        <Button>두번째 모달 열기</Button>
-      </Dialog.Trigger>
-      <Dialog.Content className="w-[640px]">
-        <Dialog.Header>
-          <Dialog.Title>두번째 모달</Dialog.Title>
-          <Dialog.Description>esc 키를 눌러 닫아주세요.</Dialog.Description>
-        </Dialog.Header>
-        <Dialog.Footer className="mt-8">
           <Dialog.Close asChild>
-            <Button variant="outlined">닫기</Button>
+            <Button>확인</Button>
           </Dialog.Close>
         </Dialog.Footer>
       </Dialog.Content>

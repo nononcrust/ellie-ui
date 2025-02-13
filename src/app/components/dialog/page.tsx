@@ -5,6 +5,7 @@ import { Dialog3 } from "./_components/dialog-3";
 import { Dialog4 } from "./_components/dialog-4";
 import { Dialog5 } from "./_components/dialog-5";
 import { Dialog6 } from "./_components/dialog-6";
+import { Dialog7 } from "./_components/dialog-7";
 
 export default function DialogPage() {
   return (
@@ -26,6 +27,9 @@ export default function DialogPage() {
       </Grid.Item>
       <Grid.Item>
         <Dialog6 />
+      </Grid.Item>
+      <Grid.Item>
+        <Dialog7 />
       </Grid.Item>
     </Grid>
   );
