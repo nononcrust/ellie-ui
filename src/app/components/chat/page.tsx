@@ -31,8 +31,8 @@ export default function ChatPage() {
         <div className="flex w-fit gap-1">
           <ChatMessage.Reaction type="love" count={1} variant="secondary" />
           <ChatMessage.Reaction type="check" count={1} variant="secondary" />
-          <ChatMessage.Reaction type="love" count={1} variant="primaryLow" />
-          <ChatMessage.Reaction type="check" count={1} variant="primaryLow" />
+          <ChatMessage.Reaction type="love" count={1} variant="primaryLowOutlined" />
+          <ChatMessage.Reaction type="check" count={1} variant="primaryLowOutlined" />
         </div>
       </Tooltip>
       <ChatMessageInput />

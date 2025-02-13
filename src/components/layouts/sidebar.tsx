@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
   return (
-    <aside className="fixed left-0 top-[56px] hidden h-[calc(100vh-56px)] min-w-[240px] flex-col overflow-y-auto bg-background py-12 scrollbar-hide md:flex">
+    <aside className="bg-background scrollbar-hide fixed top-[56px] left-0 hidden h-[calc(100vh-56px)] min-w-[240px] flex-col overflow-y-auto py-12 md:flex">
       <nav className="flex flex-col gap-6 px-6">
         {menu.map((group) => (
           <SidebarGroup key={group.title}>
@@ -36,8 +36,8 @@ const SidebarItem = ({ title, href }: SidebarItemProps) => {
     <Link
       href={href}
       className={cn(
-        "flex h-8 items-center rounded-lg px-3 text-sm font-medium hover:bg-background-hover",
-        isActive && "bg-background-hover font-semibold hover:bg-background-hover",
+        "hover:bg-background-hover flex h-8 items-center rounded-lg px-3 text-sm font-medium",
+        isActive && "bg-background-hover hover:bg-background-hover font-semibold",
       )}
     >
       {title}
@@ -50,7 +50,7 @@ type SidebarSubtitleProps = {
 };
 
 const SidebarSubtitle = ({ title }: SidebarSubtitleProps) => {
-  return <span className="px-3 text-[13px] font-medium text-subtle">{title}</span>;
+  return <span className="text-subtle px-3 text-[13px] font-medium">{title}</span>;
 };
 
 const SidebarGroup = ({ children }: { children: React.ReactNode }) => {

@@ -142,7 +142,7 @@ const ChatMessageReactions = ({ reactions, isMyMessage }: ChatMessageReactionsPr
           key={type}
           type={type}
           count={count}
-          variant={isContainingMyReaction(type) ? "primaryLow" : "secondary"}
+          variant={isContainingMyReaction(type) ? "primaryLowOutlined" : "secondary"}
         />
       ))}
     </div>

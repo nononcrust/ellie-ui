@@ -8,6 +8,8 @@ const chipVariants = cva(
       variant: {
         primary: "border-transparent bg-primary text-white",
         secondary: "border-transparent bg-secondary text-main",
+        primaryLowOutlined:
+          "border-primary text-primary bg-primary-lighter hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:border-primary-dark dark:hover:bg-primary-darker-hover",
       },
       size: {
         xsmall: "h-6 gap-0.5 px-2 text-[12px]",

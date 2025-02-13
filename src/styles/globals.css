@@ -6,11 +6,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  /* Fonts */
-  --font-pretendard: var(--font-pretendard);
-
-  /* Colors */
+:root {
   --color-background: var(--color-white);
   --color-background-100: var(--color-neutral-100);
   --color-background-200: var(--color-neutral-200);
@@ -20,21 +16,75 @@
   --color-subtle: var(--color-neutral-400);
   --color-border: var(--color-neutral-200);
   --color-placeholder: var(--color-neutral-400);
-  --color-error: var(--color-red-500);
-  --color-error-dark: var(--color-red-600);
+
   --color-error-lighter: var(--color-red-100);
   --color-secondary: var(--color-neutral-100);
   --color-secondary-dark: var(--color-neutral-200);
   --color-neutral: var(--color-neutral-700);
   --color-neutral-dark: var(--color-neutral-800);
+  --color-ring: var(--color-blue-300);
   --color-ring-error: var(--color-red-300);
+  --color-error: var(--color-red-500);
+  --color-error-dark: var(--color-red-600);
+  --color-error-light: var(--color-red-400);
+}
 
-  /* Brand Colors */
+.dark {
+  --color-background: var(--color-neutral-800);
+  --color-background-100: var(--color-neutral-700);
+  --color-background-200: var(--color-neutral-600);
+  --color-background-hover: var(--color-neutral-700);
+  --color-main: var(--color-neutral-100);
+  --color-sub: var(--color-neutral-400);
+  --color-subtle: var(--color-neutral-400);
+  --color-border: var(--color-neutral-600);
+  --color-placeholder: var(--color-neutral-400);
+  --color-secondary: var(--color-neutral-700);
+  --color-secondary-dark: var(--color-neutral-600);
+  --color-neutral: var(--color-neutral-100);
+  --color-neutral-dark: var(--color-neutral-200);
+  --color-ring: var(--color-blue-400);
+  --color-ring-error: var(--color-red-800);
+  --color-error: var(--color-red-400);
+  --color-error-dark: var(--color-red-500);
+  --color-error-light: var(--color-red-300);
+}
+
+@theme {
+  /* Fonts */
+  --font-pretendard: var(--font-pretendard);
+
+  /* Themed Colors */
+  --color-background: var(--color-background);
+  --color-background-100: var(--color-background-100);
+  --color-background-200: var(--color-background-200);
+  --color-background-hover: var(--color-background-hover);
+  --color-main: var(--color-main);
+  --color-sub: var(--color-sub);
+  --color-subtle: var(--color-subtle);
+  --color-border: var(--color-border);
+  --color-placeholder: var(--color-placeholder);
+  --color-error: var(--color-error);
+  --color-error-dark: var(--color-error-dark);
+  --color-error-lighter: var(--color-error-lighter);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-neutral: var(--color-neutral);
+  --color-neutral-dark: var(--color-neutral-dark);
+  --color-ring: var(--color-ring);
+  --color-ring-error: var(--color-ring-error);
+  --color-error: var(--color-error);
+  --color-error-dark: var(--color-error-dark);
+  --color-error-light: var(--color-error-light);
+
+  /* Fixed Colors */
   --color-primary: var(--color-blue-500);
   --color-primary-dark: var(--color-blue-600);
+  --color-primary-darker: var(--color-blue-900);
+  --color-primary-darker-hover: var(--color-blue-800);
+  --color-primary-light: var(--color-blue-400);
   --color-primary-lighter: var(--color-blue-50);
   --color-primary-lighter-hover: var(--color-blue-100);
-  --color-ring: var(--color-blue-300);
 
   /* Animation Timings */
   --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
@@ -47,23 +97,6 @@
   --shadow-fab: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
 }
 
-/* @theme {
-  --color-background: var(--color-neutral-800);
-  --color-background-100: var(--color-neutral-900);
-  --color-background-200: var(--color-neutral-700);
-  --color-background-hover: var(--color-neutral-700);
-  --color-main: var(--color-neutral-100);
-  --color-sub: var(--color-neutral-400);
-  --color-subtle: var(--color-neutral-400);
-  --color-border: var(--color-neutral-600);
-  --color-placeholder: var(--color-neutral-400);
-  --color-error: var(--color-red-300);
-  --color-secondary: var(--color-neutral-700);
-  --color-secondary-dark: var(--color-neutral-600);
-  --color-ring: var(--color-blue-800);
-  --color-ring-error: var(--color-red-800);
-} */
-
 @utility focus-ring {
   &:focus-visible {
     @apply ring-ring ring-offset-background ring-2 ring-offset-2 outline-hidden;
@@ -72,13 +105,13 @@
 
 @utility focus-input-ring {
   &:focus-visible {
-    @apply border-primary ring-primary-lighter border ring-[3px] ring-offset-0 outline-hidden;
+    @apply border-primary ring-primary-lighter dark:border-primary-lighter dark:ring-primary-light border ring-[3px] ring-offset-0 outline-hidden;
   }
 }
 
 @utility focus-input-ring-error {
   &:focus-visible {
-    @apply border-error ring-error-lighter border ring-[3px] ring-offset-0 outline-hidden;
+    @apply border-error ring-error-lighter dark:border-error-lighter dark:ring-error-light border ring-[3px] ring-offset-0 outline-hidden;
   }
 }
 

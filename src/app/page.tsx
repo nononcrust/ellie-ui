@@ -41,7 +41,7 @@ export default function Home() {
         </Form>
         <div className="relative my-5">
           <Divider />
-          <span className="text-subtle absolute -top-2 left-1/2 -translate-x-1/2 transform bg-white px-1 text-[13px] font-medium">
+          <span className="text-subtle bg-background absolute -top-2 left-1/2 -translate-x-1/2 transform px-1 text-[13px] font-medium">
             혹은
           </span>
         </div>
@@ -94,8 +94,8 @@ export default function Home() {
 
 const UnderConstruction = () => {
   return (
-    <div className="flex h-9 w-9 items-center justify-center rounded-full border-3 border-gray-100">
-      <HammerIcon className="text-gray-400" size={16} strokeWidth={2.5} />
+    <div className="flex h-9 w-9 items-center justify-center rounded-full border-3 border-neutral-100 dark:border-neutral-700">
+      <HammerIcon className="text-neutral-400 dark:text-neutral-500" size={16} strokeWidth={2.5} />
     </div>
   );
 };

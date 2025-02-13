@@ -13,9 +13,9 @@ export const buttonVariant = {
   primaryLow: "bg-primary-lighter text-primary hover:bg-primary-lighter-hover",
   primaryOutlined: "border-border text-primary hover:bg-background-hover",
   primaryLowOutlined:
-    "border-primary text-primary bg-primary-lighter hover:bg-primary-lighter-hover",
+    "border-primary text-primary bg-primary-lighter hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:border-primary-dark dark:hover:bg-primary-darker-hover",
   secondary: "bg-secondary text-main hover:bg-secondary-dark",
-  contained: "bg-neutral text-white hover:bg-neutral-dark",
+  contained: "bg-neutral text-background hover:bg-neutral-dark",
   outlined: "border-border text-main hover:bg-background-hover",
   ghost: "hover:bg-background-hover",
   error: "bg-error text-white hover:bg-error-dark",

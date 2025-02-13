@@ -7,6 +7,7 @@ import { objectEntries } from "@/lib/object";
 import { cn, noop } from "@/lib/utils";
 import { CheckIcon, HeartIcon } from "lucide-react";
 import React from "react";
+import { Chip } from "../ui/chip";
 import { IconButton } from "../ui/icon-button";
 import { Popover } from "../ui/popover";
 
@@ -17,7 +18,7 @@ export const ChatMessageAvatar = ({
   alt = "프로필 이미지",
   ...props
 }: ChatMessageAvatarProps) => {
-  return <img className={cn("size-10 rounded-2xl bg-secondary", className)} alt={alt} {...props} />;
+  return <img className={cn("bg-secondary size-10 rounded-2xl", className)} alt={alt} {...props} />;
 };
 
 type ChatMessageBubbleProps = React.ComponentPropsWithRef<"p"> & {
@@ -30,7 +31,7 @@ const ChatMessageBubble = ({ className, variant, message, ...props }: ChatMessag
     <p
       className={cn(
         "w-fit rounded-xl px-3 py-2 transition-colors",
-        "whitespace-pre-wrap break-all text-start text-sm font-medium",
+        "text-start text-sm font-medium break-all whitespace-pre-wrap",
         variant === "primary" && "hover:bg-primary-hover bg-primary text-white",
         variant === "secondary" && "bg-secondary hover:bg-background-hover",
         className,
@@ -50,7 +51,7 @@ const ChatMessageEmoticon = ({
   ...props
 }: ChatMessageEmoticonProps) => {
   return (
-    <img className={cn("size-[120px] rounded-2xl bg-secondary", className)} alt={alt} {...props} />
+    <img className={cn("bg-secondary size-[120px] rounded-2xl", className)} alt={alt} {...props} />
   );
 };
 
@@ -61,13 +62,13 @@ type ChatMessageImageProps = React.ComponentPropsWithRef<"img"> & {
 
 const ChatMessageImage = ({ className, alt = "이미지", ...props }: ChatMessageImageProps) => {
   return (
-    <img className={cn("w-[280px] rounded-2xl bg-secondary", className)} alt={alt} {...props} />
+    <img className={cn("bg-secondary w-[280px] rounded-2xl", className)} alt={alt} {...props} />
   );
 };
 
 const ChatMessageReactionIcon = {
   Check: () => (
-    <div className="flex size-4 items-center justify-center rounded-full bg-primary text-white">
+    <div className="bg-primary flex size-4 items-center justify-center rounded-full text-white">
       <CheckIcon size={10} strokeWidth={3} />
     </div>
   ),
@@ -82,7 +83,7 @@ const iconByReactionType: Record<ReactionType, React.ReactNode> = {
 type ChatMessageReactionProps = React.ComponentPropsWithRef<"div"> & {
   type: ReactionType;
   count: number;
-  variant?: "secondary" | "primaryLow";
+  variant?: "secondary" | "primaryLowOutlined";
 };
 
 const ChatMessageReaction = ({
@@ -93,18 +94,10 @@ const ChatMessageReaction = ({
   ...props
 }: ChatMessageReactionProps) => {
   return (
-    <div
-      className={cn(
-        "flex w-fit items-center gap-1 rounded-full border px-1.5 py-1 text-xs font-medium",
-        variant === "secondary" && "border-transparent bg-secondary",
-        variant === "primaryLow" && "border-primary bg-primary-lighter",
-        className,
-      )}
-      {...props}
-    >
+    <Chip size="xsmall" variant={variant} className={cn("gap-1 px-1.5", className)} {...props}>
       {iconByReactionType[type]}
       {count}
-    </div>
+    </Chip>
   );
 };
 
@@ -114,7 +107,7 @@ type ChatMessageNameProps = React.ComponentPropsWithRef<"span"> & {
 
 const ChatMessageName = ({ className, name, ...props }: ChatMessageNameProps) => {
   return (
-    <span className={cn("w-fit whitespace-nowrap text-[13px] text-subtle", className)} {...props}>
+    <span className={cn("text-subtle w-fit text-[13px] whitespace-nowrap", className)} {...props}>
       {name}
     </span>
   );
@@ -126,7 +119,7 @@ type ChatMessageTimeProps = React.ComponentPropsWithRef<"span"> & {
 
 const ChatMessageTime = ({ className, time, ...props }: ChatMessageTimeProps) => {
   return (
-    <span className={cn("w-fit whitespace-nowrap text-xs text-subtle", className)} {...props}>
+    <span className={cn("text-subtle w-fit text-xs whitespace-nowrap", className)} {...props}>
       {formatToTime(time)}
     </span>
   );
@@ -136,7 +129,7 @@ type ChatMessageReadIndicatorProps = React.ComponentPropsWithRef<"span">;
 
 const ChatMessageReadIndicator = ({ className, ...props }: ChatMessageReadIndicatorProps) => {
   return (
-    <span className={cn("w-fit text-xs text-subtle", className)} {...props}>
+    <span className={cn("text-subtle w-fit text-xs", className)} {...props}>
       읽음
     </span>
   );

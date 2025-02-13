@@ -41,7 +41,7 @@ export const FollowRecommendation = () => {
         />
         <FollowRecommendationItem
           user={{ nickname: "노논", profileImage: profileImage.src, email: "@nononcrust.social" }}
-          isFollowing={false}
+          isFollowing
         />
       </ul>
       <div className="mt-2 flex flex-col">
@@ -80,7 +80,7 @@ export const FollowRecommendationItem = ({
       </div>
       <ChipButton
         size="small"
-        variant={isFollowing ? "primary" : "outlined"}
+        variant={isFollowing ? "contained" : "outlined"}
         onClick={() => setIsFollowing(!isFollowing)}
         aria-pressed={isFollowing}
       >
