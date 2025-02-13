@@ -14,7 +14,9 @@ export const Dialog6 = () => {
     <>
       <Dialog>
         <Dialog.Trigger asChild>
-          <Button ref={triggerRef}>모달 + 모달</Button>
+          <Button variant="outlined" ref={triggerRef}>
+            모달 + 모달
+          </Button>
         </Dialog.Trigger>
         <Dialog.Content className="w-[400px]">
           <Dialog.Header>

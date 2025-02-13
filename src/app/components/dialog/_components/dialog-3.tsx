@@ -7,7 +7,7 @@ export const Dialog3 = () => {
   return (
     <Dialog>
       <Dialog.Trigger asChild>
-        <Button>애니메이션 제외</Button>
+        <Button variant="outlined">애니메이션 없음</Button>
       </Dialog.Trigger>
       <Dialog.Content className="w-[400px]" animation="none">
         <Dialog.Header>

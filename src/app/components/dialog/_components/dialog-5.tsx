@@ -14,7 +14,9 @@ export const Dialog5 = () => {
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button ref={triggerRef}>드랍다운 + 모달</Button>
+        <Button variant="outlined" ref={triggerRef}>
+          드랍다운 + 모달
+        </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
         <DropdownMenu.Item onClick={loginDialog.open}>로그인</DropdownMenu.Item>

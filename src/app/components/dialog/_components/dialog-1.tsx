@@ -7,7 +7,7 @@ export const Dialog1 = () => {
   return (
     <Dialog>
       <Dialog.Trigger asChild>
-        <Button>팝 애니메이션</Button>
+        <Button variant="outlined">팝 애니메이션</Button>
       </Dialog.Trigger>
       <Dialog.Content className="w-[400px]" animation="pop">
         <Dialog.Header>
