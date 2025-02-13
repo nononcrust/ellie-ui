@@ -6,7 +6,7 @@ type AvatarProps = React.ComponentPropsWithRef<typeof AvatarPrimitives.Root>;
 export const Avatar = ({ className, children, ...props }: AvatarProps) => {
   return (
     <AvatarPrimitives.Root
-      className={cn("relative flex size-10 shrink-0 overflow-hidden rounded-full", className)}
+      className={cn("flex size-10 shrink-0 overflow-hidden rounded-full", className)}
       {...props}
     >
       {children}

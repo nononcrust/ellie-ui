@@ -31,7 +31,7 @@ const TabsList = ({
     <TabsListContext value={{ fullWidth, size }}>
       <TabsPrimitives.List
         className={cn(
-          "border-border inline-flex items-center justify-center border-b",
+          "border-border bg-background inline-flex items-center justify-center border-b",
           fullWidth && "w-full",
           className,
         )}
@@ -45,7 +45,7 @@ const TabsList = ({
 
 const tabsVariants = cva(
   cn(
-    "text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap transition-colors",
+    "bg-background text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
     "disabled:pointer-events-none disabled:opacity-50",
     "data-[state=active]:after:bg-main after:absolute after:inset-x-0 after:bottom-0 after:h-[2px]",
     "data-[state=active]:text-main data-[state=active]:border-main",

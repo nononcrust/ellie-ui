@@ -17,16 +17,25 @@ export default function FeedPage() {
     <div className="mx-auto flex w-full md:max-w-4xl">
       <main className="border-border w-full py-16 md:border-x">
         <Tabs defaultValue="1">
-          <Tabs.List fullWidth size="large">
+          <Tabs.List className="sticky top-[56px]" fullWidth size="large">
             <Tabs.Trigger value="1">찾아보기</Tabs.Trigger>
             <Tabs.Trigger value="2">팔로잉</Tabs.Trigger>
           </Tabs.List>
+          <Tabs.Content value="1">
+            <ul className="border-border divide-border flex flex-col divide-y border-b">
+              {Array.from({ length: 10 }).map((_, index) => (
+                <FeedListItem key={index} {...FEED} />
+              ))}
+            </ul>
+          </Tabs.Content>
+          <Tabs.Content value="2">
+            <ul className="border-border divide-border flex flex-col divide-y border-b">
+              {Array.from({ length: 10 }).map((_, index) => (
+                <FeedListItem key={index} {...FEED} />
+              ))}
+            </ul>
+          </Tabs.Content>
         </Tabs>
-        <ul className="border-border divide-border flex flex-col divide-y border-b">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <FeedListItem key={index} {...FEED} />
-          ))}
-        </ul>
       </main>
       <aside className="sticky top-[56px] right-0 hidden h-[120px] w-[360px] shrink-0 flex-col px-6 lg:flex">
         <SearchInput className="mt-6" placeholder="검색하기" />
