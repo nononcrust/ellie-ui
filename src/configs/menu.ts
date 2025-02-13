@@ -1,5 +1,9 @@
 export const menu = [
   {
+    title: "menus",
+    items: [{ title: "Home", href: "/" }],
+  },
+  {
     title: "components",
     items: [
       { title: "Button", href: "/components/button" },

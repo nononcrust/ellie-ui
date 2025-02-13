@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="mb-16 columns-1 gap-5 px-4 lg:columns-2 xl:columns-3">
       <Card className="mb-5 break-inside-avoid">
-        <span className="text-xl font-semibold">로그인</span>
+        <span className="text-lg font-semibold">로그인</span>
         <Form className="mt-6 flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
           <Form.Item>
             <Form.Label>이메일</Form.Label>
@@ -53,7 +53,7 @@ export default function Home() {
         </ChatMessageGroupsContextProvider>
       </Card>
       <Card className="mb-5 break-inside-avoid">
-        <span className="text-xl font-semibold">팔로우 추천</span>
+        <span className="text-lg font-semibold">팔로우 추천</span>
         <ul className="mt-4 flex flex-col gap-4">
           <FollowRecommendationItem
             user={{ nickname: "노논", profileImage: profileImage.src, email: "@nononcrust.social" }}
