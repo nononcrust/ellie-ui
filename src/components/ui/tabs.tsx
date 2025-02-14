@@ -3,11 +3,13 @@ import { cn } from "@/lib/utils";
 import * as TabsPrimitives from "@radix-ui/react-tabs";
 import { cva } from "class-variance-authority";
 
-type TabsProps = React.ComponentPropsWithRef<typeof TabsPrimitives.Root>;
+type TabsProps = Omit<TabsPrimitives.TabsProps, "onChange" | "onValueChange"> & {
+  onChange?: (value: string) => void;
+};
 
-export const Tabs = ({ className, children, ...props }: TabsProps) => {
+export const Tabs = ({ className, children, onChange, ...props }: TabsProps) => {
   return (
-    <TabsPrimitives.Root className={cn("w-full", className)} {...props}>
+    <TabsPrimitives.Root className={cn("w-full", className)} onValueChange={onChange} {...props}>
       {children}
     </TabsPrimitives.Root>
   );

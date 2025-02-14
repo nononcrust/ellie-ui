@@ -67,7 +67,7 @@ export const DatePicker = ({
   const formattedDate = date ? format(date, "yyyy-MM-dd") : null;
 
   return (
-    <Popover open={popover.isOpen} onOpenChange={onOpenChange}>
+    <Popover isOpen={popover.isOpen} onOpenChange={onOpenChange}>
       <Trigger
         placeholder={placeholder}
         disabled={disabled}
@@ -91,7 +91,7 @@ export const DatePicker = ({
             {...props}
           />
         </div>
-        <div className="flex items-center gap-2 border-t border-border p-3">
+        <div className="border-border flex items-center gap-2 border-t p-3">
           <Button variant="outlined" className="w-full" onClick={onCancel}>
             취소하기
           </Button>
@@ -162,7 +162,7 @@ export const DateRangePicker = ({
   const formattedDate = dateRange ? `${dateRangeFrom}${dateRangeTo}` : null;
 
   return (
-    <Popover open={popover.isOpen} onOpenChange={onOpenChange}>
+    <Popover isOpen={popover.isOpen} onOpenChange={onOpenChange}>
       <Trigger
         placeholder={placeholder}
         disabled={disabled}
@@ -186,7 +186,7 @@ export const DateRangePicker = ({
             {...props}
           />
         </div>
-        <div className="flex items-center gap-2 border-t border-border p-3">
+        <div className="border-border flex items-center gap-2 border-t p-3">
           <Button variant="outlined" className="w-full" type="button" onClick={onCancel}>
             취소하기
           </Button>
@@ -214,7 +214,7 @@ export const Trigger = ({
     <Popover.Trigger asChild>
       <button
         className={cn(
-          "flex h-9 w-full items-center gap-2 rounded-[8px] border border-border bg-background px-3 text-sm font-medium text-main outline-hidden",
+          "border-border bg-background text-main flex h-9 w-full items-center gap-2 rounded-[8px] border px-3 text-sm font-medium outline-hidden",
           "disable-focus-ring focus-visible:focus-input-ring",
           "disabled:pointer-events-none disabled:opacity-50",
           ariaInvalid && "focus-visible:focus-input-ring-error border-error",
@@ -223,7 +223,7 @@ export const Trigger = ({
         {...props}
       >
         <CalendarIcon size={16} className="text-sub" />
-        <span className="flex overflow-hidden truncate">
+        <span className="flex truncate overflow-hidden">
           {children ? (
             children
           ) : placeholder ? (

@@ -15,6 +15,35 @@ type SelectProps = Omit<
   placeholder?: string;
 };
 
+export const selectStyle = {
+  base: cn(
+    "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-[8px] border pl-3 pr-9 text-start text-[14px] font-medium shadow-xs outline-hidden",
+    "data-placeholder:text-placeholder",
+    "[&>span]:min-w-0",
+    "placeholder-placeholder",
+    "disable-focus-ring focus-visible:focus-input-ring",
+    "disabled:pointer-events-none disabled:opacity-50",
+  ),
+  invalid: "focus-visible:focus-input-ring-error border-error",
+};
+
+type SelectChevronDownIconProps = {
+  className?: string;
+};
+
+export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps) => {
+  return (
+    <ChevronDownIcon
+      size={16}
+      strokeWidth={2}
+      className={cn(
+        "text-sub pointer-events-none absolute top-1/2 right-3 shrink-0 -translate-y-1/2",
+        className,
+      )}
+    />
+  );
+};
+
 const SelectImpl = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitives.Trigger>,
   SelectProps
@@ -36,16 +65,7 @@ const SelectImpl = React.forwardRef<
       <SelectPrimitives.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
         <SelectPrimitives.Trigger
           ref={ref}
-          className={cn(
-            "border-border bg-background text-main flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-medium shadow-xs outline-hidden",
-            "data-placeholder:text-placeholder",
-            "[&>span]:min-w-0",
-            "placeholder-placeholder",
-            "disable-focus-ring focus-visible:focus-input-ring",
-            "disabled:pointer-events-none disabled:opacity-50",
-            ariaInvalid && "focus-visible:focus-input-ring-error border-error",
-            className,
-          )}
+          className={cn(selectStyle.base, ariaInvalid && selectStyle.invalid, className)}
           aria-invalid={ariaInvalid}
           {...props}
         >
@@ -53,7 +73,7 @@ const SelectImpl = React.forwardRef<
             <SelectPrimitives.Value placeholder={placeholder} />
           </span>
           <SelectPrimitives.Icon asChild>
-            <ChevronDownIcon size={16} strokeWidth={2} className="text-sub shrink-0" />
+            <SelectChevronDownIcon />
           </SelectPrimitives.Icon>
         </SelectPrimitives.Trigger>
         <SelectContent>{children}</SelectContent>

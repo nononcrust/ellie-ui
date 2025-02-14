@@ -3,10 +3,16 @@
 import { cn } from "@/lib/utils";
 import * as DropdownMenuPrimitives from "@radix-ui/react-dropdown-menu";
 
-type DropdownMenuProps = React.ComponentPropsWithRef<typeof DropdownMenuPrimitives.Root>;
+type DropdownMenuProps = Omit<DropdownMenuPrimitives.DropdownMenuProps, "open"> & {
+  isOpen?: boolean;
+};
 
-export const DropdownMenu = ({ children, ...props }: DropdownMenuProps) => {
-  return <DropdownMenuPrimitives.Root {...props}>{children}</DropdownMenuPrimitives.Root>;
+export const DropdownMenu = ({ children, isOpen, ...props }: DropdownMenuProps) => {
+  return (
+    <DropdownMenuPrimitives.Root open={isOpen} {...props}>
+      {children}
+    </DropdownMenuPrimitives.Root>
+  );
 };
 
 type DropdownMenuContentProps = React.ComponentPropsWithRef<typeof DropdownMenuPrimitives.Content>;

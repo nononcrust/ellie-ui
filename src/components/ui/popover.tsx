@@ -4,10 +4,16 @@ import { cn } from "@/lib/utils";
 import * as PopoverPrimitives from "@radix-ui/react-popover";
 import React from "react";
 
-type PopoverProps = React.ComponentPropsWithRef<typeof PopoverPrimitives.Root>;
+type PopoverProps = Omit<PopoverPrimitives.PopoverProps, "open"> & {
+  isOpen?: boolean;
+};
 
-export const Popover = ({ children, ...props }: PopoverProps) => {
-  return <PopoverPrimitives.Root {...props}>{children}</PopoverPrimitives.Root>;
+export const Popover = ({ children, isOpen, ...props }: PopoverProps) => {
+  return (
+    <PopoverPrimitives.Root open={isOpen} {...props}>
+      {children}
+    </PopoverPrimitives.Root>
+  );
 };
 
 type PopoverContentProps = React.ComponentPropsWithRef<typeof PopoverPrimitives.Content>;

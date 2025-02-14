@@ -3,9 +3,9 @@ import { useState } from "react";
 export const useTabs = (initialValue = "") => {
   const [value, setValue] = useState(initialValue);
 
-  const onValueChange = (value: string) => {
+  const onChange = (value: string) => {
     setValue(value);
   };
 
-  return { value, onValueChange };
+  return { value, onChange };
 };
