@@ -12,10 +12,11 @@ import { Card } from "@/components/ui/card";
 import { ChipButton } from "@/components/ui/chip-button";
 import { Divider } from "@/components/ui/divider";
 import { Form } from "@/components/ui/form";
+import { IconButton } from "@/components/ui/icon-button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Tag } from "@/components/ui/tag";
-import { ChevronRightIcon, HammerIcon, SlidersHorizontalIcon } from "lucide-react";
+import { ChevronRightIcon, EyeOffIcon, HammerIcon, SlidersHorizontalIcon } from "lucide-react";
 import { ChatMessageList } from "./desktop/chat/_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
@@ -38,9 +39,19 @@ export default function Home() {
           </Form.Item>
           <Form.Item>
             <Form.Label>비밀번호</Form.Label>
-            <Form.Control>
-              <Input placeholder="비밀번호를 입력해주세요" />
-            </Form.Control>
+            <div className="relative">
+              <Form.Control>
+                <Input className="pr-8" placeholder="비밀번호를 입력해주세요" type="password" />
+              </Form.Control>
+              <IconButton
+                aria-label="비밀번호 표시"
+                size="xsmall"
+                variant="ghost"
+                className="text-subtle absolute top-1/2 right-1 -translate-y-1/2"
+              >
+                <EyeOffIcon size={14} />
+              </IconButton>
+            </div>
           </Form.Item>
           <Button className="mt-2 w-full" type="submit">
             로그인
