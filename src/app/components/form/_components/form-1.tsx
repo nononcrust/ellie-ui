@@ -148,7 +148,7 @@ export const Form1 = () => {
           control={form.control}
           render={({ field }) => (
             <Form.Control>
-              <RadioGroup {...field} onValueChange={field.onChange} size="small">
+              <RadioGroup {...field} onChange={field.onChange} size="small">
                 <RadioGroup.Option value="1">남성</RadioGroup.Option>
                 <RadioGroup.Option value="2">여성</RadioGroup.Option>
               </RadioGroup>
