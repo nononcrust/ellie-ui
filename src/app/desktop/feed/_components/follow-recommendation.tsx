@@ -5,7 +5,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ChipButton } from "@/components/ui/chip-button";
 import { IconButton } from "@/components/ui/icon-button";
-import { UsersRoundIcon, XIcon } from "lucide-react";
+import { CheckIcon, UsersRoundIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
 export const FollowRecommendation = () => {
@@ -59,6 +59,7 @@ type FollowRecomendationItemProps = {
     nickname: string;
     email: string;
     profileImage: string;
+    verified?: boolean;
   };
   isFollowing: boolean;
 };
@@ -75,7 +76,14 @@ export const FollowRecommendationItem = ({
         <Avatar.Image src={user.profileImage} alt="프로필 이미지" />
       </Avatar>
       <div className="ml-2 flex flex-1 flex-col">
-        <span className="text-sm font-semibold">{user.nickname}</span>
+        <span className="flex items-center gap-1 text-sm font-semibold">
+          {user.nickname}
+          {user.verified && (
+            <span className="bg-primary inline-flex size-3.5 items-center justify-center rounded-full text-white">
+              <CheckIcon size={8} strokeWidth={4} />
+            </span>
+          )}
+        </span>
         <span className="text-subtle text-[13px]">{user.email}</span>
       </div>
       <ChipButton

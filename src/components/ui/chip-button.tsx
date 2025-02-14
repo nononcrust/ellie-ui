@@ -9,7 +9,7 @@ const chipButtonVariants = cva(
     variants: {
       variant: buttonVariant,
       size: {
-        xsmall: "h-7 gap-0.5 px-2.5 text-[12px]",
+        xsmall: "h-7 gap-1 px-2.5 text-[12px]",
         small: "h-8 gap-1 px-3 text-[13px]",
         medium: "h-9 gap-1.5 px-3.5 text-sm",
       },

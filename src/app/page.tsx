@@ -1,21 +1,28 @@
 "use client";
 
 import profileImage2 from "@/assets/images/chat-emoticon.webp";
+import profileImage3 from "@/assets/images/default-profile-image.svg";
 import profileImage from "@/assets/images/nonon.png";
 import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
 import { ChatMessageInput } from "@/components/chat/chat-message-input";
+import { Avatar } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ChipButton } from "@/components/ui/chip-button";
 import { Divider } from "@/components/ui/divider";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { HammerIcon } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Tag } from "@/components/ui/tag";
+import { ChevronRightIcon, HammerIcon, SlidersHorizontalIcon } from "lucide-react";
 import { ChatMessageList } from "./desktop/chat/_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
   useChatMessageGroups,
 } from "./desktop/chat/_contexts/chat-message-group-context";
 import { FollowRecommendationItem } from "./desktop/feed/_components/follow-recommendation";
+import { SearchInput } from "./desktop/feed/_components/search-input";
 
 export default function Home() {
   return (
@@ -56,28 +63,104 @@ export default function Home() {
         <span className="text-lg font-semibold">팔로우 추천</span>
         <ul className="mt-4 flex flex-col gap-4">
           <FollowRecommendationItem
-            user={{ nickname: "노논", profileImage: profileImage.src, email: "@nononcrust.social" }}
-            isFollowing={false}
-          />{" "}
-          <FollowRecommendationItem
-            user={{ nickname: "노논", profileImage: profileImage.src, email: "@nononcrust.social" }}
+            user={{
+              nickname: "시나몬샌드위치",
+              profileImage: profileImage.src,
+              email: "@cinnamon.sandwich",
+            }}
             isFollowing={false}
           />{" "}
           <FollowRecommendationItem
             user={{
-              nickname: "노논",
+              nickname: "로렌스",
+              profileImage: profileImage3.src,
+              email: "@lawrence",
+            }}
+            isFollowing={false}
+          />{" "}
+          <FollowRecommendationItem
+            user={{
+              nickname: "realize",
               profileImage: profileImage2.src,
-              email: "@nononcrust.social",
+              email: "@realize.social",
+              verified: true,
             }}
             isFollowing
           />
         </ul>
+        <Button className="mt-6" variant="outlined">
+          더보기
+        </Button>
+      </Card>
+      <Card className="mb-5 break-inside-avoid">
+        <SearchInput className="mb-3" placeholder="검색어를 입력해주세요" />
+        <div className="flex gap-2">
+          <div className="relative">
+            <ChipButton size="xsmall" variant="primaryLowOutlined">
+              <SlidersHorizontalIcon size={12} />
+              필터
+            </ChipButton>
+            <Badge size="small" className="absolute -top-2 left-full -translate-x-3">
+              3
+            </Badge>
+          </div>
+          <ChipButton size="xsmall" variant="contained">
+            인기
+          </ChipButton>
+          <ChipButton size="xsmall" variant="secondary">
+            최신
+          </ChipButton>
+          <ChipButton size="xsmall" variant="secondary">
+            추천
+          </ChipButton>
+        </div>
+      </Card>
+      <Card className="mb-5 break-inside-avoid">
+        <span className="mb-4 text-lg font-semibold">알림 설정</span>
+        <div className="flex flex-col gap-4">
+          <SettingItem
+            title="이벤트 알림"
+            description="프로모션 및 기타 정보를 받아볼 수 있어요."
+            enabled={false}
+          />
+          <SettingItem
+            title="핫딜 알림"
+            description="핫딜 오픈 알림을 받아볼 수 있어요."
+            enabled={false}
+          />
+          <SettingItem
+            title="리뷰 알림"
+            description="작성한 리뷰에 대한 답글 알림을 받아볼 수 있어요."
+            enabled
+          />
+          <SettingItem
+            title="이메일 알림"
+            description="새로운 기능, 프로모션 및 기타 정보를 받을 수 있어요."
+            enabled
+          />
+        </div>
       </Card>
       <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
         <UnderConstruction />
       </Card>
-      <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
-        <UnderConstruction />
+
+      <Card className="mb-5 break-inside-avoid">
+        <div className="flex w-full items-center justify-between">
+          <div className="flex items-center">
+            <Avatar className="size-11">
+              <Avatar.Image src={profileImage.src} />
+              <Avatar.Fallback />
+            </Avatar>
+            <div className="ml-2">
+              <span className="flex items-center gap-2">
+                <span className="text font-semibold">노논</span>
+                <Tag variant="info">매우 좋음</Tag>
+              </span>
+              <span className="text-subtle text-sm">nononcrust@gmail.com</span>
+            </div>
+          </div>
+          <ChevronRightIcon size={24} className="text-subtle" />
+        </div>
       </Card>
       <Card className="mb-5 flex h-32 break-inside-avoid items-center justify-center">
         <UnderConstruction />
@@ -91,6 +174,24 @@ export default function Home() {
     </main>
   );
 }
+
+type SettingItemProps = {
+  title: string;
+  description: string;
+  enabled: boolean;
+};
+
+const SettingItem = ({ title, description, enabled }: SettingItemProps) => {
+  return (
+    <div className="flex w-full items-center justify-between">
+      <div className="flex flex-col">
+        <span className="text-[15px] font-semibold">{title}</span>
+        <span className="text-subtle text-[13px] font-medium">{description}</span>
+      </div>
+      <Switch defaultChecked={enabled} />
+    </div>
+  );
+};
 
 const UnderConstruction = () => {
   return (
