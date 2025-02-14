@@ -15,36 +15,24 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: () => {
-    return (
-      <div className="flex gap-1">
-        <Badge>1</Badge>
-        <Badge>99</Badge>
-        <Badge>뱃지</Badge>
-      </div>
-    );
+    return <Badge>뱃지</Badge>;
   },
 };
 
 export const Secondary: Story = {
   render: () => {
-    return (
-      <div className="flex gap-1">
-        <Badge variant="secondary">1</Badge>
-        <Badge variant="secondary">99</Badge>
-        <Badge variant="secondary">뱃지</Badge>
-      </div>
-    );
+    return <Badge variant="secondary">뱃지</Badge>;
   },
 };
 
 export const Small: Story = {
   render: () => {
-    return (
-      <div className="flex gap-1">
-        <Badge size="small">1</Badge>
-        <Badge size="small">99</Badge>
-        <Badge size="small">뱃지</Badge>
-      </div>
-    );
+    return <Badge size="small">뱃지</Badge>;
+  },
+};
+
+export const WithNumber: Story = {
+  render: () => {
+    return <Badge>99</Badge>;
   },
 };

@@ -19,7 +19,7 @@ import { FollowRecommendationItem } from "./desktop/feed/_components/follow-reco
 
 export default function Home() {
   return (
-    <main className="mb-16 columns-1 gap-5 px-4 lg:columns-2 xl:columns-3">
+    <main className="mx-auto mb-16 max-w-[1440px] columns-1 gap-5 px-4 lg:columns-2 xl:columns-3">
       <Card className="mb-5 break-inside-avoid">
         <span className="text-lg font-semibold">로그인</span>
         <Form className="mt-6 flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>

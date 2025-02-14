@@ -7,7 +7,7 @@ import React from "react";
 
 type SelectProps = Omit<
   React.ComponentPropsWithoutRef<typeof SelectPrimitives.Trigger>,
-  "onChange"
+  "onChange" | "onValueChange"
 > & {
   value?: string;
   onChange?: (value: string) => void;

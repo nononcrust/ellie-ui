@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 export const useSwitch = (initialValue = false) => {
-  const [value, setValue] = useState(initialValue);
+  const [checked, setChecked] = useState(initialValue);
 
-  const onChange = () => {
-    setValue((prev) => !prev);
+  const onCheckedChange = () => {
+    setChecked((prev) => !prev);
   };
 
   return {
-    value,
-    onChange,
+    checked,
+    onCheckedChange,
   };
 };

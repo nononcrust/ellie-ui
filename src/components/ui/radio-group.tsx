@@ -10,8 +10,9 @@ const DEFAULT_SIZE: RadioGroupSize = "medium";
 
 type RadioGroupSize = "small" | "medium" | "large";
 
-type RadioGroupProps = React.ComponentPropsWithRef<typeof RadioGroupPrimitives.Root> & {
+type RadioGroupProps = Omit<RadioGroupPrimitives.RadioGroupProps, "onValueChange" | "onChange"> & {
   size?: RadioGroupSize;
+  onChange?: (value: string) => void;
 };
 
 export const RadioGroup = ({
@@ -19,6 +20,7 @@ export const RadioGroup = ({
   children,
   ["aria-invalid"]: ariaInvalid,
   size = DEFAULT_SIZE,
+  onChange,
   ...props
 }: RadioGroupProps) => {
   const styleBySize = {
@@ -29,7 +31,11 @@ export const RadioGroup = ({
 
   return (
     <RadioGroupContext value={{ ariaInvalid, size }}>
-      <RadioGroupPrimitives.Root className={cn("grid", styleBySize[size], className)} {...props}>
+      <RadioGroupPrimitives.Root
+        className={cn("grid", styleBySize[size], className)}
+        onValueChange={onChange}
+        {...props}
+      >
         {children}
       </RadioGroupPrimitives.Root>
     </RadioGroupContext>
@@ -61,7 +67,8 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
         "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
-        ariaInvalid && "border-error focus-visible:ring-ring-error",
+        ariaInvalid &&
+          "border-error focus-visible:ring-ring-error data-[state=checked]:bg-error data-[state=checked]:border-error",
         styleBySize[size],
         className,
       )}

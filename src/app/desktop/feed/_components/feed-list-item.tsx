@@ -35,7 +35,7 @@ export const FeedListItem = ({ user, content, count, createdAt }: FeedListItemPr
     <li className="flex gap-3 px-4 py-3">
       <Avatar>
         <Avatar.Image src={profileImage.src} alt="프로필 이미지" />
-        <Avatar.Fallback>U</Avatar.Fallback>
+        <Avatar.Fallback />
       </Avatar>
       <div className="flex flex-col">
         <span className="text-[15px] font-semibold">

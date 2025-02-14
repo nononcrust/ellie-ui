@@ -1,6 +1,6 @@
 import { ChipButton } from "@/components/ui/chip-button";
 import { Meta, StoryObj } from "@storybook/react";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, PlusIcon } from "lucide-react";
 
 const meta = {
   title: "packages/ui/ChipButton",
@@ -26,13 +26,54 @@ export const Secondary: Story = {
   },
 };
 
+export const Contained: Story = {
+  render: () => {
+    return <ChipButton variant="contained">버튼</ChipButton>;
+  },
+};
+
+export const Outlined: Story = {
+  render: () => {
+    return <ChipButton variant="outlined">버튼</ChipButton>;
+  },
+};
+
+export const Ghost: Story = {
+  render: () => {
+    return <ChipButton variant="ghost">버튼</ChipButton>;
+  },
+};
+
+export const PrimaryLow: Story = {
+  render: () => {
+    return <ChipButton variant="primaryLow">버튼</ChipButton>;
+  },
+};
+
 export const PrimaryLowOutlined: Story = {
   render: () => {
     return <ChipButton variant="primaryLowOutlined">버튼</ChipButton>;
   },
 };
 
-export const WithIcon: Story = {
+export const PrimaryOutlined: Story = {
+  render: () => {
+    return <ChipButton variant="primaryOutlined">버튼</ChipButton>;
+  },
+};
+
+export const WithPrefixIcon: Story = {
+  render: () => {
+    return (
+      <ChipButton>
+        <PlusIcon size={16} />
+        버튼
+      </ChipButton>
+    );
+  },
+};
+
+export const WithSuffixIcon: Story = {
   render: () => {
     return (
       <ChipButton>

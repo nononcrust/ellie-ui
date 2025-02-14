@@ -1,4 +1,5 @@
 import { RadioGroup } from "@/components/ui/radio-group";
+import { useRadioGroup } from "@/hooks/use-radio-group";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -12,10 +13,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
+export const Default: Story = {
   render: () => {
     return (
-      <RadioGroup size="small">
+      <RadioGroup defaultValue="1">
         <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
         <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
       </RadioGroup>
@@ -23,10 +24,45 @@ export const Small: Story = {
   },
 };
 
-export const Medium: Story = {
+export const Disabled: Story = {
   render: () => {
     return (
-      <RadioGroup>
+      <RadioGroup disabled defaultValue="1">
+        <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
+};
+
+export const OptionDisabled: Story = {
+  render: () => {
+    return (
+      <RadioGroup defaultValue="1">
+        <RadioGroup.Option value="1" disabled>
+          선택 1
+        </RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
+};
+
+export const Error: Story = {
+  render: () => {
+    return (
+      <RadioGroup aria-invalid defaultValue="1">
+        <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
+};
+
+export const Small: Story = {
+  render: () => {
+    return (
+      <RadioGroup size="small" defaultValue="1">
         <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
         <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
       </RadioGroup>
@@ -37,7 +73,20 @@ export const Medium: Story = {
 export const Large: Story = {
   render: () => {
     return (
-      <RadioGroup size="large">
+      <RadioGroup size="large" defaultValue="1">
+        <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
+        <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
+      </RadioGroup>
+    );
+  },
+};
+
+export const Controlled: Story = {
+  render: () => {
+    const radioGroup = useRadioGroup("1");
+
+    return (
+      <RadioGroup value={radioGroup.value} onChange={radioGroup.onChange}>
         <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
         <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
       </RadioGroup>

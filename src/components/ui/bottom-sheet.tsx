@@ -6,10 +6,16 @@ import * as DialogPrimitives from "@radix-ui/react-dialog";
 import { CheckIcon, XIcon } from "lucide-react";
 import { IconButton } from "./icon-button";
 
-type BottomSheetProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Root>;
+type BottomSheetProps = Omit<DialogPrimitives.DialogProps, "open"> & {
+  isOpen?: boolean;
+};
 
-export const BottomSheet = ({ children, ...props }: BottomSheetProps) => {
-  return <DialogPrimitives.Root {...props}>{children}</DialogPrimitives.Root>;
+export const BottomSheet = ({ children, isOpen, ...props }: BottomSheetProps) => {
+  return (
+    <DialogPrimitives.Root open={isOpen} {...props}>
+      {children}
+    </DialogPrimitives.Root>
+  );
 };
 
 type BottomSheetOverlayProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Overlay>;

@@ -1,5 +1,6 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { useCheckbox } from "@/hooks/use-checkbox";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -19,6 +20,42 @@ export const Default: Story = {
   },
 };
 
+export const Checked: Story = {
+  render: () => {
+    return <Checkbox defaultChecked />;
+  },
+};
+
+export const Disabled: Story = {
+  render: () => {
+    return <Checkbox disabled />;
+  },
+};
+
+export const Indeterminate: Story = {
+  render: () => {
+    return <Checkbox checked="indeterminate" />;
+  },
+};
+
+export const Error: Story = {
+  render: () => {
+    return <Checkbox aria-invalid />;
+  },
+};
+
+export const Small: Story = {
+  render: () => {
+    return <Checkbox size="small" />;
+  },
+};
+
+export const Large: Story = {
+  render: () => {
+    return <Checkbox size="large" />;
+  },
+};
+
 export const WithLabel: Story = {
   render: () => {
     return (
@@ -27,5 +64,13 @@ export const WithLabel: Story = {
         서비스 약관에 동의합니다.
       </Label>
     );
+  },
+};
+
+export const Controlled: Story = {
+  render: () => {
+    const checkbox = useCheckbox();
+
+    return <Checkbox checked={checkbox.checked} onCheckedChange={checkbox.onCheckedChange} />;
   },
 };
