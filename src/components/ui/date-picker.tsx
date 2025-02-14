@@ -104,8 +104,10 @@ export const DatePicker = ({
   );
 };
 
-interface DateRangePickerProps
-  extends Omit<PropsBase & PropsRange, "selected" | "onSelect" | "mode"> {
+type DateRangePickerProps = Omit<
+  PropsBase & PropsRange & Omit<React.ComponentPropsWithRef<"button">, "hidden">,
+  "selected" | "onSelect" | "mode" | "onChange" | "value"
+> & {
   value?: DateRange;
   onChange: (date?: DateRange) => void;
   placeholder?: string;
@@ -116,7 +118,7 @@ interface DateRangePickerProps
   "aria-invalid"?: boolean;
   "aria-label"?: string;
   "aria-labelledby"?: string;
-}
+};
 
 export const DateRangePicker = ({
   value: initialDateRange,
@@ -130,6 +132,7 @@ export const DateRangePicker = ({
   "aria-invalid": ariaInvalid,
   "aria-label": ariaLabel,
   "aria-labelledby": ariaLabelledby,
+  ref,
   ...props
 }: DateRangePickerProps) => {
   const [dateRange, setDateRange] = useState<DateRange | undefined>(initialDateRange);
@@ -172,6 +175,7 @@ export const DateRangePicker = ({
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledby}
         style={style}
+        ref={ref}
       >
         {formattedDate}
       </Trigger>
