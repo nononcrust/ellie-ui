@@ -3,7 +3,7 @@ import { useSwitch } from "@/hooks/use-switch";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Switch",
+  title: "components/Switch",
   parameters: {
     layout: "centered",
   },

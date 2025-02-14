@@ -7,7 +7,7 @@ import { SearchIcon } from "lucide-react";
 import { useId } from "react";
 
 const meta = {
-  title: "packages/ui/Input",
+  title: "components/Input",
   parameters: {
     layout: "centered",
   },

@@ -4,7 +4,7 @@ import { usePopover } from "@/hooks/use-popover";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Popover",
+  title: "components/Popover",
   parameters: {
     layout: "centered",
   },

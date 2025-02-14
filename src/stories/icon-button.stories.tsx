@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 
 const meta = {
-  title: "packages/ui/IconButton",
+  title: "components/IconButton",
   parameters: {
     layout: "centered",
   },

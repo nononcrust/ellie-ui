@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useId } from "react";
 
 const meta = {
-  title: "packages/ui/Textarea",
+  title: "components/Textarea",
   parameters: {
     layout: "centered",
   },

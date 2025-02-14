@@ -2,7 +2,7 @@ import { Tag } from "@/components/ui/tag";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Tag",
+  title: "components/Tag",
   parameters: {
     layout: "centered",
   },

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { ChevronDownIcon, PlusIcon } from "lucide-react";
 
 const meta = {
-  title: "packages/ui/ChipButton",
+  title: "components/ChipButton",
   component: ChipButton,
   parameters: {
     layout: "centered",

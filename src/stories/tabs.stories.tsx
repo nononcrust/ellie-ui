@@ -3,7 +3,7 @@ import { useTabs } from "@/hooks/use-tabs";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Tabs",
+  title: "components/Tabs",
   parameters: {
     layout: "centered",
   },

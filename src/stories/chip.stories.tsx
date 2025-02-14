@@ -2,7 +2,7 @@ import { Chip } from "@/components/ui/chip";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Chip",
+  title: "components/Chip",
   parameters: {
     layout: "centered",
   },

@@ -3,7 +3,7 @@ import { toast, Toaster } from "@/components/ui/toast";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Toast",
+  title: "components/Toast",
   parameters: {
     layout: "centered",
   },

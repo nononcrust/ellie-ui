@@ -4,7 +4,7 @@ import { useDateRangePicker } from "@/hooks/use-date-range-picker";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/DatePicker",
+  title: "components/DatePicker",
   parameters: {
     layout: "centered",
   },

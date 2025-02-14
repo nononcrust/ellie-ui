@@ -3,7 +3,7 @@ import { useRadioGroup } from "@/hooks/use-radio-group";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/RadioGroup",
+  title: "components/RadioGroup",
   parameters: {
     layout: "centered",
   },

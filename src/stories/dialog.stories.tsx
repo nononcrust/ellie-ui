@@ -5,7 +5,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useRef } from "react";
 
 const meta = {
-  title: "packages/ui/Dialog",
+  title: "components/Dialog",
   parameters: {
     layout: "centered",
   },

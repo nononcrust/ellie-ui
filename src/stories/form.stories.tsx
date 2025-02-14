@@ -15,7 +15,7 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const meta = {
-  title: "packages/ui/Form",
+  title: "components/Form",
   component: Badge,
   parameters: {
     layout: "centered",

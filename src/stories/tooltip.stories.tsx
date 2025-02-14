@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 
 const meta = {
-  title: "packages/ui/Tooltip",
+  title: "components/Tooltip",
   parameters: {
     layout: "centered",
   },

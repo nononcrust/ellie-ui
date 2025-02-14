@@ -5,7 +5,7 @@ import { useSelect } from "@/hooks/use-select";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/BottomSheet",
+  title: "components/BottomSheet",
   component: BottomSheet,
   parameters: {
     layout: "centered",

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { LogOutIcon, PencilIcon, Trash2Icon } from "lucide-react";
 
 const meta = {
-  title: "packages/ui/DropdownMenu",
+  title: "components/DropdownMenu",
   parameters: {
     layout: "centered",
   },

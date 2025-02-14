@@ -4,7 +4,7 @@ import { useCheckbox } from "@/hooks/use-checkbox";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Checkbox",
+  title: "components/Checkbox",
   parameters: {
     layout: "centered",
   },

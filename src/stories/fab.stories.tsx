@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "lucide-react";
 
 const meta = {
-  title: "packages/ui/Fab",
+  title: "components/Fab",
   component: Fab,
   parameters: {
     layout: "centered",

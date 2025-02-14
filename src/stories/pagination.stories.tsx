@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 const meta = {
-  title: "packages/ui/Pagination",
+  title: "components/Pagination",
   parameters: {
     layout: "centered",
   },

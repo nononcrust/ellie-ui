@@ -4,7 +4,7 @@ import { useSelect } from "@/hooks/use-select";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "packages/ui/Select",
+  title: "components/Select",
   parameters: {
     layout: "centered",
   },
