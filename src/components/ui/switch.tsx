@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 
-type SwitchProps = React.ComponentPropsWithRef<typeof SwitchPrimitives.Root>;
+type SwitchProps = Omit<SwitchPrimitives.SwitchProps, "onChange" | "onCheckedChange"> & {
+  onChange?: (checked: boolean) => void;
+};
 
-export const Switch = ({ className, ...props }: SwitchProps) => {
+export const Switch = ({ className, onChange, ...props }: SwitchProps) => {
   return (
     <SwitchPrimitives.Root
       className={cn(
@@ -13,6 +15,7 @@ export const Switch = ({ className, ...props }: SwitchProps) => {
         "disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
+      onCheckedChange={onChange}
       {...props}
     >
       <SwitchPrimitives.Thumb

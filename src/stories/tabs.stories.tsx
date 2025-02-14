@@ -57,6 +57,20 @@ export const Large: Story = {
   },
 };
 
+export const FullWidth: Story = {
+  render: () => {
+    return (
+      <Tabs defaultValue="1">
+        <Tabs.List fullWidth className="w-[400px]">
+          <Tabs.Trigger value="1">버튼 1</Tabs.Trigger>
+          <Tabs.Trigger value="2">버튼 2</Tabs.Trigger>
+          <Tabs.Trigger value="3">버튼 3</Tabs.Trigger>
+        </Tabs.List>
+      </Tabs>
+    );
+  },
+};
+
 export const Manual: Story = {
   render: () => {
     return (

@@ -21,8 +21,8 @@ export const Default: Story = {
 
 export const Controlled: Story = {
   render: () => {
-    const { checked, onCheckedChange } = useSwitch();
+    const { checked, onChange } = useSwitch();
 
-    return <Switch checked={checked} onCheckedChange={onCheckedChange} />;
+    return <Switch checked={checked} onChange={onChange} />;
   },
 };

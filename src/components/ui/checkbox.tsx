@@ -8,8 +8,10 @@ import React from "react";
 
 const DEFAULT_SIZE = "medium";
 
-type CheckboxProps = React.ComponentPropsWithRef<typeof CheckboxPrimitives.Root> &
-  VariantProps<typeof checkboxVariants>;
+type CheckboxProps = Omit<CheckboxPrimitives.CheckboxProps, "onChange" | "onCheckedChange"> &
+  VariantProps<typeof checkboxVariants> & {
+    onChange?: (checked: boolean) => void;
+  };
 
 const checkboxVariants = cva("", {
   variants: {
@@ -33,14 +35,14 @@ const iconSize: Record<NonNullable<CheckboxProps["size"]>, number> = {
 export const Checkbox = React.forwardRef<
   React.ComponentRef<typeof CheckboxPrimitives.Root>,
   CheckboxProps
->(({ className, checked, ["aria-invalid"]: ariaInvalid, size, ...props }, ref) => {
+>(({ className, checked, ["aria-invalid"]: ariaInvalid, size, onChange, ...props }, ref) => {
   const sizeWithDefault = size ?? DEFAULT_SIZE;
 
   return (
     <CheckboxPrimitives.Root
       ref={ref}
       className={cn(
-        "peer size-4 shrink-0 border border-border shadow-xs outline-hidden",
+        "peer border-border size-4 shrink-0 border shadow-xs outline-hidden",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
@@ -51,6 +53,7 @@ export const Checkbox = React.forwardRef<
       )}
       checked={checked}
       aria-invalid={ariaInvalid}
+      onCheckedChange={onChange}
       {...props}
     >
       <CheckboxPrimitives.Indicator className="flex items-center justify-center">

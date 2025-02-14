@@ -114,7 +114,7 @@ export const Form1 = () => {
                 <Checkbox
                   size="small"
                   checked={field.value}
-                  onCheckedChange={field.onChange}
+                  onChange={field.onChange}
                   id={checkboxId}
                   ref={field.ref}
                 >

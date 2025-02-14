@@ -71,6 +71,6 @@ export const Controlled: Story = {
   render: () => {
     const checkbox = useCheckbox();
 
-    return <Checkbox checked={checkbox.checked} onCheckedChange={checkbox.onCheckedChange} />;
+    return <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} />;
   },
 };

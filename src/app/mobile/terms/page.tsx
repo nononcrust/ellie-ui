@@ -22,7 +22,7 @@ export default function TermsPage() {
   return (
     <Mobile>
       <h1 className="mt-12 text-3xl font-semibold">약관 동의</h1>
-      <p className="mt-2 text-lg font-medium text-subtle">
+      <p className="text-subtle mt-2 text-lg font-medium">
         이용약관과 개인정보 처리방침에 동의해주세요.
       </p>
       <label className="mt-6 flex flex-col">
@@ -30,11 +30,11 @@ export default function TermsPage() {
           <Checkbox
             size="large"
             checked={termsCheckboxGroup.isAllChecked}
-            onCheckedChange={termsCheckboxGroup.toggleAll}
+            onChange={termsCheckboxGroup.toggleAll}
           />
           <span className="ml-3 text-lg font-semibold">약관 전체 동의하기</span>
         </div>
-        <span className="ml-9 mt-1 text-sm font-medium text-subtle">
+        <span className="text-subtle mt-1 ml-9 text-sm font-medium">
           선택 항목에 대한 동의 모두 포함
         </span>
       </label>
@@ -87,7 +87,7 @@ const TermsItem = ({ title, required = false, checked, onChange }: TermsItemProp
   return (
     <li className="flex items-center justify-between">
       <label className="flex flex-1 items-center">
-        <Checkbox checked={checked} onCheckedChange={onChange} />
+        <Checkbox checked={checked} onChange={onChange} />
         <span className="ml-2 font-medium">
           [{required ? "필수" : "선택"}] {title}
         </span>

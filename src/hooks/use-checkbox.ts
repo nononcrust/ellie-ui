@@ -7,13 +7,13 @@ export const useCheckbox = (initialChecked = false) => {
     setChecked((prev) => !prev);
   };
 
-  const onCheckedChange = () => {
+  const onChange = () => {
     toggle();
   };
 
   return {
     checked,
     toggle,
-    onCheckedChange,
+    onChange,
   };
 };
