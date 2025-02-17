@@ -4,6 +4,14 @@ export const menu = [
     items: [{ title: "Home", href: "/" }],
   },
   {
+    title: "theme",
+    items: [
+      { title: "Color", href: "/theme/color" },
+      { title: "Typography", href: "/theme/typography" },
+      { title: "Elevation", href: "/theme/elevation" },
+    ],
+  },
+  {
     title: "components",
     items: [
       { title: "Button", href: "/components/button" },
