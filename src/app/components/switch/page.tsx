@@ -8,7 +8,13 @@ export default function SwitchPage() {
         <Switch />
       </Grid.Item>
       <Grid.Item>
+        <Switch defaultChecked />
+      </Grid.Item>
+      <Grid.Item>
         <Switch disabled />
+      </Grid.Item>
+      <Grid.Item>
+        <Switch size="small" defaultChecked />
       </Grid.Item>
     </Grid>
   );
