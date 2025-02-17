@@ -85,6 +85,8 @@
   --color-primary-light: var(--color-blue-400);
   --color-primary-lighter: var(--color-blue-50);
   --color-primary-lighter-hover: var(--color-blue-100);
+  --color-success: var(--color-green-500);
+  --color-warning: var(--color-orange-400);
 
   /* Animation Timings */
   --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
