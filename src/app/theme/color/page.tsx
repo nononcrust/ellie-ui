@@ -63,7 +63,7 @@ const ColorGroup = ({ title, children }: ColorGroupProps) => {
   return (
     <div className="flex flex-col">
       <span className="font-semibold">{title}</span>
-      <div className="mt-4 flex gap-4">{children}</div>
+      <div className="mt-4 flex flex-wrap gap-4">{children}</div>
     </div>
   );
 };
