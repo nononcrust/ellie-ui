@@ -19,6 +19,12 @@ export const Default: Story = {
   },
 };
 
+export const Small: Story = {
+  render: () => {
+    return <Switch size="small" />;
+  },
+};
+
 export const Controlled: Story = {
   render: () => {
     const { checked, onChange } = useSwitch();

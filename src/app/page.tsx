@@ -165,7 +165,7 @@ export default function Home() {
             <div className="ml-2">
               <span className="flex items-center gap-2">
                 <span className="text font-semibold">노논</span>
-                <Tag variant="info">매우 좋음</Tag>
+                <Tag variant="info">멤버</Tag>
               </span>
               <span className="text-subtle text-sm">nononcrust@gmail.com</span>
             </div>
