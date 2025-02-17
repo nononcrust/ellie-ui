@@ -16,7 +16,13 @@ import { IconButton } from "@/components/ui/icon-button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Tag } from "@/components/ui/tag";
-import { ChevronRightIcon, EyeOffIcon, HammerIcon, SlidersHorizontalIcon } from "lucide-react";
+import {
+  ChevronRightIcon,
+  EyeOffIcon,
+  HammerIcon,
+  PhoneIcon,
+  SlidersHorizontalIcon,
+} from "lucide-react";
 import { ChatMessageList } from "./desktop/chat/_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
@@ -135,18 +141,14 @@ export default function Home() {
             enabled={false}
           />
           <SettingItem
-            title="핫딜 알림"
-            description="핫딜 오픈 알림을 받아볼 수 있어요."
+            title="리뷰 알림"
+            description="작성한 리뷰에 대한 알림을 받아볼 수 있어요."
             enabled={false}
           />
-          <SettingItem
-            title="리뷰 알림"
-            description="작성한 리뷰에 대한 답글 알림을 받아볼 수 있어요."
-            enabled
-          />
+          <SettingItem title="댓글 알림" description="댓글 알림을 받아볼 수 있어요." enabled />
           <SettingItem
             title="이메일 알림"
-            description="새로운 기능, 프로모션 및 기타 정보를 받을 수 있어요."
+            description="새로운 알림을 이메일로 받아볼 수 있어요."
             enabled
           />
         </div>
@@ -154,7 +156,6 @@ export default function Home() {
       <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
         <UnderConstruction />
       </Card>
-
       <Card className="mb-5 break-inside-avoid">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center">
@@ -173,8 +174,35 @@ export default function Home() {
           <ChevronRightIcon size={24} className="text-subtle" />
         </div>
       </Card>
-      <Card className="mb-5 flex h-32 break-inside-avoid items-center justify-center">
-        <UnderConstruction />
+      <Card className="mb-5 break-inside-avoid">
+        <div className="flex flex-col">
+          <div className="flex flex-col">
+            <div className="text-sub flex items-center gap-4 text-sm font-medium">
+              <span>125m</span>
+              <span>도보 5분</span>
+            </div>
+            <span className="text-xl font-semibold">우리들약국</span>
+            <div className="flex items-center gap-2">
+              <span className="text-primary text-sm font-semibold">영업중</span>
+              <span className="text-subtle text-[13px] font-medium">(수) 09:00 ~ 21:00</span>
+            </div>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-1">
+            <Tag variant="secondary">연중무휴</Tag>
+            <Tag variant="secondary">심야운영</Tag>
+          </div>
+          <div>
+            <div className="mt-4 flex w-full gap-2">
+              <Button className="flex-1" variant="outlined" size="large">
+                자세히
+              </Button>
+              <Button className="flex-3" size="large">
+                <PhoneIcon size={14} />
+                전화하기
+              </Button>
+            </div>
+          </div>
+        </div>
       </Card>
       <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
         <UnderConstruction />
