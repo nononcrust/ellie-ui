@@ -45,6 +45,7 @@ const DialogOverlay = ({ className, children, ...props }: DialogOverlayProps) =>
         animation !== "none" && "animate-in fade-in",
         className,
       )}
+      data-testid="overlay"
       {...props}
     >
       {children}
