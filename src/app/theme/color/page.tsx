@@ -14,11 +14,14 @@ export default function ColorPage() {
           <SemanticColor name="default" className="bg-primary" />
           <SemanticColor name="dark" className="bg-primary-dark" />
           <SemanticColor name="darker" className="bg-primary-darker" />
-          <SemanticColor name="neutral" className="bg-neutral" />
         </SemanticColorGroup>
         <SemanticColorGroup title="Secondary">
           <SemanticColor name="default" className="bg-secondary" />
           <SemanticColor name="dark" className="bg-secondary-dark" />
+        </SemanticColorGroup>
+        <SemanticColorGroup title="Neutral">
+          <SemanticColor name="default" className="bg-neutral" />
+          <SemanticColor name="dark" className="bg-neutral-dark" />
         </SemanticColorGroup>
         <SemanticColorGroup title="Background">
           <SemanticColor name="default" className="bg-background border-border border" />
