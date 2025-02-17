@@ -18,6 +18,7 @@ import { Switch } from "@/components/ui/switch";
 import { Tag } from "@/components/ui/tag";
 import {
   ChevronRightIcon,
+  EllipsisIcon,
   EyeOffIcon,
   HammerIcon,
   PhoneIcon,
@@ -177,12 +178,17 @@ export default function Home() {
       <Card className="mb-5 break-inside-avoid">
         <div className="flex flex-col">
           <div className="flex flex-col">
-            <div className="text-sub flex items-center gap-4 text-sm font-medium">
-              <span>125m</span>
-              <span>도보 5분</span>
+            <div className="flex justify-between">
+              <div className="text-sub flex items-center gap-4 text-sm font-medium">
+                <span>125m</span>
+                <span>도보 5분</span>
+              </div>
+              <IconButton aria-label="더보기" size="xsmall" variant="ghost">
+                <EllipsisIcon size={16} />
+              </IconButton>
             </div>
             <span className="text-xl font-semibold">우리들약국</span>
-            <div className="flex items-center gap-2">
+            <div className="mt-1 flex items-center gap-2">
               <span className="text-primary text-sm font-semibold">영업중</span>
               <span className="text-subtle text-[13px] font-medium">(수) 09:00 ~ 21:00</span>
             </div>
