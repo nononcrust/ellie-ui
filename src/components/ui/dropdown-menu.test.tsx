@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent, { PointerEventsCheckLevel } from "@testing-library/user-event";
 import { Button } from "./button";
 import { DropdownMenu } from "./dropdown-menu";
@@ -219,7 +219,7 @@ describe("DropdownMenu", () => {
 
     const item1 = screen.getByRole("menuitem", { name: "메뉴 1" });
 
-    item1.focus();
+    act(() => item1.focus());
 
     await user.keyboard("{Tab}");
 
@@ -235,7 +235,7 @@ describe("DropdownMenu", () => {
 
     const item1 = screen.getByRole("menuitem", { name: "메뉴 1" });
 
-    item1.focus();
+    act(() => item1.focus());
 
     await user.keyboard("{ArrowDown}");
 
@@ -248,7 +248,7 @@ describe("DropdownMenu", () => {
     expect(item1).toHaveFocus();
   });
 
-  test("[a11y] 메뉴 아이템이 disabled인 경우 키보드 방향키로 포커스를 이동할 수 없어야 합니다.", async () => {
+  test("[a11y] menu item이 disabled인 경우 키보드 방향키로 포커스를 이동할 수 없어야 합니다.", async () => {
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -257,13 +257,25 @@ describe("DropdownMenu", () => {
 
     const item2 = screen.getByRole("menuitem", { name: "메뉴 2" });
 
-    item2.focus();
+    act(() => item2.focus());
 
     await user.keyboard("{ArrowDown}");
 
-    const item3 = screen.getByRole("menuitem", { name: "메뉴 3 (disabled)" });
+    const disabledMenu = screen.getByRole("menuitem", { name: "메뉴 3 (disabled)" });
 
-    expect(item3).not.toHaveFocus();
+    expect(disabledMenu).not.toHaveFocus();
+  });
+
+  test("[a11y] menu item이 disabled인 경우 aria-disabled 속성이 존재해야 합니다.", async () => {
+    const user = userEvent.setup();
+
+    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+
+    await user.click(trigger);
+
+    const disabledMenu = screen.getByRole("menuitem", { name: "메뉴 3 (disabled)" });
+
+    expect(disabledMenu).toHaveAttribute("aria-disabled", "true");
   });
 
   test("[a11y] 드랍다운이 닫혔을 때 trigger로 포커스가 이동되어야 합니다.", async () => {
