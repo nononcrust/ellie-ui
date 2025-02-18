@@ -1,7 +1,7 @@
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
-import { useId, useRef } from "react";
+import { useId, useState } from "react";
 import { Label } from "./label";
 
 type FormProps = React.ComponentPropsWithRef<"form">;
@@ -26,14 +26,24 @@ const FormLabel = ({ className, children, ...props }: FormLabelProps) => {
   );
 };
 
-type FormDescriptionProps = React.ComponentPropsWithRef<"p">;
+type FormDescriptionProps = React.ComponentPropsWithoutRef<"p">;
 
 const FormDescription = ({ className, children, ...props }: FormDescriptionProps) => {
-  const { descriptionId, descriptionRef } = useFormItemContext();
+  const { descriptionId, setDescriptionElement } = useFormItemContext();
+
+  const refCallback = (node: HTMLParagraphElement | null) => {
+    if (node) {
+      setDescriptionElement(node);
+    }
+
+    return () => {
+      setDescriptionElement(null);
+    };
+  };
 
   return (
     <p
-      ref={descriptionRef}
+      ref={refCallback}
       id={descriptionId}
       className={cn("text-subtle mt-1 text-[13px] font-medium", className)}
       {...props}
@@ -44,31 +54,42 @@ const FormDescription = ({ className, children, ...props }: FormDescriptionProps
 };
 
 const FormControl = ({ children }: { children: React.ReactNode }) => {
-  const { error, id, descriptionId, errorMessageId, descriptionRef, errorMessageRef } =
+  const { error, id, descriptionId, errorMessageId, descriptionElement, errorMessageElement } =
     useFormItemContext();
 
   return (
     <Slot
       id={id}
       aria-describedby={
-        cn(descriptionRef.current && descriptionId, errorMessageRef.current && errorMessageId) ||
-        undefined
+        cn(descriptionElement && descriptionId, errorMessageElement && errorMessageId) || undefined
       }
-      aria-invalid={error}
+      aria-invalid={error || undefined}
     >
       {children}
     </Slot>
   );
 };
 
-type FormErrorMessageProps = React.ComponentPropsWithRef<"p">;
+type FormErrorMessageProps = React.ComponentPropsWithoutRef<"p">;
 
 const FormErrorMessage = ({ className, children, ...props }: FormErrorMessageProps) => {
-  const { errorMessageId, errorMessageRef } = useFormItemContext();
+  const { errorMessageId, setErrorMessageElement, error } = useFormItemContext();
+
+  const refCallback = (node: HTMLParagraphElement | null) => {
+    if (node) {
+      setErrorMessageElement(node);
+    }
+
+    return () => {
+      setErrorMessageElement(null);
+    };
+  };
+
+  if (!error) return null;
 
   return (
     <p
-      ref={errorMessageRef}
+      ref={refCallback}
       id={errorMessageId}
       className={cn("text-error mt-1 text-[13px] font-medium", className)}
       {...props}
@@ -86,12 +107,22 @@ const FormItem = ({ className, children, error = false, ...props }: FormItemProp
   const id = useId();
   const descriptionId = useId();
   const errorMessageId = useId();
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const errorMessageRef = useRef<HTMLParagraphElement>(null);
+
+  const [descriptionElement, setDescriptionElement] = useState<HTMLParagraphElement | null>(null);
+  const [errorMessageElement, setErrorMessageElement] = useState<HTMLParagraphElement | null>(null);
 
   return (
     <FormItemContext
-      value={{ error, descriptionId, errorMessageId, id, descriptionRef, errorMessageRef }}
+      value={{
+        error,
+        descriptionId,
+        errorMessageId,
+        id,
+        descriptionElement,
+        errorMessageElement,
+        setDescriptionElement,
+        setErrorMessageElement,
+      }}
     >
       <div className={cn("flex flex-col", className)} {...props}>
         {children}
@@ -105,8 +136,10 @@ type FormItemContextValue = {
   errorMessageId: string;
   descriptionId: string;
   error: boolean;
-  descriptionRef: React.RefObject<HTMLParagraphElement | null>;
-  errorMessageRef: React.RefObject<HTMLParagraphElement | null>;
+  descriptionElement: HTMLParagraphElement | null;
+  errorMessageElement: HTMLParagraphElement | null;
+  setDescriptionElement: (element: HTMLParagraphElement | null) => void;
+  setErrorMessageElement: (element: HTMLParagraphElement | null) => void;
 };
 
 const [FormItemContext, useFormItemContext] =
