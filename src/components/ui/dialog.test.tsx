@@ -76,6 +76,32 @@ describe("Dialog", () => {
     expect(dialog).not.toBeInTheDocument();
   });
 
+  test('모달이 열려있을 때 스크롤이 비활성화되어야합니다."', async () => {
+    const user = userEvent.setup();
+
+    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+
+    await user.click(trigger);
+
+    const body = document.body;
+
+    expect(body).toHaveStyle("overflow: hidden");
+  });
+
+  test("[a11y] Space 키 눌러 모달을 열 수 있어야 합니다.", async () => {
+    const user = userEvent.setup();
+
+    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+
+    trigger.focus();
+
+    await user.keyboard(" ");
+
+    const dialog = screen.getByRole("dialog");
+
+    expect(dialog).toBeInTheDocument();
+  });
+
   test("[a11y] trigger에 aria-haspopup 속성이 존재해야 합니다.", () => {
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
@@ -83,13 +109,27 @@ describe("Dialog", () => {
   });
 
   test("[a11y] trigger에 aria-controls 속성이 존재하고 dialog의 id와 연결되어야 합니다.", async () => {
+    const user = userEvent.setup();
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
-    await userEvent.click(trigger);
+    await user.click(trigger);
 
     const dialog = screen.getByRole("dialog");
 
     expect(trigger).toHaveAttribute("aria-controls", dialog.id);
+  });
+
+  test("[a11y] dialog에 role='dialog' 속성이 존재해야 합니다.", async () => {
+    const user = userEvent.setup();
+
+    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+
+    await user.click(trigger);
+
+    const dialog = screen.getByRole("dialog");
+
+    expect(dialog).toBeInTheDocument();
   });
 
   test("[a11y] 모달이 닫혀있을 경우 trigger의 aria-expanded 속성이 false여야 합니다.", () => {
@@ -148,24 +188,24 @@ describe("Dialog", () => {
     expect(trigger).toHaveFocus();
   });
 
-  test("[a11y] 모달이 열렸을 때 첫 번째 포커스 가능한 요소로 포커스가 이동되어야 합니다.", async () => {
-    // const user = userEvent.setup();
-    // const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-    // await user.click(trigger);
-    // const firstFocusableElement = screen.getByRole("button", { name: "취소" });
-    // expect(firstFocusableElement).toHaveFocus();
-  });
+  // test("[a11y] 모달이 열렸을 때 첫 번째 포커스 가능한 요소로 포커스가 이동되어야 합니다.", async () => {
+  //   const user = userEvent.setup();
+  //   const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+  //   await user.click(trigger);
+  //   const firstFocusableElement = screen.getByRole("button", { name: "취소" });
+  //   expect(firstFocusableElement).toHaveFocus();
+  // });
 
-  test("[a11y] 마지막 포커스 가능한 요소에서 Tab 키를 누르면 첫 번째 포커스 가능한 요소로 이동되어야 합니다.", async () => {
-    // const user = userEvent.setup();
-    // const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-    // await user.click(trigger);
-    // const firstFocusableElement = screen.getByRole("button", { name: "취소" });
-    // const lastFocusableElement = screen.getByRole("button", { name: "닫기" });
-    // lastFocusableElement.focus();
-    // await user.tab();
-    // expect(firstFocusableElement).toHaveFocus();
-  });
+  // test("[a11y] 마지막 포커스 가능한 요소에서 Tab 키를 누르면 첫 번째 포커스 가능한 요소로 이동되어야 합니다.", async () => {
+  //   const user = userEvent.setup();
+  //   const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+  //   await user.click(trigger);
+  //   const firstFocusableElement = screen.getByRole("button", { name: "취소" });
+  //   const lastFocusableElement = screen.getByRole("button", { name: "닫기" });
+  //   lastFocusableElement.focus();
+  //   await user.tab();
+  //   expect(firstFocusableElement).toHaveFocus();
+  // });
 
   test("[a11y] 첫 번째 포커스 가능한 요소에서 Shift + Tab 키를 누르면 마지막 포커스 가능한 요소로 이동되어야 합니다.", async () => {
     const user = userEvent.setup();
@@ -181,7 +221,7 @@ describe("Dialog", () => {
     expect(lastFocusableElement).toHaveFocus();
   });
 
-  test("[a11y] 모달이 열렸을 때 ESC 키를 누르면 모달이 닫혀야 합니다.", async () => {
+  test("[a11y] Escape 키를 눌러 모달을 닫을 수 있어야 합니다.", async () => {
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
