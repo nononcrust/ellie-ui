@@ -49,12 +49,18 @@ export const Button = ({
   size,
   children,
   asChild = false,
+  disabled = false,
   ...props
 }: ButtonProps) => {
   const Component = asChild ? Slot : "button";
 
   return (
-    <Component className={cn(buttonVariants({ size, variant, className }))} {...props}>
+    <Component
+      className={cn(buttonVariants({ size, variant, className }))}
+      disabled={disabled}
+      aria-disabled={disabled}
+      {...props}
+    >
       {children}
     </Component>
   );
