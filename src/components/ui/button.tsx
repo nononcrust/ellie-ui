@@ -58,7 +58,7 @@ export const Button = ({
     <Component
       className={cn(buttonVariants({ size, variant, className }))}
       disabled={disabled}
-      aria-disabled={disabled}
+      aria-disabled={disabled || undefined}
       {...props}
     >
       {children}

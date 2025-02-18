@@ -49,7 +49,7 @@ export const IconButton = ({
       className={cn(iconButtonVariants({ size, variant, className }))}
       disabled={disabled}
       aria-label={ariaLabel}
-      aria-disabled={disabled}
+      aria-disabled={disabled || undefined}
       {...props}
     >
       {children}
