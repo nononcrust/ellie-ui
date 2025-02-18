@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Button } from "./button";
 import { Dialog } from "./dialog";
 
 const TRIGGER_LABEL = "열기";
@@ -11,26 +10,28 @@ describe("Dialog", () => {
   beforeEach(() => {
     render(
       <Dialog>
-        <Dialog.Trigger asChild>
-          <Button>{TRIGGER_LABEL}</Button>
-        </Dialog.Trigger>
+        <Dialog.Trigger>{TRIGGER_LABEL}</Dialog.Trigger>
         <Dialog.Content className="w-[400px]" animation="pop">
           <Dialog.Header>
             <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
             <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
           </Dialog.Header>
           <Dialog.Footer className="mt-3">
-            <Dialog.Close asChild>
-              <Button variant="outlined">취소</Button>
-            </Dialog.Close>
-            <Dialog.Close asChild>
-              <Button>확인</Button>
-            </Dialog.Close>
+            <Dialog.Close>취소</Dialog.Close>
+            <Dialog.Close>확인</Dialog.Close>
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>,
     );
   });
+
+  const openDialog = async () => {
+    const user = userEvent.setup();
+
+    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
+
+    await user.click(trigger);
+  };
 
   test("trigger를 클릭했을 때 모달이 열려야 합니다.", async () => {
     const user = userEvent.setup();
@@ -47,9 +48,7 @@ describe("Dialog", () => {
   test("overlay를 클릭했을 때 모달이 닫혀야 합니다.", async () => {
     const user = userEvent.setup();
 
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const backdrop = screen.getByTestId("overlay");
 
@@ -63,9 +62,7 @@ describe("Dialog", () => {
   test("닫기 버튼을 클릭했을 때 모달이 닫혀야 합니다.", async () => {
     const user = userEvent.setup();
 
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const close = screen.getByRole("button", { name: "취소" });
 
@@ -77,11 +74,7 @@ describe("Dialog", () => {
   });
 
   test('모달이 열려있을 때 스크롤이 비활성화되어야합니다."', async () => {
-    const user = userEvent.setup();
-
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const body = document.body;
 
@@ -109,11 +102,9 @@ describe("Dialog", () => {
   });
 
   test("[a11y] trigger에 aria-controls 속성이 존재하고 dialog의 id와 연결되어야 합니다.", async () => {
-    const user = userEvent.setup();
-
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
-    await user.click(trigger);
+    await openDialog();
 
     const dialog = screen.getByRole("dialog");
 
@@ -121,11 +112,7 @@ describe("Dialog", () => {
   });
 
   test("[a11y] dialog에 role='dialog' 속성이 존재해야 합니다.", async () => {
-    const user = userEvent.setup();
-
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const dialog = screen.getByRole("dialog");
 
@@ -139,21 +126,15 @@ describe("Dialog", () => {
   });
 
   test("[a11y] 모달이 열려있을 경우 trigger의 aria-expanded 속성이 true여야 합니다.", async () => {
-    const user = userEvent.setup();
-
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
-    await user.click(trigger);
+    await openDialog();
 
     expect(trigger).toHaveAttribute("aria-expanded", "true");
   });
 
   test("[a11y] dialog에 aria-labelledby 속성이 존재하고 제목의 id와 연결되어야 합니다.", async () => {
-    const user = userEvent.setup();
-
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const dialog = screen.getByRole("dialog");
     const title = screen.getByText(DIALOG_TITLE);
@@ -162,11 +143,7 @@ describe("Dialog", () => {
   });
 
   test("[a11y] dialog에 aria-describedby 속성이 존재하고 설명의 id와 연결되어야 합니다.", async () => {
-    const user = userEvent.setup();
-
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const dialog = screen.getByRole("dialog");
     const description = screen.getByText(DIALOG_DESCRIPTION);
@@ -179,7 +156,7 @@ describe("Dialog", () => {
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
-    await user.click(trigger);
+    await openDialog();
 
     const close = screen.getByRole("button", { name: "취소" });
 
@@ -210,9 +187,7 @@ describe("Dialog", () => {
   test("[a11y] 첫 번째 포커스 가능한 요소에서 Shift + Tab 키를 누르면 마지막 포커스 가능한 요소로 이동되어야 합니다.", async () => {
     const user = userEvent.setup();
 
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     const lastFocusableElement = screen.getByRole("button", { name: "닫기" });
 
@@ -224,9 +199,7 @@ describe("Dialog", () => {
   test("[a11y] Escape 키를 눌러 모달을 닫을 수 있어야 합니다.", async () => {
     const user = userEvent.setup();
 
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await user.click(trigger);
+    await openDialog();
 
     await user.keyboard("{Escape}");
 
