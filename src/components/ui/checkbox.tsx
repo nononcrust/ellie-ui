@@ -32,7 +32,7 @@ const iconSize: Record<NonNullable<CheckboxProps["size"]>, number> = {
   large: 18,
 };
 
-export const Checkbox = React.forwardRef<
+const CheckboxImpl = React.forwardRef<
   React.ComponentRef<typeof CheckboxPrimitives.Root>,
   CheckboxProps
 >(({ className, checked, ["aria-invalid"]: ariaInvalid, size, onChange, ...props }, ref) => {
@@ -66,4 +66,18 @@ export const Checkbox = React.forwardRef<
     </CheckboxPrimitives.Root>
   );
 });
-Checkbox.displayName = CheckboxPrimitives.Root.displayName;
+CheckboxImpl.displayName = CheckboxPrimitives.Root.displayName;
+
+type CheckboxGroupProps = React.ComponentPropsWithRef<"div">;
+
+const CheckboxGroup = ({ children, ...props }: CheckboxGroupProps) => {
+  return (
+    <div role="group" {...props}>
+      {children}
+    </div>
+  );
+};
+
+export const Checkbox = Object.assign(CheckboxImpl, {
+  Group: CheckboxGroup,
+});
