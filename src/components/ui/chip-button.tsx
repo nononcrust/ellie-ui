@@ -29,6 +29,7 @@ type ChipButtonProps = React.ComponentPropsWithRef<"button"> &
 export const ChipButton = ({
   className,
   asChild = false,
+  disabled = false,
   variant,
   size,
   children,
@@ -37,7 +38,12 @@ export const ChipButton = ({
   const Component = asChild ? Slot : "button";
 
   return (
-    <Component className={cn(chipButtonVariants({ variant, size, className }))} {...props}>
+    <Component
+      className={cn(chipButtonVariants({ variant, size, className }))}
+      disabled={disabled}
+      aria-disabled={disabled}
+      {...props}
+    >
       {children}
     </Component>
   );

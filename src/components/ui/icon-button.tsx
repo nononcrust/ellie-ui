@@ -38,6 +38,7 @@ export const IconButton = ({
   variant,
   size,
   asChild = false,
+  disabled = false,
   "aria-label": ariaLabel,
   ...props
 }: IconButtonProps) => {
@@ -46,7 +47,9 @@ export const IconButton = ({
   return (
     <Component
       className={cn(iconButtonVariants({ size, variant, className }))}
+      disabled={disabled}
       aria-label={ariaLabel}
+      aria-disabled={disabled}
       {...props}
     >
       {children}
