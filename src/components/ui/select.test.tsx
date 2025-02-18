@@ -90,7 +90,7 @@ describe("Select", () => {
     expect(option).toHaveFocus();
   });
 
-  test("[a11y] 선택된 option이 없는 상태에서 셀렉트가 열렸을 때 첫 번째 옵션이 포커스되어야 합니다.", async () => {
+  test("[a11y] 선택된 option이 없는 상태에서 셀렉트가 열렸을 때 첫 번째 포커스 가능한 옵션이 포커스되어야 합니다.", async () => {
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("combobox");
