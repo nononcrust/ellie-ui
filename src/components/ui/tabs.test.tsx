@@ -102,7 +102,7 @@ describe("Tabs", async () => {
   });
 
   test("선택된 tab이 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
-    const onChange = vitest.fn();
+    const onChange = vi.fn();
 
     render(
       <Tabs onChange={onChange}>

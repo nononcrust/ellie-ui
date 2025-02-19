@@ -33,7 +33,7 @@ describe("Button", () => {
   });
 
   test("[a11y] Enter 키로 버튼을 클릭할 수 있어야 합니다.", async () => {
-    const onClick = vitest.fn();
+    const onClick = vi.fn();
 
     render(<Button onClick={onClick}>버튼</Button>);
 
@@ -49,7 +49,7 @@ describe("Button", () => {
   });
 
   test("[a11y] Space 키로 버튼을 클릭할 수 있어야 합니다.", async () => {
-    const onClick = vitest.fn();
+    const onClick = vi.fn();
 
     render(<Button onClick={onClick}>버튼</Button>);
 

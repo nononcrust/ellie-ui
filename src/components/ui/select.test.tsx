@@ -4,7 +4,7 @@ import { Select } from "./select";
 
 describe("Select", () => {
   beforeEach(() => {
-    window.HTMLElement.prototype.hasPointerCapture = vitest.fn();
+    window.HTMLElement.prototype.hasPointerCapture = vi.fn();
 
     render(
       <Select placeholder="옵션을 선택하세요.">

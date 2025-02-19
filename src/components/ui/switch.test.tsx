@@ -20,7 +20,7 @@ describe("Switch", () => {
   });
 
   test("체크 상태가 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
-    const onChange = vitest.fn();
+    const onChange = vi.fn();
 
     render(<Switch onChange={onChange} />);
 

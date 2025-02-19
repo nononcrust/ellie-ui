@@ -24,7 +24,7 @@ describe("Checkbox", () => {
   });
 
   test("체크 상태가 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
-    const onChange = vitest.fn();
+    const onChange = vi.fn();
 
     render(<Checkbox onChange={onChange} />);
 
@@ -35,6 +35,26 @@ describe("Checkbox", () => {
     await user.click(checkbox);
 
     expect(onChange).toBeCalledWith(true);
+  });
+
+  test("disabled가 true인 경우 disabled 상태가 되어야 합니다.", async () => {
+    render(<Checkbox disabled />);
+
+    const checkbox = screen.getByRole("checkbox");
+
+    expect(checkbox).toBeDisabled();
+  });
+
+  test("disabled 상태인 경우 클릭할 수 없어야 합니다.", async () => {
+    render(<Checkbox disabled />);
+
+    const user = userEvent.setup();
+
+    const checkbox = screen.getByRole("checkbox");
+
+    await user.click(checkbox);
+
+    expect(checkbox).not.toBeChecked();
   });
 
   test("[a11y] checkbox에 role='checkbox' 속성이 존재해야 합니다.", () => {
