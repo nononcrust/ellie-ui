@@ -11,6 +11,18 @@ describe("Tooltip", () => {
     );
   });
 
+  test("trigger에 마우스를 호버하면 tooltip이 표시되어야 합니다.", async () => {
+    const user = userEvent.setup();
+
+    const trigger = screen.getByRole("button");
+
+    await user.hover(trigger);
+
+    const tooltip = screen.getByRole("tooltip");
+
+    expect(tooltip).toBeInTheDocument();
+  });
+
   test("[a11y] tooltip에 role='tooltip' 속성이 존재해야 합니다.", async () => {
     const user = userEvent.setup();
 

@@ -3,6 +3,36 @@ import userEvent from "@testing-library/user-event";
 import { Switch } from "./switch";
 
 describe("Switch", () => {
+  test("정상적으로 렌더링되어야 합니다.", async () => {
+    render(<Switch />);
+
+    const switchElement = screen.getByRole("switch");
+
+    expect(switchElement).toBeInTheDocument();
+  });
+
+  test("checked 속성이 true인 경우 switch가 체크되어야 합니다.", async () => {
+    render(<Switch checked />);
+
+    const switchElement = screen.getByRole("switch");
+
+    expect(switchElement).toHaveAttribute("aria-checked", "true");
+  });
+
+  test("switch를 클릭했을 때 onChange가 호출되어야 합니다.", async () => {
+    const onChange = vitest.fn();
+
+    render(<Switch onChange={onChange} />);
+
+    const user = userEvent.setup();
+
+    const switchElement = screen.getByRole("switch");
+
+    await user.click(switchElement);
+
+    expect(onChange).toBeCalledWith(true);
+  });
+
   test("[a11y] switch에 role='switch' 속성이 존재해야 합니다.", async () => {
     render(<Switch />);
 
