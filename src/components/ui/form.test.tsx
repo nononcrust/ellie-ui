@@ -34,6 +34,14 @@ const ErrorForm = () => {
 };
 
 describe("Form", () => {
+  test("정상적으로 렌더링되어야 합니다.", async () => {
+    render(<DefaultForm />);
+
+    const formItemElement = screen.getByTestId(FORM_ITEM_ELEMENT_TEST_ID);
+
+    expect(formItemElement).toBeInTheDocument();
+  });
+
   test("[a11y] label에 for가 존재하고 label의 id와 연결되어야 합니다.", async () => {
     render(<DefaultForm />);
 

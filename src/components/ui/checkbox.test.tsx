@@ -3,6 +3,40 @@ import userEvent from "@testing-library/user-event";
 import { Checkbox } from "./checkbox";
 
 describe("Checkbox", () => {
+  test("정상적으로 렌더링되어야 합니다.", () => {
+    render(<Checkbox />);
+
+    const checkbox = screen.getByRole("checkbox");
+
+    expect(checkbox).toBeInTheDocument();
+  });
+
+  test("checkbox를 클릭했을 때 체크 상태가 변경되어야 합니다.", async () => {
+    render(<Checkbox />);
+
+    const user = userEvent.setup();
+
+    const checkbox = screen.getByRole("checkbox");
+
+    await user.click(checkbox);
+
+    expect(checkbox).toBeChecked();
+  });
+
+  test("체크 상태가 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
+    const onChange = vitest.fn();
+
+    render(<Checkbox onChange={onChange} />);
+
+    const user = userEvent.setup();
+
+    const checkbox = screen.getByRole("checkbox");
+
+    await user.click(checkbox);
+
+    expect(onChange).toBeCalledWith(true);
+  });
+
   test("[a11y] checkbox에 role='checkbox' 속성이 존재해야 합니다.", () => {
     render(<Checkbox />);
 
@@ -46,11 +80,11 @@ describe("Checkbox", () => {
 
     await user.keyboard(" ");
 
-    expect(checkbox).toHaveAttribute("aria-checked", "true");
+    expect(checkbox).toBeChecked();
 
     await user.keyboard(" ");
 
-    expect(checkbox).toHaveAttribute("aria-checked", "false");
+    expect(checkbox).not.toBeChecked();
   });
 
   test("[a11y] group에 role='group' 속성이 존재해야 합니다.", () => {

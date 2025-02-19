@@ -16,10 +16,10 @@ describe("Switch", () => {
 
     const switchElement = screen.getByRole("switch");
 
-    expect(switchElement).toHaveAttribute("aria-checked", "true");
+    expect(switchElement).toBeChecked();
   });
 
-  test("switch를 클릭했을 때 onChange가 호출되어야 합니다.", async () => {
+  test("체크 상태가 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
     const onChange = vitest.fn();
 
     render(<Switch onChange={onChange} />);
