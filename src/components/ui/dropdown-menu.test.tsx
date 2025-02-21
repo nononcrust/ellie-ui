@@ -4,25 +4,25 @@ import { DropdownMenu } from "./dropdown-menu";
 
 const TRIGGER_LABEL = "열기";
 
-describe("DropdownMenu", () => {
-  beforeEach(() => {
-    render(
-      <DropdownMenu>
-        <DropdownMenu.Trigger>{TRIGGER_LABEL}</DropdownMenu.Trigger>
-        <DropdownMenu.Content>
-          <DropdownMenu.Group>
-            <DropdownMenu.Label>그룹 1</DropdownMenu.Label>
-            <DropdownMenu.Item>메뉴 1</DropdownMenu.Item>
-            <DropdownMenu.Item>메뉴 2</DropdownMenu.Item>
-          </DropdownMenu.Group>
-          <DropdownMenu.Separator />
-          <DropdownMenu.Item disabled>메뉴 3 (disabled)</DropdownMenu.Item>
-          <DropdownMenu.Item>메뉴 4</DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu>,
-    );
-  });
+const DefaultDropdownMenu = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenu.Trigger>{TRIGGER_LABEL}</DropdownMenu.Trigger>
+      <DropdownMenu.Content>
+        <DropdownMenu.Group>
+          <DropdownMenu.Label>그룹 1</DropdownMenu.Label>
+          <DropdownMenu.Item>메뉴 1</DropdownMenu.Item>
+          <DropdownMenu.Item>메뉴 2</DropdownMenu.Item>
+        </DropdownMenu.Group>
+        <DropdownMenu.Separator />
+        <DropdownMenu.Item disabled>메뉴 3 (disabled)</DropdownMenu.Item>
+        <DropdownMenu.Item>메뉴 4</DropdownMenu.Item>
+      </DropdownMenu.Content>
+    </DropdownMenu>
+  );
+};
 
+describe("DropdownMenu", () => {
   const openDropdownMenu = async () => {
     const user = userEvent.setup();
 
@@ -32,6 +32,8 @@ describe("DropdownMenu", () => {
   };
 
   test("trigger를 클릭했을 때 드랍다운이 열려야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -44,6 +46,8 @@ describe("DropdownMenu", () => {
   });
 
   test("menu item을 클릭했을 때 드랍다운이 닫혀야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
@@ -58,6 +62,8 @@ describe("DropdownMenu", () => {
   });
 
   test('드랍다운이 열려있을 때 스크롤이 비활성화되어야합니다.".', async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const body = document.body;
@@ -66,6 +72,8 @@ describe("DropdownMenu", () => {
   });
 
   test("menu 바깥을 클릭했을 때 드랍다운이 닫혀야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     await userEvent.click(document.body, {
@@ -77,7 +85,60 @@ describe("DropdownMenu", () => {
     expect(menu).not.toBeInTheDocument();
   });
 
+  test('isOpen이 true일 때 드랍다운이 열려야 합니다."', async () => {
+    render(
+      <DropdownMenu isOpen>
+        <DropdownMenu.Content />
+      </DropdownMenu>,
+    );
+
+    const menu = screen.getByRole("menu");
+
+    expect(menu).toBeInTheDocument();
+  });
+
+  test('isOpen이 false일 때 드랍다운이 닫혀야 합니다."', async () => {
+    render(
+      <DropdownMenu isOpen={false}>
+        <DropdownMenu.Content />
+      </DropdownMenu>,
+    );
+
+    const menu = screen.queryByRole("menu");
+
+    expect(menu).not.toBeInTheDocument();
+  });
+
+  test("드랍다운의 상태가 변경될 때 onOpenChange 함수가 호출되어야 합니다.", async () => {
+    const user = userEvent.setup();
+
+    const onOpenChange = vi.fn();
+
+    render(
+      <DropdownMenu onOpenChange={onOpenChange}>
+        <DropdownMenu.Trigger>열기</DropdownMenu.Trigger>
+        <DropdownMenu.Content>
+          <DropdownMenu.Item>메뉴 1</DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu>,
+    );
+
+    const trigger = screen.getByRole("button", { name: "열기" });
+
+    await user.click(trigger);
+
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+
+    const item = screen.getByRole("menuitem", { name: "메뉴 1" });
+
+    await user.click(item);
+
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+  });
+
   test("[a11y] Space 키를 눌러 드랍다운을 열 수 있어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -92,6 +153,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] ArrowDown 키를 눌러 드랍다운을 열 수 있어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -106,18 +169,24 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] trigger에 aria-haspopup 속성이 존재해야 합니다.", () => {
+    render(<DefaultDropdownMenu />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     expect(trigger).toHaveAttribute("aria-haspopup", "menu");
   });
 
   test("[a11y] 드랍다운이 닫혀있을 경우 trigger의 aria-expanded 속성이 false여야 합니다.", () => {
+    render(<DefaultDropdownMenu />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     expect(trigger).toHaveAttribute("aria-expanded", "false");
   });
 
   test("[a11y] 드랍다운이 열려있을 경우 trigger의 aria-expanded 속성이 true여야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     await openDropdownMenu();
@@ -126,6 +195,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] menu에 role='menu' 속성이 존재해야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const menu = screen.getByRole("menu");
@@ -134,6 +205,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] menu item에 role='menuitem' 속성이 존재해야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const item = screen.getByRole("menuitem", { name: "메뉴 1" });
@@ -142,6 +215,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] group에 role='group' 속성이 존재해야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const group = screen.getByRole("group");
@@ -150,6 +225,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] separator에 role='separator' 속성이 존재해야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const separator = screen.getByRole("separator");
@@ -158,6 +235,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] menu의 aria-orientation 속성이 vertical이어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const menu = screen.getByRole("menu");
@@ -166,6 +245,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] separator의 aria-orientation 속성이 horizontal이어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const separator = screen.getByRole("separator");
@@ -174,6 +255,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] menu에 aria-labelledby 속성이 존재하고 trigger의 id와 연결되어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     await openDropdownMenu();
@@ -192,6 +275,8 @@ describe("DropdownMenu", () => {
   //   });
 
   test("[a11y] 드랍다운이 열려있을 때 Tab 키가 동작하지 않아야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
@@ -206,6 +291,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] 키보드 방향키로 menu item의 포커스를 이동할 수 있어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
@@ -226,6 +313,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] Home 키를 눌렀을 때 첫 번째 menu item으로 포커스가 이동되어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
@@ -242,6 +331,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] End 키를 눌렀을 때 마지막 menu item으로 포커스가 이동되어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
@@ -258,6 +349,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] menu item이 disabled인 경우 키보드 방향키로 포커스를 이동할 수 없어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
@@ -274,6 +367,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] menu item이 disabled인 경우 aria-disabled 속성이 존재해야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     await openDropdownMenu();
 
     const disabledMenu = screen.getByRole("menuitem", { name: "메뉴 3 (disabled)" });
@@ -282,6 +377,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] 드랍다운이 닫혔을 때 trigger로 포커스가 이동되어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -294,6 +391,8 @@ describe("DropdownMenu", () => {
   });
 
   test("[a11y] Escape 키를 눌러 드랍다운을 닫을 수 있어야 합니다.", async () => {
+    render(<DefaultDropdownMenu />);
+
     const user = userEvent.setup();
 
     await openDropdownMenu();
