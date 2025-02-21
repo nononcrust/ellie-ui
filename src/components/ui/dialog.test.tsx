@@ -6,25 +6,48 @@ const TRIGGER_LABEL = "열기";
 const DIALOG_TITLE = "모달 제목";
 const DIALOG_DESCRIPTION = "모달 설명이 여기에 표시됩니다.";
 
-describe("Dialog", () => {
-  beforeEach(() => {
-    render(
-      <Dialog>
-        <Dialog.Trigger>{TRIGGER_LABEL}</Dialog.Trigger>
-        <Dialog.Content className="w-[400px]" animation="pop">
-          <Dialog.Header>
-            <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
-            <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
-          </Dialog.Header>
-          <Dialog.Footer className="mt-3">
-            <Dialog.Close>취소</Dialog.Close>
-            <Dialog.Close>확인</Dialog.Close>
-          </Dialog.Footer>
-        </Dialog.Content>
-      </Dialog>,
-    );
-  });
+const DefaultDialog = () => {
+  return (
+    <Dialog>
+      <Dialog.Trigger>{TRIGGER_LABEL}</Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
+          <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
+        </Dialog.Header>
+        <Dialog.Footer>
+          <Dialog.Close>취소</Dialog.Close>
+          <Dialog.Close>확인</Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog>
+  );
+};
 
+const NestedDialog = () => {
+  return (
+    <Dialog>
+      <Dialog.Trigger>{TRIGGER_LABEL}</Dialog.Trigger>
+      <Dialog.Content data-testid="first-dialog">
+        <Dialog.Header>
+          <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
+          <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
+        </Dialog.Header>
+        <Dialog.Footer>
+          <Dialog.Close>취소</Dialog.Close>
+          <Dialog>
+            <Dialog.Trigger>중첩 모달 열기</Dialog.Trigger>
+            <Dialog.Content data-testid="nested-dialog">
+              <Dialog.Close>중첩 모달 닫기</Dialog.Close>
+            </Dialog.Content>
+          </Dialog>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog>
+  );
+};
+
+describe("Dialog", () => {
   const openDialog = async () => {
     const user = userEvent.setup();
 
@@ -34,6 +57,8 @@ describe("Dialog", () => {
   };
 
   test("trigger를 클릭했을 때 모달이 열려야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -45,7 +70,17 @@ describe("Dialog", () => {
     expect(dialog).toBeInTheDocument();
   });
 
+  test("모달이 닫혀있을 때 컨텐츠가 보이지 않아야 합니다.", async () => {
+    render(<DefaultDialog />);
+
+    const dialog = screen.queryByRole("dialog");
+
+    expect(dialog).not.toBeInTheDocument();
+  });
+
   test("overlay를 클릭했을 때 모달이 닫혀야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     await openDialog();
@@ -60,6 +95,8 @@ describe("Dialog", () => {
   });
 
   test("닫기 버튼을 클릭했을 때 모달이 닫혀야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     await openDialog();
@@ -74,6 +111,8 @@ describe("Dialog", () => {
   });
 
   test('모달이 열려있을 때 스크롤이 비활성화되어야합니다."', async () => {
+    render(<DefaultDialog />);
+
     await openDialog();
 
     const body = document.body;
@@ -81,7 +120,99 @@ describe("Dialog", () => {
     expect(body).toHaveStyle("overflow: hidden");
   });
 
+  test('isOpen이 true일 때 모달이 열려야 합니다."', async () => {
+    render(
+      <Dialog isOpen>
+        <Dialog.Content />
+      </Dialog>,
+    );
+
+    const dialog = screen.getByRole("dialog");
+
+    expect(dialog).toBeInTheDocument();
+  });
+
+  test("isOpen이 false일 떄 모달이 닫혀야 합니다.", async () => {
+    render(
+      <Dialog isOpen={false}>
+        <Dialog.Content />
+      </Dialog>,
+    );
+
+    const dialog = screen.queryByRole("dialog");
+
+    expect(dialog).not.toBeInTheDocument();
+  });
+
+  test("모달의 상태가 변경되었을 떄 onOpenChange 함수가 호출되어야 합니다.", async () => {
+    const onOpenChange = vi.fn();
+
+    render(
+      <Dialog onOpenChange={onOpenChange}>
+        <Dialog.Trigger>열기</Dialog.Trigger>
+        <Dialog.Content>
+          <Dialog.Close>취소</Dialog.Close>
+        </Dialog.Content>
+      </Dialog>,
+    );
+
+    const trigger = screen.getByRole("button", { name: "열기" });
+
+    const user = userEvent.setup();
+
+    await user.click(trigger);
+
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+
+    const close = screen.getByRole("button", { name: "취소" });
+
+    await user.click(close);
+
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+  });
+
+  test("모달을 중첩했을 때 중첩된 모달이 첫 번째 모달 위에 보여야 합니다.", async () => {
+    render(<NestedDialog />);
+
+    const user = userEvent.setup();
+
+    await openDialog();
+
+    const secondDialogTrigger = screen.getByRole("button", { name: "중첩 모달 열기" });
+
+    await user.click(secondDialogTrigger);
+
+    const firstDialog = screen.getByTestId("first-dialog");
+    const secondDialog = screen.getByTestId("nested-dialog");
+
+    expect(secondDialog.compareDocumentPosition(firstDialog)).toBe(
+      Node.DOCUMENT_POSITION_PRECEDING,
+    );
+  });
+
+  test("모달을 중첩했을 때 중첩된 모달이 열린 상태에서 ESC 키를 눌렀을 경우 중첩된 모달만 닫혀야 합니다.", async () => {
+    render(<NestedDialog />);
+
+    const user = userEvent.setup();
+
+    await openDialog();
+
+    const secondDialogTrigger = screen.getByRole("button", { name: "중첩 모달 열기" });
+
+    await user.click(secondDialogTrigger);
+
+    await user.keyboard("{Escape}");
+
+    const firstDialog = screen.getByTestId("first-dialog");
+    const secondDialog = screen.queryByTestId("nested-dialog");
+
+    expect(firstDialog).toBeInTheDocument();
+    expect(secondDialog).not.toBeInTheDocument();
+  });
+
   test("[a11y] Space 키 눌러 모달을 열 수 있어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -96,12 +227,16 @@ describe("Dialog", () => {
   });
 
   test("[a11y] trigger에 aria-haspopup 속성이 존재해야 합니다.", () => {
+    render(<DefaultDialog />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     expect(trigger).toHaveAttribute("aria-haspopup", "dialog");
   });
 
   test("[a11y] trigger에 aria-controls 속성이 존재하고 dialog의 id와 연결되어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     await openDialog();
@@ -112,6 +247,8 @@ describe("Dialog", () => {
   });
 
   test("[a11y] dialog에 role='dialog' 속성이 존재해야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     await openDialog();
 
     const dialog = screen.getByRole("dialog");
@@ -120,12 +257,16 @@ describe("Dialog", () => {
   });
 
   test("[a11y] 모달이 닫혀있을 경우 trigger의 aria-expanded 속성이 false여야 합니다.", () => {
+    render(<DefaultDialog />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     expect(trigger).toHaveAttribute("aria-expanded", "false");
   });
 
   test("[a11y] 모달이 열려있을 경우 trigger의 aria-expanded 속성이 true여야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
 
     await openDialog();
@@ -134,6 +275,8 @@ describe("Dialog", () => {
   });
 
   test("[a11y] dialog에 aria-labelledby 속성이 존재하고 제목의 id와 연결되어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     await openDialog();
 
     const dialog = screen.getByRole("dialog");
@@ -143,6 +286,8 @@ describe("Dialog", () => {
   });
 
   test("[a11y] dialog에 aria-describedby 속성이 존재하고 설명의 id와 연결되어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     await openDialog();
 
     const dialog = screen.getByRole("dialog");
@@ -152,6 +297,8 @@ describe("Dialog", () => {
   });
 
   test("[a11y] 모달이 닫혔을 때 trigger로 포커스가 이동되어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
@@ -185,6 +332,8 @@ describe("Dialog", () => {
   // });
 
   test("[a11y] 첫 번째 포커스 가능한 요소에서 Shift + Tab 키를 누르면 마지막 포커스 가능한 요소로 이동되어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     await openDialog();
@@ -197,6 +346,8 @@ describe("Dialog", () => {
   });
 
   test("[a11y] Escape 키를 눌러 모달을 닫을 수 있어야 합니다.", async () => {
+    render(<DefaultDialog />);
+
     const user = userEvent.setup();
 
     await openDialog();
