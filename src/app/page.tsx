@@ -16,14 +16,18 @@ import { IconButton } from "@/components/ui/icon-button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Tag } from "@/components/ui/tag";
+import { link } from "@/configs/link";
 import {
-  ChevronRightIcon,
   EllipsisIcon,
   EyeOffIcon,
   HammerIcon,
+  LinkIcon,
+  MailIcon,
+  MapPinIcon,
   PhoneIcon,
   SlidersHorizontalIcon,
 } from "lucide-react";
+import Link from "next/link";
 import { ChatMessageList } from "./desktop/chat/_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
@@ -158,21 +162,42 @@ export default function Home() {
         <UnderConstruction />
       </Card>
       <Card className="mb-5 break-inside-avoid">
-        <div className="flex w-full items-center justify-between">
-          <div className="flex items-center">
-            <Avatar className="size-11">
+        <div className="flex w-full justify-between">
+          <div className="flex gap-1">
+            <Avatar className="size-14 rounded-xl">
               <Avatar.Image src={profileImage.src} />
               <Avatar.Fallback />
             </Avatar>
             <div className="ml-2">
               <span className="flex items-center gap-2">
-                <span className="text font-semibold">노논</span>
+                <span className="text-lg leading-none font-semibold">신상호</span>
                 <Tag variant="info">멤버</Tag>
               </span>
-              <span className="text-subtle text-sm">nononcrust@gmail.com</span>
+              <span className="text-subtle text-sm font-medium">Frontend Engineer</span>
+              <div className="mt-2 flex flex-col gap-0.5">
+                <span className="text-subtle flex items-center gap-2 text-sm">
+                  <MapPinIcon size={16} /> 경기도 수지구 동천동
+                </span>
+                <Link
+                  className="text-subtle hover:text-main flex items-center gap-2 text-sm transition-colors"
+                  href={`mailto:${link.email}`}
+                >
+                  <MailIcon size={16} /> {link.email}
+                </Link>
+                <Link
+                  className="text-subtle hover:text-main flex items-center gap-2 text-sm transition-colors"
+                  href={link.github}
+                >
+                  <LinkIcon size={16} /> {link.github}
+                </Link>
+              </div>
             </div>
           </div>
-          <ChevronRightIcon size={24} className="text-subtle" />
+          <IconButton aria-label="메일 보내기" size="small" variant="outlined" asChild>
+            <Link href={`mailto:${link.email}`}>
+              <MailIcon size={16} />
+            </Link>
+          </IconButton>
         </div>
       </Card>
       <Card className="mb-5 break-inside-avoid">

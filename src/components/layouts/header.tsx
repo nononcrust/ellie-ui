@@ -85,7 +85,7 @@ const StorybookLogo = () => {
 const Github = () => {
   return (
     <IconButton aria-label="깃허브" variant="ghost" asChild size="small">
-      <Link href={link.github}>
+      <Link href={link.repository}>
         <GithubLogo className="w-5" />
       </Link>
     </IconButton>
