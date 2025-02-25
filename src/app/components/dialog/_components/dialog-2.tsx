@@ -9,17 +9,21 @@ export const Dialog2 = () => {
       <Dialog.Trigger asChild>
         <Button variant="outlined">슬라이드 애니메이션</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[400px]" animation="slide">
+      <Dialog.Content className="w-[320px]" animation="slide">
         <Dialog.Header>
-          <Dialog.Title>제출하기</Dialog.Title>
-          <Dialog.Description>과제를 제출하시겠습니까?</Dialog.Description>
+          <Dialog.Title>과제를 제출할까요?</Dialog.Title>
+          <Dialog.Description>제출한 과제는 수정할 수 없어요.</Dialog.Description>
         </Dialog.Header>
-        <Dialog.Footer className="mt-3">
+        <Dialog.Footer>
           <Dialog.Close asChild>
-            <Button variant="outlined">취소</Button>
+            <Button className="w-full" size="large" variant="outlined">
+              취소
+            </Button>
           </Dialog.Close>
           <Dialog.Close asChild>
-            <Button>확인</Button>
+            <Button className="w-full" size="large">
+              확인
+            </Button>
           </Dialog.Close>
         </Dialog.Footer>
       </Dialog.Content>
