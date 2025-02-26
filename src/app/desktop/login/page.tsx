@@ -35,7 +35,9 @@ export default function LoginPage() {
   return (
     <div className="px-4 md:mx-auto md:max-w-sm">
       <main className="mt-24 w-full">
-        <h1 className="mb-8 text-lg font-semibold">서비스 이용을 위해 로그인해 주세요.</h1>
+        <h1 className="mb-8 text-center text-4xl font-extrabold tracking-tighter text-neutral-200 dark:text-neutral-700">
+          LOGO
+        </h1>
         <Form onSubmit={onSubmit}>
           <Form.Item error={!!form.formState.errors.email}>
             <Form.Label>이메일</Form.Label>
