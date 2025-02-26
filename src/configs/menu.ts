@@ -46,7 +46,6 @@ export const menu = [
       { title: "Feed", href: "/desktop/feed" },
       { title: "Chat", href: "/desktop/chat" },
       { title: "Settings", href: "/desktop/settings" },
-      { title: "Board", href: "/desktop/board" },
       { title: "Login", href: "/desktop/login" },
     ],
   },
