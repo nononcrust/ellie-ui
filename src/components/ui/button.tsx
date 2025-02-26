@@ -10,7 +10,8 @@ export type ButtonProps = React.ComponentPropsWithRef<"button"> &
 
 export const buttonVariant = {
   primary: "bg-primary text-white hover:bg-primary-dark",
-  primaryLow: "bg-primary-lighter text-primary hover:bg-primary-lighter-hover",
+  primaryLow:
+    "bg-primary-lighter text-primary hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:hover:bg-primary-darker-hover",
   primaryOutlined: "border-border text-primary hover:bg-background-hover",
   primaryLowOutlined:
     "border-primary text-primary bg-primary-lighter hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:border-primary-dark dark:hover:bg-primary-darker-hover",
