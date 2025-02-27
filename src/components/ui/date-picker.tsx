@@ -4,7 +4,7 @@ import { usePopover } from "@/hooks/use-popover";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DateRange, PropsBase, PropsRange, PropsSingle } from "react-day-picker";
 import { Button } from "./button";
 import { Calendar } from "./calendar";
@@ -65,6 +65,10 @@ export const DatePicker = ({
   };
 
   const formattedDate = date ? format(date, "yyyy-MM-dd") : null;
+
+  useEffect(() => {
+    setDate(initialDate);
+  }, [initialDate]);
 
   return (
     <Popover isOpen={popover.isOpen} onOpenChange={onOpenChange}>
@@ -163,6 +167,10 @@ export const DateRangePicker = ({
   const dateRangeTo = dateRange && dateRange.to ? ` ~ ${format(dateRange.to, "yyyy-MM-dd")}` : "";
 
   const formattedDate = dateRange ? `${dateRangeFrom}${dateRangeTo}` : null;
+
+  useEffect(() => {
+    setDateRange(initialDateRange);
+  }, [initialDateRange]);
 
   return (
     <Popover isOpen={popover.isOpen} onOpenChange={onOpenChange}>
