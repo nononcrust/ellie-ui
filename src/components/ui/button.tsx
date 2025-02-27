@@ -57,6 +57,7 @@ export const Button = ({
 
   return (
     <Component
+      type="button"
       className={cn(buttonVariants({ size, variant, className }))}
       disabled={disabled}
       aria-disabled={disabled || undefined}
