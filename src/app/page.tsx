@@ -10,17 +10,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChipButton } from "@/components/ui/chip-button";
+import { DatePicker } from "@/components/ui/date-picker";
 import { Divider } from "@/components/ui/divider";
 import { Form } from "@/components/ui/form";
 import { IconButton } from "@/components/ui/icon-button";
 import { Input } from "@/components/ui/input";
+import { RadioGroup } from "@/components/ui/radio-group";
+import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Tag } from "@/components/ui/tag";
 import { link } from "@/configs/link";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   EllipsisIcon,
   EyeOffIcon,
-  HammerIcon,
   LinkIcon,
   MailIcon,
   MapPinIcon,
@@ -28,6 +31,8 @@ import {
   SlidersHorizontalIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
 import { ChatMessageList } from "./desktop/chat/_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
@@ -44,17 +49,12 @@ export default function Home() {
       <FollowRecommendation />
       <SearchMenu />
       <Settings />
-      <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
+      {/* <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
         <UnderConstruction />
-      </Card>
+      </Card> */}
       <Profile />
       <StoreDetail />
-      <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
-        <UnderConstruction />
-      </Card>
-      <Card className="mb-5 flex h-96 break-inside-avoid items-center justify-center">
-        <UnderConstruction />
-      </Card>
+      <ReservationForm />
     </main>
   );
 }
@@ -305,14 +305,6 @@ const StoreDetail = () => {
   );
 };
 
-const UnderConstruction = () => {
-  return (
-    <div className="flex h-9 w-9 items-center justify-center rounded-full border-3 border-neutral-100 dark:border-neutral-700">
-      <HammerIcon className="text-neutral-400 dark:text-neutral-500" size={16} strokeWidth={2.5} />
-    </div>
-  );
-};
-
 const Chat = () => {
   const { chatMessageGroups, dispatch } = useChatMessageGroups();
 
@@ -398,3 +390,83 @@ const initialChatMessageGroups: ChatMessageGroup[] = [
     createdAt: "2025-01-22T14:26:13Z",
   },
 ];
+
+const reservationFormSchema = z.object({
+  session: z.string().nonempty({ message: "참가할 세션을 선택해주세요." }),
+  date: z.date({ message: "예약 날짜를 선택해주세요." }),
+  type: z.string().nonempty({ message: "참가 유형을 선택해주세요." }),
+});
+
+const ReservationForm = () => {
+  const defaultValues = {
+    session: "",
+    date: undefined,
+    type: "",
+  };
+
+  const form = useForm({
+    resolver: zodResolver(reservationFormSchema),
+    defaultValues,
+  });
+
+  const onSubmit = form.handleSubmit(() => {
+    form.reset(defaultValues);
+  });
+
+  return (
+    <Card className="mb-5 break-inside-avoid">
+      <span className="text-lg font-semibold">강의 예약</span>
+      <Form className="mt-4 flex flex-col gap-4" onSubmit={onSubmit}>
+        <Form.Item error={!!form.formState.errors.session}>
+          <Form.Label>참가할 세션</Form.Label>
+          <Controller
+            name="session"
+            control={form.control}
+            render={({ field }) => (
+              <Form.Control>
+                <Select placeholder="참가할 세션을 선택해주세요" {...field}>
+                  <Select.Option value="1">강의</Select.Option>
+                  <Select.Option value="2">패널 토론</Select.Option>
+                  <Select.Option value="3">네트워킹</Select.Option>
+                </Select>
+              </Form.Control>
+            )}
+          />
+          <Form.ErrorMessage>{form.formState.errors.session?.message}</Form.ErrorMessage>
+        </Form.Item>
+        <Form.Item error={!!form.formState.errors.date}>
+          <Form.Label>예약 날짜</Form.Label>
+          <Controller
+            name="date"
+            control={form.control}
+            render={({ field }) => (
+              <Form.Control>
+                <DatePicker {...field} placeholder="예약 날짜를 선택해주세요" />
+              </Form.Control>
+            )}
+          />
+          <Form.ErrorMessage>{form.formState.errors.date?.message}</Form.ErrorMessage>
+        </Form.Item>
+        <Form.Item error={!!form.formState.errors.type}>
+          <Form.Label>참가 유형</Form.Label>
+          <Controller
+            name="type"
+            control={form.control}
+            render={({ field }) => (
+              <Form.Control>
+                <RadioGroup size="small" {...field}>
+                  <RadioGroup.Option value="online">온라인</RadioGroup.Option>
+                  <RadioGroup.Option value="offline">오프라인</RadioGroup.Option>
+                </RadioGroup>
+              </Form.Control>
+            )}
+          />
+          <Form.ErrorMessage>{form.formState.errors.type?.message}</Form.ErrorMessage>
+        </Form.Item>
+        <Button className="w-full" type="submit">
+          제출하기
+        </Button>
+      </Form>
+    </Card>
+  );
+};
