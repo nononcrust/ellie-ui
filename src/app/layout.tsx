@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import { Header } from "@/components/layouts/header";
 import { Sidebar } from "@/components/layouts/sidebar";
+import { ReactScan } from "@/components/shared/react-scan";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
@@ -13,6 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning className={`${pretendard.variable} font-pretendard`}>
+      <head>
+        <ReactScan />
+      </head>
       <body className="min-h-dvh antialiased">
         <Providers>
           <Header />
