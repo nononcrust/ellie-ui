@@ -39,7 +39,11 @@ export default function LoginPage() {
           <Form.Item error={!!form.formState.errors.email}>
             <Form.Label>이메일</Form.Label>
             <Form.Control>
-              <Input placeholder="이메일을 입력해주세요" {...form.register("email")} />
+              <Input
+                className="h-10"
+                placeholder="이메일을 입력해주세요"
+                {...form.register("email")}
+              />
             </Form.Control>
             <Form.ErrorMessage>{form.formState.errors.email?.message}</Form.ErrorMessage>
           </Form.Item>
@@ -48,7 +52,7 @@ export default function LoginPage() {
             <div className="relative">
               <Form.Control>
                 <Input
-                  className="pr-8"
+                  className="h-10 pr-8"
                   placeholder="비밀번호를 입력해주세요"
                   type="password"
                   {...form.register("password")}
