@@ -38,7 +38,7 @@ export const IconButton = ({
   variant,
   size,
   asChild = false,
-  disabled = false,
+  disabled,
   "aria-label": ariaLabel,
   ...props
 }: IconButtonProps) => {
@@ -50,7 +50,7 @@ export const IconButton = ({
       className={cn(iconButtonVariants({ size, variant, className }))}
       disabled={disabled}
       aria-label={ariaLabel}
-      aria-disabled={disabled || undefined}
+      aria-disabled={disabled}
       {...props}
     >
       {children}
