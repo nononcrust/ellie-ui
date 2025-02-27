@@ -49,9 +49,6 @@ export default function Home() {
       <FollowRecommendation />
       <SearchMenu />
       <Settings />
-      {/* <Card className="mb-5 flex h-48 break-inside-avoid items-center justify-center">
-        <UnderConstruction />
-      </Card> */}
       <Profile />
       <StoreDetail />
       <ReservationForm />
@@ -401,7 +398,7 @@ const ReservationForm = () => {
   const defaultValues = {
     session: "",
     date: undefined,
-    type: "",
+    type: "online",
   };
 
   const form = useForm({
