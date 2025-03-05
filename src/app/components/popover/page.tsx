@@ -22,7 +22,7 @@ const Notifications = () => {
       <div className="relative w-fit">
         <Popover.Trigger asChild>
           <IconButton
-            className="rounded-[12px] text-primary shadow-md"
+            className="text-primary rounded-[12px] shadow-md"
             size="small"
             variant="outlined"
             aria-label="알림"
@@ -49,14 +49,14 @@ const Notifications = () => {
 const NotificationItem = () => {
   return (
     <li>
-      <Popover.Close className="flex w-full flex-col gap-2 rounded-[10px] px-4 py-3 transition-colors hover:bg-background-hover">
-        <span className="text-[12px] font-semibold text-primary">커리어 성장</span>
+      <Popover.Close className="hover:bg-background-hover flex w-full flex-col gap-2 rounded-[10px] px-4 py-3 transition-colors">
+        <span className="text-primary text-left text-[12px] font-semibold">커리어 성장</span>
         <p className="text-left text-sm font-medium">
           {
             "백엔드 챌린지 이제는 꼭 알아야 할 AWS\n실전에 바로 적용할 수 있는 AWS 기술을 2주 완성 학습하고 개발 역량을 높여보세요."
           }
         </p>
-        <span className="text-xs font-medium text-subtle">2024.12.26 (목)</span>
+        <span className="text-subtle text-left text-xs font-medium">2024.12.26 (목)</span>
       </Popover.Close>
     </li>
   );
