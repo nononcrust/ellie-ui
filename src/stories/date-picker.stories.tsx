@@ -19,7 +19,12 @@ export const Default: Story = {
     const datePicker = useDatePicker();
 
     return (
-      <DatePicker className="w-[240px]" value={datePicker.value} onChange={datePicker.onChange} />
+      <DatePicker
+        className="w-[240px]"
+        value={datePicker.value}
+        onChange={datePicker.onChange}
+        aria-label="날짜 선택"
+      />
     );
   },
 };

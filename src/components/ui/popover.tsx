@@ -38,6 +38,16 @@ const PopoverContent = ({ className, children, sideOffset = 4, ...props }: Popov
   );
 };
 
-Popover.Trigger = PopoverPrimitives.Trigger;
+type PopoverTriggerProps = React.ComponentPropsWithRef<typeof PopoverPrimitives.Trigger>;
+
+const PopoverTrigger = ({ children, ...props }: PopoverTriggerProps) => {
+  return (
+    <PopoverPrimitives.Trigger aria-controls={undefined} {...props}>
+      {children}
+    </PopoverPrimitives.Trigger>
+  );
+};
+
+Popover.Trigger = PopoverTrigger;
 Popover.Content = PopoverContent;
 Popover.Close = PopoverPrimitives.Close;

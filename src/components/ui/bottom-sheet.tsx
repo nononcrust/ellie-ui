@@ -184,7 +184,17 @@ const BottomSheetSelectItem = ({
   );
 };
 
-BottomSheet.Trigger = DialogPrimitives.Trigger;
+type BottomSheetTriggerProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Trigger>;
+
+const BottomSheetTrigger = ({ children, ...props }: BottomSheetTriggerProps) => {
+  return (
+    <DialogPrimitives.Trigger asChild aria-controls={undefined} {...props}>
+      {children}
+    </DialogPrimitives.Trigger>
+  );
+};
+
+BottomSheet.Trigger = BottomSheetTrigger;
 BottomSheet.Close = DialogPrimitives.Close;
 BottomSheet.Title = BottomSheetTitle;
 BottomSheet.Description = BottomSheetDescription;

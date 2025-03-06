@@ -16,43 +16,43 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => {
-    return <Checkbox />;
+    return <Checkbox aria-label="체크박스" />;
   },
 };
 
 export const Checked: Story = {
   render: () => {
-    return <Checkbox defaultChecked />;
+    return <Checkbox defaultChecked aria-label="체크박스" />;
   },
 };
 
 export const Disabled: Story = {
   render: () => {
-    return <Checkbox disabled />;
+    return <Checkbox disabled aria-label="체크박스" />;
   },
 };
 
 export const Indeterminate: Story = {
   render: () => {
-    return <Checkbox checked="indeterminate" />;
+    return <Checkbox checked="indeterminate" aria-label="체크박스" />;
   },
 };
 
 export const Error: Story = {
   render: () => {
-    return <Checkbox aria-invalid />;
+    return <Checkbox aria-invalid aria-label="체크박스" />;
   },
 };
 
 export const Small: Story = {
   render: () => {
-    return <Checkbox size="small" />;
+    return <Checkbox size="small" aria-label="체크박스" />;
   },
 };
 
 export const Large: Story = {
   render: () => {
-    return <Checkbox size="large" />;
+    return <Checkbox size="large" aria-label="체크박스" />;
   },
 };
 
@@ -71,6 +71,8 @@ export const Controlled: Story = {
   render: () => {
     const checkbox = useCheckbox();
 
-    return <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} />;
+    return (
+      <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} aria-label="체크박스" />
+    );
   },
 };

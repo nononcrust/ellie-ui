@@ -149,6 +149,16 @@ const DialogDescription = ({ className, children, ...props }: DialogDescriptionP
   );
 };
 
+type DialogTriggerProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Trigger>;
+
+const DialogTrigger = ({ children, ...props }: DialogTriggerProps) => {
+  return (
+    <DialogPrimitives.Trigger aria-controls={undefined} {...props}>
+      {children}
+    </DialogPrimitives.Trigger>
+  );
+};
+
 type DialogContextValue = {
   triggerRef: DialogProps["triggerRef"];
 };
@@ -162,7 +172,7 @@ type DialogContentContextValue = {
 const [DialogContentContext, useDialogContentContext] =
   createContextFactory<DialogContentContextValue>("DialogContent");
 
-Dialog.Trigger = DialogPrimitives.Trigger;
+Dialog.Trigger = DialogTrigger;
 Dialog.Close = DialogPrimitives.Close;
 Dialog.Content = DialogContent;
 Dialog.Header = DialogHeader;
