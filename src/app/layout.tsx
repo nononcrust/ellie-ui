@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { Header } from "@/components/layouts/header";
 import { Sidebar } from "@/components/layouts/sidebar";
 import { ReactScan } from "@/components/shared/react-scan";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
@@ -23,6 +24,7 @@ export default function RootLayout({
           <Sidebar />
           <div className="md:pl-[240px]">{children}</div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
