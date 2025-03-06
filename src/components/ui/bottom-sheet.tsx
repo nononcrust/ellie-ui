@@ -188,7 +188,7 @@ type BottomSheetTriggerProps = React.ComponentPropsWithRef<typeof DialogPrimitiv
 
 const BottomSheetTrigger = ({ children, ...props }: BottomSheetTriggerProps) => {
   return (
-    <DialogPrimitives.Trigger asChild aria-controls={undefined} {...props}>
+    <DialogPrimitives.Trigger aria-controls={undefined} {...props}>
       {children}
     </DialogPrimitives.Trigger>
   );

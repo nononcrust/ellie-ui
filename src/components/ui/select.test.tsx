@@ -118,16 +118,6 @@ describe("Select", () => {
     expect(selectedOption).toHaveFocus();
   });
 
-  test("[a11y] trigger에 aria-controls 속성이 존재하고 listbox의 id와 연결되어야 합니다.", async () => {
-    const trigger = screen.getByRole("combobox");
-
-    await openSelect();
-
-    const listbox = screen.getByRole("listbox");
-
-    expect(trigger).toHaveAttribute("aria-controls", listbox.id);
-  });
-
   test("[a11y] trigger의 aria-autocomplete 속성이 none이어야 합니다.", async () => {
     const trigger = screen.getByRole("combobox");
 

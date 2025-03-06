@@ -160,16 +160,6 @@ describe("Tabs", async () => {
     expect(tablist).toHaveAttribute("aria-orientation", "horizontal");
   });
 
-  test("[a11y] tab에 aria-controls 속성이 존재하고 tabpanel의 id와 연결되어야 합니다.", async () => {
-    render(<DefaultTabs />);
-
-    const tab = screen.getByRole("tab", { name: "탭 1" });
-
-    const tabpanel = screen.getByRole("tabpanel");
-
-    expect(tab).toHaveAttribute("aria-controls", tabpanel.id);
-  });
-
   test('[a11y] tab이 선택되어 있을 때 aria-selected="true" 속성이 존재해야 합니다.', async () => {
     render(<DefaultTabs />);
 

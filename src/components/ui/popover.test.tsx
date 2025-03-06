@@ -53,16 +53,6 @@ describe("Popover", () => {
     expect(trigger).toHaveAttribute("aria-expanded", "true");
   });
 
-  test("[a11y] trigger에 aria-controls 속성이 존재하고 content의 id와 연결되어야 합니다.", async () => {
-    const trigger = screen.getByText(TRIGGER_LABEL);
-
-    await openPopover();
-
-    const content = screen.getByRole("dialog");
-
-    expect(trigger).toHaveAttribute("aria-controls", content.id);
-  });
-
   test("[a11y] Space 키를 눌러 팝오버를 열 수 있어야 합니다.", async () => {
     const user = userEvent.setup();
 

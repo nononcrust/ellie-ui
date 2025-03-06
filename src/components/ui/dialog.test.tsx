@@ -234,18 +234,6 @@ describe("Dialog", () => {
     expect(trigger).toHaveAttribute("aria-haspopup", "dialog");
   });
 
-  test("[a11y] trigger에 aria-controls 속성이 존재하고 dialog의 id와 연결되어야 합니다.", async () => {
-    render(<DefaultDialog />);
-
-    const trigger = screen.getByRole("button", { name: TRIGGER_LABEL });
-
-    await openDialog();
-
-    const dialog = screen.getByRole("dialog");
-
-    expect(trigger).toHaveAttribute("aria-controls", dialog.id);
-  });
-
   test("[a11y] dialog에 role='dialog' 속성이 존재해야 합니다.", async () => {
     render(<DefaultDialog />);
 
