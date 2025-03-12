@@ -26,8 +26,8 @@ export const formatToTimeAgo = (isoDateString: string): string => {
 export const formatToTime = (isoDateString: string): string => {
   const date = new Date(isoDateString);
 
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
+  const hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
 
   const ampm = hours < 12 ? "오전" : "오후";
   const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
