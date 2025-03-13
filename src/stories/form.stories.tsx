@@ -62,7 +62,7 @@ export const Error: Story = {
 export const WithInput: Story = {
   render: () => {
     const schema = z.object({
-      input: z.string().nonempty({ message: "에럭 메시지가 여기에 표시됩니다." }),
+      input: z.string().nonempty({ message: "에러 메시지가 여기에 표시됩니다." }),
     });
 
     const form = useForm({
@@ -99,7 +99,7 @@ export const WithInput: Story = {
 export const WithTextarea: Story = {
   render: () => {
     const schema = z.object({
-      textarea: z.string().nonempty({ message: "에럭 메시지가 여기에 표시됩니다." }),
+      textarea: z.string().nonempty({ message: "에러 메시지가 여기에 표시됩니다." }),
     });
 
     const form = useForm({
@@ -135,7 +135,7 @@ export const WithTextarea: Story = {
 
 export const WithSelect = () => {
   const schema = z.object({
-    select: z.string().nonempty({ message: "에럭 메시지가 여기에 표시됩니다." }),
+    select: z.string().nonempty({ message: "에러 메시지가 여기에 표시됩니다." }),
   });
 
   const form = useForm({
@@ -175,7 +175,7 @@ export const WithSelect = () => {
 export const WithDatePicker: Story = {
   render: () => {
     const schema = z.object({
-      date: z.date({ message: "에럭 메시지가 여기에 표시됩니다." }),
+      date: z.date({ message: "에러 메시지가 여기에 표시됩니다." }),
     });
 
     const form = useForm({
