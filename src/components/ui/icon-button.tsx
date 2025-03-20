@@ -46,7 +46,7 @@ export const IconButton = ({
 
   return (
     <Component
-      type="button"
+      type={asChild ? undefined : "button"}
       className={cn(iconButtonVariants({ size, variant, className }))}
       disabled={disabled}
       aria-label={ariaLabel}

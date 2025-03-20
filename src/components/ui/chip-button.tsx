@@ -39,7 +39,7 @@ export const ChipButton = ({
 
   return (
     <Component
-      type="button"
+      type={asChild ? undefined : "button"}
       className={cn(chipButtonVariants({ variant, size, className }))}
       disabled={disabled}
       aria-disabled={disabled}
