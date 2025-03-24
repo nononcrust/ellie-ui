@@ -7,8 +7,6 @@ import React, { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 import { Label } from "./label";
 
-const DEFAULT_SIZE = "medium";
-
 const radioGroupVariants = tv({
   slots: {
     base: "grid",
@@ -47,7 +45,7 @@ const radioGroupVariants = tv({
     },
   },
   defaultVariants: {
-    size: DEFAULT_SIZE,
+    size: "medium",
   },
 });
 
@@ -60,7 +58,7 @@ export const RadioGroup = ({
   className,
   children,
   ["aria-invalid"]: ariaInvalid,
-  size = DEFAULT_SIZE,
+  size,
   onChange,
   ...props
 }: RadioGroupProps) => {
