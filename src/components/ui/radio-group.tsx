@@ -9,7 +9,7 @@ import { Label } from "./label";
 
 const radioGroupVariants = tv({
   slots: {
-    base: "grid",
+    root: "grid",
     item: cn(
       "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
       "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
@@ -22,21 +22,21 @@ const radioGroupVariants = tv({
   variants: {
     size: {
       small: {
-        base: "gap-2",
+        root: "gap-2",
         item: "size-4",
         indicator: "6",
         label: "text-sm",
         option: "gap-2",
       },
       medium: {
-        base: "gap-3",
+        root: "gap-3",
         item: "size-5",
         indicator: "8",
         label: "text-base",
         option: "gap-3",
       },
       large: {
-        base: "gap-4",
+        root: "gap-4",
         item: "size-6",
         indicator: "10",
         label: "text-base w-full",
@@ -67,7 +67,7 @@ export const RadioGroup = ({
   return (
     <RadioGroupContext value={{ ariaInvalid, size }}>
       <RadioGroupPrimitives.Root
-        className={cn(variants.base())}
+        className={cn(variants.root())}
         onValueChange={onChange}
         {...props}
       >

@@ -7,11 +7,9 @@ type SwitchProps = Omit<SwitchPrimitives.SwitchProps, "onChange" | "onCheckedCha
     onChange?: (checked: boolean) => void;
   };
 
-const DEFAULT_SIZE = "medium";
-
 const switchVariants = tv({
   slots: {
-    base: cn(
+    root: cn(
       "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-100",
       "data-[state=unchecked]:bg-border",
       "data-[state=checked]:border-primary data-[state=checked]:bg-primary",
@@ -26,17 +24,17 @@ const switchVariants = tv({
   variants: {
     size: {
       small: {
-        base: "h-5 w-8",
+        root: "h-5 w-8",
         thumb: "size-4 data-[state=checked]:translate-x-3",
       },
       medium: {
-        base: "h-6 w-10",
+        root: "h-6 w-10",
         thumb: "size-5 data-[state=checked]:translate-x-4",
       },
     },
   },
   defaultVariants: {
-    size: DEFAULT_SIZE,
+    size: "medium",
   },
 });
 
@@ -44,7 +42,7 @@ export const Switch = ({ className, onChange, size, ...props }: SwitchProps) => 
   const variants = switchVariants({ size, className });
 
   return (
-    <SwitchPrimitives.Root className={variants.base()} onCheckedChange={onChange} {...props}>
+    <SwitchPrimitives.Root className={variants.root()} onCheckedChange={onChange} {...props}>
       <SwitchPrimitives.Thumb className={variants.thumb()} />
     </SwitchPrimitives.Root>
   );
