@@ -38,6 +38,10 @@ const NestedDialog = () => {
           <Dialog>
             <Dialog.Trigger>중첩 모달 열기</Dialog.Trigger>
             <Dialog.Content data-testid="nested-dialog">
+              <Dialog.Header>
+                <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
+                <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
+              </Dialog.Header>
               <Dialog.Close>중첩 모달 닫기</Dialog.Close>
             </Dialog.Content>
           </Dialog>
@@ -123,7 +127,12 @@ describe("Dialog", () => {
   test('isOpen이 true일 때 모달이 열려야 합니다."', async () => {
     render(
       <Dialog isOpen>
-        <Dialog.Content />
+        <Dialog.Content>
+          <Dialog.Header>
+            <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
+            <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
+          </Dialog.Header>
+        </Dialog.Content>
       </Dialog>,
     );
 
@@ -151,6 +160,10 @@ describe("Dialog", () => {
       <Dialog onOpenChange={onOpenChange}>
         <Dialog.Trigger>열기</Dialog.Trigger>
         <Dialog.Content>
+          <Dialog.Header>
+            <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
+            <Dialog.Description>{DIALOG_DESCRIPTION}</Dialog.Description>
+          </Dialog.Header>
           <Dialog.Close>취소</Dialog.Close>
         </Dialog.Content>
       </Dialog>,
