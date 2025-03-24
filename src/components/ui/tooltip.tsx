@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import * as TooltipPrimitives from "@radix-ui/react-tooltip";
-import { cva, VariantProps } from "class-variance-authority";
+import { tv, VariantProps } from "tailwind-variants";
 
 type TooltipProps = VariantProps<typeof tooltipVariants> & {
   className?: string;
@@ -12,8 +12,8 @@ type TooltipProps = VariantProps<typeof tooltipVariants> & {
   delayDuration?: number;
 };
 
-const tooltipVariants = cva(
-  cn(
+const tooltipVariants = tv({
+  base: cn(
     "relative z-50 rounded-[8px] text-xs px-[10px] py-[6px] font-semibold",
     "animate-in fade-in-0 zoom-in-95",
     "data-[side=top]:slide-in-from-bottom-2",
@@ -21,18 +21,16 @@ const tooltipVariants = cva(
     "data-[side=left]:slide-in-from-right-2",
     "data-[side=right]:slide-in-from-left-2",
   ),
-  {
-    variants: {
-      variant: {
-        default: "bg-neutral text-background",
-        outlined: "border border-border bg-background shadow-xs text-main",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
+  variants: {
+    variant: {
+      default: "bg-neutral text-background",
+      outlined: "border border-border bg-background shadow-xs text-main",
     },
   },
-);
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
 export const Tooltip = ({
   className,

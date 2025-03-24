@@ -2,9 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import * as CheckboxPrimitives from "@radix-ui/react-checkbox";
-import { cva, VariantProps } from "class-variance-authority";
 import { CheckIcon, MinusIcon } from "lucide-react";
 import React from "react";
+import { tv, VariantProps } from "tailwind-variants";
 
 const DEFAULT_SIZE = "medium";
 
@@ -13,7 +13,7 @@ type CheckboxProps = Omit<CheckboxPrimitives.CheckboxProps, "onChange" | "onChec
     onChange?: (checked: boolean) => void;
   };
 
-const checkboxVariants = cva("", {
+const checkboxVariants = tv({
   variants: {
     size: {
       small: "size-4 rounded-[4px]",

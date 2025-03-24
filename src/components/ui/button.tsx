@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
+import { tv, VariantProps } from "tailwind-variants";
 
 export type ButtonProps = React.ComponentPropsWithRef<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -22,27 +22,25 @@ export const buttonVariant = {
   error: "bg-error text-white hover:bg-error-dark",
 };
 
-const buttonVariants = cva(
-  cn(
+const buttonVariants = tv({
+  base: cn(
     "inline-flex justify-center items-center gap-2 font-semibold outline-hidden border border-transparent rounded-[8px] whitespace-nowrap text-foreground transition-colors",
     "disabled:opacity-50 disabled:pointer-events-none",
   ),
-  {
-    variants: {
-      variant: buttonVariant,
-      size: {
-        small: "px-[10px] min-h-8 text-xs",
-        medium: "px-[12px] min-h-9 text-sm",
-        large: "px-[14px] min-h-10 text-[15px]",
-        xlarge: "px-[20px] min-h-[56px] rounded-xl text-lg",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "medium",
+  variants: {
+    variant: buttonVariant,
+    size: {
+      small: "px-[10px] min-h-8 text-xs",
+      medium: "px-[12px] min-h-9 text-sm",
+      large: "px-[14px] min-h-10 text-[15px]",
+      xlarge: "px-[20px] min-h-[56px] rounded-xl text-lg",
     },
   },
-);
+  defaultVariants: {
+    variant: "primary",
+    size: "medium",
+  },
+});
 
 export const Button = ({
   className,

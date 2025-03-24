@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
+import { tv, VariantProps } from "tailwind-variants";
 
-const skeletonVariant = cva("bg-background-100 animate-pulse", {
+const skeletonVariant = tv({
+  base: "bg-background-100 animate-pulse",
   variants: {
     shape: {
       rounded: "rounded-[8px]",

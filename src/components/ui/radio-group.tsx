@@ -4,16 +4,57 @@ import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import * as RadioGroupPrimitives from "@radix-ui/react-radio-group";
 import React, { useId } from "react";
+import { tv, VariantProps } from "tailwind-variants";
 import { Label } from "./label";
 
-const DEFAULT_SIZE: RadioGroupSize = "medium";
+const DEFAULT_SIZE = "medium";
 
-type RadioGroupSize = "small" | "medium" | "large";
+const radioGroupVariants = tv({
+  slots: {
+    base: "grid",
+    item: cn(
+      "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
+      "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
+      "disabled:pointer-events-none disabled:opacity-50",
+    ),
+    indicator: "",
+    label: "",
+    option: "flex items-center",
+  },
+  variants: {
+    size: {
+      small: {
+        base: "gap-2",
+        item: "size-4",
+        indicator: "6",
+        label: "text-sm",
+        option: "gap-2",
+      },
+      medium: {
+        base: "gap-3",
+        item: "size-5",
+        indicator: "8",
+        label: "text-base",
+        option: "gap-3",
+      },
+      large: {
+        base: "gap-4",
+        item: "size-6",
+        indicator: "10",
+        label: "text-base w-full",
+        option: "gap-3",
+      },
+    },
+  },
+  defaultVariants: {
+    size: DEFAULT_SIZE,
+  },
+});
 
-type RadioGroupProps = Omit<RadioGroupPrimitives.RadioGroupProps, "onValueChange" | "onChange"> & {
-  size?: RadioGroupSize;
-  onChange?: (value: string) => void;
-};
+type RadioGroupProps = Omit<RadioGroupPrimitives.RadioGroupProps, "onValueChange" | "onChange"> &
+  VariantProps<typeof radioGroupVariants> & {
+    onChange?: (value: string) => void;
+  };
 
 export const RadioGroup = ({
   className,
@@ -23,16 +64,12 @@ export const RadioGroup = ({
   onChange,
   ...props
 }: RadioGroupProps) => {
-  const styleBySize = {
-    small: "gap-2",
-    medium: "gap-3",
-    large: "gap-4",
-  };
+  const variants = radioGroupVariants({ size, className });
 
   return (
     <RadioGroupContext value={{ ariaInvalid, size }}>
       <RadioGroupPrimitives.Root
-        className={cn("grid", styleBySize[size], className)}
+        className={cn(variants.base())}
         onValueChange={onChange}
         {...props}
       >
@@ -48,36 +85,22 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
   const id = useId();
   const { ariaInvalid, size } = useRadioGroupContext();
 
-  const styleBySize = {
-    small: "size-4",
-    medium: "size-5",
-    large: "size-6",
-  };
-
-  const indicatorSize = {
-    small: "6",
-    medium: "8",
-    large: "10",
-  };
+  const variants = radioGroupVariants({ size, className });
 
   return (
     <RadioGroupPrimitives.Item
       id={id}
       className={cn(
-        "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
-        "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
-        "disabled:pointer-events-none disabled:opacity-50",
+        variants.item(),
         ariaInvalid &&
           "border-error focus-visible:ring-ring-error data-[state=checked]:bg-error data-[state=checked]:border-error",
-        styleBySize[size],
-        className,
       )}
       {...props}
     >
       <RadioGroupPrimitives.Indicator className="flex items-center justify-center">
         <svg
-          width={indicatorSize[size]}
-          height={indicatorSize[size]}
+          width={variants.indicator()}
+          height={variants.indicator()}
           viewBox="0 0 6 6"
           fill="currentcolor"
           xmlns="http://www.w3.org/2000/svg"
@@ -96,14 +119,10 @@ const RadioGroupLabel = ({
 }: React.ComponentPropsWithRef<"label">) => {
   const { size } = useRadioGroupContext();
 
-  const styleBySize = {
-    small: "text-sm",
-    medium: "text-base",
-    large: "text-base w-full",
-  };
+  const variants = radioGroupVariants({ size, className });
 
   return (
-    <Label className={cn(styleBySize[size], className)} {...props}>
+    <Label className={variants.label()} {...props}>
       {children}
     </Label>
   );
@@ -115,14 +134,10 @@ const RadioGroupOption = ({ className, children, ...props }: RadioGroupOptionPro
   const { size } = useRadioGroupContext();
   const id = useId();
 
-  const styleBySize = {
-    small: "gap-2",
-    medium: "gap-3",
-    large: "gap-3",
-  };
+  const variants = radioGroupVariants({ size, className });
 
   return (
-    <div className={cn("flex items-center", styleBySize[size], className)}>
+    <div className={cn(variants.option())}>
       <RadioGroupItem id={id} {...props} />
       <RadioGroupLabel htmlFor={id}>{children}</RadioGroupLabel>
     </div>
@@ -134,7 +149,7 @@ RadioGroup.Option = RadioGroupOption;
 
 type RadioGroupContextValue = {
   ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
-  size: RadioGroupSize;
+  size: VariantProps<typeof radioGroupVariants>["size"];
 };
 
 const [RadioGroupContext, useRadioGroupContext] =

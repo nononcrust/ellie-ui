@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
 import { HTMLMotionProps, motion } from "motion/react";
+import { tv, VariantProps } from "tailwind-variants";
 
 type FabProps = HTMLMotionProps<"button"> &
   VariantProps<typeof fabVariants> & {
@@ -10,28 +10,26 @@ type FabProps = HTMLMotionProps<"button"> &
     withLabel?: boolean;
   };
 
-const fabVariants = cva(
-  cn(
+const fabVariants = tv({
+  base: cn(
     "select-none flex items-center justify-center gap-2 rounded-full font-semibold transition-colors text-lg whitespace-nowrap shrink-0",
     "shadow-fab",
   ),
-  {
-    variants: {
-      variant: {
-        primary: "bg-primary text-white md:hover:bg-primary-dark",
-        secondary: "bg-background text-main md:hover:bg-background-hover",
-      },
-      size: {
-        small: "w-10 h-10",
-        medium: "w-[48px] h-[48px]",
-      },
+  variants: {
+    variant: {
+      primary: "bg-primary text-white md:hover:bg-primary-dark",
+      secondary: "bg-background text-main md:hover:bg-background-hover",
     },
-    defaultVariants: {
-      variant: "primary",
-      size: "medium",
+    size: {
+      small: "w-10 h-10",
+      medium: "w-[48px] h-[48px]",
     },
   },
-);
+  defaultVariants: {
+    variant: "primary",
+    size: "medium",
+  },
+});
 
 export const Fab = ({
   className,

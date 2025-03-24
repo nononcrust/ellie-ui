@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
+import { tv, VariantProps } from "tailwind-variants";
 
-const tagVariant = cva("inline-flex font-medium justify-center items-center", {
+const tagVariant = tv({
+  base: "inline-flex font-medium justify-center items-center",
   variants: {
     variant: {
       primary: "bg-primary text-white",
