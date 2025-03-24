@@ -28,6 +28,7 @@ export const formatToTime = (isoDateString: string): string => {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
+    timeZone: "Asia/Seoul",
   });
 };
 
