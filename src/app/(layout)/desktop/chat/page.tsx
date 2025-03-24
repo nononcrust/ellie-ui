@@ -4,7 +4,7 @@ import chatEmoticon from "@/assets/images/chat-emoticon.webp";
 import chatImage from "@/assets/images/chat-image.jpeg";
 import profileImage from "@/assets/images/nonon.png";
 import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
-import { ChatMessageInput } from "../../../components/chat/chat-message-input";
+import { ChatMessageInput } from "@/components/chat/chat-message-input";
 import { ChatMessageList } from "./_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,

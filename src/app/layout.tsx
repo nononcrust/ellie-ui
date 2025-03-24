@@ -1,7 +1,5 @@
 import "@/styles/globals.css";
 
-import { Header } from "@/components/layouts/header";
-import { Sidebar } from "@/components/layouts/sidebar";
 import { ReactScan } from "@/components/shared/react-scan";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
@@ -19,11 +17,7 @@ export default function RootLayout({
         <ReactScan />
       </head>
       <body className="min-h-dvh antialiased">
-        <Providers>
-          <Header />
-          <Sidebar />
-          <div className="md:pl-[240px]">{children}</div>
-        </Providers>
+        <Providers>{children}</Providers>
         <Analytics />
       </body>
     </html>

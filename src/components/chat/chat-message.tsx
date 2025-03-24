@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "@/app/desktop/chat/_hooks/use-session";
+import { useSession } from "@/app/(layout)/desktop/chat/_hooks/use-session";
 import { NonEmptyArray } from "@/lib/array";
 import { formatToTime } from "@/lib/date";
 import { objectEntries } from "@/lib/object";
