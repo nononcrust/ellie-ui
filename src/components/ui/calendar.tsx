@@ -48,7 +48,8 @@ const classNames = {
   selected: "bg-primary text-white hover:[&>button]:bg-primary-dark",
   outside: "text-sub",
   disabled: "text-subtle",
-  range_middle: "bg-primary-lighter text-primary! hover:[&>button]:bg-primary-lighter",
+  range_middle:
+    "bg-primary-lighter dark:bg-primary-darker dark:text-white! text-primary! hover:[&>button]:bg-primary-lighter dark:hover:[&>button]:bg-primary-darker",
   hidden: "opacity-20",
 };
 
