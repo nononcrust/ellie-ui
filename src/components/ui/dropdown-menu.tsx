@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import * as DropdownMenuPrimitives from "@radix-ui/react-dropdown-menu";
+import { DropdownMenu as DropdownMenuPrimitives } from "radix-ui";
 
 type DropdownMenuProps = Omit<DropdownMenuPrimitives.DropdownMenuProps, "open"> & {
   isOpen?: boolean;

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
 import { buttonVariant } from "./button";
 
@@ -33,7 +33,7 @@ export const ChipButton = ({
   children,
   ...props
 }: ChipButtonProps) => {
-  const Component = asChild ? Slot : "button";
+  const Component = asChild ? Slot.Root : "button";
 
   return (
     <Component

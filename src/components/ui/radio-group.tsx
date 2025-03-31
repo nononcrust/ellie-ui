@@ -2,7 +2,7 @@
 
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
-import * as RadioGroupPrimitives from "@radix-ui/react-radio-group";
+import { RadioGroup as RadioGroupPrimitives } from "radix-ui";
 import React, { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 import { Label } from "./label";

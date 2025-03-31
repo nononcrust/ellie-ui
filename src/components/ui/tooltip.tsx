@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import * as TooltipPrimitives from "@radix-ui/react-tooltip";
+import { Tooltip as TooltipPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
 
 type TooltipProps = VariantProps<typeof tooltipVariants> & {

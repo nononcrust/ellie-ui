@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "radix-ui";
 import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
 import { buttonVariant } from "./button";
@@ -41,7 +41,7 @@ export const IconButton = ({
   "aria-label": ariaLabel,
   ...props
 }: IconButtonProps) => {
-  const Component = asChild ? Slot : "button";
+  const Component = asChild ? Slot.Root : "button";
 
   return (
     <Component

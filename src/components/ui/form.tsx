@@ -1,6 +1,6 @@
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "radix-ui";
 import { useId, useState } from "react";
 import { Label } from "./label";
 
@@ -58,7 +58,7 @@ const FormControl = ({ children }: { children: React.ReactNode }) => {
     useFormItemContext();
 
   return (
-    <Slot
+    <Slot.Root
       id={id}
       aria-describedby={
         cn(descriptionElement && descriptionId, errorMessageElement && errorMessageId) || undefined
@@ -66,7 +66,7 @@ const FormControl = ({ children }: { children: React.ReactNode }) => {
       aria-invalid={error || undefined}
     >
       {children}
-    </Slot>
+    </Slot.Root>
   );
 };
 

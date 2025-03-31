@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import * as CheckboxPrimitives from "@radix-ui/react-checkbox";
 import { CheckIcon, MinusIcon } from "lucide-react";
+import { Checkbox as CheckboxPrimitives } from "radix-ui";
 import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
 

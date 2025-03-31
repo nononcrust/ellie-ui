@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import * as SwitchPrimitives from "@radix-ui/react-switch";
+import { Switch as SwitchPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
 
 type SwitchProps = Omit<SwitchPrimitives.SwitchProps, "onChange" | "onCheckedChange"> &

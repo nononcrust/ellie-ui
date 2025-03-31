@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import * as SelectPrimitives from "@radix-ui/react-select";
 import { ChevronDownIcon } from "lucide-react";
+import { Select as SelectPrimitives } from "radix-ui";
 import React from "react";
 
 type SelectProps = Omit<

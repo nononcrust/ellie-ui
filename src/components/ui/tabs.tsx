@@ -2,7 +2,7 @@
 
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
-import * as TabsPrimitives from "@radix-ui/react-tabs";
+import { Tabs as TabsPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
 
 const tabsVariants = tv({

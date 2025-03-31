@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "radix-ui";
 import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
@@ -51,7 +51,7 @@ export const Button = ({
   disabled,
   ...props
 }: ButtonProps) => {
-  const Component = asChild ? Slot : "button";
+  const Component = asChild ? Slot.Root : "button";
 
   return (
     <Component

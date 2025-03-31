@@ -2,8 +2,8 @@
 
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
-import * as DialogPrimitives from "@radix-ui/react-dialog";
 import { CheckIcon, XIcon } from "lucide-react";
+import { Dialog as DialogPrimitives } from "radix-ui";
 import { IconButton } from "./icon-button";
 
 type BottomSheetProps = Omit<DialogPrimitives.DialogProps, "open"> & {
