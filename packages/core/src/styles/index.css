@@ -2,7 +2,7 @@
 
 @source "../**/*.{ts,tsx}";
 
-@plugin "tw-animate-css";
+@import "tw-animate-css";
 @plugin "tailwind-scrollbar-hide";
 
 @custom-variant dark (&:where(.dark, .dark *));
