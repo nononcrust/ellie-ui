@@ -1,17 +1,17 @@
 import { Mobile } from "@/components/layouts/mobile";
 import { Button } from "@/components/ui/button";
-import { Slot } from "@radix-ui/react-slot";
 import { BellIcon } from "lucide-react";
+import { Slot } from "radix-ui";
 
 export default function PermissionsPage() {
   return (
     <div className="h-[calc(100vh-56px)] bg-black/40">
       <Mobile>
-        <div className="mx-12 mt-[120px] rounded-2xl bg-background p-6">
+        <div className="bg-background mx-12 mt-[120px] rounded-2xl p-6">
           <h1 className="whitespace-pre-wrap text-xl font-semibold">
             {"편리한 서비스 이용을 위해\n필요한 권한을 안내해 드려요"}
           </h1>
-          <h2 className="mt-2 whitespace-pre-wrap text-sm font-medium text-subtle">
+          <h2 className="text-subtle mt-2 whitespace-pre-wrap text-sm font-medium">
             {"허용하지 않아도 서비스를 이용할 수 있어요\n필요한 시점에 다시 알려드릴게요."}
           </h2>
           <div className="my-12 flex flex-col gap-3">
@@ -47,15 +47,15 @@ type PermissionItemProps = {
 const PermissionItem = ({ icon, title, description, required = false }: PermissionItemProps) => {
   return (
     <div className="flex items-center gap-4">
-      <div className="flex size-11 items-center justify-center rounded-xl bg-background-100">
-        <Slot className="size-5">{icon}</Slot>
+      <div className="bg-background-100 flex size-11 items-center justify-center rounded-xl">
+        <Slot.Root className="size-5">{icon}</Slot.Root>
       </div>
       <div className="flex flex-1 flex-col">
         <span className="text-sm font-semibold">
           {title}
           {!required && <span className="ml-2 font-medium">(선택)</span>}
         </span>
-        <span className="text-[13px] font-medium text-subtle">{description}</span>
+        <span className="text-subtle text-[13px] font-medium">{description}</span>
       </div>
     </div>
   );
