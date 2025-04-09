@@ -1,15 +1,7 @@
 "use client";
 
 import profileImage from "@/assets/images/nonon.png";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Divider } from "@/components/ui/divider";
-import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
-import { Tag } from "@/components/ui/tag";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Avatar, Button, Divider, Form, Input, Select, Switch, Tag, Tooltip } from "@ellie-ui/core";
 import { ArrowUpRightIcon, ChevronRightIcon, CircleHelpIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";

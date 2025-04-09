@@ -1,5 +1,5 @@
 import profileImage from "@/assets/images/chat-emoticon.webp";
-import { Avatar } from "@/components/ui/avatar";
+import { Avatar } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

@@ -1,4 +1,4 @@
-import { Chip } from "@/components/ui/chip";
+import { Chip } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { IconButton } from "@/components/ui/icon-button";
+import { IconButton } from "@ellie-ui/core";
 import { SearchIcon } from "lucide-react";
 
 export default function IconButtonPage() {

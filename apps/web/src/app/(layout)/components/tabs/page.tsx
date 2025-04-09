@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Tabs } from "@/components/ui/tabs";
+import { Tabs } from "@ellie-ui/core";
 
 export default function TabsPage() {
   return (

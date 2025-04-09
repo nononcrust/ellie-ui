@@ -1,7 +1,5 @@
-import { Form } from "@/components/ui/form";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { useInput } from "@/hooks/use-input";
+import { Form, Label, Textarea } from "@ellie-ui/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useId } from "react";
 

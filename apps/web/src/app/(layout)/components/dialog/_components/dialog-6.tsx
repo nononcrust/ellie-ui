@@ -1,9 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
-import { RadioGroup } from "@/components/ui/radio-group";
 import { useDialog } from "@/hooks/use-dialog";
+import { Button, Dialog, RadioGroup } from "@ellie-ui/core";
 import { useRef } from "react";
 
 export const Dialog6 = () => {

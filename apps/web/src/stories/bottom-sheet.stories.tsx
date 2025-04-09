@@ -1,7 +1,6 @@
-import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { Button } from "@/components/ui/button";
 import { useBottomSheet } from "@/hooks/use-bottom-sheet";
 import { useSelect } from "@/hooks/use-select";
+import { BottomSheet, Button } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

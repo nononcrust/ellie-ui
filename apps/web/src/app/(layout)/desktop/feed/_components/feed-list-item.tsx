@@ -1,10 +1,8 @@
 "use client";
 
 import profileImage from "@/assets/images/chat-emoticon.webp";
-import { Avatar } from "@/components/ui/avatar";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
-import { IconButton } from "@/components/ui/icon-button";
 import { formatToTimeAgo } from "@/lib/date";
+import { Avatar, DropdownMenu, IconButton } from "@ellie-ui/core";
 import {
   CodeIcon,
   EllipsisIcon,

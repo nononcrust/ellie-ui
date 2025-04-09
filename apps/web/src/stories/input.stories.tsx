@@ -1,7 +1,5 @@
-import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useInput } from "@/hooks/use-input";
+import { Form, Input, Label } from "@ellie-ui/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 import { useId } from "react";
@@ -90,7 +88,7 @@ export const WithPrefixIcon: Story = {
   render: () => {
     return (
       <div className="relative w-[320px]">
-        <SearchIcon className="text-sub absolute top-1/2 left-3 -translate-y-1/2" size={16} />
+        <SearchIcon className="text-sub absolute left-3 top-1/2 -translate-y-1/2" size={16} />
         <Input className="pl-9" />
       </div>
     );
@@ -102,7 +100,7 @@ export const WithSuffixIcon: Story = {
     return (
       <div className="relative w-[320px]">
         <Input className="pr-9" />
-        <SearchIcon className="text-sub absolute top-1/2 right-3 -translate-y-1/2" size={16} />
+        <SearchIcon className="text-sub absolute right-3 top-1/2 -translate-y-1/2" size={16} />
       </div>
     );
   },
@@ -112,7 +110,7 @@ export const WithPrefix: Story = {
   render: () => {
     return (
       <div className="relative w-[320px]">
-        <span className="absolute top-1/2 left-3 -translate-y-1/2 text-sm">https://</span>
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm">https://</span>
         <Input className="pl-15" placeholder="google.com" />
       </div>
     );
@@ -124,7 +122,7 @@ export const WithSuffix: Story = {
     return (
       <div className="relative w-[320px]">
         <Input className="pr-12" placeholder="google" />
-        <span className="absolute top-1/2 right-3 -translate-y-1/2 text-sm">.com</span>
+        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm">.com</span>
       </div>
     );
   },

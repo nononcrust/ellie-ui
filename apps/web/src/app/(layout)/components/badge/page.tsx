@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@ellie-ui/core";
 
 export default function BadgePage() {
   return (

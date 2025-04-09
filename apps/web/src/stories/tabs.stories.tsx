@@ -1,5 +1,5 @@
-import { Tabs } from "@/components/ui/tabs";
 import { useTabs } from "@/hooks/use-tabs";
+import { Tabs } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

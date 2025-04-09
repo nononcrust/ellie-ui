@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@ellie-ui/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ArrowRightIcon, PlusIcon } from "lucide-react";
 

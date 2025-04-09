@@ -1,9 +1,8 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { Button } from "@/components/ui/button";
 import { useSelect } from "@/hooks/use-select";
+import { BottomSheet, Button } from "@ellie-ui/core";
 
 export default function BottomSheetPage() {
   return (

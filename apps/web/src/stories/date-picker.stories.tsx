@@ -1,6 +1,6 @@
-import { DatePicker, DateRangePicker } from "@/components/ui/date-picker";
 import { useDatePicker } from "@/hooks/use-date-picker";
 import { useDateRangePicker } from "@/hooks/use-date-range-picker";
+import { DatePicker, DateRangePicker } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

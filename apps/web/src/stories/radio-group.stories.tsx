@@ -1,5 +1,5 @@
-import { RadioGroup } from "@/components/ui/radio-group";
 import { useRadioGroup } from "@/hooks/use-radio-group";
+import { RadioGroup } from "@ellie-ui/core";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

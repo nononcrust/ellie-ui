@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
 import { useDropdownMenu } from "@/hooks/use-dropdown-menu";
+import { Button, DropdownMenu } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 import { LogOutIcon, PencilIcon, Trash2Icon } from "lucide-react";
 

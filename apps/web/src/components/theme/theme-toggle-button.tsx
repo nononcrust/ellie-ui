@@ -1,7 +1,7 @@
+import { IconButton } from "@ellie-ui/core";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { ClientOnly } from "../layouts/client-only";
-import { IconButton } from "../ui/icon-button";
 
 export const ThemeToggleButton = () => {
   const { resolvedTheme, setTheme } = useTheme();

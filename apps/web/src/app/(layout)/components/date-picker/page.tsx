@@ -1,11 +1,9 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Calendar } from "@/components/ui/calendar";
-import { DatePicker, DateRangePicker } from "@/components/ui/date-picker";
-import { Label } from "@/components/ui/label";
 import { useDatePicker } from "@/hooks/use-date-picker";
 import { useDateRangePicker } from "@/hooks/use-date-range-picker";
+import { Calendar, DatePicker, DateRangePicker, Label } from "@ellie-ui/core";
 
 export default function DatePickerPage() {
   const datePicker = useDatePicker();
@@ -75,12 +73,12 @@ export default function DatePickerPage() {
         </div>
       </Grid.Item>
       <Grid.Item>
-        <div className="rounded-xl border border-border p-4">
+        <div className="border-border rounded-xl border p-4">
           <Calendar mode="single" />
         </div>
       </Grid.Item>
       <Grid.Item>
-        <div className="rounded-xl border border-border p-4">
+        <div className="border-border rounded-xl border p-4">
           <Calendar mode="multiple" />
         </div>
       </Grid.Item>

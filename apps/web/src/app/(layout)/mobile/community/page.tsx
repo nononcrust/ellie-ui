@@ -1,15 +1,9 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { Badge } from "@/components/ui/badge";
-import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { Button } from "@/components/ui/button";
-import { ChipButton } from "@/components/ui/chip-button";
-import { Fab } from "@/components/ui/fab";
-import { RadioGroup } from "@/components/ui/radio-group";
-import { Tag } from "@/components/ui/tag";
 import { formatToTimeAgo } from "@/lib/date";
 import { cn } from "@/lib/utils";
+import { Badge, BottomSheet, Button, ChipButton, Fab, RadioGroup, Tag } from "@ellie-ui/core";
 import { HeartIcon, MessageCircleMoreIcon, PlusIcon, SlidersHorizontalIcon } from "lucide-react";
 import { useState } from "react";
 

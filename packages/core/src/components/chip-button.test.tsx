@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Link from "next/link";
 import { ChipButton } from "./chip-button";
 
 describe("ChipButton", () => {
@@ -15,7 +14,7 @@ describe("ChipButton", () => {
   test("asChild 속성이 true일 때 children이 렌더링되어야 합니다.", async () => {
     render(
       <ChipButton asChild>
-        <Link href="/">링크</Link>
+        <a href="/">링크</a>
       </ChipButton>,
     );
 

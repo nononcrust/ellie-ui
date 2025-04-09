@@ -1,6 +1,6 @@
 "use client";
 
-import { IconButton } from "@/components/ui/icon-button";
+import { IconButton } from "@ellie-ui/core";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { useEffect, useState } from "react";

@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Tag } from "@/components/ui/tag";
+import { Tag } from "@ellie-ui/core";
 
 export default function TagPage() {
   return (

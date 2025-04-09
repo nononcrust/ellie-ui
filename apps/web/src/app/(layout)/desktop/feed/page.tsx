@@ -1,10 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ChipButton } from "@/components/ui/chip-button";
-import { IconButton } from "@/components/ui/icon-button";
-import { Tabs } from "@/components/ui/tabs";
 import { useTabs } from "@/hooks/use-tabs";
+import { Button, ChipButton, IconButton, Tabs } from "@ellie-ui/core";
 import { XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -45,7 +42,7 @@ export default function FeedPage() {
           </Tabs.Content>
         </Tabs>
       </main>
-      <aside className="sticky top-[56px] right-0 hidden h-[120px] w-[360px] shrink-0 flex-col px-6 lg:flex">
+      <aside className="sticky right-0 top-[56px] hidden h-[120px] w-[360px] shrink-0 flex-col px-6 lg:flex">
         <SearchInput className="mt-6" placeholder="검색하기" />
         <Trends />
         <FollowRecommendation />

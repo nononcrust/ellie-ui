@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Button } from "@/components/ui/button";
+import { Button } from "@ellie-ui/core";
 import { ArrowRightIcon, PlusIcon } from "lucide-react";
 
 export default function ButtonPage() {

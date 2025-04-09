@@ -1,9 +1,7 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Badge } from "@/components/ui/badge";
-import { IconButton } from "@/components/ui/icon-button";
-import { Popover } from "@/components/ui/popover";
+import { Badge, IconButton, Popover } from "@ellie-ui/core";
 import { BellIcon } from "lucide-react";
 
 export default function PopoverPage() {

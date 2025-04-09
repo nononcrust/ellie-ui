@@ -1,10 +1,7 @@
 "use client";
 
 import profileImage from "@/assets/images/nonon.png";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { ChipButton } from "@/components/ui/chip-button";
-import { IconButton } from "@/components/ui/icon-button";
+import { Avatar, Button, ChipButton, IconButton } from "@ellie-ui/core";
 import { CheckIcon, UsersRoundIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 

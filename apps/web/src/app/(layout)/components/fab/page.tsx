@@ -1,8 +1,8 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Fab } from "@/components/ui/fab";
 import { usePopover } from "@/hooks/use-popover";
+import { Fab } from "@ellie-ui/core";
 import { MenuIcon, PlusIcon } from "lucide-react";
 
 export default function FabPage() {

@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
+import { Button, Dialog } from "@ellie-ui/core";
 
 export const Dialog4 = () => {
   return (
@@ -15,7 +14,7 @@ export const Dialog4 = () => {
           <Dialog.Description className="sr-only">이용약관</Dialog.Description>
         </Dialog.Header>
         <Dialog.Body>
-          <p className="text-sub text-[15px] whitespace-pre-wrap">{terms}</p>
+          <p className="text-sub whitespace-pre-wrap text-[15px]">{terms}</p>
         </Dialog.Body>
         <Dialog.Footer>
           <Dialog.Close asChild>

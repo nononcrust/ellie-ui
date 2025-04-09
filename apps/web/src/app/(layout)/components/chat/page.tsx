@@ -4,7 +4,7 @@ import chatEmoticon from "@/assets/images/chat-emoticon.webp";
 import profileImage from "@/assets/images/nonon.png";
 import { ChatMessage } from "@/components/chat/chat-message";
 import { ChatMessageInput } from "@/components/chat/chat-message-input";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Tooltip } from "@ellie-ui/core";
 
 export default function ChatPage() {
   return (

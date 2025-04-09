@@ -1,6 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { IconButton } from "@/components/ui/icon-button";
-import { Tooltip } from "@/components/ui/tooltip";
+import { IconButton, Tooltip } from "@ellie-ui/core";
 import { BellIcon, SearchIcon } from "lucide-react";
 
 export default function TooltipPage() {

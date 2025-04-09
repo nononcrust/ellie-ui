@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Chip } from "@/components/ui/chip";
+import { Chip } from "@ellie-ui/core";
 
 export default function ChipPage() {
   return (

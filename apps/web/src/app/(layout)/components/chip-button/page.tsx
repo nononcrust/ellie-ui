@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { ChipButton } from "@/components/ui/chip-button";
+import { ChipButton } from "@ellie-ui/core";
 import { ChevronDownIcon } from "lucide-react";
 
 export default function ChipButtonPage() {

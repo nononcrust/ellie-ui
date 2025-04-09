@@ -1,3 +1,5 @@
+"use client";
+
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import { Slot } from "radix-ui";

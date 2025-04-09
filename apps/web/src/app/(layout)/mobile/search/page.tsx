@@ -1,7 +1,7 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { ChipButton } from "@/components/ui/chip-button";
+import { ChipButton } from "@ellie-ui/core";
 import { ChevronLeftIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -36,7 +36,7 @@ export default function SearchPage() {
         <section className="my-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">최근 검색어</h2>
-            <button className="text-sm font-semibold text-subtle" onClick={clearRecentSearches}>
+            <button className="text-subtle text-sm font-semibold" onClick={clearRecentSearches}>
               전체 삭제
             </button>
           </div>
@@ -72,7 +72,7 @@ type PopularSearchProps = {
 const PopularSearch = ({ rank, title }: PopularSearchProps) => {
   return (
     <li className="flex items-center py-3 text-lg font-semibold">
-      <span className="w-8 text-primary">{rank}</span>
+      <span className="text-primary w-8">{rank}</span>
       <span>{title}</span>
     </li>
   );

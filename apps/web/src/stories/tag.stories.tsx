@@ -1,4 +1,4 @@
-import { Tag } from "@/components/ui/tag";
+import { Tag } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

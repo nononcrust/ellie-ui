@@ -1,12 +1,9 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Command } from "@/components/ui/command";
-import { Label } from "@/components/ui/label";
-import { Popover } from "@/components/ui/popover";
-import { Select } from "@/components/ui/select";
 import { usePopover } from "@/hooks/use-popover";
 import { cn } from "@/lib/utils";
+import { Command, Label, Popover, Select } from "@ellie-ui/core";
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -152,7 +149,7 @@ const Select7 = () => {
         <Popover.Trigger asChild>
           <button
             className={cn(
-              "border-border bg-background text-main flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-semibold shadow-xs outline-hidden",
+              "border-border bg-background text-main shadow-xs outline-hidden flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-semibold",
               "data-placeholder:text-placeholder",
               "[&>span]:min-w-0",
               "placeholder-placeholder",

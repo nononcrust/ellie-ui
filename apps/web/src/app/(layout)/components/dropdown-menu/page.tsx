@@ -2,11 +2,7 @@
 
 import profileImage from "@/assets/images/chat-emoticon.webp";
 import { Grid } from "@/components/layouts/grid";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
-import { IconButton } from "@/components/ui/icon-button";
+import { Avatar, Button, Dialog, DropdownMenu, IconButton } from "@ellie-ui/core";
 import {
   BellMinusIcon,
   BookmarkIcon,

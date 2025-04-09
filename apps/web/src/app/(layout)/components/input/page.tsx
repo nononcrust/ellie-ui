@@ -1,6 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Input, Label } from "@ellie-ui/core";
 import { SearchIcon } from "lucide-react";
 
 export default function InputPage() {
@@ -48,7 +47,7 @@ export default function InputPage() {
             <Input id="5" className="pl-8" placeholder="검색어를 입력하세요." />
             <SearchIcon
               size={14}
-              className="text-subtle absolute top-1/2 left-3 -translate-y-1/2"
+              className="text-subtle absolute left-3 top-1/2 -translate-y-1/2"
               strokeWidth={3}
             />
           </div>
@@ -63,7 +62,7 @@ export default function InputPage() {
             <Input id="6" className="pr-8" placeholder="검색어를 입력하세요." />
             <SearchIcon
               size={14}
-              className="text-subtle absolute top-1/2 right-3 -translate-y-1/2"
+              className="text-subtle absolute right-3 top-1/2 -translate-y-1/2"
               strokeWidth={3}
             />
           </div>

@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { toast, Toaster } from "@/components/ui/toast";
+import { Button, toast, Toaster } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

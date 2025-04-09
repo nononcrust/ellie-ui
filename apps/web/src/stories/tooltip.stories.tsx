@@ -1,5 +1,4 @@
-import { IconButton } from "@/components/ui/icon-button";
-import { Tooltip } from "@/components/ui/tooltip";
+import { IconButton, Tooltip } from "@ellie-ui/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 

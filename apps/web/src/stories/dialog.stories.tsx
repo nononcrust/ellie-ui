@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
 import { useDialog } from "@/hooks/use-dialog";
+import { Button, Dialog } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 import { useRef } from "react";
 

@@ -1,4 +1,4 @@
-import { ChipButton } from "@/components/ui/chip-button";
+import { ChipButton } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 import { ChevronDownIcon, PlusIcon } from "lucide-react";
 

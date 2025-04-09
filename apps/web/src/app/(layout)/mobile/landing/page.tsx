@@ -1,5 +1,5 @@
 import { Mobile } from "@/components/layouts/mobile";
-import { ChipButton } from "@/components/ui/chip-button";
+import { ChipButton } from "@ellie-ui/core";
 import { ChevronRightIcon } from "lucide-react";
 
 export default function LandingPage() {

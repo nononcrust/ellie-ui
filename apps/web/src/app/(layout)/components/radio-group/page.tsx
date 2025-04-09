@@ -1,8 +1,7 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Label } from "@/components/ui/label";
-import { RadioGroup } from "@/components/ui/radio-group";
+import { Label, RadioGroup } from "@ellie-ui/core";
 
 export default function RadioGroupPage() {
   return (
@@ -61,7 +60,7 @@ export default function RadioGroupPage() {
       </Grid.Item>
       <Grid.Item>
         <RadioGroup defaultValue="1">
-          <div className="border-border has-data-[state=checked]:border-primary relative flex w-full items-start justify-between gap-2 rounded-lg border p-4 shadow-xs">
+          <div className="border-border has-data-[state=checked]:border-primary shadow-xs relative flex w-full items-start justify-between gap-2 rounded-lg border p-4">
             <div className="grid grow gap-2">
               <Label htmlFor="radio-1">바나나</Label>
               <p id="1-description" className="text-subtle text-xs">
@@ -75,7 +74,7 @@ export default function RadioGroupPage() {
               aria-describedby="1-description"
             />
           </div>
-          <div className="border-border has-data-[state=checked]:border-primary relative flex w-full items-start justify-between gap-2 rounded-lg border p-4 shadow-xs">
+          <div className="border-border has-data-[state=checked]:border-primary shadow-xs relative flex w-full items-start justify-between gap-2 rounded-lg border p-4">
             <div className="grid grow gap-2">
               <Label htmlFor="radio-2">딸기</Label>
               <p id="2-description" className="text-subtle text-xs">

@@ -1,4 +1,4 @@
-import { Pagination } from "@/components/ui/pagination";
+import { Pagination } from "@ellie-ui/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 

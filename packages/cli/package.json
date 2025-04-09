@@ -1,0 +1,36 @@
+{
+  "name": "@ellie-ui/cli",
+  "version": "1.0.1",
+  "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "nonon",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "components",
+    "ui",
+    "tailwind",
+    "radix-ui"
+  ],
+  "type": "module",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "publish:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
+    "publish:release": "pnpm build && pnpm publish --access public"
+  },
+  "dependencies": {
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  }
+}

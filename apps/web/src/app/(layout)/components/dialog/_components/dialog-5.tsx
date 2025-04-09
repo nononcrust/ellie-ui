@@ -1,9 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
 import { useDialog } from "@/hooks/use-dialog";
+import { Button, Dialog, DropdownMenu } from "@ellie-ui/core";
 import { useRef } from "react";
 
 export const Dialog5 = () => {

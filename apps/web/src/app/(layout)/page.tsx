@@ -5,21 +5,23 @@ import profileImage3 from "@/assets/images/default-profile-image.svg";
 import profileImage from "@/assets/images/nonon.png";
 import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
 import { ChatMessageInput } from "@/components/chat/chat-message-input";
-import { Avatar } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { ChipButton } from "@/components/ui/chip-button";
-import { DatePicker } from "@/components/ui/date-picker";
-import { Divider } from "@/components/ui/divider";
-import { Form } from "@/components/ui/form";
-import { IconButton } from "@/components/ui/icon-button";
-import { Input } from "@/components/ui/input";
-import { RadioGroup } from "@/components/ui/radio-group";
-import { Select } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
-import { Tag } from "@/components/ui/tag";
 import { link } from "@/configs/link";
+import {
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  ChipButton,
+  DatePicker,
+  Divider,
+  Form,
+  IconButton,
+  Input,
+  RadioGroup,
+  Select,
+  Switch,
+  Tag,
+} from "@ellie-ui/core";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   EllipsisIcon,
@@ -77,7 +79,7 @@ const LoginForm = () => {
               aria-label="비밀번호 표시"
               size="xsmall"
               variant="ghost"
-              className="text-subtle absolute top-1/2 right-1 -translate-y-1/2"
+              className="text-subtle absolute right-1 top-1/2 -translate-y-1/2"
             >
               <EyeOffIcon size={14} />
             </IconButton>
@@ -229,7 +231,7 @@ const Profile = () => {
           </Avatar>
           <div className="ml-2">
             <span className="flex items-center gap-2">
-              <span className="text-lg leading-none font-semibold">신상호</span>
+              <span className="text-lg font-semibold leading-none">신상호</span>
               <Tag variant="info">멤버</Tag>
             </span>
             <span className="text-subtle text-sm font-medium">Frontend Engineer</span>

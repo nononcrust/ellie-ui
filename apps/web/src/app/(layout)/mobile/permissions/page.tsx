@@ -1,5 +1,5 @@
 import { Mobile } from "@/components/layouts/mobile";
-import { Button } from "@/components/ui/button";
+import { Button } from "@ellie-ui/core";
 import { BellIcon } from "lucide-react";
 import { Slot } from "radix-ui";
 

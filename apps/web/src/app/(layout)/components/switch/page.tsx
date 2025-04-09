@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@ellie-ui/core";
 
 export default function SwitchPage() {
   return (

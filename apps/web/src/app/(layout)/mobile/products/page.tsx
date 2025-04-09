@@ -1,9 +1,7 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { ChipButton } from "@/components/ui/chip-button";
-import { Tag } from "@/components/ui/tag";
+import { BottomSheet, ChipButton, Tag } from "@ellie-ui/core";
 import { ChevronDownIcon, StarIcon } from "lucide-react";
 import { useState } from "react";
 

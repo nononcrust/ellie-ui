@@ -1,13 +1,8 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { Badge } from "@/components/ui/badge";
-import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ChipButton } from "@/components/ui/chip-button";
-import { RadioGroup } from "@/components/ui/radio-group";
 import { useSelect } from "@/hooks/use-select";
+import { Badge, BottomSheet, Button, Checkbox, ChipButton, RadioGroup } from "@ellie-ui/core";
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -63,9 +58,9 @@ const CTAContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="flex h-[96px] md:hidden" />
-      <div className="bg-background sticky right-0 bottom-0 left-0 flex flex-col pt-0 pb-4 md:hidden">
+      <div className="bg-background sticky bottom-0 left-0 right-0 flex flex-col pb-4 pt-0 md:hidden">
         <div className="relative">
-          <div className="to-background absolute -top-8 right-0 left-0 z-10 h-8 bg-linear-to-b from-transparent" />
+          <div className="to-background bg-linear-to-b absolute -top-8 left-0 right-0 z-10 h-8 from-transparent" />
           <div className="relative z-20">{children}</div>
         </div>
       </div>

@@ -1,10 +1,8 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { IconButton } from "@/components/ui/icon-button";
 import { useCheckboxGroup } from "@/hooks/use-checkbox-group";
+import { Button, Checkbox, IconButton } from "@ellie-ui/core";
 import { ChevronRightIcon } from "lucide-react";
 
 const terms = {
@@ -34,7 +32,7 @@ export default function TermsPage() {
           />
           <span className="ml-3 text-lg font-semibold">약관 전체 동의하기</span>
         </div>
-        <span className="text-subtle mt-1 ml-9 text-sm font-medium">
+        <span className="text-subtle ml-9 mt-1 text-sm font-medium">
           선택 항목에 대한 동의 모두 포함
         </span>
       </label>

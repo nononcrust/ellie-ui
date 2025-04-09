@@ -1,5 +1,5 @@
 import { Grid } from "@/components/layouts/grid";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@ellie-ui/core";
 
 export default function SkeletonPage() {
   return (

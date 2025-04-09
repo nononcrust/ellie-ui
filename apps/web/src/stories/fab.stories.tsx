@@ -1,4 +1,4 @@
-import { Fab } from "@/components/ui/fab";
+import { Fab } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "lucide-react";
 

@@ -1,12 +1,13 @@
 {
-  "name": "turborepo-practice",
+  "name": "ellie-ui",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "type-check": "turbo run type-check"
+    "type-check": "turbo run type-check",
+    "prepare": "husky"
   },
   "devDependencies": {
     "husky": "^9.1.7",

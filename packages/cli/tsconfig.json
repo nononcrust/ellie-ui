@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2015", "ESNext"],
+    "resolveJsonModule": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

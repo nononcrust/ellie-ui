@@ -1,13 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Divider } from "@/components/ui/divider";
-import { Form } from "@/components/ui/form";
-import { IconButton } from "@/components/ui/icon-button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
+import { Button, Checkbox, Divider, Form, IconButton, Input, Label, Switch } from "@ellie-ui/core";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeOffIcon } from "lucide-react";
 import Link from "next/link";
@@ -62,7 +55,7 @@ export default function LoginPage() {
                 aria-label="비밀번호 표시"
                 size="xsmall"
                 variant="ghost"
-                className="text-subtle absolute top-1/2 right-1 -translate-y-1/2"
+                className="text-subtle absolute right-1 top-1/2 -translate-y-1/2"
               >
                 <EyeOffIcon size={14} />
               </IconButton>

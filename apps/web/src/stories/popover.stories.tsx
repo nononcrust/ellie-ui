@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Popover } from "@/components/ui/popover";
 import { usePopover } from "@/hooks/use-popover";
+import { Button, Popover } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

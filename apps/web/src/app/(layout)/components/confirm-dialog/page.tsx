@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
+import { Button, Dialog } from "@ellie-ui/core";
 
 export default function ConfirmDialogPage() {
   return (

@@ -1,8 +1,7 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import { Checkbox, Label } from "@ellie-ui/core";
 
 export default function CheckboxPage() {
   return (

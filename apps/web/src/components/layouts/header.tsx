@@ -4,6 +4,7 @@ import { link } from "@/configs/link";
 import { menu } from "@/configs/menu";
 import { useIsScrollTop } from "@/hooks/use-is-scroll-top";
 import { cn } from "@/lib/utils";
+import { IconButton } from "@ellie-ui/core";
 import { MenuIcon, XIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -11,7 +12,6 @@ import { usePathname } from "next/navigation";
 import { Dialog as DialogPrimitives } from "radix-ui";
 import React from "react";
 import { ThemeToggleButton } from "../theme/theme-toggle-button";
-import { IconButton } from "../ui/icon-button";
 
 const HIDDEN_ROUTES = ["/search"];
 
