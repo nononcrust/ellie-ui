@@ -43,8 +43,8 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@ellie-ui/core": "workspace:*",
     "@chromatic-com/storybook": "^3.2.4",
+    "@ellie-ui/core": "workspace:*",
     "@eslint/eslintrc": "^3",
     "@storybook/addon-a11y": "^8.6.4",
     "@storybook/addon-essentials": "^8.6.4",
@@ -72,7 +72,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "storybook": "^8.6.4",
     "tailwindcss": "^4.0.0",
-    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1.2.5",
     "typescript": "^5",
     "vitest": "^3.0.5"
   },
