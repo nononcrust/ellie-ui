@@ -1,5 +1,5 @@
-import "@ellie-ui/core/styles.css";
 import "./font.css";
+import "./index.css";
 
 import type { Preview } from "@storybook/react";
 
