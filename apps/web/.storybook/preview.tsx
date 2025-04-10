@@ -1,4 +1,4 @@
-import "../src/styles/globals.css";
+import "@ellie-ui/core/styles.css";
 import "./font.css";
 
 import type { Preview } from "@storybook/react";
