@@ -1,4 +1,4 @@
-import "@ellie-ui/core/styles.css";
+import "@ellie-ui/core/styles/globals.css";
 
 import { ReactScan } from "@/components/shared/react-scan";
 import { Analytics } from "@vercel/analytics/next";
