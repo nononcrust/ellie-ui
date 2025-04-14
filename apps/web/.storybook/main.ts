@@ -6,17 +6,11 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
-    "@storybook/addon-a11y"
+    "@storybook/addon-a11y",
   ],
   framework: {
     name: "@storybook/nextjs",
     options: {},
   },
-  staticDirs: [
-    {
-      from: "../src/assets/fonts",
-      to: "/src/assets/fonts",
-    },
-  ],
 };
 export default config;
