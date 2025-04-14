@@ -1,7 +1,7 @@
 "use client";
 
-import { usePopover } from "@/hooks/use-popover";
 import { cn } from "@/lib/utils";
+import { usePopover } from "@ellie-ui/core/hooks";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -226,7 +226,7 @@ export const Trigger = ({
     <Popover.Trigger asChild>
       <button
         className={cn(
-          "border-border bg-background text-main flex h-9 w-full items-center gap-2 rounded-[8px] border px-3 text-sm font-medium outline-hidden",
+          "border-border bg-background text-main outline-hidden flex h-9 w-full items-center gap-2 rounded-[8px] border px-3 text-sm font-medium",
           "disable-focus-ring focus-visible:focus-input-ring",
           "disabled:pointer-events-none disabled:opacity-50",
           ariaInvalid && "focus-visible:focus-input-ring-error border-error",
@@ -235,7 +235,7 @@ export const Trigger = ({
         {...props}
       >
         <CalendarIcon size={16} className="text-sub" />
-        <span className="flex truncate overflow-hidden">
+        <span className="flex overflow-hidden truncate">
           {children ? (
             children
           ) : placeholder ? (

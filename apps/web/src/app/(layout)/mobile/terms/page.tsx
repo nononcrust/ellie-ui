@@ -1,8 +1,8 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { useCheckboxGroup } from "@/hooks/use-checkbox-group";
 import { Button, Checkbox, IconButton } from "@ellie-ui/core";
+import { useCheckboxGroup } from "@ellie-ui/core/hooks";
 import { ChevronRightIcon } from "lucide-react";
 
 const terms = {

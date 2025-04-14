@@ -1,5 +1,5 @@
-import { useInput } from "@/hooks/use-input";
 import { Form, Input, Label } from "@ellie-ui/core";
+import { useInput } from "@ellie-ui/core/hooks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 import { useId } from "react";

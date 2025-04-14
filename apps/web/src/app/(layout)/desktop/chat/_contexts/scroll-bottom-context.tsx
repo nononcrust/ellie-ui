@@ -1,5 +1,5 @@
-import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 import { createContextFactory } from "@/lib/context";
+import { useScrollToBottom } from "@ellie-ui/core/hooks";
 import { useEffect } from "react";
 
 type ScrollBottomContextValue = {

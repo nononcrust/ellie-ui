@@ -1,5 +1,5 @@
-import { useCheckbox } from "@/hooks/use-checkbox";
 import { Checkbox, Label } from "@ellie-ui/core";
+import { useCheckbox } from "@ellie-ui/core/hooks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

@@ -1,9 +1,8 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { useDatePicker } from "@/hooks/use-date-picker";
-import { useDateRangePicker } from "@/hooks/use-date-range-picker";
 import { Calendar, DatePicker, DateRangePicker, Label } from "@ellie-ui/core";
+import { useDatePicker, useDateRangePicker } from "@ellie-ui/core/hooks";
 
 export default function DatePickerPage() {
   const datePicker = useDatePicker();

@@ -1,5 +1,5 @@
-import { useDialog } from "@/hooks/use-dialog";
 import { Button, Dialog } from "@ellie-ui/core";
+import { useDialog } from "@ellie-ui/core/hooks";
 import { Meta, StoryObj } from "@storybook/react";
 import { useRef } from "react";
 

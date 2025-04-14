@@ -1,7 +1,7 @@
 "use client";
 
-import { useTabs } from "@/hooks/use-tabs";
 import { Button, ChipButton, IconButton, Tabs } from "@ellie-ui/core";
+import { useTabs } from "@ellie-ui/core/hooks";
 import { XIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";

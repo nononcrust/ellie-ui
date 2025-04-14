@@ -5,7 +5,8 @@
   "private": true,
   "exports": {
     "./styles/globals.css": "./src/styles/globals.css",
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./hooks": "./src/hooks/index.ts"
   },
   "scripts": {
     "type-check": "tsc --noEmit",

@@ -1,5 +1,5 @@
-import { useInput } from "@/hooks/use-input";
 import { Form, Label, Textarea } from "@ellie-ui/core";
+import { useInput } from "@ellie-ui/core/hooks";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useId } from "react";
 

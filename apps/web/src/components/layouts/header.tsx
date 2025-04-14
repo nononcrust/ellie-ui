@@ -2,9 +2,9 @@
 
 import { link } from "@/configs/link";
 import { menu } from "@/configs/menu";
-import { useIsScrollTop } from "@/hooks/use-is-scroll-top";
 import { cn } from "@/lib/utils";
 import { IconButton } from "@ellie-ui/core";
+import { useIsScrollTop } from "@ellie-ui/core/hooks";
 import { MenuIcon, XIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";

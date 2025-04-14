@@ -1,5 +1,5 @@
-import { useSwitch } from "@/hooks/use-switch";
 import { Switch } from "@ellie-ui/core";
+import { useSwitch } from "@ellie-ui/core/hooks";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

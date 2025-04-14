@@ -1,8 +1,8 @@
 "use client";
 
 import { Mobile } from "@/components/layouts/mobile";
-import { useSelect } from "@/hooks/use-select";
 import { Badge, BottomSheet, Button, Checkbox, ChipButton, RadioGroup } from "@ellie-ui/core";
+import { useSelect } from "@ellie-ui/core/hooks";
 import {
   ChevronDownIcon,
   ChevronRightIcon,

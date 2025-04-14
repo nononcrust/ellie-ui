@@ -1,5 +1,5 @@
-import { useSelect } from "@/hooks/use-select";
 import { NativeSelect, Select } from "@ellie-ui/core";
+import { useSelect } from "@ellie-ui/core/hooks";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

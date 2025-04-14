@@ -1,5 +1,5 @@
-import { useDropdownMenu } from "@/hooks/use-dropdown-menu";
 import { Button, DropdownMenu } from "@ellie-ui/core";
+import { useDropdownMenu } from "@ellie-ui/core/hooks";
 import { Meta, StoryObj } from "@storybook/react";
 import { LogOutIcon, PencilIcon, Trash2Icon } from "lucide-react";
 

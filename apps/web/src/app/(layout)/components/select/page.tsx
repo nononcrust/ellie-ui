@@ -1,9 +1,9 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { usePopover } from "@/hooks/use-popover";
 import { cn } from "@/lib/utils";
 import { Command, Label, Popover, Select } from "@ellie-ui/core";
+import { usePopover } from "@ellie-ui/core/hooks";
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
 

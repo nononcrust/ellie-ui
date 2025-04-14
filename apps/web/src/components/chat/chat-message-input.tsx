@@ -1,8 +1,8 @@
 "use client";
 
 import { ChatMessage } from "@/components/chat/chat-message";
-import { useInput } from "@/hooks/use-input";
 import { cn, noop } from "@/lib/utils";
+import { useInput } from "@ellie-ui/core/hooks";
 import { isMobile } from "is-mobile";
 import { SendHorizontalIcon } from "lucide-react";
 import { nanoid } from "nanoid";
@@ -59,7 +59,7 @@ export const ChatMessageInput = ({ onSend = noop, onInput = noop }: ChatMessageI
       <textarea
         ref={inputRef}
         placeholder="메시지 보내기"
-        className="flex w-full resize-none rounded-3xl bg-background-100 py-3 pl-4 pr-12 text-sm font-medium outline-hidden placeholder:text-placeholder"
+        className="bg-background-100 outline-hidden placeholder:text-placeholder flex w-full resize-none rounded-3xl py-3 pl-4 pr-12 text-sm font-medium"
         rows={1}
         value={input.value}
         onChange={onInputChange}
@@ -67,7 +67,7 @@ export const ChatMessageInput = ({ onSend = noop, onInput = noop }: ChatMessageI
       />
       <button
         className={cn(
-          "absolute bottom-2 right-2 flex size-7 items-center justify-center rounded-full bg-primary text-white transition-colors",
+          "bg-primary absolute bottom-2 right-2 flex size-7 items-center justify-center rounded-full text-white transition-colors",
           "md:hover-bg-primary",
           "disabled:opacity-50",
         )}
