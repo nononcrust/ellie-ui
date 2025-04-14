@@ -22,6 +22,14 @@ export default function TextareaPage() {
       </Grid.Item>
       <Grid.Item>
         <div className="flex w-full flex-col">
+          <Label htmlFor="2" className="mb-2">
+            내용
+          </Label>
+          <Textarea id="2" readOnly />
+        </div>
+      </Grid.Item>
+      <Grid.Item>
+        <div className="flex w-full flex-col">
           <Label htmlFor="3" className="mb-2">
             내용
           </Label>

@@ -40,6 +40,14 @@ export default function InputPage() {
       </Grid.Item>
       <Grid.Item>
         <div className="flex w-full flex-col">
+          <Label htmlFor="4" className="mb-2">
+            이메일
+          </Label>
+          <Input id="4" placeholder="이메일을 입력하세요." readOnly />
+        </div>
+      </Grid.Item>
+      <Grid.Item>
+        <div className="flex w-full flex-col">
           <Label htmlFor="5" className="mb-2">
             검색
           </Label>
