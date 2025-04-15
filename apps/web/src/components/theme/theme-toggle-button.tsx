@@ -7,7 +7,7 @@ export const ThemeToggleButton = () => {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <ClientOnly>
+    <ClientOnly fallback={<div className="size-8" />}>
       <IconButton
         variant="ghost"
         size="small"
