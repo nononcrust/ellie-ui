@@ -31,9 +31,9 @@ export const Header = () => {
         <MobileMenu />
       </div>
       <div className="mr-1 flex items-center gap-1">
-        <ThemeToggleButton />
-        <Storybook />
         <Github />
+        <Storybook />
+        <ThemeToggleButton />
       </div>
     </header>
   );
@@ -42,7 +42,7 @@ export const Header = () => {
 const Storybook = () => {
   return (
     <IconButton aria-label="스토리북" variant="ghost" asChild size="small">
-      <Link href={link.storybook}>
+      <Link href={link.storybook} target="_blank">
         <StorybookLogo />
       </Link>
     </IconButton>
@@ -85,7 +85,7 @@ const StorybookLogo = () => {
 const Github = () => {
   return (
     <IconButton aria-label="깃허브" variant="ghost" asChild size="small">
-      <Link href={link.repository}>
+      <Link href={link.repository} target="_blank">
         <GithubLogo className="w-5" />
       </Link>
     </IconButton>
