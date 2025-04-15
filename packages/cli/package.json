@@ -26,6 +26,7 @@
     "publish:release": "pnpm build && pnpm publish --access public"
   },
   "dependencies": {
+    "@clack/prompts": "^0.10.1",
     "commander": "^13.1.0"
   },
   "devDependencies": {
