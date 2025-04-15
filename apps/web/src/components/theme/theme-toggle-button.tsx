@@ -7,15 +7,17 @@ export const ThemeToggleButton = () => {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <ClientOnly fallback={<div className="size-8" />}>
-      <IconButton
-        variant="ghost"
-        size="small"
-        aria-label="테마 변경"
-        onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
-      >
-        {resolvedTheme === "light" ? <SunIcon size={18} /> : <MoonIcon size={18} />}
-      </IconButton>
-    </ClientOnly>
+    <div className="size-8">
+      <ClientOnly>
+        <IconButton
+          variant="ghost"
+          size="small"
+          aria-label="테마 변경"
+          onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+        >
+          {resolvedTheme === "light" ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+        </IconButton>
+      </ClientOnly>
+    </div>
   );
 };
