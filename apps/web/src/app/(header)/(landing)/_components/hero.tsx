@@ -9,7 +9,7 @@ export const Hero = () => {
         className={cn(
           "w-fit text-5xl font-extrabold",
           "bg-clip-text text-transparent",
-          "to-main from-sub bg-gradient-to-r",
+          "to-main bg-gradient-to-r from-neutral-600 dark:from-neutral-400",
         )}
       >
         Ellie UI
