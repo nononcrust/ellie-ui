@@ -22,7 +22,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-4 transition-colors",
+        "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-4 transition-colors md:pl-[256px]",
         HIDDEN_ROUTES.includes(pathname) && "hidden",
         isScrollTop ? "border-transparent" : "border-border",
       )}
@@ -31,6 +31,12 @@ export const Header = () => {
         <MobileMenu />
       </div>
       <div className="mr-1 flex items-center gap-1">
+        <Link
+          className="text-sub hover:text-main mr-4 text-[14px] font-medium transition-colors"
+          href="/docs"
+        >
+          Docs
+        </Link>
         <Github />
         <Storybook />
         <ThemeToggleButton />

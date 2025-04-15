@@ -1,6 +1,5 @@
-import "@ellie-ui/core/styles/globals.css";
+import "@/styles/globals.css";
 
-import { ReactScan } from "@/components/shared/react-scan";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
@@ -13,9 +12,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning className={`${pretendard.variable} font-pretendard`}>
-      <head>
-        <ReactScan />
-      </head>
       <body className="min-h-dvh antialiased">
         <Providers>{children}</Providers>
         <Analytics />

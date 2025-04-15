@@ -2,12 +2,15 @@
 
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Toaster } from "@ellie-ui/core";
+import { RootProvider } from "fumadocs-ui/provider";
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider>
-      {children}
-      <Toaster />
-    </ThemeProvider>
+    <RootProvider>
+      <ThemeProvider>
+        {children}
+        <Toaster />
+      </ThemeProvider>
+    </RootProvider>
   );
 };
