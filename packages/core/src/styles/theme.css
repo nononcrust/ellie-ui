@@ -107,6 +107,9 @@
 
   /* Shadows */
   --shadow-fab: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
+
+  /* Border Radius */
+  --radius-md: 0.625rem;
 }
 
 @utility focus-ring {

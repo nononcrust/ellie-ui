@@ -65,6 +65,11 @@ export default function ButtonPage() {
         <Button variant="error">버튼</Button>
       </Grid.Item>
       <Grid.Item>
+        <Button className="bg-gradient-to-r from-sky-400 to-violet-400" size="large">
+          시작하기
+        </Button>
+      </Grid.Item>
+      <Grid.Item>
         <Button size="xlarge">이메일로 가입하기</Button>
       </Grid.Item>
     </Grid>

@@ -17,7 +17,7 @@ type SelectProps = Omit<
 
 export const selectStyle = {
   base: cn(
-    "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-[8px] border pl-3 pr-9 text-start text-[14px] font-medium shadow-xs outline-hidden",
+    "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-[14px] font-medium shadow-xs outline-hidden",
     "data-placeholder:text-placeholder",
     "[&>span]:min-w-0",
     "placeholder-placeholder",
@@ -37,7 +37,7 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
       size={16}
       strokeWidth={2}
       className={cn(
-        "text-sub pointer-events-none absolute top-1/2 right-3 shrink-0 -translate-y-1/2",
+        "text-sub pointer-events-none absolute right-3 top-1/2 shrink-0 -translate-y-1/2",
         className,
       )}
     />
@@ -95,7 +95,7 @@ const SelectContent = ({
     <SelectPrimitives.Portal>
       <SelectPrimitives.Content
         className={cn(
-          "border-border bg-background text-main relative z-50 max-w-[calc(100vw-12px)] min-w-[8rem] overflow-hidden rounded-lg border shadow-lg",
+          "border-border bg-background text-main relative z-50 min-w-[8rem] max-w-[calc(100vw-12px)] overflow-hidden rounded-lg border shadow-lg",
           "[&_[role=group]]:py-1",
           "max-h-[var(--radix-select-content-available-height)]",
           position === "popper" &&
@@ -138,7 +138,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
-        "relative flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm font-medium outline-hidden select-none",
+        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium",
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
