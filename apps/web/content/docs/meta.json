@@ -1,4 +1,11 @@
 {
   "root": true,
-  "pages": ["---Introduction---", "index", "---Getting Started---", "installation"]
+  "pages": [
+    "---Introduction---",
+    "index",
+    "---Getting Started---",
+    "installation",
+    "---Components---",
+    "button"
+  ]
 }
