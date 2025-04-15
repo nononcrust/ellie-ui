@@ -25,19 +25,31 @@ export const Header = () => {
         "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-4 transition-colors",
         HIDDEN_ROUTES.includes(pathname) && "hidden",
         isScrollTop ? "border-transparent" : "border-border",
+        "bg-background/70 backdrop-blur-sm",
+        "md:border-border mx-auto md:top-4 md:max-w-[640px] md:rounded-full md:border",
       )}
     >
-      <Link className="flex items-center gap-2" href="/">
-        <span className="from-primary size-[18px] rounded-full bg-gradient-to-r to-sky-300" />
-        <span className="font-bold">Ellie UI</span>
-      </Link>
-      <div className="mr-1 flex items-center gap-1">
-        <Link
-          className="text-sub hover:text-main mr-4 text-[14px] font-medium transition-colors"
-          href="/docs"
-        >
-          Docs
+      <div className="flex items-center">
+        <Link className="flex items-center gap-2" href="/">
+          <span className="from-primary size-[18px] rounded-full bg-gradient-to-r to-sky-300" />
+          <span className="font-bold">Ellie UI</span>
         </Link>
+        <nav className="ml-8 flex items-center gap-4">
+          <Link
+            className="text-sub hover:text-main text-[14px] font-medium transition-colors"
+            href="/docs"
+          >
+            Docs
+          </Link>
+          <Link
+            className={cn("text-sub hover:text-main text-[14px] font-medium transition-colors")}
+            href="/components/button"
+          >
+            Examples
+          </Link>
+        </nav>
+      </div>
+      <div className="mr-1 flex items-center gap-1">
         <Github />
         <Storybook />
         <ThemeToggleButton />
