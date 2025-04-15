@@ -12,7 +12,7 @@ export type IconButtonProps = React.ComponentPropsWithRef<"button"> &
 
 const iconButtonVariants = tv({
   base: cn(
-    "inline-flex justify-center items-center rounded-[8px] border border-transparent whitespace-nowrap transition-colors",
+    "inline-flex justify-center items-center rounded-md border border-transparent whitespace-nowrap transition-colors",
     "disabled:opacity-50 disabled:pointer-events-none",
   ),
 
