@@ -22,14 +22,15 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-4 transition-colors md:pl-[256px]",
+        "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-4 transition-colors",
         HIDDEN_ROUTES.includes(pathname) && "hidden",
         isScrollTop ? "border-transparent" : "border-border",
       )}
     >
-      <div>
-        <MobileMenu />
-      </div>
+      <Link className="flex items-center gap-2" href="/">
+        <span className="from-primary size-[18px] rounded-full bg-gradient-to-r to-sky-300" />
+        <span className="font-bold">Ellie UI</span>
+      </Link>
       <div className="mr-1 flex items-center gap-1">
         <Link
           className="text-sub hover:text-main mr-4 text-[14px] font-medium transition-colors"
@@ -40,6 +41,7 @@ export const Header = () => {
         <Github />
         <Storybook />
         <ThemeToggleButton />
+        <MobileMenu />
       </div>
     </header>
   );

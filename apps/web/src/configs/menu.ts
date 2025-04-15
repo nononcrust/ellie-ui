@@ -1,9 +1,5 @@
 export const menu = [
   {
-    title: "menus",
-    items: [{ title: "Home", href: "/" }],
-  },
-  {
     title: "theme",
     items: [
       { title: "Color", href: "/theme/color" },

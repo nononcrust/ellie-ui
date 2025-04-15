@@ -35,17 +35,17 @@ import {
 import Link from "next/link";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
-import { ChatMessageList } from "./desktop/chat/_components/chat-message-list";
+import { ChatMessageList } from "../../(browse)/desktop/chat/_components/chat-message-list";
 import {
   ChatMessageGroupsContextProvider,
   useChatMessageGroups,
-} from "./desktop/chat/_contexts/chat-message-group-context";
-import { FollowRecommendationItem } from "./desktop/feed/_components/follow-recommendation";
-import { SearchInput } from "./desktop/feed/_components/search-input";
+} from "../../(browse)/desktop/chat/_contexts/chat-message-group-context";
+import { FollowRecommendationItem } from "../../(browse)/desktop/feed/_components/follow-recommendation";
+import { SearchInput } from "../../(browse)/desktop/feed/_components/search-input";
 
-export default function Home() {
+export const Examples = () => {
   return (
-    <main className="mx-auto mb-16 w-full max-w-[1440px] columns-1 gap-5 px-4 lg:columns-2 xl:columns-3">
+    <section className="columns-1 gap-5 lg:columns-2 xl:columns-3">
       <LoginForm />
       <ChatRoom />
       <FollowRecommendation />
@@ -54,9 +54,9 @@ export default function Home() {
       <Profile />
       <StoreDetail />
       <ReservationForm />
-    </main>
+    </section>
   );
-}
+};
 
 const LoginForm = () => {
   return (
