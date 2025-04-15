@@ -138,7 +138,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
-        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-md px-2 py-1.5 text-sm font-medium",
+        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[8px] px-2 py-1.5 text-sm font-medium",
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
