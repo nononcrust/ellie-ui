@@ -58,7 +58,6 @@ export const Button = ({
       type={asChild ? undefined : "button"}
       className={cn(buttonVariants({ size, variant, className }))}
       disabled={disabled}
-      aria-disabled={disabled}
       {...props}
     >
       {children}

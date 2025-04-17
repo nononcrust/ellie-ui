@@ -23,14 +23,6 @@ describe("Button", () => {
     expect(link).toBeInTheDocument();
   });
 
-  test("[a11y] 버튼이 disabled인 경우 aria-disabled 속성이 true여야 합니다.", async () => {
-    render(<Button disabled>버튼</Button>);
-
-    const button = screen.getByRole("button");
-
-    expect(button).toHaveAttribute("aria-disabled", "true");
-  });
-
   test("[a11y] Enter 키로 버튼을 클릭할 수 있어야 합니다.", async () => {
     const onClick = vi.fn();
 
