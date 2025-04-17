@@ -95,7 +95,7 @@ const SelectContent = ({
     <SelectPrimitives.Portal>
       <SelectPrimitives.Content
         className={cn(
-          "border-border bg-background text-main relative z-50 min-w-[8rem] max-w-[calc(100vw-12px)] overflow-hidden rounded-lg border shadow-lg",
+          "border-border bg-background text-main relative z-50 min-w-[8rem] max-w-[calc(100vw-12px)] overflow-hidden rounded-md border shadow-lg",
           "[&_[role=group]]:py-1",
           "max-h-[var(--radix-select-content-available-height)]",
           position === "popper" &&
