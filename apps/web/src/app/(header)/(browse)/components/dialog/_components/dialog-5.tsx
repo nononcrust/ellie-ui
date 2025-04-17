@@ -25,7 +25,7 @@ export const Dialog5 = () => {
         onOpenChange={loginDialog.onOpenChange}
         triggerRef={triggerRef}
       >
-        <Dialog.Content className="w-[440px]">
+        <Dialog.Content className="w-[27.5rem]">
           <Dialog.Header>
             <Dialog.Title>로그인</Dialog.Title>
             <Dialog.Description>
@@ -44,7 +44,7 @@ export const Dialog5 = () => {
         onOpenChange={signupDialog.onOpenChange}
         triggerRef={triggerRef}
       >
-        <Dialog.Content className="w-[440px]">
+        <Dialog.Content className="w-[27.5rem]">
           <Dialog.Header>
             <Dialog.Title>회원가입</Dialog.Title>
             <Dialog.Description>

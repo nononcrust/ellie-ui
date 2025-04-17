@@ -10,7 +10,7 @@ type SwitchProps = Omit<SwitchPrimitives.SwitchProps, "onChange" | "onCheckedCha
 const switchVariants = tv({
   slots: {
     root: cn(
-      "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-4 border-transparent transition-colors duration-100",
+      "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-[0.25rem] border-transparent transition-colors duration-100",
       "data-[state=unchecked]:bg-border",
       "data-[state=checked]:border-primary data-[state=checked]:bg-primary",
       "disabled:pointer-events-none disabled:opacity-50",
@@ -25,11 +25,11 @@ const switchVariants = tv({
     size: {
       small: {
         root: "h-5 w-8",
-        thumb: "size-[12px] data-[state=checked]:translate-x-[12px]",
+        thumb: "size-[0.75rem] data-[state=checked]:translate-x-[0.75rem]",
       },
       medium: {
         root: "h-6 w-10",
-        thumb: "size-[16px] data-[state=checked]:translate-x-[16px]",
+        thumb: "size-[1rem] data-[state=checked]:translate-x-[1rem]",
       },
     },
   },

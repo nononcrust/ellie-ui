@@ -9,7 +9,7 @@ const tabsVariants = tv({
   base: cn(
     "text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
     "disabled:pointer-events-none disabled:opacity-50",
-    "data-[state=active]:after:bg-main after:absolute after:inset-x-0 after:bottom-0 after:h-[2px]",
+    "data-[state=active]:after:bg-main after:absolute after:inset-x-0 after:bottom-0 after:h-[0.125rem]",
     "data-[state=active]:text-main data-[state=active]:border-main",
     "data-[state=inactive]:hover:text-sub",
   ),

@@ -8,13 +8,13 @@ export const Dialog4 = () => {
       <Dialog.Trigger asChild>
         <Button variant="outlined">스크롤</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[640px]">
+      <Dialog.Content className="w-[40rem]">
         <Dialog.Header>
           <Dialog.Title>이용약관</Dialog.Title>
           <Dialog.Description className="sr-only">이용약관</Dialog.Description>
         </Dialog.Header>
         <Dialog.Body>
-          <p className="text-sub whitespace-pre-wrap text-[15px]">{terms}</p>
+          <p className="text-sub whitespace-pre-wrap text-[0.9375rem]">{terms}</p>
         </Dialog.Body>
         <Dialog.Footer>
           <Dialog.Close asChild>

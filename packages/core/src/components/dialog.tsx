@@ -62,7 +62,7 @@ type DialogContentProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Co
 const animationStyle: Record<DialogAnimation, string> = {
   pop: "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 duration-200",
   slide:
-    "ease-out-expo data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[600px] duration-500!",
+    "ease-out-expo data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-[37.5rem] duration-500!",
   none: "",
 };
 
@@ -79,16 +79,16 @@ const DialogContent = ({
         <DialogPrimitives.Content
           aria-modal
           className={cn(
-            "bg-background fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-auto rounded-[12px]",
+            "bg-background fixed left-1/2 top-1/2 z-50 flex max-h-[calc(100%-4rem)] w-full max-w-[calc(100%-4rem)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-auto rounded-[0.75rem]",
             animationStyle[animation],
             className,
           )}
           {...props}
         >
           {children}
-          <DialogPrimitives.Close asChild className="absolute top-4 right-4">
+          <DialogPrimitives.Close asChild className="absolute right-4 top-4">
             <IconButton variant="ghost" aria-label="닫기" size="xsmall">
-              <XIcon size={16} />
+              <XIcon className="size-4" />
             </IconButton>
           </DialogPrimitives.Close>
         </DialogPrimitives.Content>

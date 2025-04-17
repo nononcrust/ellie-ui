@@ -61,7 +61,7 @@ export const FullWidth: Story = {
   render: () => {
     return (
       <Tabs defaultValue="1">
-        <Tabs.List fullWidth className="w-[400px]">
+        <Tabs.List fullWidth className="w-[25rem]">
           <Tabs.Trigger value="1">버튼 1</Tabs.Trigger>
           <Tabs.Trigger value="2">버튼 2</Tabs.Trigger>
           <Tabs.Trigger value="3">버튼 3</Tabs.Trigger>

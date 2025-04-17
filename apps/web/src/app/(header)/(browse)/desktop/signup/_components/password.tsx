@@ -50,7 +50,7 @@ export const Password = ({ email, onPrevious }: PasswordProps) => {
         <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
       </Form.Item>
       {credentialError && (
-        <p className="text-error text-[14px] font-medium">비밀번호가 일치하지 않습니다.</p>
+        <p className="text-error text-sm font-medium">비밀번호가 일치하지 않습니다.</p>
       )}
       <div className="flex gap-2">
         <Button variant="outlined" onClick={onPrevious}>

@@ -14,8 +14,8 @@ const tagVariant = tv({
       danger: "bg-red-50 text-red-700 dark:bg-red-900 dark:text-red-50",
     },
     size: {
-      medium: "px-2 min-h-6 text-xs rounded-[6px]",
-      large: "px-[10px] min-h-7 text-[13px] rounded-[8px]",
+      medium: "px-2 min-h-6 text-xs rounded-[0.375rem]",
+      large: "px-[0.625rem] min-h-7 text-[0.8125rem] rounded-[0.5rem]",
     },
   },
   defaultVariants: {

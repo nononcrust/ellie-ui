@@ -54,8 +54,7 @@ export default function InputPage() {
           <div className="relative">
             <Input id="5" className="pl-8" placeholder="검색어를 입력하세요." />
             <SearchIcon
-              size={14}
-              className="text-subtle absolute left-3 top-1/2 -translate-y-1/2"
+              className="text-subtle absolute left-3 top-1/2 size-[0.875rem] -translate-y-1/2"
               strokeWidth={3}
             />
           </div>
@@ -69,8 +68,7 @@ export default function InputPage() {
           <div className="relative">
             <Input id="6" className="pr-8" placeholder="검색어를 입력하세요." />
             <SearchIcon
-              size={14}
-              className="text-subtle absolute right-3 top-1/2 -translate-y-1/2"
+              className="text-subtle absolute right-3 top-1/2 size-[0.875rem] -translate-y-1/2"
               strokeWidth={3}
             />
           </div>

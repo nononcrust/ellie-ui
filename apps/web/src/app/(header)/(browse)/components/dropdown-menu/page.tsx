@@ -24,7 +24,7 @@ export default function DropdownMenuPage() {
         <DropdownMenu>
           <DropdownMenu.Trigger asChild>
             <IconButton variant="outlined" aria-label="더보기" size="small">
-              <EllipsisIcon size={16} />
+              <EllipsisIcon className="size-4" />
             </IconButton>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content>
@@ -37,34 +37,34 @@ export default function DropdownMenuPage() {
         <DropdownMenu>
           <DropdownMenu.Trigger asChild>
             <IconButton variant="outlined" aria-label="더보기" size="small">
-              <EllipsisIcon size={16} />
+              <EllipsisIcon className="size-4" />
             </IconButton>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content>
             <DropdownMenu.Item>
-              <BookmarkIcon size={16} />
+              <BookmarkIcon className="size-4" />
               북마크
             </DropdownMenu.Item>
             <DropdownMenu.Item>
-              <EyeOffIcon size={16} />
+              <EyeOffIcon className="size-4" />
               관심 없음
             </DropdownMenu.Item>
             <DropdownMenu.Separator />
             <DropdownMenu.Item>
-              <BellMinusIcon size={16} />
+              <BellMinusIcon className="size-4" />
               업데이트 알림 끄기
             </DropdownMenu.Item>
             <DropdownMenu.Item>
-              <UserRoundMinusIcon size={16} />
+              <UserRoundMinusIcon className="size-4" />
               팔로우 취소
             </DropdownMenu.Item>
             <DropdownMenu.Item className="text-error">
-              <MessageSquareWarningIcon size={16} />
+              <MessageSquareWarningIcon className="size-4" />
               신고하기
             </DropdownMenu.Item>
             <DropdownMenu.Separator />
             <DropdownMenu.Item>
-              <LinkIcon size={16} />
+              <LinkIcon className="size-4" />
               링크 복사
             </DropdownMenu.Item>
           </DropdownMenu.Content>
@@ -72,7 +72,7 @@ export default function DropdownMenuPage() {
       </Grid.Item>
       <Grid.Item>
         <Dialog>
-          <Dialog.Content className="w-[320px]">
+          <Dialog.Content className="w-[20rem]">
             <Dialog.Header>
               <Dialog.Title>삭제할까요?</Dialog.Title>
               <Dialog.Description className="sr-only">삭제할까요?</Dialog.Description>
@@ -94,12 +94,12 @@ export default function DropdownMenuPage() {
             </Dialog.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>
-                <PencilIcon size={16} />
+                <PencilIcon className="size-4" />
                 수정하기
               </DropdownMenu.Item>
               <Dialog.Trigger asChild>
                 <DropdownMenu.Item>
-                  <Trash2Icon size={16} />
+                  <Trash2Icon className="size-4" />
                   삭제하기
                 </DropdownMenu.Item>
               </Dialog.Trigger>
@@ -117,11 +117,11 @@ export default function DropdownMenuPage() {
           </DropdownMenu.Trigger>
           <DropdownMenu.Content>
             <DropdownMenu.Item>
-              <UserIcon size={16} />
+              <UserIcon className="size-4" />
               프로필
             </DropdownMenu.Item>
             <DropdownMenu.Item>
-              <LogOutIcon size={16} />
+              <LogOutIcon className="size-4" />
               로그아웃
             </DropdownMenu.Item>
           </DropdownMenu.Content>

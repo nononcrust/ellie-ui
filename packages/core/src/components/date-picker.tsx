@@ -234,7 +234,7 @@ export const Trigger = ({
         )}
         {...props}
       >
-        <CalendarIcon size={16} className="text-sub" />
+        <CalendarIcon className="text-sub size-4" />
         <span className="flex overflow-hidden truncate">
           {children ? (
             children

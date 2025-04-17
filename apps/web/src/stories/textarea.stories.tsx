@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Textarea />
       </div>
     );
@@ -27,7 +27,7 @@ export const Default: Story = {
 export const WithPlaceholder: Story = {
   render: () => {
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Textarea placeholder="텍스트를 입력하세요" />
       </div>
     );
@@ -37,7 +37,7 @@ export const WithPlaceholder: Story = {
 export const Disabled: Story = {
   render: () => {
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Textarea disabled />
       </div>
     );
@@ -47,7 +47,7 @@ export const Disabled: Story = {
 export const Error: Story = {
   render: () => {
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Textarea aria-invalid />
       </div>
     );
@@ -59,7 +59,7 @@ export const WithLabel: Story = {
     const inputId = useId();
 
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Label className="mb-2 flex" htmlFor={inputId}>
           내용
         </Label>
@@ -72,7 +72,7 @@ export const WithLabel: Story = {
 export const WithForm: Story = {
   render: () => {
     return (
-      <Form.Item className="w-[320px]">
+      <Form.Item className="w-[20rem]">
         <Form.Label>내용</Form.Label>
         <Form.Control>
           <Textarea />
@@ -86,7 +86,7 @@ export const WithForm: Story = {
 export const ReadOnly: Story = {
   render: () => {
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Textarea readOnly value="읽기 전용입니다." />
       </div>
     );
@@ -98,7 +98,7 @@ export const Controlled: Story = {
     const input = useInput();
 
     return (
-      <div className="w-[320px]">
+      <div className="w-[20rem]">
         <Textarea value={input.value} onChange={input.onChange} />
       </div>
     );

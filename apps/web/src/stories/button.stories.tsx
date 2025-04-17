@@ -78,7 +78,7 @@ export const WithPrefixIcon: Story = {
   render: () => {
     return (
       <Button>
-        <PlusIcon size={14} />
+        <PlusIcon className="size-[0.875rem]" />
         추가
       </Button>
     );
@@ -90,7 +90,7 @@ export const WithSuffixIcon: Story = {
     return (
       <Button>
         이동
-        <ArrowRightIcon size={14} />
+        <ArrowRightIcon className="size-[0.875rem]" />
       </Button>
     );
   },

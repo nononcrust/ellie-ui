@@ -6,9 +6,9 @@ const skeletonVariant = tv({
   base: "bg-background-100 animate-pulse",
   variants: {
     shape: {
-      rounded: "rounded-[8px]",
+      rounded: "rounded-[0.5rem]",
       circle: "rounded-full",
-      text: "rounded-[2px]",
+      text: "rounded-[0.125rem]",
     },
   },
   defaultVariants: {

@@ -4,7 +4,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Sidebar />
-      <div className="md:pl-[240px]">{children}</div>
+      <div className="md:pl-[15rem]">{children}</div>
     </>
   );
 }

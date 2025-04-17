@@ -17,12 +17,12 @@ export const Hero = () => {
       <p className="text-subtle mt-2 text-xl font-medium">모던 웹을 위한 컴포넌트 라이브러리</p>
       <div className="mt-6 flex items-center gap-3">
         <ChipButton
-          className="to-primary h-[44px] bg-gradient-to-r from-sky-500 px-6 text-base shadow-xl"
+          className="to-primary h-11 bg-gradient-to-r from-sky-500 px-6 text-base shadow-xl"
           asChild
         >
           <Link href="/docs">시작하기</Link>
         </ChipButton>
-        <ChipButton className="h-[44px] px-6 text-base" variant="secondary" asChild>
+        <ChipButton className="h-11 px-6 text-base" variant="secondary" asChild>
           <Link href="/components/button">컴포넌트 둘러보기</Link>
         </ChipButton>
       </div>

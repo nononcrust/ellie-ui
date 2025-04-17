@@ -20,7 +20,7 @@ export const Default: Story = {
         <Popover.Trigger asChild>
           <Button>열기</Button>
         </Popover.Trigger>
-        <Popover.Content className="flex h-[160px] w-[320px] flex-col items-center justify-center gap-3">
+        <Popover.Content className="flex h-40 w-[20rem] flex-col items-center justify-center gap-3">
           <span className="text-subtle text-sm">내용이 여기에 표시됩니다.</span>
           <Popover.Close asChild>
             <Button size="small" variant="outlined">
@@ -42,7 +42,7 @@ export const Controlled: Story = {
         <Popover.Trigger asChild>
           <Button>열기</Button>
         </Popover.Trigger>
-        <Popover.Content className="flex h-[160px] w-[320px] flex-col items-center justify-center gap-3">
+        <Popover.Content className="flex h-40 w-[20rem] flex-col items-center justify-center gap-3">
           <span className="text-subtle text-sm">내용이 여기에 표시됩니다.</span>
           <Popover.Close asChild>
             <Button size="small" variant="outlined">

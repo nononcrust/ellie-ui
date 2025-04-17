@@ -17,7 +17,7 @@ export const Primary: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="primary">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -27,7 +27,7 @@ export const Secondary: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="secondary">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -37,7 +37,7 @@ export const Contained: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="contained">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -47,7 +47,7 @@ export const Outlined: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="outlined">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -57,7 +57,7 @@ export const Ghost: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="ghost">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -67,7 +67,7 @@ export const PrimaryLow: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="primaryLow">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -77,7 +77,7 @@ export const PrimayLowOutlined: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="primaryLowOutlined">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -87,7 +87,7 @@ export const PrimayOutlined: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="primaryOutlined">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -97,7 +97,7 @@ export const Error: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" variant="error">
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },
@@ -107,7 +107,7 @@ export const Disabled: Story = {
   render: () => {
     return (
       <IconButton size="small" aria-label="검색" disabled>
-        <SearchIcon size={14} />
+        <SearchIcon className="size-[0.875rem]" />
       </IconButton>
     );
   },

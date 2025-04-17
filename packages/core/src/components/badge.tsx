@@ -9,7 +9,7 @@ const badgeVariants = tv({
       secondary: "border-transparent bg-secondary text-main",
     },
     size: {
-      small: "min-h-4 min-w-4 text-[10px] px-1",
+      small: "min-h-4 min-w-4 text-[0.625rem] px-1",
       medium: "min-h-5 min-w-5 text-xs px-1.5",
     },
   },

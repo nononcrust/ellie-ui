@@ -8,12 +8,12 @@ export const Dialog7 = () => {
       <Dialog.Trigger asChild>
         <Button variant="outlined">중첩 모달</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[320px]">
+      <Dialog.Content className="w-[20rem]">
         <Dialog.Header>
           <Dialog.Title>첫번째 모달</Dialog.Title>
           <Dialog.Description>두번째 모달을 열어주세요.</Dialog.Description>
         </Dialog.Header>
-        <div className="h-[240px]" />
+        <div className="h-[15rem]" />
         <Dialog.Footer className="mt-8">
           <SecondDialog />
           <Dialog.Close asChild>
@@ -31,7 +31,7 @@ const SecondDialog = () => {
       <Dialog.Trigger asChild>
         <Button>두번째 모달 열기</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[640px]">
+      <Dialog.Content className="w-[40rem]">
         <Dialog.Header>
           <Dialog.Title>두번째 모달</Dialog.Title>
           <Dialog.Description>esc 키를 눌러 닫아주세요.</Dialog.Description>

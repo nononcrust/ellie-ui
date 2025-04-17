@@ -20,7 +20,7 @@ export const FollowRecommendation = () => {
           variant="ghost"
           onClick={() => setShow(false)}
         >
-          <XIcon size={16} />
+          <XIcon className="size-4" />
         </IconButton>
       </div>
       <ul className="flex flex-col gap-5">
@@ -43,7 +43,7 @@ export const FollowRecommendation = () => {
       </ul>
       <div className="mt-2 flex flex-col">
         <Button className="mt-4">
-          <UsersRoundIcon size={16} />
+          <UsersRoundIcon className="size-4" />
           팔로우할 사람 찾기
         </Button>
       </div>
@@ -77,11 +77,11 @@ export const FollowRecommendationItem = ({
           {user.nickname}
           {user.verified && (
             <span className="bg-primary inline-flex size-3.5 items-center justify-center rounded-full text-white">
-              <CheckIcon size={8} strokeWidth={4} />
+              <CheckIcon className="size-2" strokeWidth={4} />
             </span>
           )}
         </span>
-        <span className="text-subtle text-[13px]">{user.email}</span>
+        <span className="text-subtle text-[0.8125rem]">{user.email}</span>
       </div>
       <ChipButton
         size="small"

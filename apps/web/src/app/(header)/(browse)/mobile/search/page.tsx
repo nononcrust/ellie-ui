@@ -28,7 +28,7 @@ export default function SearchPage() {
           href="/mobile/products"
           aria-label="뒤로 가기"
         >
-          <ChevronLeftIcon size={28} />
+          <ChevronLeftIcon className="size-7" />
         </Link>
         <SearchInput placeholder="먹고 싶은 메뉴나 가게를 찾아보세요" />
       </div>
@@ -45,7 +45,7 @@ export default function SearchPage() {
               <li key={search}>
                 <ChipButton variant="secondary" onClick={() => removeRecentSearch(search)}>
                   {search}
-                  <XIcon size={16} />
+                  <XIcon className="size-4" />
                 </ChipButton>
               </li>
             ))}

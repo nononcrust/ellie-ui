@@ -9,7 +9,7 @@ export default function LandingPage() {
         <h1 className="text-2xl font-semibold">노논님을 위한 혜택</h1>
         <button className="text-sub flex items-center gap-1 font-medium">
           더보기
-          <ChevronRightIcon size={18} />
+          <ChevronRightIcon className="size-[1.125rem]" />
         </button>
       </div>
       <ul className="mt-4 flex gap-2">

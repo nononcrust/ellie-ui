@@ -99,7 +99,7 @@ export const Pagination = ({ className, page, onChange, total, ...props }: Pagin
           onClick={() => onChange(1)}
           disabled={page === 1}
         >
-          <ChevronsLeftIcon size={16} />
+          <ChevronsLeftIcon className="size-4" />
         </IconButton>
         <IconButton
           size="xsmall"
@@ -108,7 +108,7 @@ export const Pagination = ({ className, page, onChange, total, ...props }: Pagin
           onClick={() => onChange(page - 1)}
           disabled={page === 1}
         >
-          <ChevronLeftIcon size={16} />
+          <ChevronLeftIcon className="size-4" />
         </IconButton>
         {renderPages()}
         <IconButton
@@ -118,7 +118,7 @@ export const Pagination = ({ className, page, onChange, total, ...props }: Pagin
           onClick={() => onChange(page + 1)}
           disabled={page === total}
         >
-          <ChevronRightIcon size={16} />
+          <ChevronRightIcon className="size-4" />
         </IconButton>
         <IconButton
           size="xsmall"
@@ -127,7 +127,7 @@ export const Pagination = ({ className, page, onChange, total, ...props }: Pagin
           onClick={() => onChange(total)}
           disabled={page === total}
         >
-          <ChevronsRightIcon size={16} />
+          <ChevronsRightIcon className="size-4" />
         </IconButton>
       </nav>
     </PaginationContext.Provider>

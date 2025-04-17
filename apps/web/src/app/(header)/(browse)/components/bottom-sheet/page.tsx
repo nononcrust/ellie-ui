@@ -63,7 +63,7 @@ const BottomSheet2 = () => {
           </BottomSheet.Description>
         </BottomSheet.Header>
 
-        <div className="h-[320px]" />
+        <div className="h-[20rem]" />
         <BottomSheet.Footer>
           <BottomSheet.Close asChild>
             <Button size="xlarge" className="w-full">

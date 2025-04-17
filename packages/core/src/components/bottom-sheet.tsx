@@ -43,9 +43,9 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
       <BottomSheetOverlay />
       <DialogPrimitives.Content
         className={cn(
-          "fixed right-0 bottom-0 left-0 z-50 mx-auto",
-          "flex max-h-[calc(100%-4rem)] w-full max-w-[560px] flex-col",
-          "bg-background rounded-t-[32px] outline-hidden",
+          "fixed bottom-0 left-0 right-0 z-50 mx-auto",
+          "flex max-h-[calc(100%-4rem)] w-full max-w-[35rem] flex-col",
+          "bg-background outline-hidden rounded-t-[2rem]",
           "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom",
           "duration-500!",
           "ease-out-quint",
@@ -54,9 +54,9 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
         {...props}
       >
         {children}
-        <DialogPrimitives.Close className="absolute top-8 right-4" asChild>
+        <DialogPrimitives.Close className="absolute right-4 top-8" asChild>
           <IconButton variant="ghost" aria-label="닫기">
-            <XIcon size={24} />
+            <XIcon className="size-6" />
           </IconButton>
         </DialogPrimitives.Close>
       </DialogPrimitives.Content>
@@ -72,7 +72,7 @@ const BottomSheetHeader = ({ className, children, ...props }: BottomSheetHeaderP
       <div className={cn("flex flex-col gap-1.5 p-5 pb-1", className)} {...props}>
         {children}
       </div>
-      <div className="to-background absolute right-2 -bottom-5 left-2 h-5 bg-linear-to-t from-transparent" />
+      <div className="to-background bg-linear-to-t absolute -bottom-5 left-2 right-2 h-5 from-transparent" />
     </div>
   );
 };
@@ -92,7 +92,7 @@ type BottomSheetFooterProps = React.ComponentPropsWithRef<"div">;
 const BottomSheetFooter = ({ className, children, ...props }: BottomSheetFooterProps) => {
   return (
     <div className="relative flex flex-col">
-      <div className="from-background absolute -top-5 right-2 left-2 h-5 bg-linear-to-t to-transparent" />
+      <div className="from-background bg-linear-to-t absolute -top-5 left-2 right-2 h-5 to-transparent" />
       <div className={cn("flex p-5 pt-1", className)} {...props}>
         {children}
       </div>
@@ -104,7 +104,10 @@ type BottomSheetTitleProps = React.ComponentPropsWithRef<typeof DialogPrimitives
 
 const BottomSheetTitle = ({ className, children, ...props }: BottomSheetTitleProps) => {
   return (
-    <DialogPrimitives.Title className={cn("mt-3 text-[22px] font-semibold", className)} {...props}>
+    <DialogPrimitives.Title
+      className={cn("mt-3 text-[1.375rem] font-semibold", className)}
+      {...props}
+    >
       {children}
     </DialogPrimitives.Title>
   );

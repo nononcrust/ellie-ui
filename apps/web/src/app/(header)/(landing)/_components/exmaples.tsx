@@ -81,7 +81,7 @@ const LoginForm = () => {
               variant="ghost"
               className="text-subtle absolute right-1 top-1/2 -translate-y-1/2"
             >
-              <EyeOffIcon size={14} />
+              <EyeOffIcon className="size-[0.875rem]" />
             </IconButton>
           </div>
         </Form.Item>
@@ -91,7 +91,7 @@ const LoginForm = () => {
       </Form>
       <div className="relative my-5">
         <Divider />
-        <span className="text-subtle bg-background absolute -top-2 left-1/2 -translate-x-1/2 transform px-1 text-[13px] font-medium">
+        <span className="text-subtle bg-background absolute -top-2 left-1/2 -translate-x-1/2 transform px-1 text-[0.8125rem] font-medium">
           혹은
         </span>
       </div>
@@ -155,7 +155,7 @@ const SearchMenu = () => {
       <div className="flex gap-2">
         <div className="relative">
           <ChipButton size="xsmall" variant="primaryLowOutlined">
-            <SlidersHorizontalIcon size={12} />
+            <SlidersHorizontalIcon className="size-3" />
             필터
           </ChipButton>
           <Badge size="small" className="absolute -top-2 left-full -translate-x-3">
@@ -212,8 +212,8 @@ const SettingItem = ({ title, description, enabled }: SettingItemProps) => {
   return (
     <div className="flex w-full items-center justify-between">
       <div className="flex flex-col">
-        <span className="text-[15px] font-semibold">{title}</span>
-        <span className="text-subtle text-[13px] font-medium">{description}</span>
+        <span className="text-[0.9375rem] font-semibold">{title}</span>
+        <span className="text-subtle text-[0.8125rem] font-medium">{description}</span>
       </div>
       <Switch defaultChecked={enabled} />
     </div>
@@ -237,26 +237,26 @@ const Profile = () => {
             <span className="text-subtle text-sm font-medium">Frontend Engineer</span>
             <div className="mt-2 flex flex-col gap-0.5">
               <span className="text-subtle flex items-center gap-2 text-sm">
-                <MapPinIcon size={16} /> 경기도 수지구 동천동
+                <MapPinIcon className="size-4" /> 경기도 수지구 동천동
               </span>
               <Link
                 className="text-subtle hover:text-main flex items-center gap-2 text-sm transition-colors"
                 href={`mailto:${link.email}`}
               >
-                <MailIcon size={16} /> {link.email}
+                <MailIcon className="size-4" /> {link.email}
               </Link>
               <Link
                 className="text-subtle hover:text-main flex items-center gap-2 text-sm transition-colors"
                 href={link.github}
               >
-                <LinkIcon size={16} /> {link.github}
+                <LinkIcon className="size-4" /> {link.github}
               </Link>
             </div>
           </div>
         </div>
         <IconButton aria-label="메일 보내기" size="small" variant="outlined" asChild>
           <Link href={`mailto:${link.email}`}>
-            <MailIcon size={16} />
+            <MailIcon className="size-4" />
           </Link>
         </IconButton>
       </div>
@@ -275,13 +275,13 @@ const StoreDetail = () => {
               <span>도보 5분</span>
             </div>
             <IconButton aria-label="더보기" size="xsmall" variant="ghost">
-              <EllipsisIcon size={16} />
+              <EllipsisIcon className="size-4" />
             </IconButton>
           </div>
           <span className="text-xl font-semibold">우리들약국</span>
           <div className="mt-1 flex items-center gap-2">
             <span className="text-primary text-sm font-semibold">영업중</span>
-            <span className="text-subtle text-[13px] font-medium">(수) 09:00 ~ 21:00</span>
+            <span className="text-subtle text-[0.8125rem] font-medium">(수) 09:00 ~ 21:00</span>
           </div>
         </div>
         <div className="mt-2 flex flex-wrap gap-1">
@@ -294,7 +294,7 @@ const StoreDetail = () => {
               자세히
             </Button>
             <Button className="flex-3" size="large">
-              <PhoneIcon size={14} />
+              <PhoneIcon className="size-[0.875rem]" />
               전화하기
             </Button>
           </div>

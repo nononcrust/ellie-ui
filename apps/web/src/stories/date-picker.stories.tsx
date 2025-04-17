@@ -19,7 +19,7 @@ export const Default: Story = {
 
     return (
       <DatePicker
-        className="w-[240px]"
+        className="w-[15rem]"
         value={datePicker.value}
         onChange={datePicker.onChange}
         aria-label="날짜 선택"
@@ -34,7 +34,7 @@ export const WithPlaceholder: Story = {
 
     return (
       <DatePicker
-        className="w-[240px]"
+        className="w-[15rem]"
         placeholder="날짜를 선택해주세요"
         value={datePicker.value}
         onChange={datePicker.onChange}
@@ -49,7 +49,7 @@ export const Disabled: Story = {
 
     return (
       <DatePicker
-        className="w-[240px]"
+        className="w-[15rem]"
         value={datePicker.value}
         onChange={datePicker.onChange}
         disabled
@@ -64,7 +64,7 @@ export const Error: Story = {
 
     return (
       <DatePicker
-        className="w-[240px]"
+        className="w-[15rem]"
         value={datePicker.value}
         onChange={datePicker.onChange}
         aria-invalid
@@ -79,7 +79,7 @@ export const Range: Story = {
 
     return (
       <DateRangePicker
-        className="w-[240px]"
+        className="w-[15rem]"
         placeholder="날짜 범위를 선택해주세요"
         value={dateRangePicker.value}
         onChange={dateRangePicker.onChange}
@@ -94,7 +94,7 @@ export const DateBoundary: Story = {
 
     return (
       <DatePicker
-        className="w-[240px]"
+        className="w-[15rem]"
         placeholder="오늘부터 일주일 이내"
         value={datePicker.value}
         onChange={datePicker.onChange}

@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     return (
-      <Form onSubmit={(e) => e.preventDefault()} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={(e) => e.preventDefault()} className="flex w-[20rem] flex-col gap-4">
         <Form.Item>
           <Form.Label>라벨</Form.Label>
           <Form.Control>
@@ -48,7 +48,7 @@ export const Default: Story = {
 export const Error: Story = {
   render: () => {
     return (
-      <Form onSubmit={(e) => e.preventDefault()} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={(e) => e.preventDefault()} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error>
           <Form.Label>라벨</Form.Label>
           <Form.Control>
@@ -78,7 +78,7 @@ export const WithInput: Story = {
     const onSubmit = form.handleSubmit(noop);
 
     return (
-      <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error={!!form.formState.errors.input}>
           <Form.Label>라벨</Form.Label>
           <Controller
@@ -115,7 +115,7 @@ export const WithTextarea: Story = {
     const onSubmit = form.handleSubmit(noop);
 
     return (
-      <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error={!!form.formState.errors.textarea}>
           <Form.Label>라벨</Form.Label>
           <Controller
@@ -151,7 +151,7 @@ export const WithSelect = () => {
   const onSubmit = form.handleSubmit(noop);
 
   return (
-    <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+    <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
       <Form.Item error={!!form.formState.errors.select}>
         <Form.Label>라벨</Form.Label>
         <Controller
@@ -191,7 +191,7 @@ export const WithDatePicker: Story = {
     const onSubmit = form.handleSubmit(noop);
 
     return (
-      <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error={!!form.formState.errors.date}>
           <Form.Label>라벨</Form.Label>
           <Controller
@@ -234,7 +234,7 @@ export const WithDateRangePicker: Story = {
     const onSubmit = form.handleSubmit(noop);
 
     return (
-      <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error={!!form.formState.errors.date}>
           <Form.Label>라벨</Form.Label>
           <Controller
@@ -271,7 +271,7 @@ export const WithRadioGroup: Story = {
     const onSubmit = form.handleSubmit(noop);
 
     return (
-      <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error={!!form.formState.errors.radioGroup}>
           <Form.Label>라벨</Form.Label>
           <Controller
@@ -314,7 +314,7 @@ export const WithCheckbox: Story = {
     const onSubmit = form.handleSubmit(noop);
 
     return (
-      <Form onSubmit={onSubmit} className="flex w-[320px] flex-col gap-4">
+      <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
         <Form.Item error={!!form.formState.errors.checkbox}>
           <Controller
             name="checkbox"

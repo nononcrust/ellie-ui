@@ -22,7 +22,7 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="mx-auto mt-16 max-w-[400px]">
+    <main className="mx-auto mt-16 max-w-[25rem]">
       {step === 1 && <Email form={form} onSubmit={onEmailFormSubmit} />}
       {step === 2 && <Password email={form.getValues("email")} onPrevious={() => setStep(1)} />}
     </main>

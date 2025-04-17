@@ -16,9 +16,9 @@ type CheckboxProps = Omit<CheckboxPrimitives.CheckboxProps, "onChange" | "onChec
 const checkboxVariants = tv({
   variants: {
     size: {
-      small: "size-4 rounded-[4px]",
-      medium: "size-5 rounded-[5px]",
-      large: "size-6 rounded-[6px]",
+      small: "size-4 rounded-[0.25rem]",
+      medium: "size-5 rounded-[0.3125rem]",
+      large: "size-6 rounded-[0.375rem]",
     },
   },
   defaultVariants: {
@@ -27,9 +27,9 @@ const checkboxVariants = tv({
 });
 
 const iconSize: Record<NonNullable<CheckboxProps["size"]>, number> = {
-  small: 12,
-  medium: 14,
-  large: 18,
+  small: 0.75,
+  medium: 0.875,
+  large: 1.125,
 };
 
 const CheckboxImpl = React.forwardRef<
@@ -42,7 +42,7 @@ const CheckboxImpl = React.forwardRef<
     <CheckboxPrimitives.Root
       ref={ref}
       className={cn(
-        "peer border-border size-4 shrink-0 border shadow-xs outline-hidden",
+        "border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
         "data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-white",
         "disabled:pointer-events-none disabled:opacity-50",
@@ -58,9 +58,21 @@ const CheckboxImpl = React.forwardRef<
     >
       <CheckboxPrimitives.Indicator className="flex items-center justify-center">
         {checked === "indeterminate" ? (
-          <MinusIcon size={iconSize[sizeWithDefault]} strokeWidth={3} />
+          <MinusIcon
+            style={{
+              width: `${iconSize[sizeWithDefault]}rem`,
+              height: `${iconSize[sizeWithDefault]}rem`,
+            }}
+            strokeWidth={3}
+          />
         ) : (
-          <CheckIcon size={iconSize[sizeWithDefault]} strokeWidth={3} />
+          <CheckIcon
+            style={{
+              width: `${iconSize[sizeWithDefault]}rem`,
+              height: `${iconSize[sizeWithDefault]}rem`,
+            }}
+            strokeWidth={3}
+          />
         )}
       </CheckboxPrimitives.Indicator>
     </CheckboxPrimitives.Root>

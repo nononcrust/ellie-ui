@@ -21,7 +21,7 @@ export const Default: Story = {
         <Dialog.Trigger asChild>
           <Button>열기</Button>
         </Dialog.Trigger>
-        <Dialog.Content className="w-[400px]" animation="pop">
+        <Dialog.Content className="w-[25rem]" animation="pop">
           <Dialog.Header>
             <Dialog.Title>모달 제목</Dialog.Title>
             <Dialog.Description>모달 설명이 여기에 표시됩니다.</Dialog.Description>
@@ -47,7 +47,7 @@ export const SlideAnimation: Story = {
         <Dialog.Trigger asChild>
           <Button>열기</Button>
         </Dialog.Trigger>
-        <Dialog.Content className="w-[400px]" animation="slide">
+        <Dialog.Content className="w-[25rem]" animation="slide">
           <Dialog.Header>
             <Dialog.Title>모달 제목</Dialog.Title>
             <Dialog.Description>모달 설명이 여기에 표시됩니다.</Dialog.Description>
@@ -73,7 +73,7 @@ export const NoAnimation: Story = {
         <Dialog.Trigger asChild>
           <Button>열기</Button>
         </Dialog.Trigger>
-        <Dialog.Content className="w-[400px]" animation="none">
+        <Dialog.Content className="w-[25rem]" animation="none">
           <Dialog.Header>
             <Dialog.Title>모달 제목</Dialog.Title>
             <Dialog.Description>모달 설명이 여기에 표시됩니다.</Dialog.Description>
@@ -98,7 +98,7 @@ export const ScrollBody = () => {
       <Dialog.Trigger asChild>
         <Button>스크롤</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[400px]">
+      <Dialog.Content className="w-[25rem]">
         <Dialog.Header>
           <Dialog.Title>모달 제목</Dialog.Title>
           <Dialog.Description className="sr-only">
@@ -106,7 +106,7 @@ export const ScrollBody = () => {
           </Dialog.Description>
         </Dialog.Header>
         <Dialog.Body>
-          <div className="min-h-[2400px]">
+          <div className="min-h-[225rem]">
             <span className="text-subtle">스크롤을 유발하는 컨텐츠</span>
           </div>
         </Dialog.Body>
@@ -132,7 +132,7 @@ export const Controlled: Story = {
         <Dialog.Trigger asChild>
           <Button>열기</Button>
         </Dialog.Trigger>
-        <Dialog.Content className="w-[400px]" animation="pop">
+        <Dialog.Content className="w-[25rem]" animation="pop">
           <Dialog.Header>
             <Dialog.Title>모달 제목</Dialog.Title>
             <Dialog.Description>모달 설명이 여기에 표시됩니다.</Dialog.Description>
@@ -162,7 +162,7 @@ export const WithCustomTrigger: Story = {
           열기
         </Button>
         <Dialog isOpen={dialog.isOpen} onOpenChange={dialog.onOpenChange} triggerRef={triggerRef}>
-          <Dialog.Content className="w-[400px]" animation="pop">
+          <Dialog.Content className="w-[25rem]" animation="pop">
             <Dialog.Header>
               <Dialog.Title>모달 제목</Dialog.Title>
               <Dialog.Description>모달 설명이 여기에 표시됩니다.</Dialog.Description>

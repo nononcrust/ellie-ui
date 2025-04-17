@@ -65,14 +65,14 @@ export default function SettingsPage() {
               계정을 영구적으로 삭제하고 모든 워크스페이스에서 액세스 권한을 제거합니다.
             </span>
           </div>
-          <ChevronRightIcon size={16} className="text-sub" />
+          <ChevronRightIcon className="text-sub size-4" />
         </div>
       </div>
 
       <h2 className="mt-8 flex items-center gap-2 text-lg font-semibold">
         기기
         <Tooltip content="모든 기기가 로그인 되어있습니다.">
-          <CircleHelpIcon size={16} className="text-subtle" />
+          <CircleHelpIcon className="text-subtle size-4" />
         </Tooltip>
       </h2>
       <Divider className="my-3" />
@@ -120,7 +120,7 @@ export default function SettingsPage() {
           멤버 목록 내보내기
           <Tag variant="info">
             비즈니스
-            <ArrowUpRightIcon className="ml-1" size={12} />
+            <ArrowUpRightIcon className="ml-1 size-3" />
           </Tag>
         </h3>
         <Button className="mt-3" variant="outlined">
@@ -128,7 +128,7 @@ export default function SettingsPage() {
         </Button>
       </div>
       <Button className="text-subtle mt-2 -translate-x-3" variant="ghost">
-        <CircleHelpIcon size={16} className="text-subtle" />
+        <CircleHelpIcon className="text-subtle size-4" />
         멤버 목록 내보내기에 대해 자세히 알아보세요.
       </Button>
       <Divider className="my-3" />
@@ -151,7 +151,7 @@ const ThemeSelect = () => {
   if (!isClient) return null;
 
   return (
-    <Select className="w-[116px]" value={theme} onChange={setTheme}>
+    <Select className="w-[7.25rem]" value={theme} onChange={setTheme}>
       <Select.Content>
         <Select.Option value="light">밝은 테마</Select.Option>
         <Select.Option value="dark">어두운 테마</Select.Option>

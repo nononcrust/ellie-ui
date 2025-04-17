@@ -22,19 +22,19 @@ export default function AppartmentApplicationPage() {
         <TypeFilter />
         <ChipButton variant="secondary">
           청약 종료일
-          <ChevronDownIcon size={16} />
+          <ChevronDownIcon className="size-4" />
         </ChipButton>
         <ChipButton variant="secondary">
           잔여 세대 수
-          <ChevronDownIcon size={16} />
+          <ChevronDownIcon className="size-4" />
         </ChipButton>
         <ChipButton variant="secondary">
           지원 조건
-          <ChevronDownIcon size={16} />
+          <ChevronDownIcon className="size-4" />
         </ChipButton>
         <ChipButton variant="secondary">
           공급 위치
-          <ChevronDownIcon size={16} />
+          <ChevronDownIcon className="size-4" />
         </ChipButton>
       </div>
       <ul className="mt-8 flex flex-col gap-6">
@@ -57,7 +57,7 @@ export default function AppartmentApplicationPage() {
 const CTAContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <div className="flex h-[96px] md:hidden" />
+      <div className="flex h-24 md:hidden" />
       <div className="bg-background sticky bottom-0 left-0 right-0 flex flex-col pb-4 pt-0 md:hidden">
         <div className="relative">
           <div className="to-background bg-linear-to-b absolute -top-8 left-0 right-0 z-10 h-8 from-transparent" />
@@ -74,7 +74,7 @@ const AllFilter = () => {
       <div className="relative">
         <BottomSheet.Trigger asChild>
           <ChipButton variant="primaryLowOutlined" className="w-9 px-0">
-            <SlidersHorizontalIcon size={16} />
+            <SlidersHorizontalIcon className="size-4" />
           </ChipButton>
         </BottomSheet.Trigger>
         <Badge className="absolute -top-2 left-full -translate-x-4">3</Badge>
@@ -113,12 +113,12 @@ const AllFilter = () => {
           <span className="mt-8 font-semibold">공급 위치</span>
           <div className="flex items-center justify-between py-4">
             <span className="text-sub text-lg font-medium">성남시 분당구 서현동</span>
-            <ChevronRightIcon size={20} />
+            <ChevronRightIcon className="size-5" />
           </div>
         </BottomSheet.Body>
         <BottomSheet.Footer className="gap-4">
           <Button size="xlarge" variant="outlined">
-            <RotateCwIcon size={18} className="text-subtle" />
+            <RotateCwIcon className="text-subtle size-[1.125rem]" />
             초기화
           </Button>
           <BottomSheet.Close asChild>
@@ -140,7 +140,7 @@ const TypeFilter = () => {
       <BottomSheet.Trigger asChild>
         <ChipButton variant={typeSelect.value ? "primaryLowOutlined" : "secondary"}>
           {typeSelect.value || "주거 형태"}
-          <ChevronDownIcon size={16} />
+          <ChevronDownIcon className="size-4" />
         </ChipButton>
       </BottomSheet.Trigger>
       <BottomSheet.Content>

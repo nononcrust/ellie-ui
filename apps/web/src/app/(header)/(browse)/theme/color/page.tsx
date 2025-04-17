@@ -45,9 +45,9 @@ export default function ColorPage() {
       </div>
       <div className="mt-16">
         <h2 className="mt-6 text-2xl font-semibold">Color Token</h2>
-        <div className="mt-6 mb-4 flex items-center">
-          <span className="text-subtle text-[13px] font-medium">Token</span>
-          <span className="text-subtle ml-[150px] text-[13px] font-medium">Value</span>
+        <div className="mb-4 mt-6 flex items-center">
+          <span className="text-subtle text-[0.8125rem] font-medium">Token</span>
+          <span className="text-subtle ml-[9.375rem] text-[0.8125rem] font-medium">Value</span>
         </div>
         <div className="flex flex-col gap-8">
           <ColorTokenGroup>
@@ -103,7 +103,7 @@ const SemanticColor = ({ className, name }: SemanticColorProps) => {
   return (
     <div className="flex flex-col items-center gap-1">
       <div className={cn("size-16 rounded-2xl", className)} />
-      <span className="text-[13px] font-medium">{name}</span>
+      <span className="text-[0.8125rem] font-medium">{name}</span>
     </div>
   );
 };
@@ -126,8 +126,8 @@ const ColorToken = ({ className, name, value }: ColorTokenProps) => {
   return (
     <div className="flex items-center">
       <div className={cn("mr-2 size-5 rounded-full", className)} />
-      <span className="w-[160px] text-[15px] font-medium">{name}</span>
-      <span className="text-[15px] font-medium">{value}</span>
+      <span className="w-40 text-[0.9375rem] font-medium">{name}</span>
+      <span className="text-[0.9375rem] font-medium">{value}</span>
     </div>
   );
 };

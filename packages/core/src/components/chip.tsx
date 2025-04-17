@@ -11,9 +11,9 @@ const chipVariants = tv({
         "border-primary text-primary bg-primary-lighter hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:border-primary-dark dark:hover:bg-primary-darker-hover",
     },
     size: {
-      xsmall: "h-6 gap-0.5 px-2 text-[12px]",
-      small: "h-7 gap-0.5 px-2.5 text-[12px]",
-      medium: "h-8 gap-1 px-3 text-[13px]",
+      xsmall: "h-6 gap-0.5 px-2 text-xs",
+      small: "h-7 gap-0.5 px-2.5 text-xs",
+      medium: "h-8 gap-1 px-3 text-[0.8125rem]",
       large: "h-9 gap-1.5 px-3.5 text-sm",
     },
   },

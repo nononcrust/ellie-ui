@@ -7,7 +7,7 @@ export default function PermissionsPage() {
   return (
     <div className="h-[calc(100vh-56px)] bg-black/40">
       <Mobile>
-        <div className="bg-background mx-12 mt-[120px] rounded-2xl p-6">
+        <div className="bg-background mx-12 mt-[7.5rem] rounded-2xl p-6">
           <h1 className="whitespace-pre-wrap text-xl font-semibold">
             {"편리한 서비스 이용을 위해\n필요한 권한을 안내해 드려요"}
           </h1>
@@ -55,7 +55,7 @@ const PermissionItem = ({ icon, title, description, required = false }: Permissi
           {title}
           {!required && <span className="ml-2 font-medium">(선택)</span>}
         </span>
-        <span className="text-subtle text-[13px] font-medium">{description}</span>
+        <span className="text-subtle text-[0.8125rem] font-medium">{description}</span>
       </div>
     </div>
   );

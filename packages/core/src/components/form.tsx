@@ -47,7 +47,7 @@ const FormDescription = ({ className, children, ...props }: FormDescriptionProps
     <p
       ref={refCallback}
       id={descriptionId}
-      className={cn("text-subtle mt-1 text-[13px] font-medium", className)}
+      className={cn("text-subtle mt-1 text-[0.8125rem] font-medium", className)}
       {...props}
     >
       {children}
@@ -93,7 +93,7 @@ const FormErrorMessage = ({ className, children, ...props }: FormErrorMessagePro
     <p
       ref={refCallback}
       id={errorMessageId}
-      className={cn("text-error mt-1 text-[13px] font-medium", className)}
+      className={cn("text-error mt-1 text-[0.8125rem] font-medium", className)}
       {...props}
     >
       {children}

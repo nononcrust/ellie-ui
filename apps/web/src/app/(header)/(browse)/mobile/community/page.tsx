@@ -61,7 +61,7 @@ const Post = ({ post }: PostProps) => {
   return (
     <li className="flex flex-col py-3">
       <h3 className="text-lg font-semibold">{post.title}</h3>
-      <p className="text-sub line-clamp-2 text-[15px] font-medium">{post.content}</p>
+      <p className="text-sub line-clamp-2 text-[0.9375rem] font-medium">{post.content}</p>
       <div className="mt-2 flex gap-1">
         {post.tags.map((tag) => (
           <Tag key={tag} variant="secondary">
@@ -77,11 +77,11 @@ const Post = ({ post }: PostProps) => {
         </div>
         <div className="flex gap-3">
           <span className="text-subtle flex items-center gap-1 text-sm font-medium">
-            <HeartIcon size={16} />
+            <HeartIcon className="size-4" />
             12
           </span>
           <span className="text-subtle flex items-center gap-1 text-sm font-medium">
-            <MessageCircleMoreIcon size={16} />
+            <MessageCircleMoreIcon className="size-4" />
             12
           </span>
         </div>
@@ -96,7 +96,7 @@ const Filter = () => {
       <div className="relative">
         <BottomSheet.Trigger asChild>
           <ChipButton variant="primaryLowOutlined">
-            <SlidersHorizontalIcon size={16} />
+            <SlidersHorizontalIcon className="size-4" />
             필터
           </ChipButton>
         </BottomSheet.Trigger>

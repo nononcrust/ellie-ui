@@ -30,10 +30,10 @@ const buttonVariants = tv({
   variants: {
     variant: buttonVariant,
     size: {
-      small: "px-[10px] min-h-8 text-xs",
-      medium: "px-[12px] min-h-9 text-sm",
-      large: "px-[14px] min-h-10 text-[15px]",
-      xlarge: "px-[20px] min-h-[56px] rounded-xl text-lg",
+      small: "px-[0.625rem] min-h-8 text-xs",
+      medium: "px-3 min-h-9 text-sm",
+      large: "px-[0.875rem] min-h-10 text-[0.9375rem]",
+      xlarge: "px-[1.25rem] min-h-[3.5rem] rounded-xl text-lg",
     },
   },
   defaultVariants: {

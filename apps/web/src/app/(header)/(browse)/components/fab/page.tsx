@@ -28,7 +28,7 @@ export default function FabPage() {
       </Grid.Item>
       <Fab.Container>
         <Fab onClick={fabMenu.open}>
-          <MenuIcon size={20} />
+          <MenuIcon className="size-[1.25rem]" />
         </Fab>
       </Fab.Container>
     </Grid>

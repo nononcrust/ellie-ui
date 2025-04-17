@@ -56,7 +56,7 @@ const Sort = ({ initialValue }: SortProps) => {
     <BottomSheet>
       <BottomSheet.Trigger className="flex items-center gap-1 text-sm font-medium">
         {sort}
-        <ChevronDownIcon size={18} />
+        <ChevronDownIcon className="size-[1.125rem]" />
       </BottomSheet.Trigger>
       <BottomSheet.Content>
         <BottomSheet.Header>
@@ -85,8 +85,8 @@ const Product = ({ product }: ProductProps) => {
     <li>
       <div className="flex flex-col">
         <div className="bg-background-100 aspect-square rounded-lg" />
-        <div className="mt-2 flex h-[144px] flex-col">
-          <span className="text-subtle text-[13px] font-medium">{product.vendor}</span>
+        <div className="mt-2 flex h-[9rem] flex-col">
+          <span className="text-subtle text-[0.8125rem] font-medium">{product.vendor}</span>
           <span className="line-clamp-2 text-sm">{product.title}</span>
           <div className="flex items-center gap-1">
             <span className="text-primary text-lg font-semibold">
@@ -96,7 +96,7 @@ const Product = ({ product }: ProductProps) => {
           </div>
           <div className="flex items-center gap-1">
             <div className="flex items-center gap-0.5">
-              <StarIcon className="fill-primary text-primary" size={12} />
+              <StarIcon className="fill-primary text-primary size-3" />
               <span className="text-xs font-semibold">{product.rating.toFixed(1)}</span>
             </div>
             <span className="text-subtle text-xs font-medium">

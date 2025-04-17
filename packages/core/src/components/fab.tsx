@@ -22,7 +22,7 @@ const fabVariants = tv({
     },
     size: {
       small: "w-10 h-10",
-      medium: "w-[48px] h-[48px]",
+      medium: "w-12 h-12",
     },
   },
   defaultVariants: {
@@ -52,7 +52,7 @@ export const Fab = ({
 
 const FabContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="pointer-events-none fixed right-4 bottom-4 flex flex-col items-center gap-3 *:pointer-events-auto">
+    <div className="pointer-events-none fixed bottom-4 right-4 flex flex-col items-center gap-3 *:pointer-events-auto">
       {children}
     </div>
   );

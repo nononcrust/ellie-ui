@@ -149,7 +149,7 @@ const Select7 = () => {
         <Popover.Trigger asChild>
           <button
             className={cn(
-              "border-border bg-background text-main shadow-xs outline-hidden flex h-9 w-full items-center justify-between gap-2 rounded-[8px] border px-3 text-start text-[14px] font-semibold",
+              "border-border bg-background text-main shadow-xs outline-hidden flex h-9 w-full items-center justify-between gap-2 rounded-[0.5rem] border px-3 text-start text-sm font-semibold",
               "data-placeholder:text-placeholder",
               "[&>span]:min-w-0",
               "placeholder-placeholder",
@@ -160,7 +160,7 @@ const Select7 = () => {
             <span className={cn("truncate", !value && "text-placeholder")}>
               {value ? banks.find((bank) => bank === value) : "은행 선택"}
             </span>
-            <ChevronDownIcon size={16} className="text-sub shrink-0" />
+            <ChevronDownIcon className="text-sub size-4 shrink-0" />
           </button>
         </Popover.Trigger>
         <Popover.Content className="border-border w-full min-w-[var(--radix-popper-anchor-width)] overflow-hidden p-0">
@@ -212,7 +212,7 @@ const Select8 = () => {
         <Select.Option value="1">
           <div className="flex flex-col">
             <span>진행 중</span>
-            <span data-desc className="text-subtle text-[13px]">
+            <span data-desc className="text-subtle text-[0.8125rem]">
               현재 학습 중인 강의만 표시
             </span>
           </div>
@@ -220,7 +220,7 @@ const Select8 = () => {
         <Select.Option value="2">
           <div className="flex flex-col">
             <span>완료</span>
-            <span data-desc className="text-subtle text-[13px]">
+            <span data-desc className="text-subtle text-[0.8125rem]">
               수강을 완료한 강의만 표시
             </span>
           </div>
@@ -228,7 +228,7 @@ const Select8 = () => {
         <Select.Option value="3">
           <div className="flex flex-col">
             <span>미시작</span>
-            <span data-desc className="text-subtle text-[13px]">
+            <span data-desc className="text-subtle text-[0.8125rem]">
               아직 수강을 시작하지 않은 강의만 표시
             </span>
           </div>

@@ -16,7 +16,7 @@ export default function FeedPage() {
     <div className="mx-auto flex w-full md:max-w-4xl">
       <main className="border-border w-full py-16 md:border-x">
         <Tabs value={tabs.value} onChange={tabs.onChange}>
-          <Tabs.List className="sticky top-[56px]" fullWidth size="large">
+          <Tabs.List fullWidth size="large">
             <Tabs.Trigger value="discover">찾아보기</Tabs.Trigger>
             <Tabs.Trigger value="following">팔로잉</Tabs.Trigger>
           </Tabs.List>
@@ -28,8 +28,8 @@ export default function FeedPage() {
             </ul>
           </Tabs.Content>
           <Tabs.Content value="following">
-            <div className="flex h-[640px] flex-col items-center justify-center">
-              <span className="text-[16px] font-semibold">팔로우 중인 유저가 없습니다.</span>
+            <div className="flex h-[40rem] flex-col items-center justify-center">
+              <span className="font-semibold">팔로우 중인 유저가 없습니다.</span>
               <span className="text-subtle mt-1 text-sm">다른 사용자를 팔로우해보세요.</span>
               <Button
                 variant="primaryLow"
@@ -42,7 +42,7 @@ export default function FeedPage() {
           </Tabs.Content>
         </Tabs>
       </main>
-      <aside className="sticky right-0 top-[56px] hidden h-[120px] w-[360px] shrink-0 flex-col px-6 lg:flex">
+      <aside className="sticky right-0 top-14 hidden h-[7.5rem] w-[22.5rem] shrink-0 flex-col px-6 lg:flex">
         <SearchInput className="mt-6" placeholder="검색하기" />
         <Trends />
         <FollowRecommendation />
@@ -77,7 +77,7 @@ const Trends = () => {
           variant="ghost"
           onClick={() => setShow(false)}
         >
-          <XIcon size={16} />
+          <XIcon className="size-4" />
         </IconButton>
       </div>
       <div className="flex flex-wrap gap-2">
@@ -94,19 +94,19 @@ const Trends = () => {
 const Links = () => {
   return (
     <div className="text-subtle mt-4 flex items-center gap-1 font-bold">
-      <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+      <Link className="text-primary text-[0.8125rem] font-normal hover:underline" href="#">
         피드백
       </Link>
       •
-      <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+      <Link className="text-primary text-[0.8125rem] font-normal hover:underline" href="#">
         이용약관
       </Link>
       •
-      <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+      <Link className="text-primary text-[0.8125rem] font-normal hover:underline" href="#">
         개인정보 처리방침
       </Link>
       •
-      <Link className="text-primary text-[13px] font-normal hover:underline" href="#">
+      <Link className="text-primary text-[0.8125rem] font-normal hover:underline" href="#">
         고객센터
       </Link>
     </div>

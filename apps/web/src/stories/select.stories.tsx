@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     return (
-      <Select className="w-[200px]" defaultValue="">
+      <Select className="w-[12.5rem]" defaultValue="">
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2">사과</Select.Option>
         <Select.Option value="3">포도</Select.Option>
@@ -29,7 +29,7 @@ export const Default: Story = {
 export const WithPlaceholder: Story = {
   render: () => {
     return (
-      <Select className="w-[200px]" placeholder="과일을 선택해주세요." defaultValue="">
+      <Select className="w-[12.5rem]" placeholder="과일을 선택해주세요." defaultValue="">
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2">사과</Select.Option>
         <Select.Option value="3">포도</Select.Option>
@@ -42,7 +42,7 @@ export const WithPlaceholder: Story = {
 export const Disabled: Story = {
   render: () => {
     return (
-      <Select className="w-[200px]" placeholder="과일을 선택해주세요." defaultValue="" disabled>
+      <Select className="w-[12.5rem]" placeholder="과일을 선택해주세요." defaultValue="" disabled>
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2">사과</Select.Option>
         <Select.Option value="3">포도</Select.Option>
@@ -55,7 +55,7 @@ export const Disabled: Story = {
 export const OptionDisabled: Story = {
   render: () => {
     return (
-      <Select className="w-[200px]" placeholder="과일을 선택해주세요." defaultValue="">
+      <Select className="w-[12.5rem]" placeholder="과일을 선택해주세요." defaultValue="">
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2" disabled>
           사과
@@ -70,7 +70,12 @@ export const OptionDisabled: Story = {
 export const Error: Story = {
   render: () => {
     return (
-      <Select className="w-[200px]" placeholder="과일을 선택해주세요." defaultValue="" aria-invalid>
+      <Select
+        className="w-[12.5rem]"
+        placeholder="과일을 선택해주세요."
+        defaultValue=""
+        aria-invalid
+      >
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2">사과</Select.Option>
         <Select.Option value="3">포도</Select.Option>
@@ -83,7 +88,7 @@ export const Error: Story = {
 export const WithGroup: Story = {
   render: () => {
     return (
-      <Select className="w-[200px]" placeholder="항목을 선택해주세요." defaultValue="">
+      <Select className="w-[12.5rem]" placeholder="항목을 선택해주세요." defaultValue="">
         <Select.Group>
           <Select.Label>그룹 1</Select.Label>
           <Select.Option value="1">항목 1</Select.Option>
@@ -105,7 +110,7 @@ export const WithGroup: Story = {
 export const Native: Story = {
   render: () => {
     return (
-      <NativeSelect className="w-[200px]" defaultValue="" placeholder="과일을 선택해주세요.">
+      <NativeSelect className="w-[12.5rem]" defaultValue="" placeholder="과일을 선택해주세요.">
         <option value="1">바나나</option>
         <option value="2">사과</option>
         <option value="3">딸기</option>
@@ -120,7 +125,7 @@ export const Controlled: Story = {
 
     return (
       <Select
-        className="w-[200px]"
+        className="w-[12.5rem]"
         placeholder="과일을 선택해주세요."
         value={select.value}
         onChange={select.onChange}

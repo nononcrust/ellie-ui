@@ -20,12 +20,12 @@ const Notifications = () => {
       <div className="relative w-fit">
         <Popover.Trigger asChild>
           <IconButton
-            className="text-primary rounded-[12px] shadow-md"
+            className="text-primary rounded-[0.75rem] shadow-md"
             size="small"
             variant="outlined"
             aria-label="알림"
           >
-            <BellIcon size={16} strokeWidth={2.5} />
+            <BellIcon className="size-4" strokeWidth={2.5} />
           </IconButton>
         </Popover.Trigger>
         <Badge variant="primary" className="absolute -top-2 left-full -translate-x-4">
@@ -33,7 +33,7 @@ const Notifications = () => {
         </Badge>
       </div>
       <Popover.Content>
-        <ul className="flex w-[320px] flex-col p-2">
+        <ul className="flex w-[20rem] flex-col p-2">
           <NotificationItem />
           <NotificationItem />
           <NotificationItem />
@@ -47,8 +47,8 @@ const Notifications = () => {
 const NotificationItem = () => {
   return (
     <li>
-      <Popover.Close className="hover:bg-background-hover flex w-full flex-col gap-2 rounded-[10px] px-4 py-3 transition-colors">
-        <span className="text-primary text-left text-[12px] font-semibold">커리어 성장</span>
+      <Popover.Close className="hover:bg-background-hover flex w-full flex-col gap-2 rounded-[0.625rem] px-4 py-3 transition-colors">
+        <span className="text-primary text-left text-[0.75rem] font-semibold">커리어 성장</span>
         <p className="text-left text-sm font-medium">
           {
             "백엔드 챌린지 이제는 꼭 알아야 할 AWS\n실전에 바로 적용할 수 있는 AWS 기술을 2주 완성 학습하고 개발 역량을 높여보세요."

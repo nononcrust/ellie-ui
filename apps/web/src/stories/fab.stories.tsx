@@ -18,7 +18,7 @@ export const Primary: Story = {
   render: () => {
     return (
       <Fab variant="primary" aria-label="추가">
-        <PlusIcon size={24} />
+        <PlusIcon className="size-6" />
       </Fab>
     );
   },
@@ -28,7 +28,7 @@ export const Secondary: Story = {
   render: () => {
     return (
       <Fab variant="secondary" aria-label="추가">
-        <PlusIcon size={24} />
+        <PlusIcon className="size-6" />
       </Fab>
     );
   },
@@ -39,7 +39,7 @@ export const WithLabel: Story = {
     return (
       <Fab variant="primary" withLabel>
         추가하기
-        <PlusIcon size={24} />
+        <PlusIcon className="size-6" />
       </Fab>
     );
   },

@@ -49,7 +49,7 @@ const ChatMessageEmoticon = ({
   ...props
 }: ChatMessageEmoticonProps) => {
   return (
-    <img className={cn("bg-secondary size-[120px] rounded-2xl", className)} alt={alt} {...props} />
+    <img className={cn("bg-secondary size-[7.5rem] rounded-2xl", className)} alt={alt} {...props} />
   );
 };
 
@@ -60,17 +60,17 @@ type ChatMessageImageProps = React.ComponentPropsWithRef<"img"> & {
 
 const ChatMessageImage = ({ className, alt = "이미지", ...props }: ChatMessageImageProps) => {
   return (
-    <img className={cn("bg-secondary w-[280px] rounded-2xl", className)} alt={alt} {...props} />
+    <img className={cn("bg-secondary w-[17.5rem] rounded-2xl", className)} alt={alt} {...props} />
   );
 };
 
 const ChatMessageReactionIcon = {
   Check: () => (
     <div className="bg-primary flex size-4 items-center justify-center rounded-full text-white">
-      <CheckIcon size={10} strokeWidth={3} />
+      <CheckIcon className="size-[0.625rem]" strokeWidth={3} />
     </div>
   ),
-  Love: () => <HeartIcon className="fill-rose-500 text-rose-500" size={16} />,
+  Love: () => <HeartIcon className="size-4 fill-rose-500 text-rose-500" />,
 };
 
 const iconByReactionType: Record<ReactionType, React.ReactNode> = {
@@ -105,7 +105,10 @@ type ChatMessageNameProps = React.ComponentPropsWithRef<"span"> & {
 
 const ChatMessageName = ({ className, name, ...props }: ChatMessageNameProps) => {
   return (
-    <span className={cn("text-subtle w-fit whitespace-nowrap text-[13px]", className)} {...props}>
+    <span
+      className={cn("text-subtle w-fit whitespace-nowrap text-[0.8125rem]", className)}
+      {...props}
+    >
       {name}
     </span>
   );

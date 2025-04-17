@@ -8,7 +8,7 @@ export const Dialog1 = () => {
       <Dialog.Trigger asChild>
         <Button variant="outlined">팝 애니메이션</Button>
       </Dialog.Trigger>
-      <Dialog.Content className="w-[320px]" animation="pop">
+      <Dialog.Content className="w-[20rem]" animation="pop">
         <Dialog.Header>
           <Dialog.Title>과제를 제출할까요?</Dialog.Title>
           <Dialog.Description>제출한 과제는 수정할 수 없어요.</Dialog.Description>

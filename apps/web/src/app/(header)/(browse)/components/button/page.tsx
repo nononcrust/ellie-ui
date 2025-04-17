@@ -31,14 +31,14 @@ export default function ButtonPage() {
       </Grid.Item>
       <Grid.Item>
         <Button>
-          <PlusIcon size={14} />
+          <PlusIcon className="size-[0.875rem]" />
           버튼
         </Button>
       </Grid.Item>
       <Grid.Item>
         <Button>
           버튼
-          <ArrowRightIcon size={14} />
+          <ArrowRightIcon className="size-[0.875rem]" />
         </Button>
       </Grid.Item>
       <Grid.Item>

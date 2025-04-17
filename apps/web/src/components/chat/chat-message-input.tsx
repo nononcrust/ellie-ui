@@ -74,7 +74,7 @@ export const ChatMessageInput = ({ onSend = noop, onInput = noop }: ChatMessageI
         onClick={sendChatMessage}
         disabled={input.value.length === 0}
       >
-        <SendHorizontalIcon size={14} />
+        <SendHorizontalIcon className="size-[0.875rem]" />
       </button>
     </div>
   );

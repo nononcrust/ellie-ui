@@ -17,7 +17,7 @@ type SelectProps = Omit<
 
 export const selectStyle = {
   base: cn(
-    "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-[14px] font-medium shadow-xs outline-hidden",
+    "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-sm font-medium shadow-xs outline-hidden",
     "data-placeholder:text-placeholder",
     "[&>span]:min-w-0",
     "placeholder-placeholder",
@@ -34,10 +34,9 @@ type SelectChevronDownIconProps = {
 export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps) => {
   return (
     <ChevronDownIcon
-      size={16}
       strokeWidth={2}
       className={cn(
-        "text-sub pointer-events-none absolute right-3 top-1/2 shrink-0 -translate-y-1/2",
+        "text-sub pointer-events-none absolute right-3 top-1/2 size-4 shrink-0 -translate-y-1/2",
         className,
       )}
     />
@@ -138,7 +137,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
-        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[8px] px-2 py-1.5 text-sm font-medium",
+        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[0.5rem] px-2 py-1.5 text-sm font-medium",
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
         "data-disabled:pointer-events-none data-disabled:opacity-50",

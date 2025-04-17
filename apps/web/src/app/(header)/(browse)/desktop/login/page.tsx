@@ -57,7 +57,7 @@ export default function LoginPage() {
                 variant="ghost"
                 className="text-subtle absolute right-1 top-1/2 -translate-y-1/2"
               >
-                <EyeOffIcon size={14} />
+                <EyeOffIcon className="size-[0.875rem]" />
               </IconButton>
             </div>
             <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
@@ -65,10 +65,10 @@ export default function LoginPage() {
           <div className="mt-3 flex justify-between">
             <Label className="flex items-center gap-2">
               <Checkbox />
-              <span className="text-subtle text-[14px] font-medium">자동 로그인</span>
+              <span className="text-subtle text-sm font-medium">자동 로그인</span>
             </Label>
             <Label className="flex items-center gap-2">
-              <span className="text-subtle text-[14px] font-medium">아이피 보안</span>
+              <span className="text-subtle text-sm font-medium">아이피 보안</span>
               <Switch size="small" />
             </Label>
           </div>
@@ -77,7 +77,7 @@ export default function LoginPage() {
           </Button>
           <div className="relative my-5">
             <Divider />
-            <span className="text-subtle bg-background absolute -top-2 left-1/2 -translate-x-1/2 transform px-1 text-[13px] font-medium">
+            <span className="text-subtle bg-background absolute -top-2 left-1/2 -translate-x-1/2 transform px-1 text-[0.8125rem] font-medium">
               혹은
             </span>
           </div>
@@ -86,13 +86,13 @@ export default function LoginPage() {
             구글 계정으로 로그인
           </Button>
           <div className="mt-3 flex flex-col items-center gap-1">
-            <span className="text-subtle text-[14px] font-medium">
+            <span className="text-subtle text-sm font-medium">
               비밀번호를 잊으셨나요?
               <Link href="#" className="text-sub ml-2 underline">
                 비밀번호 찾기
               </Link>
             </span>
-            <span className="text-subtle text-[14px] font-medium">
+            <span className="text-subtle text-sm font-medium">
               아직 회원이 아니신가요?
               <Link href="#" className="text-sub ml-2 underline">
                 회원가입

@@ -66,7 +66,7 @@ export const WithPrefixIcon: Story = {
   render: () => {
     return (
       <ChipButton>
-        <PlusIcon size={16} />
+        <PlusIcon className="size-4" />
         버튼
       </ChipButton>
     );
@@ -78,7 +78,7 @@ export const WithSuffixIcon: Story = {
     return (
       <ChipButton>
         버튼
-        <ChevronDownIcon size={16} />
+        <ChevronDownIcon className="size-4" />
       </ChipButton>
     );
   },

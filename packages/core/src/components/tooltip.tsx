@@ -14,7 +14,7 @@ type TooltipProps = VariantProps<typeof tooltipVariants> & {
 
 const tooltipVariants = tv({
   base: cn(
-    "relative z-50 rounded-[8px] text-xs px-[10px] py-[6px] font-semibold",
+    "relative z-50 rounded-[0.5rem] text-xs px-[0.625rem] py-[0.375rem] font-semibold",
     "animate-in fade-in-0 zoom-in-95",
     "data-[side=top]:slide-in-from-bottom-2",
     "data-[side=bottom]:slide-in-from-top-2",

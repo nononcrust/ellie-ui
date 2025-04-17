@@ -15,7 +15,11 @@ export const ThemeToggleButton = () => {
           aria-label="테마 변경"
           onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
         >
-          {resolvedTheme === "light" ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+          {resolvedTheme === "light" ? (
+            <SunIcon className="size-[1.125rem]" />
+          ) : (
+            <MoonIcon className="size-[1.125rem]" />
+          )}
         </IconButton>
       </ClientOnly>
     </div>

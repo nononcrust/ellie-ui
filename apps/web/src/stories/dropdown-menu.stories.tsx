@@ -57,15 +57,15 @@ export const WithIcon: Story = {
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Item>
-            <PencilIcon size={16} />
+            <PencilIcon className="size-4" />
             드랍다운 메뉴 1
           </DropdownMenu.Item>
           <DropdownMenu.Item>
-            <Trash2Icon size={16} />
+            <Trash2Icon className="size-4" />
             드랍다운 메뉴 2
           </DropdownMenu.Item>
           <DropdownMenu.Item>
-            <LogOutIcon size={16} />
+            <LogOutIcon className="size-4" />
             드랍다운 메뉴 3
           </DropdownMenu.Item>
         </DropdownMenu.Content>

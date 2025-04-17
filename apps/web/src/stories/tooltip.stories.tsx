@@ -18,7 +18,7 @@ export const Default: Story = {
     return (
       <Tooltip content="툴팁 메시지">
         <IconButton aria-label="검색" variant="outlined" size="small">
-          <SearchIcon size={16} />
+          <SearchIcon className="size-4" />
         </IconButton>
       </Tooltip>
     );
@@ -30,7 +30,7 @@ export const Outlined: Story = {
     return (
       <Tooltip content="툴팁 메시지" variant="outlined">
         <IconButton aria-label="검색" variant="outlined" size="small">
-          <SearchIcon size={16} />
+          <SearchIcon className="size-4" />
         </IconButton>
       </Tooltip>
     );

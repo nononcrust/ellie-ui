@@ -91,7 +91,7 @@ const TermsItem = ({ title, required = false, checked, onChange }: TermsItemProp
         </span>
       </label>
       <IconButton aria-label="약관 상세보기" size="xsmall" variant="ghost">
-        <ChevronRightIcon size={20} />
+        <ChevronRightIcon className="size-5" />
       </IconButton>
     </li>
   );

@@ -16,7 +16,7 @@ export const Dialog6 = () => {
             모달 + 모달
           </Button>
         </Dialog.Trigger>
-        <Dialog.Content className="w-[400px]">
+        <Dialog.Content className="w-[25rem]">
           <Dialog.Header>
             <Dialog.Title>신고하기</Dialog.Title>
             <Dialog.Description>신고 사유를 선택해주세요.</Dialog.Description>
@@ -44,7 +44,7 @@ export const Dialog6 = () => {
         onOpenChange={confirmDialog.onOpenChange}
         triggerRef={triggerRef}
       >
-        <Dialog.Content className="w-[320px]" animation="none">
+        <Dialog.Content className="w-[20rem]" animation="none">
           <Dialog.Header>
             <Dialog.Title>신고하기</Dialog.Title>
             <Dialog.Description>해당 유저를 신고하시겠습니까?</Dialog.Description>
