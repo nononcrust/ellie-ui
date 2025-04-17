@@ -22,7 +22,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-4 transition-colors",
+        "bg-background sticky top-0 z-10 flex h-[56px] w-full items-center justify-between border-b px-2 pl-5 transition-colors",
         HIDDEN_ROUTES.includes(pathname) && "hidden",
         isScrollTop ? "border-transparent" : "border-border",
         "bg-background/70 backdrop-blur-sm",
