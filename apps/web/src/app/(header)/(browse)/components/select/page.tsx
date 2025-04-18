@@ -2,7 +2,7 @@
 
 import { Grid } from "@/components/layouts/grid";
 import { cn } from "@/lib/utils";
-import { Command, Label, Popover, Select } from "@ellie-ui/core";
+import { Command, Label, NativeSelect, Popover, Select } from "@ellie-ui/core";
 import { usePopover } from "@ellie-ui/core/hooks";
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
@@ -33,6 +33,9 @@ export default function SelectPage() {
       </Grid.Item>
       <Grid.Item>
         <Select8 />
+      </Grid.Item>
+      <Grid.Item>
+        <Select9 />
       </Grid.Item>
     </Grid>
   );
@@ -234,6 +237,23 @@ const Select8 = () => {
           </div>
         </Select.Option>
       </Select>
+    </div>
+  );
+};
+
+const Select9 = () => {
+  return (
+    <div className="flex w-full flex-col">
+      <Label className="mb-2">언어 선택 (Native)</Label>
+      <NativeSelect defaultValue="">
+        <option value="" disabled>
+          언어 선택
+        </option>
+        <option value="1">한국어</option>
+        <option value="2">영어</option>
+        <option value="3">일본어</option>
+        <option value="4">중국어</option>
+      </NativeSelect>
     </div>
   );
 };
