@@ -22,7 +22,7 @@ export const selectStyle = {
     "[&>span]:min-w-0",
     "placeholder-placeholder",
     "disable-focus-ring focus-visible:focus-input-ring",
-    "disabled:pointer-events-none disabled:opacity-50",
+    "disabled:pointer-events-none disabled:opacity-50 disabled:bg-background-100",
   ),
   invalid: "focus-visible:focus-input-ring-error border-error",
 };
@@ -141,6 +141,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
+
         className,
       )}
       {...props}

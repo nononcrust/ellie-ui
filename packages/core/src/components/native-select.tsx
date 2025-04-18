@@ -19,7 +19,7 @@ export const NativeSelect = ({
         className={cn(
           selectStyle.base,
           ariaInvalid && selectStyle.invalid,
-          "peer has-[option[disabled]:checked]:text-placeholder cursor-pointer appearance-none",
+          "has-[option[disabled]:checked]:text-placeholder peer cursor-pointer appearance-none",
           className,
         )}
         aria-invalid={ariaInvalid}
