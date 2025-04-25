@@ -13,6 +13,7 @@ export const Textarea = ({ className, ["aria-invalid"]: ariaInvalid, ...props }:
         ariaInvalid && "focus-visible:focus-input-ring-error border-error",
         className,
       )}
+      aria-invalid={ariaInvalid}
       {...props}
     />
   );

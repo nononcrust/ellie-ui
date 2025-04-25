@@ -14,6 +14,7 @@ export const Input = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: In
         ariaInvalid && "focus-visible:focus-input-ring-error border-error",
         className,
       )}
+      aria-invalid={ariaInvalid}
       {...props}
     />
   );
