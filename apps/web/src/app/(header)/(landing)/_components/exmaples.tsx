@@ -33,6 +33,7 @@ import {
   SlidersHorizontalIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { useId } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { ChatMessageList } from "../../(browse)/desktop/chat/_components/chat-message-list";
@@ -209,13 +210,20 @@ type SettingItemProps = {
 };
 
 const SettingItem = ({ title, description, enabled }: SettingItemProps) => {
+  const titleId = useId();
+  const descriptionId = useId();
+
   return (
     <div className="flex w-full items-center justify-between">
       <div className="flex flex-col">
-        <span className="text-[0.9375rem] font-semibold">{title}</span>
-        <span className="text-subtle text-[0.8125rem] font-medium">{description}</span>
+        <span id={titleId} className="text-[0.9375rem] font-semibold">
+          {title}
+        </span>
+        <span id={descriptionId} className="text-subtle text-[0.8125rem] font-medium">
+          {description}
+        </span>
       </div>
-      <Switch defaultChecked={enabled} />
+      <Switch defaultChecked={enabled} aria-labelledby={titleId} aria-describedby={descriptionId} />
     </div>
   );
 };
@@ -226,7 +234,7 @@ const Profile = () => {
       <div className="flex w-full justify-between">
         <div className="flex gap-1">
           <Avatar className="size-14 rounded-xl">
-            <Avatar.Image src={profileImage.src} />
+            <Avatar.Image src={profileImage.src} alt="프로필 이미지" />
             <Avatar.Fallback />
           </Avatar>
           <div className="ml-2">

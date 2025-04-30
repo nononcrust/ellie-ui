@@ -73,6 +73,7 @@ export const ChatMessageInput = ({ onSend = noop, onInput = noop }: ChatMessageI
         )}
         onClick={sendChatMessage}
         disabled={input.value.length === 0}
+        aria-label="메시지 전송"
       >
         <SendHorizontalIcon className="size-[0.875rem]" />
       </button>

@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { site } from "@/configs/site";
 import { Analytics } from "@vercel/analytics/next";
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
 
@@ -20,13 +20,6 @@ export default function RootLayout({
     </html>
   );
 }
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-};
 
 export const metadata: Metadata = {
   title: site.title,
