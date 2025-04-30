@@ -3,6 +3,7 @@
     "lib": ["ES2015", "ESNext"],
     "resolveJsonModule": true,
     "strict": true,
+    "module": "ESNext",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
