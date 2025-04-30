@@ -1,6 +1,6 @@
 import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
-import { Button } from "@ellie-ui/core";
+import { Button, Checkbox, Input } from "@ellie-ui/core";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
@@ -22,6 +22,8 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
             // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
             Button,
+            Input,
+            Checkbox,
           })}
         />
       </DocsBody>

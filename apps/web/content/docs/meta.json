@@ -6,6 +6,26 @@
     "---Getting Started---",
     "installation",
     "---Components---",
-    "button"
+    "button",
+    "icon-button",
+    "input",
+    "select",
+    "checkbox",
+    "radio-group",
+    "date-picker",
+    "switch",
+    "textarea",
+    "tag",
+    "chip",
+    "chip-button",
+    "avatar",
+    "dialog",
+    "bottom-sheet",
+    "badge",
+    "tabs",
+    "popover",
+    "tooltip",
+    "fab",
+    "form"
   ]
 }
