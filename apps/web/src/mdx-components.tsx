@@ -1,5 +1,6 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
+import { cn } from "./lib/utils";
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -9,6 +10,16 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
   };
 }
 
-const ComponentDemo = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex min-h-[240px] items-center justify-center">{children}</div>;
+const ComponentDemo = ({ children, className, ...props }: React.ComponentPropsWithRef<"div">) => {
+  return (
+    <div
+      className={cn(
+        "bg-background flex items-center justify-center rounded-lg py-[3rem]",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 };

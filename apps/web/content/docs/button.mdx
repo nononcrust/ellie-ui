@@ -3,7 +3,11 @@ title: Button
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { TypeTable } from "fumadocs-ui/components/type-table";
 import { Button } from "@ellie-ui/core";
+import { PlusIcon, ArrowRightIcon } from "lucide-react";
+
+## Usage
 
 <Tabs items={["미리보기", "코드"]}>
   <Tab value="미리보기">
@@ -16,11 +20,195 @@ import { Button } from "@ellie-ui/core";
     import { Button } from "@ellie-ui/core";
 
     export const Example = () => {
-       return (
-         <Button>버튼</Button>
-       )
+      return <Button>버튼</Button>
     }
     ```
 
   </Tab>
 </Tabs>
+
+### Disabled
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <Button disabled>버튼</Button>
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Button } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return <Button disabled>버튼</Button>
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+### Variants
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <div className='flex items-center gap-3'>
+        <Button variant='primary'>버튼</Button>
+        <Button variant='secondary'>버튼</Button>
+        <Button variant='outlined'>버튼</Button>
+        <Button variant='contained'>버튼</Button>
+        <Button variant='primaryLow'>버튼</Button>
+        <Button variant='primaryOutlined'>버튼</Button>
+        <Button variant='ghost'>버튼</Button>
+        <Button variant='error'>버튼</Button>
+      </div>
+    </ComponentDemo>
+
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Button } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <div className="flex items-center gap-3">
+          <Button variant='primary'>버튼</Button>
+          <Button variant='secondary'>버튼</Button>
+          <Button variant='outlined'>버튼</Button>
+          <Button variant='contained'>버튼</Button>
+          <Button variant='primaryLow'>버튼</Button>
+          <Button variant='primaryOutlined'>버튼</Button>
+          <Button variant='ghost'>버튼</Button>
+          <Button variant='error'>버튼</Button>
+        </div>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+### Sizes
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+    <div className='flex items-center gap-3'>
+      <Button size='small'>버튼</Button>
+      <Button size='medium'>버튼</Button>
+      <Button size='large'>버튼</Button>
+    </div>
+    </ComponentDemo>
+
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Button } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <div className="flex items-center gap-3">
+          <Button size="small">버튼</Button>
+          <Button size="medium">버튼</Button>
+          <Button size="large">버튼</Button>
+        </div>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+### With Icons
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <div className='flex items-center gap-3'>
+        <Button>
+          <PlusIcon size={14} />
+          추가하기
+        </Button>
+        <Button>
+          이동
+          <ArrowRightIcon size={14} />
+        </Button>
+      </div>
+    </ComponentDemo>
+
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Button } from "@ellie-ui/core";
+    import { PlusIcon, ArrowRightIcon } from "lucide-react";
+
+    export const Example = () => {
+      return (
+        <div className="flex items-center gap-3">
+          <Button>
+            <PlusIcon size={14} />
+            추가하기
+          </Button>
+          <Button>
+            이동
+            <ArrowRightIcon size={14} />
+          </Button>
+        </div>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+### Custom Styles
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <Button className="bg-gradient-to-r from-sky-400 to-violet-400" size="large">
+        시작하기
+      </Button>
+    </ComponentDemo>
+
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Button } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Button className="bg-gradient-to-r from-sky-400 to-violet-400" size="large">
+          시작하기
+        </Button>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+## API
+
+### Button Props
+
+<TypeTable
+  type={{
+    variant: {
+      type: '"primary" | "secondary" | "outlined" | "contained" | "primaryLow" | "primaryOutlined" | "ghost" | "error"',
+      default: "primary",
+    },
+    size: {
+      type: '"small" | "medium" | "large"',
+      default: "medium",
+    },
+    disabled: {
+      type: "boolean",
+      default: "false",
+    },
+    asChild: {
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
