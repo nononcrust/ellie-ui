@@ -2,4 +2,25 @@
 title: Input
 ---
 
-<Input className="w-[320px]" placeholder="텍스트를 입력해주세요" />
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Input } from "@ellie-ui/core";
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" />
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Input } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" />
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>

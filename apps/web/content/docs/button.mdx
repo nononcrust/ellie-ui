@@ -2,4 +2,25 @@
 title: Button
 ---
 
-<Button>버튼</Button>
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Button } from "@ellie-ui/core";
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <Button>버튼</Button>
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Button } from "@ellie-ui/core";
+
+    export const Example = () => {
+       return (
+         <Button>버튼</Button>
+       )
+    }
+    ```
+
+  </Tab>
+</Tabs>

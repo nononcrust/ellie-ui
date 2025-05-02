@@ -1,3 +1,31 @@
 ---
 title: Radio Group
 ---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { RadioGroupDemo } from "@/components/mdx/radio-group-demo";
+import { SearchIcon } from "lucide-react";
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <RadioGroupDemo />
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { RadioGroup } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <RadioGroup defaultValue="1">
+          <RadioGroup.Option value="1">사과</RadioGroup.Option>
+          <RadioGroup.Option value="2">바나나</RadioGroup.Option>
+          <RadioGroup.Option value="3">딸기</RadioGroup.Option>
+        </RadioGroup>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>

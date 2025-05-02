@@ -1,3 +1,31 @@
 ---
 title: Select
 ---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Select } from "@ellie-ui/core";
+import { SelectDemo } from "@/components/mdx/select-demo";
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <SelectDemo />
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Select } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Select placeholder="항목을 선택해주세요">
+          <Select.Option value="1">항목 1</Select.Option>
+          <Select.Option value="2">항목 2</Select.Option>
+          <Select.Option value="3">항목 3</Select.Option>
+        </Select>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>

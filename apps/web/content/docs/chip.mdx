@@ -1,3 +1,26 @@
 ---
 title: Chip
 ---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Chip } from "@ellie-ui/core";
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <Chip>라벨</Chip>
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { Chip } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Chip>라벨</Chip>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>

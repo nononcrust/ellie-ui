@@ -1,3 +1,32 @@
 ---
 title: Icon Button
 ---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { IconButton } from "@ellie-ui/core";
+import { SearchIcon } from "lucide-react";
+
+<Tabs items={["미리보기", "코드"]}>
+  <Tab value="미리보기">
+    <ComponentDemo>
+      <IconButton>
+        <SearchIcon className="size-4" />
+      </IconButton>
+    </ComponentDemo>
+  </Tab>
+  <Tab value="코드">
+    ```tsx
+    import { IconButton } from "@ellie-ui/core";
+    import { SearchIcon } from "lucide-react";
+
+    export const Example = () => {
+      return (
+        <IconButton>
+          <SearchIcon className="size-4" />
+        </IconButton>
+      )
+    }
+    ```
+
+  </Tab>
+</Tabs>
