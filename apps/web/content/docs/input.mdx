@@ -101,7 +101,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
     import { Input } from "@ellie-ui/core";
     import { useInput } from "@ellie-ui/core/hooks";
 
-    const Example = () => {
+    export const Example = () => {
       const input = useInput()
 
       return (
@@ -135,7 +135,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
       email: z.string().email({ message: "올바른 이메일 형식을 입력해주세요" })
     })
 
-    const Example = () => {
+    export const Example = () => {
       const form = useForm<EmailForm>({
         resolver: zodResolver(EmailForm),
         defaultValues: {

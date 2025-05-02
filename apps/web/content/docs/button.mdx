@@ -3,7 +3,7 @@ title: Button
 ---
 
 import { Button } from "@ellie-ui/core";
-import { PlusIcon, ArrowRightIcon } from "lucide-react";
+import { PlusIcon, ArrowRightIcon, SparklesIcon } from "lucide-react";
 
 ## Usage
 
@@ -152,8 +152,9 @@ import { PlusIcon, ArrowRightIcon } from "lucide-react";
 
 <Demo>
   <Demo.Preview>
-    <Button className="bg-gradient-to-r from-sky-400 to-violet-400" size="large">
-      시작하기
+    <Button className="bg-gradient-to-r from-sky-500 to-purple-500" size="large">
+      <SparklesIcon className='fill-white' size={16} />
+      AI에게 물어보기
     </Button>
   </Demo.Preview>
   <Demo.Code>
@@ -162,8 +163,9 @@ import { PlusIcon, ArrowRightIcon } from "lucide-react";
 
     export const Example = () => {
       return (
-        <Button className="bg-gradient-to-r from-sky-400 to-violet-400" size="large">
-          시작하기
+        <Button className="bg-gradient-to-r from-sky-500 to-purple-500" size="large">
+          <SparklesIcon className='fill-white' size={16} />
+          AI에게 물어보기
         </Button>
       )
     }
