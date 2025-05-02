@@ -46,15 +46,11 @@ export const InputDemoControlled = () => {
   const input = useInput();
 
   return (
-    <div>
-      <Input
-        value={input.value}
-        onChange={input.onChange}
-        className="w-[20rem]"
-        placeholder="텍스트를 입력해주세요"
-        aria-label="텍스트 입력"
-      />
-      <p className="mt-3 text-xs">입력한 값: {input.value}</p>
-    </div>
+    <Input
+      value={input.value}
+      onChange={input.onChange}
+      className="w-[20rem]"
+      placeholder="텍스트를 입력해주세요"
+    />
   );
 };

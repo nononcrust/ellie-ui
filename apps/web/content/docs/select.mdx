@@ -3,7 +3,16 @@ title: Select
 ---
 
 import { Select } from "@ellie-ui/core";
-import { SelectDemo } from "@/components/mdx/select-demo";
+import {
+  SelectDemo,
+  SelectDemoDisabled,
+  SelectDemoInvalid,
+  SelectDemoControlled,
+  SelectDemoOptionDisabled,
+  SelectDemoGroup,
+} from "@/components/mdx/select-demo";
+
+## Usage
 
 <Demo>
   <Demo.Preview>
@@ -26,3 +35,190 @@ import { SelectDemo } from "@/components/mdx/select-demo";
 
   </Demo.Code>
 </Demo>
+
+### Disabled
+
+<Demo>
+  <Demo.Preview>
+    <SelectDemoDisabled />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Select } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Select placeholder="항목을 선택해주세요" disabled>
+          <Select.Option value="1">항목 1</Select.Option>
+          <Select.Option value="2">항목 2</Select.Option>
+          <Select.Option value="3">항목 3</Select.Option>
+        </Select>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Option Disabled
+
+<Demo>
+  <Demo.Preview>
+    <SelectDemoOptionDisabled />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Select } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Select placeholder="항목을 선택해주세요">
+          <Select.Option value="1">항목 1</Select.Option>
+          <Select.Option value="2" disabled>항목 2</Select.Option>
+          <Select.Option value="3">항목 3</Select.Option>
+        </Select>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Invalid
+
+<Demo>
+  <Demo.Preview>
+    <SelectDemoInvalid />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Select } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Select placeholder="항목을 선택해주세요" aria-invalid>
+          <Select.Option value="1">항목 1</Select.Option>
+          <Select.Option value="2">항목 2</Select.Option>
+          <Select.Option value="3">항목 3</Select.Option>
+        </Select>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Grouped Option
+
+<Demo>
+  <Demo.Preview>
+    <SelectDemoGroup />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Select } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Select placeholder="항목을 선택해주세요">
+          <Select.Group label="그룹 1">
+            <Select.Option value="1">항목 1</Select.Option>
+            <Select.Option value="2">항목 2</Select.Option>
+            <Select.Option value="3">항목 3</Select.Option>
+          </Select.Group>
+          <Select.Group label="그룹 2">
+            <Select.Option value="4">항목 4</Select.Option>
+            <Select.Option value="5">항목 5</Select.Option>
+            <Select.Option value="6">항목 6</Select.Option>
+          </Select.Group>
+        </Select>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Controlled
+
+<Demo>
+  <Demo.Preview>
+    <SelectDemoControlled />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Select } from "@ellie-ui/core";
+    import { useSelect } from "@ellie-ui/core/hooks";
+
+    const Example = () => {
+      const select = useSelect()
+
+      return (
+        <Select
+          value={select.value}
+          onChange={select.onChange}
+          placeholder="항목을 선택해주세요"
+        >
+          <Select.Option value="1">항목 1</Select.Option>
+          <Select.Option value="2">항목 2</Select.Option>
+          <Select.Option value="3">항목 3</Select.Option>
+        </Select>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+## API
+
+### Select Props
+
+<TypeTable
+  type={{
+    placeholder: {
+      type: "string",
+      default: undefined,
+    },
+    "aria-invalid": {
+      type: "boolean",
+      default: undefined,
+    },
+    disabled: {
+      type: "boolean",
+      default: false,
+    },
+  }}
+/>
+
+### Select.Option Props
+
+<TypeTable
+  type={{
+    value: {
+      type: "string",
+      required: true,
+    },
+    children: {
+      type: "ReactNode",
+      default: undefined,
+      description: "표시할 항목의 레이블",
+    },
+    disabled: {
+      type: "boolean",
+      default: false,
+    },
+  }}
+/>
+
+### Select.Label Props
+
+<TypeTable
+  type={{
+    children: {
+      type: "ReactNode",
+      default: undefined,
+      description: "표시할 레이블",
+    },
+  }}
+/>

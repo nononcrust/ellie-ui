@@ -6,32 +6,14 @@ import { Chip } from "@ellie-ui/core";
 
 <Demo>
   <Demo.Preview>
-    <div className="flex gap-3 flex-wrap">
-      <Chip>라벨</Chip>
-      <Chip variant="outlined">라벨</Chip>
-      <Chip variant="contained">라벨</Chip>
-      <Chip variant="primaryLow">라벨</Chip>
-      <Chip variant="primaryOutlined">라벨</Chip>
-      <Chip variant="primaryLowOutlined">라벨</Chip>
-      <Chip variant="ghost">라벨</Chip>
-    </div>
+    <Chip>라벨</Chip>
   </Demo.Preview>
   <Demo.Code>
-  ```tsx
+    ```tsx
     import { Chip } from "@ellie-ui/core";
 
     export const Example = () => {
-      return (
-        <div className="flex gap-3">
-          <Chip>라벨</Chip>
-          <Chip variant="outlined">라벨</Chip>
-          <Chip variant="contained">라벨</Chip>
-          <Chip variant="primaryLow">라벨</Chip>
-          <Chip variant="primaryOutlined">라벨</Chip>
-          <Chip variant="primaryLowOutlined">라벨</Chip>
-          <Chip variant="ghost">라벨</Chip>
-        </div>
-      )
+      return <Chip>라벨</Chip>
     }
     ```
 

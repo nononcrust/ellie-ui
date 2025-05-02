@@ -9,7 +9,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
 <Demo>
   <Demo.Preview>
-    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" aria-label="텍스트 입력" />
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" />
   </Demo.Preview>
   <Demo.Code>
     ```tsx
@@ -17,7 +17,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
     export const Example = () => {
       return (
-        <Input placeholder="텍스트를 입력해주세요" aria-label="텍스트 입력" />
+        <Input placeholder="텍스트를 입력해주세요" />
       )
     }
     ```
@@ -29,7 +29,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
 <Demo>
   <Demo.Preview>
-    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" disabled aria-label="텍스트 입력" />
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" disabled />
   </Demo.Preview>
   <Demo.Code>
     ```tsx
@@ -37,7 +37,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
     export const Example = () => {
       return (
-        <Input placeholder="텍스트를 입력해주세요" disabled aria-label="텍스트 입력" />
+        <Input placeholder="텍스트를 입력해주세요" disabled />
       )
     }
     ```
@@ -54,7 +54,6 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
       defaultValue="nononcrust@gmail.com"
       placeholder="텍스트를 입력해주세요"
       readOnly
-      aria-label="텍스트 입력"
     />
   </Demo.Preview>
   <Demo.Code>
@@ -63,7 +62,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
     export const Example = () => {
       return (
-        <Input defaultValue="nononcrust@gmail.com" readOnly aria-label="텍스트 입력" />
+        <Input defaultValue="nononcrust@gmail.com" readOnly />
       )
     }
     ```
@@ -75,7 +74,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
 <Demo>
   <Demo.Preview>
-    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" aria-invalid aria-label="텍스트 입력" />
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" aria-invalid />
   </Demo.Preview>
   <Demo.Code>
     ```tsx
@@ -83,7 +82,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
     export const Example = () => {
       return (
-        <Input placeholder="텍스트를 입력해주세요" aria-invalid aria-label="텍스트 입력" />
+        <Input placeholder="텍스트를 입력해주세요" aria-invalid />
       )
     }
     ```
@@ -106,15 +105,11 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
       const input = useInput()
 
       return (
-        <div>
-          <Input
-            value={input.value}
-            onChange={input.onChange}
-            placeholder="텍스트를 입력해주세요"
-            aria-label="텍스트 입력"
-          />
-          <p className="mt-3 text-xs">입력한 값: {input.value}</p>
-        </div>
+        <Input
+          value={input.value}
+          onChange={input.onChange}
+          placeholder="텍스트를 입력해주세요"
+        />
       )
     }
     ```
@@ -140,7 +135,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
       email: z.string().email({ message: "올바른 이메일 형식을 입력해주세요" })
     })
 
-    export const InputDemoWithForm = () => {
+    const Example = () => {
       const form = useForm<EmailForm>({
         resolver: zodResolver(EmailForm),
         defaultValues: {
@@ -157,7 +152,6 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
             <Form.Control>
               <Input
                 {...form.register("email")}
-                className="w-[20rem]"
                 placeholder="이메일을 입력해주세요"
               />
             </Form.Control>
@@ -183,15 +177,15 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
   type={{
     "aria-invalid": {
       type: "boolean",
-      default: "false",
+      default: undefined,
     },
     disabled: {
       type: "boolean",
-      default: "false",
+      default: false,
     },
     readOnly: {
       type: "boolean",
-      default: "false",
+      default: false,
     },
   }}
 />
