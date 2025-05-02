@@ -152,11 +152,9 @@ const ThemeSelect = () => {
 
   return (
     <Select className="w-[7.25rem]" value={theme} onChange={setTheme}>
-      <Select.Content>
-        <Select.Option value="light">밝은 테마</Select.Option>
-        <Select.Option value="dark">어두운 테마</Select.Option>
-        <Select.Option value="system">시스템 설정</Select.Option>
-      </Select.Content>
+      <Select.Option value="light">밝은 테마</Select.Option>
+      <Select.Option value="dark">어두운 테마</Select.Option>
+      <Select.Option value="system">시스템 설정</Select.Option>
     </Select>
   );
 };

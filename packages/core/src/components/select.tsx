@@ -152,7 +152,6 @@ const SelectSeparator = ({ className, children, ...props }: SelectSeparatorProps
 };
 
 Select.Group = SelectPrimitives.Group;
-Select.Content = SelectContent;
 Select.Label = SelectLabel;
 Select.Option = SelectOption;
 Select.Separator = SelectSeparator;
