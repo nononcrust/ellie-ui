@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { Dialog as DialogPrimitives } from "radix-ui";
 import React from "react";
 import { ThemeToggleButton } from "../theme/theme-toggle-button";
+import { Logo } from "./logo";
 
 const HIDDEN_ROUTES = ["/search"];
 
@@ -31,7 +32,7 @@ export const Header = () => {
     >
       <div className="flex items-center">
         <Link className="flex items-center gap-2" href="/">
-          <span className="from-primary size-[1.125rem] rounded-full bg-gradient-to-r to-sky-300" />
+          <Logo />
           <span className="font-bold">Ellie UI</span>
         </Link>
         <nav className="ml-8 flex items-center gap-4">

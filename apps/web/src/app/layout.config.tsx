@@ -1,3 +1,4 @@
+import { Logo } from "@/components/layouts/logo";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 /**
@@ -10,18 +11,10 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
-      <>
-        <svg
-          className="text-primary"
-          width="24"
-          height="24"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Logo"
-        >
-          <circle cx={12} cy={12} r={12} fill="currentColor" />
-        </svg>
-        Ellie UI
-      </>
+      <span className="flex items-center gap-2">
+        <Logo />
+        <span className="text-base font-bold">Ellie UI</span>
+      </span>
     ),
   },
 };
