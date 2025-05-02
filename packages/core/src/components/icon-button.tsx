@@ -31,7 +31,7 @@ const iconButtonVariants = tv({
   },
 });
 
-export const IconButton = ({
+const IconButton = ({
   className,
   children,
   variant,
@@ -55,3 +55,5 @@ export const IconButton = ({
     </Component>
   );
 };
+
+export { IconButton };

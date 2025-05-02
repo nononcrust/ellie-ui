@@ -22,7 +22,7 @@ type SkeletonProps = React.ComponentPropsWithRef<"div"> &
     height: number;
   };
 
-export const Skeleton = ({ shape, className, width, height, style, ...props }: SkeletonProps) => {
+const Skeleton = ({ shape, className, width, height, style, ...props }: SkeletonProps) => {
   return (
     <div
       className={cn(skeletonVariant({ shape }), className)}
@@ -35,3 +35,5 @@ export const Skeleton = ({ shape, className, width, height, style, ...props }: S
     />
   );
 };
+
+export { Skeleton };

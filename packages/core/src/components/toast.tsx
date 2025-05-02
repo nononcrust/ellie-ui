@@ -1,6 +1,6 @@
 import { toast as RhtToast, Toaster as RhtToaster } from "react-hot-toast";
 
-export const Toaster = () => {
+const Toaster = () => {
   return (
     <RhtToaster
       toastOptions={{
@@ -13,4 +13,6 @@ export const Toaster = () => {
   );
 };
 
-export const toast = RhtToast;
+const toast = RhtToast;
+
+export { toast, Toaster };

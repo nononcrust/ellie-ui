@@ -3,7 +3,7 @@ import { Avatar as AvatarPrimitives } from "radix-ui";
 
 type AvatarProps = React.ComponentPropsWithRef<typeof AvatarPrimitives.Root>;
 
-export const Avatar = ({ className, children, ...props }: AvatarProps) => {
+const Avatar = ({ className, children, ...props }: AvatarProps) => {
   return (
     <AvatarPrimitives.Root
       className={cn("flex size-10 shrink-0 overflow-hidden rounded-full", className)}
@@ -38,3 +38,5 @@ const AvatarFallback = ({ className, ...props }: AvatarFallbackProps) => {
 
 Avatar.Image = AvatarImage;
 Avatar.Fallback = AvatarFallback;
+
+export { Avatar };

@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 
-type DividerProps = React.ComponentPropsWithoutRef<"hr">;
+type DividerProps = React.ComponentPropsWithRef<"hr">;
 
-export const Divider = ({ className, ...props }: DividerProps) => {
-  return <div className={cn("h-px bg-border", className)} {...props} />;
+const Divider = ({ className, ...props }: DividerProps) => {
+  return <div className={cn("bg-border h-px", className)} {...props} />;
 };
+
+export { Divider };

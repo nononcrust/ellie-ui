@@ -25,10 +25,12 @@ const chipVariants = tv({
 
 type ChipProps = React.ComponentPropsWithRef<"span"> & VariantProps<typeof chipVariants>;
 
-export const Chip = ({ className, variant, size, children, ...props }: ChipProps) => {
+const Chip = ({ className, variant, size, children, ...props }: ChipProps) => {
   return (
     <span className={cn(chipVariants({ variant, size, className }))} {...props}>
       {children}
     </span>
   );
 };
+
+export { Chip };

@@ -38,7 +38,7 @@ const switchVariants = tv({
   },
 });
 
-export const Switch = ({ className, onChange, size, ...props }: SwitchProps) => {
+const Switch = ({ className, onChange, size, ...props }: SwitchProps) => {
   const variants = switchVariants({ size, className });
 
   return (
@@ -47,3 +47,5 @@ export const Switch = ({ className, onChange, size, ...props }: SwitchProps) => 
     </SwitchPrimitives.Root>
   );
 };
+
+export { Switch };

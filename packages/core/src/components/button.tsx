@@ -42,7 +42,7 @@ const buttonVariants = tv({
   },
 });
 
-export const Button = ({
+const Button = ({
   className,
   variant,
   size,
@@ -64,3 +64,5 @@ export const Button = ({
     </Component>
   );
 };
+
+export { Button };

@@ -26,10 +26,12 @@ const tagVariant = tv({
 
 type TagProps = React.ComponentPropsWithRef<"span"> & VariantProps<typeof tagVariant>;
 
-export const Tag = ({ className, variant, size, children, ...props }: TagProps) => {
+const Tag = ({ className, variant, size, children, ...props }: TagProps) => {
   return (
     <span className={cn(tagVariant({ size, variant, className }))} {...props}>
       {children}
     </span>
   );
 };
+
+export { Tag };

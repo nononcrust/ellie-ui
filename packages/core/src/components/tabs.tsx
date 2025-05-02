@@ -28,7 +28,7 @@ type TabsProps = Omit<TabsPrimitives.TabsProps, "onChange" | "onValueChange"> & 
   onChange?: (value: string) => void;
 };
 
-export const Tabs = ({ className, children, onChange, ...props }: TabsProps) => {
+const Tabs = ({ className, children, onChange, ...props }: TabsProps) => {
   return (
     <TabsPrimitives.Root className={cn("w-full", className)} onValueChange={onChange} {...props}>
       {children}
@@ -83,10 +83,6 @@ const TabsContent = ({ className, children, ...props }: TabsContentProps) => {
   );
 };
 
-Tabs.List = TabsList;
-Tabs.Trigger = TabsTrigger;
-Tabs.Content = TabsContent;
-
 type TabsListContextValue = {
   fullWidth: boolean;
   size: VariantProps<typeof tabsVariants>["size"];
@@ -94,3 +90,9 @@ type TabsListContextValue = {
 
 const [TabsListContext, useTabsListContext] =
   createContextFactory<TabsListContextValue>("TabsList");
+
+Tabs.List = TabsList;
+Tabs.Trigger = TabsTrigger;
+Tabs.Content = TabsContent;
+
+export { Tabs };

@@ -13,7 +13,7 @@ import {
 
 export type CalendarProps = DayPickerProps;
 
-export const Calendar = (props: CalendarProps) => {
+const Calendar = (props: CalendarProps) => {
   return (
     <DayPicker
       showOutsideDays
@@ -109,3 +109,5 @@ const components: Partial<CustomComponents> = {
   },
   Day,
 };
+
+export { Calendar };

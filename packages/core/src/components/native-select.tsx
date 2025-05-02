@@ -6,7 +6,7 @@ type NativeSelectProps = React.ComponentPropsWithRef<"select"> & {
   placeholder?: string;
 };
 
-export const NativeSelect = ({
+const NativeSelect = ({
   className,
   children,
   ["aria-invalid"]: ariaInvalid,
@@ -36,3 +36,5 @@ export const NativeSelect = ({
     </div>
   );
 };
+
+export { NativeSelect };

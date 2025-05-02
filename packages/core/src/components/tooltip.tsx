@@ -32,7 +32,7 @@ const tooltipVariants = tv({
   },
 });
 
-export const Tooltip = ({
+const Tooltip = ({
   className,
   variant,
   content,
@@ -57,3 +57,5 @@ export const Tooltip = ({
     </TooltipPrimitives.Provider>
   );
 };
+
+export { Tooltip };

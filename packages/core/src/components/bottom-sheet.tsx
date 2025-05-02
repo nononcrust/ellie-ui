@@ -10,7 +10,7 @@ type BottomSheetProps = Omit<DialogPrimitives.DialogProps, "open"> & {
   isOpen?: boolean;
 };
 
-export const BottomSheet = ({ children, isOpen, ...props }: BottomSheetProps) => {
+const BottomSheet = ({ children, isOpen, ...props }: BottomSheetProps) => {
   return (
     <DialogPrimitives.Root open={isOpen} {...props}>
       {children}
@@ -207,3 +207,5 @@ BottomSheet.SelectItem = BottomSheetSelectItem;
 BottomSheet.Header = BottomSheetHeader;
 BottomSheet.Body = BottomSheetBody;
 BottomSheet.Footer = BottomSheetFooter;
+
+export { BottomSheet };

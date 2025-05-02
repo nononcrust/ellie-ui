@@ -26,7 +26,7 @@ type DatePickerProps = Omit<
   "aria-labelledby"?: string;
 };
 
-export const DatePicker = ({
+const DatePicker = ({
   value: initialDate,
   onChange,
   placeholder,
@@ -124,7 +124,7 @@ type DateRangePickerProps = Omit<
   "aria-labelledby"?: string;
 };
 
-export const DateRangePicker = ({
+const DateRangePicker = ({
   value: initialDateRange,
   onChange,
   placeholder,
@@ -247,3 +247,5 @@ export const Trigger = ({
     </Popover.Trigger>
   );
 };
+
+export { DatePicker, DateRangePicker };

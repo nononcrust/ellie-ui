@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type InputProps = React.ComponentPropsWithRef<"input">;
 
-export const Input = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: InputProps) => {
+const Input = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: InputProps) => {
   return (
     <input
       className={cn(
@@ -19,3 +19,5 @@ export const Input = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: In
     />
   );
 };
+
+export { Input };

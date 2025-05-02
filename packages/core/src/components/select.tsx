@@ -5,16 +5,6 @@ import { ChevronDownIcon } from "lucide-react";
 import { Select as SelectPrimitives } from "radix-ui";
 import React from "react";
 
-type SelectProps = Omit<
-  React.ComponentPropsWithoutRef<typeof SelectPrimitives.Trigger>,
-  "onChange" | "onValueChange"
-> & {
-  value?: string;
-  onChange?: (value: string) => void;
-  defaultValue?: string;
-  placeholder?: string;
-};
-
 export const selectStyle = {
   base: cn(
     "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-sm font-medium shadow-xs outline-hidden",
@@ -43,44 +33,44 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
   );
 };
 
-const SelectImpl = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitives.Trigger>,
-  SelectProps
->(
-  (
-    {
-      value,
-      onChange,
-      className,
-      children,
-      placeholder,
-      defaultValue,
-      ["aria-invalid"]: ariaInvalid,
-      ...props
-    },
-    ref,
-  ) => {
-    return (
-      <SelectPrimitives.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
-        <SelectPrimitives.Trigger
-          ref={ref}
-          className={cn(selectStyle.base, ariaInvalid && selectStyle.invalid, className)}
-          aria-invalid={ariaInvalid}
-          {...props}
-        >
-          <span className="truncate">
-            <SelectPrimitives.Value placeholder={placeholder} />
-          </span>
-          <SelectPrimitives.Icon asChild>
-            <SelectChevronDownIcon />
-          </SelectPrimitives.Icon>
-        </SelectPrimitives.Trigger>
-        <SelectContent>{children}</SelectContent>
-      </SelectPrimitives.Root>
-    );
-  },
-);
-SelectImpl.displayName = SelectPrimitives.Root.displayName;
+type SelectProps = Omit<
+  React.ComponentPropsWithRef<typeof SelectPrimitives.Trigger>,
+  "onChange" | "onValueChange"
+> & {
+  value?: string;
+  onChange?: (value: string) => void;
+  defaultValue?: string;
+  placeholder?: string;
+};
+
+const Select = ({
+  value,
+  onChange,
+  className,
+  children,
+  placeholder,
+  defaultValue,
+  ["aria-invalid"]: ariaInvalid,
+  ...props
+}: SelectProps) => {
+  return (
+    <SelectPrimitives.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
+      <SelectPrimitives.Trigger
+        className={cn(selectStyle.base, ariaInvalid && selectStyle.invalid, className)}
+        aria-invalid={ariaInvalid}
+        {...props}
+      >
+        <span className="truncate">
+          <SelectPrimitives.Value placeholder={placeholder} />
+        </span>
+        <SelectPrimitives.Icon asChild>
+          <SelectChevronDownIcon />
+        </SelectPrimitives.Icon>
+      </SelectPrimitives.Trigger>
+      <SelectContent>{children}</SelectContent>
+    </SelectPrimitives.Root>
+  );
+};
 
 type SelectContentProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Content>;
 
@@ -161,10 +151,10 @@ const SelectSeparator = ({ className, children, ...props }: SelectSeparatorProps
   );
 };
 
-export const Select = Object.assign(SelectImpl, {
-  Group: SelectPrimitives.Group,
-  Content: SelectContent,
-  Label: SelectLabel,
-  Option: SelectOption,
-  Separator: SelectSeparator,
-});
+Select.Group = SelectPrimitives.Group;
+Select.Content = SelectContent;
+Select.Label = SelectLabel;
+Select.Option = SelectOption;
+Select.Separator = SelectSeparator;
+
+export { Select };

@@ -31,14 +31,7 @@ const fabVariants = tv({
   },
 });
 
-export const Fab = ({
-  className,
-  children,
-  variant,
-  size,
-  withLabel = false,
-  ...props
-}: FabProps) => {
+const Fab = ({ className, children, variant, size, withLabel = false, ...props }: FabProps) => {
   return (
     <motion.button
       whileTap={{ scale: 0.95 }}
@@ -59,3 +52,5 @@ const FabContainer = ({ children }: { children: React.ReactNode }) => {
 };
 
 Fab.Container = FabContainer;
+
+export { Fab };

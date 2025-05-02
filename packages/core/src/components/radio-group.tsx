@@ -54,7 +54,7 @@ type RadioGroupProps = Omit<RadioGroupPrimitives.RadioGroupProps, "onValueChange
     onChange?: (value: string) => void;
   };
 
-export const RadioGroup = ({
+const RadioGroup = ({
   className,
   children,
   ["aria-invalid"]: ariaInvalid,
@@ -152,3 +152,5 @@ type RadioGroupContextValue = {
 
 const [RadioGroupContext, useRadioGroupContext] =
   createContextFactory<RadioGroupContextValue>("RadioGroup");
+
+export { RadioGroup };

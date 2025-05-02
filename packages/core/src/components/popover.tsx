@@ -8,7 +8,7 @@ type PopoverProps = Omit<PopoverPrimitives.PopoverProps, "open"> & {
   isOpen?: boolean;
 };
 
-export const Popover = ({ children, isOpen, ...props }: PopoverProps) => {
+const Popover = ({ children, isOpen, ...props }: PopoverProps) => {
   return (
     <PopoverPrimitives.Root open={isOpen} {...props}>
       {children}
@@ -51,3 +51,5 @@ const PopoverTrigger = ({ children, ...props }: PopoverTriggerProps) => {
 Popover.Trigger = PopoverTrigger;
 Popover.Content = PopoverContent;
 Popover.Close = PopoverPrimitives.Close;
+
+export { Popover };

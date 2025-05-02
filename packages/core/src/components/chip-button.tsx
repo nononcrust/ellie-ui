@@ -24,7 +24,7 @@ type ChipButtonProps = React.ComponentPropsWithRef<"button"> &
     asChild?: boolean;
   };
 
-export const ChipButton = ({
+const ChipButton = ({
   className,
   asChild = false,
   disabled,
@@ -46,3 +46,5 @@ export const ChipButton = ({
     </Component>
   );
 };
+
+export { ChipButton };

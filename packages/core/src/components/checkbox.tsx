@@ -8,7 +8,10 @@ import { tv, VariantProps } from "tailwind-variants";
 
 const DEFAULT_SIZE = "medium";
 
-type CheckboxProps = Omit<CheckboxPrimitives.CheckboxProps, "onChange" | "onCheckedChange"> &
+type CheckboxProps = Omit<
+  React.ComponentPropsWithRef<typeof CheckboxPrimitives.Root>,
+  "onChange" | "onCheckedChange"
+> &
   VariantProps<typeof checkboxVariants> & {
     onChange?: (checked: boolean) => void;
   };
@@ -32,15 +35,18 @@ const iconSize: Record<NonNullable<CheckboxProps["size"]>, number> = {
   large: 1.125,
 };
 
-const CheckboxImpl = React.forwardRef<
-  React.ComponentRef<typeof CheckboxPrimitives.Root>,
-  CheckboxProps
->(({ className, checked, ["aria-invalid"]: ariaInvalid, size, onChange, ...props }, ref) => {
+const Checkbox = ({
+  className,
+  checked,
+  ["aria-invalid"]: ariaInvalid,
+  size,
+  onChange,
+  ...props
+}: CheckboxProps) => {
   const sizeWithDefault = size ?? DEFAULT_SIZE;
 
   return (
     <CheckboxPrimitives.Root
-      ref={ref}
       className={cn(
         "border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
         "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
@@ -77,8 +83,7 @@ const CheckboxImpl = React.forwardRef<
       </CheckboxPrimitives.Indicator>
     </CheckboxPrimitives.Root>
   );
-});
-CheckboxImpl.displayName = CheckboxPrimitives.Root.displayName;
+};
 
 type CheckboxGroupProps = React.ComponentPropsWithRef<"div">;
 
@@ -90,6 +95,6 @@ const CheckboxGroup = ({ children, ...props }: CheckboxGroupProps) => {
   );
 };
 
-export const Checkbox = Object.assign(CheckboxImpl, {
-  Group: CheckboxGroup,
-});
+Checkbox.Group = CheckboxGroup;
+
+export { Checkbox };

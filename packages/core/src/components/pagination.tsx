@@ -24,7 +24,7 @@ interface PaginationProps extends Omit<React.ComponentPropsWithoutRef<"nav">, "o
   total: number;
 }
 
-export const Pagination = ({ className, page, onChange, total, ...props }: PaginationProps) => {
+const Pagination = ({ className, page, onChange, total, ...props }: PaginationProps) => {
   const currentPage = page;
 
   const renderPages = () => {
@@ -164,3 +164,5 @@ const PaginationItem = ({ page, ...props }: PaginationItem) => {
 const PaginationEllipsis = () => {
   return <p className="flex size-7 justify-center">...</p>;
 };
+
+export { Pagination };

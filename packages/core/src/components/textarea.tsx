@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type TextareaProps = React.ComponentPropsWithRef<"textarea">;
 
-export const Textarea = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: TextareaProps) => {
+const Textarea = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: TextareaProps) => {
   return (
     <textarea
       className={cn(
@@ -18,3 +18,5 @@ export const Textarea = ({ className, ["aria-invalid"]: ariaInvalid, ...props }:
     />
   );
 };
+
+export { Textarea };

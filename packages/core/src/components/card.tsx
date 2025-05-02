@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type CardProps = React.ComponentPropsWithRef<"div">;
 
-export const Card = ({ className, children, ...props }: CardProps) => {
+const Card = ({ className, children, ...props }: CardProps) => {
   return (
     <div
       className={cn(
@@ -15,3 +15,5 @@ export const Card = ({ className, children, ...props }: CardProps) => {
     </div>
   );
 };
+
+export { Card };

@@ -21,10 +21,12 @@ const badgeVariants = tv({
 
 type BadgeProps = React.ComponentPropsWithRef<"span"> & VariantProps<typeof badgeVariants>;
 
-export const Badge = ({ className, variant, size, children, ...props }: BadgeProps) => {
+const Badge = ({ className, variant, size, children, ...props }: BadgeProps) => {
   return (
     <span className={cn(badgeVariants({ variant, size }), className)} {...props}>
       {children}
     </span>
   );
 };
+
+export { Badge };

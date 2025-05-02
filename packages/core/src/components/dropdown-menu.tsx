@@ -7,7 +7,7 @@ type DropdownMenuProps = Omit<DropdownMenuPrimitives.DropdownMenuProps, "open"> 
   isOpen?: boolean;
 };
 
-export const DropdownMenu = ({ children, isOpen, ...props }: DropdownMenuProps) => {
+const DropdownMenu = ({ children, isOpen, ...props }: DropdownMenuProps) => {
   return (
     <DropdownMenuPrimitives.Root open={isOpen} {...props}>
       {children}
@@ -92,3 +92,5 @@ DropdownMenu.Content = DropdownMenuContent;
 DropdownMenu.Item = DropdownMenuItem;
 DropdownMenu.Label = DropdownMenuLabel;
 DropdownMenu.Separator = DropdownMenuSeparator;
+
+export { DropdownMenu };

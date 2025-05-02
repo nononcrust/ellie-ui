@@ -12,7 +12,7 @@ type DialogProps = Omit<DialogPrimitives.DialogProps, "open"> & {
   triggerRef?: React.RefObject<HTMLElement | null>;
 };
 
-export const Dialog = ({ children, isOpen, triggerRef, ...props }: DialogProps) => {
+const Dialog = ({ children, isOpen, triggerRef, ...props }: DialogProps) => {
   return (
     <DialogContext value={{ triggerRef }}>
       <DialogPrimitives.Root open={isOpen} {...props}>
@@ -181,3 +181,5 @@ Dialog.Body = DialogBody;
 Dialog.Footer = DialogFooter;
 Dialog.Title = DialogTitle;
 Dialog.Description = DialogDescription;
+
+export { Dialog };

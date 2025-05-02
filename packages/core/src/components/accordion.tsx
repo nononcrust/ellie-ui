@@ -6,7 +6,7 @@ import { Accordion as AccordionPrimitives } from "radix-ui";
 
 type AccordionProps = React.ComponentPropsWithRef<typeof AccordionPrimitives.Root>;
 
-export const Accordion = ({ children, ...props }: AccordionProps) => {
+const Accordion = ({ children, ...props }: AccordionProps) => {
   return <AccordionPrimitives.Root {...props}>{children}</AccordionPrimitives.Root>;
 };
 
@@ -63,3 +63,5 @@ const AccordionContent = ({ className, children, ...props }: AccordionContentPro
 Accordion.Item = AccordionItem;
 Accordion.Trigger = AccordionTrigger;
 Accordion.Content = AccordionContent;
+
+export { Accordion };

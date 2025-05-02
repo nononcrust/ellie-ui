@@ -8,7 +8,7 @@ import { Label } from "./label";
 
 type FormProps = React.ComponentPropsWithRef<"form">;
 
-export const Form = ({ children, ...props }: FormProps) => {
+const Form = ({ children, ...props }: FormProps) => {
   return <form {...props}>{children}</form>;
 };
 
@@ -152,3 +152,5 @@ Form.Control = FormControl;
 Form.Label = FormLabel;
 Form.Description = FormDescription;
 Form.ErrorMessage = FormErrorMessage;
+
+export { Form };
