@@ -16,7 +16,7 @@ export const Hero = () => {
           className="to-primary h-11 bg-gradient-to-r from-sky-500 px-6 text-base shadow-xl"
           asChild
         >
-          <Link href="/docs">시작하기</Link>
+          <Link href="/docs/button">시작하기</Link>
         </ChipButton>
         <ChipButton className="h-11 px-6 text-base" variant="secondary" asChild>
           <Link href="/components/button">컴포넌트 둘러보기</Link>
