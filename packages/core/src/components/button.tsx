@@ -12,7 +12,7 @@ export const buttonVariant = {
   primary: "bg-primary text-white hover:bg-primary-dark",
   primaryLow:
     "bg-primary-lighter text-primary hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:hover:bg-primary-darker-hover",
-  primaryOutlined: "border-border text-primary hover:bg-background-hover",
+  primaryOutlined: "bg-background border-border text-primary hover:bg-background-hover",
   primaryLowOutlined:
     "border-primary text-primary bg-primary-lighter hover:bg-primary-lighter-hover dark:bg-primary-darker dark:text-white dark:border-primary-dark dark:hover:bg-primary-darker-hover",
   secondary: "bg-secondary text-main hover:bg-secondary-dark",
@@ -30,10 +30,10 @@ const buttonVariants = tv({
   variants: {
     variant: buttonVariant,
     size: {
-      small: "px-[0.625rem] min-h-8 text-xs",
-      medium: "px-3 min-h-9 text-sm",
-      large: "px-[0.875rem] min-h-10 text-[0.9375rem]",
-      xlarge: "px-[1.25rem] min-h-[3.5rem] rounded-xl text-lg",
+      small: "px-[0.625rem] h-8 text-xs",
+      medium: "px-3 h-9 text-sm",
+      large: "px-[0.875rem] h-10 text-[0.9375rem]",
+      xlarge: "px-[1.25rem] h-[3.5rem] rounded-xl text-lg",
     },
   },
   defaultVariants: {
