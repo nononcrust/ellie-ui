@@ -2,25 +2,38 @@
 title: Chip
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Chip } from "@ellie-ui/core";
 
-<Tabs items={["미리보기", "코드"]}>
-  <Tab value="미리보기">
-    <ComponentDemo>
+<Demo>
+  <Demo.Preview>
+    <div className="flex gap-3 flex-wrap">
       <Chip>라벨</Chip>
-    </ComponentDemo>
-  </Tab>
-  <Tab value="코드">
-    ```tsx
+      <Chip variant="outlined">라벨</Chip>
+      <Chip variant="contained">라벨</Chip>
+      <Chip variant="primaryLow">라벨</Chip>
+      <Chip variant="primaryOutlined">라벨</Chip>
+      <Chip variant="primaryLowOutlined">라벨</Chip>
+      <Chip variant="ghost">라벨</Chip>
+    </div>
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
     import { Chip } from "@ellie-ui/core";
 
     export const Example = () => {
       return (
-        <Chip>라벨</Chip>
+        <div className="flex gap-3">
+          <Chip>라벨</Chip>
+          <Chip variant="outlined">라벨</Chip>
+          <Chip variant="contained">라벨</Chip>
+          <Chip variant="primaryLow">라벨</Chip>
+          <Chip variant="primaryOutlined">라벨</Chip>
+          <Chip variant="primaryLowOutlined">라벨</Chip>
+          <Chip variant="ghost">라벨</Chip>
+        </div>
       )
     }
     ```
 
-  </Tab>
-</Tabs>
+  </Demo.Code>
+</Demo>

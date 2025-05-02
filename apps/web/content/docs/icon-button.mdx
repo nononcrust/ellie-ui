@@ -2,31 +2,202 @@
 title: Icon Button
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { IconButton } from "@ellie-ui/core";
 import { SearchIcon } from "lucide-react";
 
-<Tabs items={["미리보기", "코드"]}>
-  <Tab value="미리보기">
-    <ComponentDemo>
-      <IconButton>
-        <SearchIcon className="size-4" />
-      </IconButton>
-    </ComponentDemo>
-  </Tab>
-  <Tab value="코드">
-    ```tsx
+## Usage
+
+<Demo>
+  <Demo.Preview>
+    <IconButton aria-label="검색">
+      <SearchIcon size={16} />
+    </IconButton>
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
     import { IconButton } from "@ellie-ui/core";
     import { SearchIcon } from "lucide-react";
 
     export const Example = () => {
       return (
-        <IconButton>
-          <SearchIcon className="size-4" />
+        <IconButton aria-label="검색">
+          <SearchIcon size={16} />
         </IconButton>
       )
     }
     ```
 
-  </Tab>
-</Tabs>
+  </Demo.Code>
+</Demo>
+
+### Variants
+
+<Demo>
+  <Demo.Preview>
+    <div className='flex gap-3 flex-wrap'>
+      <IconButton variant="primary" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="secondary" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="outlined" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="contained" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="primaryLow" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="primaryOutlined" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="primaryLowOutlined" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="ghost" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton variant="error" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+    </div>
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { IconButton } from "@ellie-ui/core";
+    import { SearchIcon } from "lucide-react";
+
+    export const Example = () => {
+      return (
+        <div className='flex gap-3'>
+          <IconButton variant="primary" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="secondary" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="outlined" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="contained" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="primaryLow" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="primaryOutlined" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="primaryLowOutlined" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="ghost" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton variant="error" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+        </div>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Sizes
+
+<Demo>
+  <Demo.Preview>
+    <div className='flex items-center gap-3'>
+      <IconButton size="small" aria-label="검색">
+        <SearchIcon size={14} />
+      </IconButton>
+      <IconButton size="medium" aria-label="검색">
+        <SearchIcon size={16} />
+      </IconButton>
+      <IconButton size="large" aria-label="검색">
+        <SearchIcon size={18} />
+      </IconButton>
+    </div>
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { IconButton } from "@ellie-ui/core";
+    import { SearchIcon } from "lucide-react";
+
+    export const Example = () => {
+      return (
+        <div className='flex items-center gap-3'>
+          <IconButton size="small" aria-label="검색">
+            <SearchIcon size={14} />
+          </IconButton>
+          <IconButton size="medium" aria-label="검색">
+            <SearchIcon size={16} />
+          </IconButton>
+          <IconButton size="large" aria-label="검색">
+            <SearchIcon size={18} />
+          </IconButton>
+        </div>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Disabled
+
+<Demo>
+  <Demo.Preview>
+    <IconButton disabled aria-label="검색">
+      <SearchIcon size={16} />
+    </IconButton>
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { IconButton } from "@ellie-ui/core";
+    import { SearchIcon } from "lucide-react";
+
+    export const Example = () => {
+      return (
+        <IconButton disabled aria-label="검색">
+          <SearchIcon size={16} />
+        </IconButton>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+## API
+
+### IconButton Props
+
+<TypeTable
+  type={{
+    "aria-label": {
+      type: "string",
+      required: true,
+    },
+    variant: {
+      type: '"primary" | "secondary" | "outlined" | "contained" | "primaryLow" | "primaryOutlined" | "ghost" | "error"',
+      default: "primary",
+    },
+    size: {
+      type: '"small" | "medium" | "large"',
+      default: "medium",
+    },
+    disabled: {
+      type: "boolean",
+      default: "false",
+    },
+    asChild: {
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>

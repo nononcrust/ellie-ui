@@ -2,17 +2,14 @@
 title: Select
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Select } from "@ellie-ui/core";
 import { SelectDemo } from "@/components/mdx/select-demo";
 
-<Tabs items={["미리보기", "코드"]}>
-  <Tab value="미리보기">
-    <ComponentDemo>
-      <SelectDemo />
-    </ComponentDemo>
-  </Tab>
-  <Tab value="코드">
+<Demo>
+  <Demo.Preview>
+    <SelectDemo />
+  </Demo.Preview>
+  <Demo.Code>
     ```tsx
     import { Select } from "@ellie-ui/core";
 
@@ -27,5 +24,5 @@ import { SelectDemo } from "@/components/mdx/select-demo";
     }
     ```
 
-  </Tab>
-</Tabs>
+  </Demo.Code>
+</Demo>

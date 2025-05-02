@@ -2,17 +2,14 @@
 title: Checkbox
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Checkbox } from "@ellie-ui/core";
 
-<Tabs items={["미리보기", "코드"]}>
-  <Tab value="미리보기">
-    <ComponentDemo>
-      <Checkbox defaultChecked />
-    </ComponentDemo>
-  </Tab>
-  <Tab value="코드">
-    ```tsx
+<Demo>
+  <Demo.Preview>
+    <Checkbox defaultChecked />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
     import { Checkbox } from "@ellie-ui/core";
 
     export const Example = () => {
@@ -22,5 +19,5 @@ import { Checkbox } from "@ellie-ui/core";
     }
     ```
 
-  </Tab>
-</Tabs>
+  </Demo.Code>
+</Demo>

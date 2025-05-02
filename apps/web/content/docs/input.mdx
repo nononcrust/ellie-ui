@@ -2,25 +2,142 @@
 title: Input
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { Input } from "@ellie-ui/core";
+import { Input, Form } from "@ellie-ui/core";
+import { InputDemoWithForm } from "@/components/mdx/input-demo";
 
-<Tabs items={["미리보기", "코드"]}>
-  <Tab value="미리보기">
-    <ComponentDemo>
-      <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" />
-    </ComponentDemo>
-  </Tab>
-  <Tab value="코드">
+## Usage
+
+<Demo>
+  <Demo.Preview>
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" aria-label="텍스트 입력" />
+  </Demo.Preview>
+  <Demo.Code>
     ```tsx
     import { Input } from "@ellie-ui/core";
 
     export const Example = () => {
       return (
-        <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" />
+        <Input placeholder="텍스트를 입력해주세요" aria-label="텍스트 입력" />
       )
     }
     ```
 
-  </Tab>
-</Tabs>
+  </Demo.Code>
+</Demo>
+
+### Disabled
+
+<Demo>
+  <Demo.Preview>
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" disabled aria-label="텍스트 입력" />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Input } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Input placeholder="텍스트를 입력해주세요" disabled aria-label="텍스트 입력" />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Read Only
+
+<Demo>
+  <Demo.Preview>
+    <Input
+      className="w-[20rem]"
+      defaultValue="nononcrust@gmail.com"
+      placeholder="텍스트를 입력해주세요"
+      readOnly
+      aria-label="텍스트 입력"
+    />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Input } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Input defaultValue="nononcrust@gmail.com" readOnly aria-label="텍스트 입력" />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Invalid
+
+<Demo>
+  <Demo.Preview>
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" aria-invalid aria-label="텍스트 입력" />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Input } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Input placeholder="텍스트를 입력해주세요" aria-invalid aria-label="텍스트 입력" />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### With Form
+
+<Demo>
+  <Demo.Preview>
+    <InputDemoWithForm />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Form } from "@ellie-ui/core";
+    import { Input } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Form>
+          <Form.Item>
+            <Form.Label>이메일</Form.Label>
+            <Form.Control>
+              <Input placeholder="이메일을 입력해주세요" />
+            </Form.Control>
+            <Form.Description>이메일을 입력해주세요</Form.Description>
+            <Form.ErrorMessage>올바른 이메일 형식을 입력해주세요</Form.ErrorMessage>
+          </Form.Item>
+        </Form>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+## API
+
+### Input Props
+
+<TypeTable
+  type={{
+    "aria-invalid": {
+      type: "boolean",
+      default: "false",
+    },
+    disabled: {
+      type: "boolean",
+      default: "false",
+    },
+    readOnly: {
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
