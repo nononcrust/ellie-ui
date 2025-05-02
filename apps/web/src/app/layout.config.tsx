@@ -11,9 +11,9 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
-      <span className="flex items-center gap-2">
+      <span className="flex items-center gap-2 text-base font-bold">
         <Logo />
-        <span className="text-base font-bold">Ellie UI</span>
+        Ellie UI
       </span>
     ),
   },

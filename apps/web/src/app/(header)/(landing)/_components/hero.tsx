@@ -1,18 +1,14 @@
 import { cn } from "@/lib/utils";
 import { ChipButton } from "@ellie-ui/core";
+import { PawPrintIcon } from "lucide-react";
 import Link from "next/link";
 
 export const Hero = () => {
   return (
     <section className="flex flex-col py-16 md:items-center">
-      <h1
-        className={cn(
-          "w-fit text-5xl font-extrabold",
-          "bg-clip-text text-transparent",
-          "to-main bg-gradient-to-r from-neutral-600 dark:from-neutral-400",
-        )}
-      >
+      <h1 className={cn("text-main relative w-fit text-5xl font-extrabold")}>
         Ellie UI
+        <PawPrintIcon className="fill-primary-light stroke-primary-light absolute -right-8 -top-1 size-6" />
       </h1>
       <p className="text-subtle mt-2 text-xl font-medium">모던 웹을 위한 컴포넌트 라이브러리</p>
       <div className="mt-6 flex items-center gap-3">
