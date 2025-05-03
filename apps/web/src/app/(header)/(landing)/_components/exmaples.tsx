@@ -5,6 +5,7 @@ import profileImage3 from "@/assets/images/default-profile-image.svg";
 import profileImage from "@/assets/images/nonon.png";
 import { ChatMessage, ChatMessageGroup } from "@/components/chat/chat-message";
 import { ChatMessageInput } from "@/components/chat/chat-message-input";
+import { TransitionMount } from "@/components/shared/transition-mount";
 import { link } from "@/configs/link";
 import {
   Avatar,
@@ -47,14 +48,30 @@ import { SearchInput } from "../../(browse)/desktop/feed/_components/search-inpu
 export const Examples = () => {
   return (
     <section className="columns-1 gap-5 lg:columns-2 xl:columns-3">
-      <LoginForm />
-      <ChatRoom />
-      <FollowRecommendation />
-      <SearchMenu />
-      <Settings />
-      <Profile />
-      <StoreDetail />
-      <ReservationForm />
+      <TransitionMount delay={0.6} x={-16} y={-16}>
+        <LoginForm />
+      </TransitionMount>
+      <TransitionMount delay={0.6} x={-16} y={16}>
+        <ChatRoom />
+      </TransitionMount>
+      <TransitionMount delay={0.6} y={-16}>
+        <FollowRecommendation />
+      </TransitionMount>
+      <TransitionMount delay={0.6}>
+        <SearchMenu />
+      </TransitionMount>
+      <TransitionMount delay={0.6} y={16}>
+        <Settings />
+      </TransitionMount>
+      <TransitionMount delay={0.6} x={16} y={-16}>
+        <Profile />
+      </TransitionMount>
+      <TransitionMount delay={0.6} x={16}>
+        <StoreDetail />
+      </TransitionMount>
+      <TransitionMount delay={0.6} x={16} y={16}>
+        <ReservationForm />
+      </TransitionMount>
     </section>
   );
 };
