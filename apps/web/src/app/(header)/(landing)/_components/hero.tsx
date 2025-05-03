@@ -19,7 +19,7 @@ export const Hero = () => {
       <TransitionMount delay={0.4}>
         <div className="mt-6 flex items-center gap-3">
           <ChipButton
-            className="to-primary h-11 bg-gradient-to-r from-sky-500 px-6 text-base shadow-xl"
+            className="to-primary hover:to-primary-dark h-11 bg-gradient-to-r from-sky-500 px-6 text-base shadow-xl hover:from-sky-500"
             asChild
           >
             <Link href="/docs/button">시작하기</Link>
