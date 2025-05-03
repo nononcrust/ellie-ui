@@ -1,4 +1,5 @@
 import { Examples } from "./_components/exmaples";
+import { Footer } from "./_components/footer";
 import { Hero } from "./_components/hero";
 
 export default function LandingPage() {
@@ -7,6 +8,7 @@ export default function LandingPage() {
       <main className="container">
         <Hero />
         <Examples />
+        <Footer />
       </main>
     </div>
   );
