@@ -2,8 +2,7 @@
   "name": "ellie-ui",
   "private": true,
   "scripts": {
-    "build:web": "turbo run build --filter=./apps/web",
-    "build:core": "turbo run build --filter=./packages/core",
+    "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
