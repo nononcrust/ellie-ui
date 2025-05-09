@@ -1,11 +1,11 @@
 "use client";
 
+import { Label } from "@/components/label";
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import { RadioGroup as RadioGroupPrimitives } from "radix-ui";
 import React, { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { Label } from "./label";
 
 const radioGroupVariants = tv({
   slots: {

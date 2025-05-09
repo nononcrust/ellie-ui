@@ -1,10 +1,10 @@
 "use client";
 
+import { IconButton } from "@/components/icon-button";
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import { CheckIcon, XIcon } from "lucide-react";
 import { Dialog as DialogPrimitives } from "radix-ui";
-import { IconButton } from "./icon-button";
 
 type BottomSheetProps = Omit<DialogPrimitives.DialogProps, "open"> & {
   isOpen?: boolean;

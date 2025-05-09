@@ -1,11 +1,11 @@
 "use client";
 
+import { IconButton } from "@/components/icon-button";
 import { createContextFactory } from "@/lib/context";
 import { cn } from "@/lib/utils";
 import { XIcon } from "lucide-react";
 import { Dialog as DialogPrimitives } from "radix-ui";
 import React, { useEffect } from "react";
-import { IconButton } from "./icon-button";
 
 type DialogProps = Omit<DialogPrimitives.DialogProps, "open"> & {
   isOpen?: boolean;

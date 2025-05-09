@@ -1,7 +1,7 @@
+import { cn } from "@/lib/utils";
 import { Slot } from "radix-ui";
 import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { cn } from "../lib/utils";
 
 export type ButtonProps = React.ComponentPropsWithRef<"button"> &
   VariantProps<typeof buttonVariants> & {

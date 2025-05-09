@@ -3,17 +3,30 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./styles/globals.css": "./src/styles/globals.css",
     "./styles/theme.css": "./src/styles/theme.css",
     "./styles/base.css": "./src/styles/base.css",
-    ".": "./src/index.ts",
-    "./hooks": "./src/hooks/index.ts"
+    "./hooks": "./src/hooks/index.ts",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
   },
   "scripts": {
     "test": "vitest",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "tsc --noEmit --watch"
+    "type-check:watch": "tsc --noEmit --watch",
+    "build": "tsup"
   },
   "dependencies": {
     "clsx": "^2.1.1",
