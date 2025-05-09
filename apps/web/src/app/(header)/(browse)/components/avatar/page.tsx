@@ -1,3 +1,5 @@
+"use client";
+
 import profileImage from "@/assets/images/chat-emoticon.webp";
 import { Grid } from "@/components/layouts/grid";
 import { Avatar } from "@ellie-ui/core";
