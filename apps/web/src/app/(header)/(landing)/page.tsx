@@ -1,5 +1,5 @@
 import { Examples } from "./_components/exmaples";
-import { Footer } from "./_components/Footer";
+import { Footer } from "./_components/footer";
 import { Hero } from "./_components/hero";
 
 export default function LandingPage() {
