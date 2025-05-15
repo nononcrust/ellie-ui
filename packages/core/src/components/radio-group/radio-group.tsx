@@ -24,21 +24,21 @@ const radioGroupVariants = tv({
       small: {
         root: "gap-2",
         item: "size-4",
-        indicator: "6",
+        indicator: "size-[0.375rem]",
         label: "text-sm",
         option: "gap-2",
       },
       medium: {
         root: "gap-3",
         item: "size-5",
-        indicator: "8",
+        indicator: "size-[0.5rem]",
         label: "text-base",
         option: "gap-3",
       },
       large: {
         root: "gap-4",
         item: "size-6",
-        indicator: "10",
+        indicator: "size-[0.625rem]",
         label: "text-base w-full",
         option: "gap-3",
       },
@@ -97,8 +97,7 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
     >
       <RadioGroupPrimitives.Indicator className="flex items-center justify-center">
         <svg
-          width={variants.indicator()}
-          height={variants.indicator()}
+          className={cn(variants.indicator())}
           viewBox="0 0 6 6"
           fill="currentcolor"
           xmlns="http://www.w3.org/2000/svg"
