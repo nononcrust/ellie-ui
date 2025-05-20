@@ -1,5 +1,5 @@
-import { useDatePicker } from "@/hooks/use-date-picker";
 import { render, screen } from "@testing-library/react";
+import { useDatePicker } from "../../hooks/use-date-picker";
 import { DatePicker } from "./date-picker";
 
 const DefaultDatePicker = () => {

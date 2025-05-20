@@ -1,14 +1,14 @@
 "use client";
 
-import { IconButton } from "@/components/icon-button";
-import { createContextFactory } from "@/lib/context";
-import { cn } from "@/lib/utils";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronsLeftIcon,
   ChevronsRightIcon,
 } from "lucide-react";
+import { createContextFactory } from "../../lib/context";
+import { cn } from "../../lib/utils";
+import { IconButton } from "../icon-button";
 
 type PaginationContextValue = {
   page: number;

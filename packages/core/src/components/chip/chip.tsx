@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 const chipVariants = tv({
   base: "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-colors",

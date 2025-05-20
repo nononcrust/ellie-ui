@@ -1,9 +1,9 @@
 "use client";
 
-import { createContextFactory } from "@/lib/context";
-import { cn } from "@/lib/utils";
 import { Tabs as TabsPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
+import { createContextFactory } from "../../lib/context";
+import { cn } from "../../lib/utils";
 
 const tabsVariants = tv({
   base: cn(

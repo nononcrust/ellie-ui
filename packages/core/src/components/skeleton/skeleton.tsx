@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
 import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 const skeletonVariant = tv({
   base: "bg-background-100 animate-pulse",

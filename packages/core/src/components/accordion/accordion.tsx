@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion as AccordionPrimitives } from "radix-ui";
+import { cn } from "../../lib/utils";
 
 type AccordionProps = React.ComponentPropsWithRef<typeof AccordionPrimitives.Root>;
 

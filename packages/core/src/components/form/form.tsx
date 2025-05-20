@@ -1,10 +1,10 @@
 "use client";
 
-import { Label } from "@/components/label";
-import { createContextFactory } from "@/lib/context";
-import { cn } from "@/lib/utils";
 import { Slot } from "radix-ui";
 import { useId, useState } from "react";
+import { Label } from "../../components/label";
+import { createContextFactory } from "../../lib/context";
+import { cn } from "../../lib/utils";
 
 type FormProps = React.ComponentPropsWithRef<"form">;
 

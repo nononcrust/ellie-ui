@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Tooltip as TooltipPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 type TooltipProps = VariantProps<typeof tooltipVariants> & {
   className?: string;

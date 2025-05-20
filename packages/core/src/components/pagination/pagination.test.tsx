@@ -1,5 +1,5 @@
-import { noop } from "@/lib/utils";
 import { render, screen } from "@testing-library/react";
+import { noop } from "../../lib/utils";
 import { Pagination } from "./pagination";
 
 describe("Pagination", () => {

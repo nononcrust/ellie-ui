@@ -11,16 +11,7 @@
     "./styles/theme.css": "./src/styles/theme.css",
     "./styles/base.css": "./src/styles/base.css",
     "./hooks": "./src/hooks/index.ts",
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
     "test": "vitest",

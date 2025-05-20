@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Command as CommandPrimitives } from "cmdk";
 import { SearchIcon } from "lucide-react";
 import React from "react";
+import { cn } from "../../lib/utils";
 
 type CommandProps = React.ComponentPropsWithRef<typeof CommandPrimitives>;
 

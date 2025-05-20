@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 const badgeVariants = tv({
   base: "inline-flex justify-center items-center rounded-full border font-medium leading-normal transition-colors outline-hidden",

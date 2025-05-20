@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { HTMLMotionProps, motion } from "motion/react";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 type FabProps = HTMLMotionProps<"button"> &
   VariantProps<typeof fabVariants> & {

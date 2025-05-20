@@ -1,6 +1,6 @@
-import { SelectChevronDownIcon, selectStyle } from "@/components/select";
-import { cn } from "@/lib/utils";
 import React from "react";
+import { cn } from "../../lib/utils";
+import { SelectChevronDownIcon, selectStyle } from "../select";
 
 type NativeSelectProps = React.ComponentPropsWithRef<"select"> & {
   placeholder?: string;

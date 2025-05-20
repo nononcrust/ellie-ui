@@ -1,7 +1,7 @@
-import { buttonVariant } from "@/components/button";
-import { cn } from "@/lib/utils";
 import { Slot } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
+import { buttonVariant } from "../../components/button";
+import { cn } from "../../lib/utils";
 
 const chipButtonVariants = tv({
   base: "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-colors",

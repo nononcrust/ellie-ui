@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Popover as PopoverPrimitives } from "radix-ui";
 import React from "react";
+import { cn } from "../../lib/utils";
 
 type PopoverProps = Omit<PopoverPrimitives.PopoverProps, "open"> & {
   isOpen?: boolean;

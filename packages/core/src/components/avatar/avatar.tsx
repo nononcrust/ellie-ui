@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { Avatar as AvatarPrimitives } from "radix-ui";
+import { cn } from "../../lib/utils";
 
 type AvatarProps = React.ComponentPropsWithRef<typeof AvatarPrimitives.Root>;
 

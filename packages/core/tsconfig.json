@@ -13,9 +13,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "noUncheckedIndexedAccess": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "types": ["vitest/globals"]
   },
   "include": ["**/*.ts", "**/*.tsx"],

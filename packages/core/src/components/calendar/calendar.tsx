@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { ko } from "date-fns/locale/ko";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import {
@@ -10,6 +9,7 @@ import {
   DayProps,
   useDayPicker,
 } from "react-day-picker";
+import { cn } from "../../lib/utils";
 
 export type CalendarProps = DayPickerProps;
 

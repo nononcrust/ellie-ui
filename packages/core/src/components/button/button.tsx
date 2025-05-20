@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils";
 import { Slot } from "radix-ui";
 import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 export type ButtonProps = React.ComponentPropsWithRef<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -24,15 +24,15 @@ export const buttonVariant = {
 
 const buttonVariants = tv({
   base: cn(
-    "inline-flex justify-center items-center gap-2 font-semibold outline-hidden rounded-md whitespace-nowrap text-foreground transition-colors",
+    "inline-flex justify-center items-center gap-2 font-semibold outline-hidden whitespace-nowrap text-foreground transition-colors",
     "disabled:opacity-50 disabled:pointer-events-none",
   ),
   variants: {
     variant: buttonVariant,
     size: {
-      small: "px-[0.625rem] h-8 text-xs",
-      medium: "px-3 h-9 text-sm",
-      large: "px-[0.875rem] h-10 text-[0.9375rem]",
+      small: "px-[0.625rem] h-8 text-xs rounded-[0.5rem]",
+      medium: "px-3 h-9 text-sm rounded-md",
+      large: "px-[0.875rem] h-10 text-[0.9375rem] rounded-md",
       xlarge: "px-[1.25rem] h-[3.5rem] rounded-xl text-lg",
     },
   },

@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { Label as LabelPrimitives } from "radix-ui";
+import { cn } from "../../lib/utils";
 
 type LabelProps = React.ComponentPropsWithRef<typeof LabelPrimitives.Root>;
 

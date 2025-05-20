@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "lucide-react";
 import { Select as SelectPrimitives } from "radix-ui";
 import React from "react";
+import { cn } from "../../lib/utils";
 
 export const selectStyle = {
   base: cn(

@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { tv, VariantProps } from "tailwind-variants";
+import { cn } from "../../lib/utils";
 
 const tagVariant = tv({
   base: "inline-flex font-medium justify-center items-center",
