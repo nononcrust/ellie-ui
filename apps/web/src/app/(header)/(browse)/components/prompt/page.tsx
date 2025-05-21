@@ -3,7 +3,7 @@
 import { Grid } from "@/components/layouts/grid";
 import { Button, Prompt } from "@ellie-ui/core";
 
-export default function DialogPage() {
+export default function PromptPage() {
   return (
     <Grid>
       <Grid.Item>
@@ -16,7 +16,7 @@ export default function DialogPage() {
   );
 }
 
-export const Prompt1 = () => {
+const Prompt1 = () => {
   return (
     <Prompt>
       <Prompt.Trigger asChild>
@@ -36,7 +36,7 @@ export const Prompt1 = () => {
   );
 };
 
-export const Prompt2 = () => {
+const Prompt2 = () => {
   return (
     <Prompt>
       <Prompt.Trigger asChild>
