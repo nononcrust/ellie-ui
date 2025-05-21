@@ -24,6 +24,7 @@ export const menu = [
       { title: "Chip Button", href: "/components/chip-button" },
       { title: "Avatar", href: "/components/avatar" },
       { title: "Dialog", href: "/components/dialog" },
+      { title: "Prompt", href: "/components/prompt" },
       { title: "Bottom Sheet", href: "/components/bottom-sheet" },
       { title: "Badge", href: "/components/badge" },
       { title: "Tabs", href: "/components/tabs" },

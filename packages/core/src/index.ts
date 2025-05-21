@@ -21,6 +21,7 @@ export * from "./components/label/index";
 export * from "./components/native-select/index";
 export * from "./components/pagination/index";
 export * from "./components/popover/index";
+export * from "./components/prompt/index";
 export * from "./components/radio-group/index";
 export * from "./components/select/index";
 export * from "./components/skeleton/index";
