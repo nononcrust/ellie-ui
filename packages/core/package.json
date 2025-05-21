@@ -15,6 +15,7 @@
   },
   "scripts": {
     "test": "vitest",
+    "lint": "eslint ./src",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
     "build": "tsup"
