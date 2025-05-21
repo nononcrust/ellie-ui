@@ -232,7 +232,6 @@ export const Trigger = ({
           ariaInvalid && "focus-visible:focus-input-ring-error border-error",
           className,
         )}
-        aria-invalid={ariaInvalid}
         {...props}
       >
         <CalendarIcon className="text-sub size-4" />
