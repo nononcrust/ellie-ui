@@ -2,13 +2,23 @@
 title: Checkbox
 ---
 
-import { Checkbox } from "@ellie-ui/core";
+import { Checkbox, Label } from "@ellie-ui/core";
+import {
+  CheckboxDemo,
+  CheckboxDemoWithLabel,
+  CheckboxDemoSizes,
+  CheckboxDemoDisabled,
+  CheckboxDemoInvalid,
+  CheckboxDemoIndeterminate,
+  CheckboxDemoControlled,
+  CheckboxDemoWithForm,
+} from "@/components/mdx/checkbox-demo";
 
 ## Usage
 
 <Demo>
   <Demo.Preview>
-    <Checkbox defaultChecked />
+    <CheckboxDemo />
   </Demo.Preview>
   <Demo.Code>
   ```tsx
@@ -23,3 +33,172 @@ import { Checkbox } from "@ellie-ui/core";
 
   </Demo.Code>
 </Demo>
+
+### With Label
+
+<Demo>
+  <Demo.Preview>
+    <CheckboxDemoWithLabel />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { Checkbox } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Checkbox size="small" defaultChecked>
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Sizes
+
+<Demo>
+  <Demo.Preview>
+    <CheckboxDemoSizes />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { Checkbox } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <div className="flex flex-col items-center gap-3">
+          <Checkbox size="small" defaultChecked>
+            <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+          </Checkbox>
+          <Checkbox size="medium" defaultChecked>
+            <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+          </Checkbox>
+          <Checkbox size="large" defaultChecked>
+            <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+          </Checkbox>
+        </div>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Disabled
+
+<Demo>
+  <Demo.Preview>
+    <CheckboxDemoDisabled />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { Checkbox } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Checkbox defaultChecked disabled />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Invalid
+
+<Demo>
+  <Demo.Preview>
+    <CheckboxDemoInvalid />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { Checkbox } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Checkbox defaultChecked aria-invalid />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Indeterminate
+
+<Demo>
+  <Demo.Preview>
+    <CheckboxDemoIndeterminate />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { Checkbox } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <Checkbox checked="indeterminate" />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Controlled
+
+<Demo>
+  <Demo.Preview>
+    <CheckboxDemoControlled />
+  </Demo.Preview>
+  <Demo.Code>
+  ```tsx
+    import { Checkbox } from "@ellie-ui/core";
+    import { useCheckbox } from "@ellie-ui/core/hooks";
+
+    export const Example = () => {
+      const checkbox = useCheckbox()
+
+      return (
+        <Checkbox
+          checked={checkbox.checked}
+          onChange={checkbox.onChange}
+        />
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Checkbox Props
+
+<TypeTable
+  type={{
+    defaultChecked: {
+      type: "boolean",
+      default: undefined,
+    },
+    checked: {
+      type: 'boolean | "indeterminate"',
+    },
+    onChange: {
+      type: "(checked: boolean) => void",
+      default: undefined,
+    },
+    children: {
+      type: "ReactNode",
+      default: undefined,
+      description: "체크박스의 레이블",
+    },
+    "aria-invalid": {
+      type: "boolean",
+      default: undefined,
+    },
+    disabled: {
+      type: "boolean",
+      default: false,
+    },
+  }}
+/>
