@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 
 const chipTabsVariants = tv({
   base: cn(
-    "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-colors",
+    "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-colors whitespace-nowrap",
     "hover:bg-background-hover",
     "disabled:pointer-events-none disabled:opacity-50",
     "data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:hover:bg-primary-dark",
