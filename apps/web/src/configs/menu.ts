@@ -32,6 +32,7 @@ export const menu = [
       { title: "Dropdown Menu", href: "/components/dropdown-menu" },
       { title: "Popover", href: "/components/popover" },
       { title: "Tooltip", href: "/components/tooltip" },
+      { title: "Pagination", href: "/components/pagination" },
       { title: "Fab", href: "/components/fab" },
       { title: "Form", href: "/components/form" },
       { title: "Chat", href: "/components/chat" },

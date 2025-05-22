@@ -8,6 +8,7 @@ export * from "./components/card";
 export * from "./components/checkbox";
 export * from "./components/chip";
 export * from "./components/chip-button";
+export * from "./components/chip-tabs";
 export * from "./components/command";
 export * from "./components/date-picker";
 export * from "./components/dialog";

@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Tabs } from "@ellie-ui/core";
+import { ChipTabs, Tabs } from "@ellie-ui/core";
 
 export default function TabsPage() {
   return (
@@ -34,6 +34,35 @@ export default function TabsPage() {
             </Tabs.Trigger>
           </Tabs.List>
         </Tabs>
+      </Grid.Item>
+      <Grid.Item>
+        <ChipTabs defaultValue="1">
+          <ChipTabs.List>
+            <ChipTabs.Trigger value="1">전체</ChipTabs.Trigger>
+            <ChipTabs.Trigger value="2">인기글</ChipTabs.Trigger>
+            <ChipTabs.Trigger value="3">공지사항</ChipTabs.Trigger>
+          </ChipTabs.List>
+        </ChipTabs>
+      </Grid.Item>
+      <Grid.Item>
+        <ChipTabs defaultValue="1">
+          <ChipTabs.List size="large">
+            <ChipTabs.Trigger value="1">전체</ChipTabs.Trigger>
+            <ChipTabs.Trigger value="2">인기글</ChipTabs.Trigger>
+            <ChipTabs.Trigger value="3">공지사항</ChipTabs.Trigger>
+          </ChipTabs.List>
+        </ChipTabs>
+      </Grid.Item>
+      <Grid.Item>
+        <ChipTabs defaultValue="1">
+          <ChipTabs.List>
+            <ChipTabs.Trigger value="1">전체</ChipTabs.Trigger>
+            <ChipTabs.Trigger value="2">인기글</ChipTabs.Trigger>
+            <ChipTabs.Trigger value="3" disabled>
+              공지사항
+            </ChipTabs.Trigger>
+          </ChipTabs.List>
+        </ChipTabs>
       </Grid.Item>
     </Grid>
   );
