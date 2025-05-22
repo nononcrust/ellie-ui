@@ -62,12 +62,10 @@ const RadioGroup = ({
   onChange,
   ...props
 }: RadioGroupProps) => {
-  const variants = radioGroupVariants({ size, className });
-
   return (
     <RadioGroupContext value={{ ariaInvalid, size }}>
       <RadioGroupPrimitives.Root
-        className={cn(variants.root())}
+        className={cn(radioGroupVariants({ size, className }).root())}
         onValueChange={onChange}
         {...props}
       >
@@ -83,13 +81,11 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
   const id = useId();
   const { ariaInvalid, size } = useRadioGroupContext();
 
-  const variants = radioGroupVariants({ size, className });
-
   return (
     <RadioGroupPrimitives.Item
       id={id}
       className={cn(
-        variants.item(),
+        radioGroupVariants({ size, className }).item(),
         ariaInvalid &&
           "border-error focus-visible:ring-ring-error data-[state=checked]:bg-error data-[state=checked]:border-error",
       )}
@@ -97,7 +93,7 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
     >
       <RadioGroupPrimitives.Indicator className="flex items-center justify-center">
         <svg
-          className={cn(variants.indicator())}
+          className={cn(radioGroupVariants({ size, className }).indicator())}
           viewBox="0 0 6 6"
           fill="currentcolor"
           xmlns="http://www.w3.org/2000/svg"
@@ -116,10 +112,8 @@ const RadioGroupLabel = ({
 }: React.ComponentPropsWithRef<"label">) => {
   const { size } = useRadioGroupContext();
 
-  const variants = radioGroupVariants({ size, className });
-
   return (
-    <Label className={variants.label()} {...props}>
+    <Label className={radioGroupVariants({ size, className }).label()} {...props}>
       {children}
     </Label>
   );
@@ -131,10 +125,8 @@ const RadioGroupOption = ({ className, children, ...props }: RadioGroupOptionPro
   const { size } = useRadioGroupContext();
   const id = useId();
 
-  const variants = radioGroupVariants({ size, className });
-
   return (
-    <div className={cn(variants.option())}>
+    <div className={cn(radioGroupVariants({ size, className }).option())}>
       <RadioGroupItem id={id} {...props} />
       <RadioGroupLabel htmlFor={id}>{children}</RadioGroupLabel>
     </div>
