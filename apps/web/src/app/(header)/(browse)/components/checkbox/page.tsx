@@ -1,58 +1,63 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Checkbox, Label } from "@ellie-ui/core";
+import { Checkbox } from "@ellie-ui/core";
 
 export default function CheckboxPage() {
   return (
     <Grid>
       <Grid.Item>
-        <Label className="flex items-center gap-2">
-          <Checkbox size="small" defaultChecked />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox size="small" defaultChecked>
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-2">
-          <Checkbox size="small" disabled />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox size="small" disabled>
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-2">
-          <Checkbox size="small" aria-invalid />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox size="small" aria-invalid>
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-2 text-base">
-          <Checkbox checked="indeterminate" size="small" />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox checked="indeterminate" size="small">
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-2 text-base">
-          <Checkbox defaultChecked size="medium" />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox defaultChecked size="medium">
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-2 text-base">
-          <Checkbox checked="indeterminate" size="medium" />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox checked="indeterminate" size="medium">
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-3 text-base">
-          <Checkbox defaultChecked size="large" />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox defaultChecked size="large">
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Label className="flex items-center gap-3 text-base">
-          <Checkbox checked="indeterminate" size="large" />
-          서비스 약관에 동의합니다.
-        </Label>
+        <Checkbox checked="indeterminate" size="large">
+          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+        </Checkbox>
+      </Grid.Item>
+      <Grid.Item>
+        <Checkbox.Group className="flex flex-col gap-1">
+          <Checkbox size="small" defaultChecked>
+            <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
+          </Checkbox>
+          <Checkbox size="small" defaultChecked>
+            <Checkbox.Label>개인정보 처리 방침에 동의합니다.</Checkbox.Label>
+          </Checkbox>
+          <Checkbox size="small" defaultChecked>
+            <Checkbox.Label>마케인 정보 수신에 동의합니다.</Checkbox.Label>
+          </Checkbox>
+        </Checkbox.Group>
       </Grid.Item>
     </Grid>
   );
