@@ -26,6 +26,7 @@ const BottomSheetOverlay = ({ className, children, ...props }: BottomSheetOverla
       className={cn(
         "fixed inset-0 z-50 bg-black/50",
         "data-[state=open]:animate-in data-[state=open]:fade-in",
+        "data-[state=closed]:animate-out data-[state=closed]:fade-out",
         className,
       )}
       {...props}
@@ -47,7 +48,8 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
           "flex max-h-[calc(100%-4rem)] w-full max-w-[35rem] flex-col",
           "bg-background outline-hidden rounded-t-[2rem]",
           "data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom",
-          "duration-500!",
+          "data-[state=closed]:animate-out data-[state=closed]:slide-out-to-bottom",
+          "duration-500",
           "ease-out-quint",
           className,
         )}
