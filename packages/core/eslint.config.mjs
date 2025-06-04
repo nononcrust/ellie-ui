@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import { FlatCompat } from "@eslint/eslintrc";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -9,16 +12,12 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
-  ...compat.extends("next/typescript"),
-  {
-    rules: {
-      "@next/next/no-img-element": "off",
-    },
+const eslintConfig = [...compat.extends("next/typescript"), {
+  rules: {
+    "@next/next/no-img-element": "off",
   },
-  {
-    ignores: ["**/*.stories.tsx"],
-  },
-];
+}, {
+  ignores: ["**/*.stories.tsx"],
+}, ...storybook.configs["flat/recommended"]];
 
 export default eslintConfig;
