@@ -32,8 +32,8 @@ const radioGroupVariants = tv({
         root: "gap-3",
         item: "size-5",
         indicator: "size-[0.5rem]",
-        label: "text-base",
-        option: "gap-3",
+        label: "text-[0.875rem]",
+        option: "gap-2.5",
       },
       large: {
         root: "gap-4",
