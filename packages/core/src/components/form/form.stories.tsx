@@ -15,7 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
-import { noop } from "../lib/utils";
+import { noop } from "../../lib/utils";
 
 const meta = {
   title: "components/Form",
