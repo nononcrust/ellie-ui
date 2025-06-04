@@ -46,9 +46,6 @@
 }
 
 @theme inline {
-  /* Fonts */
-  --font-pretendard: var(--font-pretendard);
-
   /* Color Palette */
   --color-primary-50: var(--color-blue-50);
   --color-primary-100: var(--color-blue-100);

@@ -1,5 +1,6 @@
 import { Avatar } from "@ellie-ui/core";
 import { Meta, StoryObj } from "@storybook/react-vite";
+import profileImage from "../../assets/images/avatar-profile-image.webp";
 
 const meta = {
   title: "components/Avatar",
@@ -17,6 +18,7 @@ export const Default: Story = {
   render: () => {
     return (
       <Avatar>
+        <Avatar.Image src={profileImage} alt="프로필 이미지" />
         <Avatar.Fallback>U</Avatar.Fallback>
       </Avatar>
     );
