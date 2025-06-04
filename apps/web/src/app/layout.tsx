@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 
 import { site } from "@/configs/site";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
@@ -15,7 +14,6 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning className={`${pretendard.variable} font-pretendard`}>
       <body className="min-h-dvh antialiased">
         <Providers>{children}</Providers>
-        <Analytics />
       </body>
     </html>
   );
