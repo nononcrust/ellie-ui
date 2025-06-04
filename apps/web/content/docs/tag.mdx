@@ -3,3 +3,100 @@ title: Tag
 ---
 
 ## Usage
+
+import { Tag } from "@ellie-ui/core";
+
+<Demo>
+  <Demo.Preview>
+    <Tag>태그</Tag>
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Tag } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return <Tag>태그</Tag>;
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Variants
+
+<Demo>
+  <Demo.Preview>
+    <div className="flex gap-3 flex-wrap">
+      <Tag variant="primary">태그</Tag>
+      <Tag variant="secondary">태그</Tag>
+      <Tag variant="outlined">태그</Tag>
+      <Tag variant="info">태그</Tag>
+      <Tag variant="success">태그</Tag>
+      <Tag variant="danger">태그</Tag>
+      <Tag variant="warning">태그</Tag>
+    </div>
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Tag } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <div className="flex gap-3">
+          <Tag variant="primary">태그</Tag>
+          <Tag variant="secondary">태그</Tag>
+          <Tag variant="outlined">태그</Tag>
+          <Tag variant="info">태그</Tag>
+          <Tag variant="success">태그</Tag>
+          <Tag variant="danger">태그</Tag>
+          <Tag variant="warning">태그</Tag>
+        </div>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Sizes
+
+<Demo>
+  <Demo.Preview>
+    <div className="flex gap-3 items-center">
+      <Tag size="medium">태그</Tag>
+      <Tag size="large">태그</Tag>
+    </div>
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Tag } from "@ellie-ui/core";
+
+    export const Example = () => {
+      return (
+        <div className="flex gap-3 items-center">
+          <Tag size="medium">태그</Tag>
+          <Tag size="large">태그</Tag>
+        </div>
+      )
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### API
+
+### Tag Props
+
+<TypeTable
+  type={{
+    variant: {
+      type: '"primary" | "secondary" | "outlined" | "info" | "success" | "danger" | "warning"',
+      default: "primary",
+    },
+    size: {
+      type: '"medium" | "large"',
+      default: "medium",
+    },
+  }}
+/>
