@@ -5,17 +5,10 @@ import { Button, Checkbox, IconButton } from "@ellie-ui/core";
 import { useCheckboxGroup } from "@ellie-ui/core/hooks";
 import { ChevronRightIcon } from "lucide-react";
 
-const terms = {
-  age: "age",
-  terms: "terms",
-  financial: "financial",
-  privacy: "privacy",
-  privacyUsage: "privacyUsage",
-  marketing: "marketing",
-};
+const terms = ["age", "terms", "financial", "privacy", "privacyUsage", "marketing"] as const;
 
 export default function TermsPage() {
-  const termsCheckboxGroup = useCheckboxGroup(Object.values(terms));
+  const termsCheckboxGroup = useCheckboxGroup({ entries: terms });
 
   return (
     <Mobile>
@@ -41,30 +34,26 @@ export default function TermsPage() {
         <TermsItem
           title="만 14세 이상입니다."
           required
-          {...termsCheckboxGroup.getCheckboxProps(terms.age)}
+          {...termsCheckboxGroup.getCheckboxProps("age")}
         />
-        <TermsItem
-          title="이용약관"
-          required
-          {...termsCheckboxGroup.getCheckboxProps(terms.terms)}
-        />
+        <TermsItem title="이용약관" required {...termsCheckboxGroup.getCheckboxProps("terms")} />
         <TermsItem
           title="전자금융거래 이용약관"
           required
-          {...termsCheckboxGroup.getCheckboxProps(terms.financial)}
+          {...termsCheckboxGroup.getCheckboxProps("financial")}
         />
         <TermsItem
           title="개인정보 수집동의서"
           required
-          {...termsCheckboxGroup.getCheckboxProps(terms.privacy)}
+          {...termsCheckboxGroup.getCheckboxProps("privacy")}
         />
         <TermsItem
           title="개인정보 마케팅 활용 동의"
-          {...termsCheckboxGroup.getCheckboxProps(terms.privacyUsage)}
+          {...termsCheckboxGroup.getCheckboxProps("privacyUsage")}
         />
         <TermsItem
           title="이벤트, 홍보 알림 메일 및 SMS 등 수신"
-          {...termsCheckboxGroup.getCheckboxProps(terms.marketing)}
+          {...termsCheckboxGroup.getCheckboxProps("marketing")}
         />
       </ul>
       <Button className="mt-16" size="xlarge">
