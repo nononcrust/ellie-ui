@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
   return (
-    <aside className="bg-background scrollbar-hide fixed left-0 top-14 hidden h-[calc(100vh-3.5rem)] min-w-[15rem] flex-col overflow-y-auto py-12 md:flex">
+    <aside className="bg-background scrollbar-hide fixed left-0 top-0 hidden h-[calc(100vh-3.5rem)] min-w-[15rem] flex-col overflow-y-auto pb-12 pt-32 md:flex">
       <nav className="flex flex-col gap-6 px-6">
         {menu.map((group) => (
           <SidebarGroup key={group.title}>
@@ -54,5 +54,5 @@ const SidebarSubtitle = ({ title }: SidebarSubtitleProps) => {
 };
 
 const SidebarGroup = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-col">{children}</div>;
+  return <div className="flex flex-col gap-0.5">{children}</div>;
 };

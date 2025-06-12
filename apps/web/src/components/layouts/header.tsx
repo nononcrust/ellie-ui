@@ -23,7 +23,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "bg-background sticky top-0 z-10 flex h-14 w-full items-center justify-between border-b px-2 pl-5 transition-colors",
+        "sticky top-0 z-10 flex h-14 w-full items-center justify-between border-b px-2 pl-5 shadow-xl transition-colors",
         HIDDEN_ROUTES.includes(pathname) && "hidden",
         isScrollTop ? "border-transparent" : "border-border",
         "bg-background/70 backdrop-blur-sm",
@@ -35,15 +35,20 @@ export const Header = () => {
           <Logo />
           <span className="font-bold">Ellie UI</span>
         </Link>
-        <nav className="ml-8 flex items-center gap-4">
+        <nav className="ml-8 flex items-center gap-1">
           <Link
-            className="text-sub hover:text-main text-sm font-medium transition-colors"
+            className={cn(
+              "text-sub hover:text-main hover:bg-background-100 flex h-7 items-center justify-center rounded-full px-3 text-sm font-medium transition-colors",
+            )}
             href="/docs"
           >
             Docs
           </Link>
           <Link
-            className={cn("text-sub hover:text-main text-sm font-medium transition-colors")}
+            className={cn(
+              "text-sub hover:text-main hover:bg-background-100 flex h-7 items-center justify-center rounded-full px-3 text-sm font-medium transition-colors",
+              pathname.includes("/components") && "bg-background-100 text-main",
+            )}
             href="/components/button"
           >
             Examples

@@ -43,6 +43,7 @@
   --color-error: var(--color-red-400);
   --color-error-dark: var(--color-red-500);
   --color-error-light: var(--color-red-300);
+  --color-error-lighter: var(--color-red-900);
 }
 
 @theme inline {
@@ -185,13 +186,13 @@
 
 @utility focus-input-ring {
   &:focus-visible {
-    @apply border-primary ring-primary-lighter dark:border-primary-lighter dark:ring-primary-light outline-hidden border ring-[3px] ring-offset-0;
+    @apply border-primary ring-primary-lighter dark:border-primary dark:ring-primary-darker outline-hidden border ring-[3px] ring-offset-0;
   }
 }
 
 @utility focus-input-ring-error {
   &:focus-visible {
-    @apply border-error ring-error-lighter dark:border-error-lighter dark:ring-error-light outline-hidden border ring-[3px] ring-offset-0;
+    @apply border-error ring-error-lighter dark:border-error dark:ring-error-lighter outline-hidden border ring-[3px] ring-offset-0;
   }
 }
 

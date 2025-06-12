@@ -24,7 +24,7 @@ const PopoverContent = ({ className, children, sideOffset = 4, ...props }: Popov
       <PopoverPrimitives.Content
         sideOffset={sideOffset}
         className={cn(
-          "border-border bg-background text-main outline-hidden relative z-50 min-w-[8rem] overflow-y-auto overflow-x-hidden rounded-md border shadow-lg",
+          "border-border bg-background text-main outline-hidden relative z-50 min-w-[8rem] overflow-y-auto overflow-x-hidden rounded-xl border shadow-lg",
           "max-h-[calc(var(--radix-popover-content-available-height)-8px)]",
           "animate-in fade-in-0",
           "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",

@@ -93,7 +93,7 @@ const Pagination = ({ className, page, onChange, total, ...props }: PaginationPr
         >
           <ChevronLeftIcon className="size-5" />
         </Navigation>
-        <div className="bg-background border-border flex items-center gap-1 rounded-full border p-2">
+        <div className="bg-background border-border flex items-center gap-1 rounded-full border p-2 shadow-lg">
           {renderPages()}
         </div>
         <Navigation
@@ -114,7 +114,7 @@ const Navigation = ({ className, children, ...props }: NavigationProps) => {
   return (
     <button
       className={cn(
-        "bg-background hover:bg-background-100 border-border flex size-9 items-center justify-center rounded-full border transition-colors",
+        "bg-background hover:bg-background-100 border-border flex size-9 items-center justify-center rounded-full border shadow-lg transition-colors",
         "disabled:pointer-events-none disabled:opacity-50",
         className,
       )}

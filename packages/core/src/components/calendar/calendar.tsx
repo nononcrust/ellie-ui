@@ -26,7 +26,7 @@ const Calendar = (props: CalendarProps) => {
 };
 
 const navButton =
-  "text-main absolute size-7 flex justify-center items-center rounded-[0.375rem] bg-background-100 hover:bg-background-200 transition-colors disabled:pointer-events-none disabled:opacity-50";
+  "text-main absolute size-8 flex justify-center items-center rounded-full bg-background-100 hover:bg-background-200 transition-colors disabled:pointer-events-none disabled:opacity-50";
 
 const classNames = {
   months: "flex relative",
@@ -34,7 +34,7 @@ const classNames = {
   month_caption: "mb-10 flex justify-center relative items-center",
   caption_label:
     "absolute bottom-0 left-0 right-0 top-4 text-[0.8125rem] font-medium flex items-center justify-center text-main",
-  nav: "flex justify-between items-center bg-background-100 rounded-[0.375rem] w-full h-8 p-1 absolute top-0 left-0 right-0",
+  nav: "flex justify-between items-center w-full h-8 p-1 absolute top-0 left-0 right-0",
   button_previous: cn(navButton, "left-[0.125rem]"),
   button_next: cn(navButton, "right-[0.125rem]"),
   month_grid: "w-full border-collapse gap-2",
