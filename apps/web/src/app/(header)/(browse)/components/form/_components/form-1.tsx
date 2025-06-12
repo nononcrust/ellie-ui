@@ -6,7 +6,6 @@ import {
   DatePicker,
   Form,
   Input,
-  Label,
   RadioGroup,
   Select,
   toast,
@@ -120,12 +119,11 @@ export const Form1 = () => {
                   id={checkboxId}
                   ref={field.ref}
                 >
-                  약관에 동의합니다.
+                  <Checkbox.Label>약관에 동의합니다.</Checkbox.Label>
                 </Checkbox>
               </Form.Control>
             )}
           />
-          <Label htmlFor={checkboxId}>서비스 이용약관에 동의합니다.</Label>
         </div>
         <Form.ErrorMessage>{form.formState.errors.terms?.message}</Form.ErrorMessage>
       </Form.Item>

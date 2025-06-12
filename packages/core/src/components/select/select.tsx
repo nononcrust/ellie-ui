@@ -127,7 +127,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
-        "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-2 pr-8 text-sm font-medium",
+        "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-3 pr-8 text-sm font-medium",
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
@@ -137,7 +137,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
       {...props}
     >
       <SelectPrimitives.ItemText>{children}</SelectPrimitives.ItemText>
-      <SelectPrimitives.ItemIndicator className="bg-primary size-4.5 absolute right-2 flex items-center justify-center rounded-full text-white">
+      <SelectPrimitives.ItemIndicator className="bg-primary size-4.5 absolute right-3 flex items-center justify-center rounded-full text-white">
         <CheckIcon className="stroke-3 size-3" />
       </SelectPrimitives.ItemIndicator>
     </SelectPrimitives.Item>
