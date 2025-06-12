@@ -33,7 +33,7 @@ export const Header = () => {
       <div className="flex items-center">
         <Link className="flex items-center gap-2" href="/">
           <Logo />
-          <span className="font-bold">Ellie UI</span>
+          <span className="whitespace-nowrap font-bold">Ellie UI</span>
         </Link>
         <nav className="ml-8 flex items-center gap-1">
           <Link
@@ -47,6 +47,7 @@ export const Header = () => {
           <Link
             className={cn(
               "text-sub hover:text-main hover:bg-background-100 flex h-7 items-center justify-center rounded-full px-3 text-sm font-medium transition-colors",
+              "max-md:hidden",
               pathname.includes("/components") && "bg-background-100 text-main",
             )}
             href="/components/button"
