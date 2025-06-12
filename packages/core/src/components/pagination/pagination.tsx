@@ -93,7 +93,7 @@ const Pagination = ({ className, page, onChange, total, ...props }: PaginationPr
         >
           <ChevronLeftIcon className="size-5" />
         </Navigation>
-        <div className="bg-background-100 flex items-center gap-1 rounded-full p-2">
+        <div className="bg-background border-border flex items-center gap-1 rounded-full border p-2">
           {renderPages()}
         </div>
         <Navigation
@@ -114,7 +114,7 @@ const Navigation = ({ className, children, ...props }: NavigationProps) => {
   return (
     <button
       className={cn(
-        "bg-background-100 hover:bg-background-200 flex size-7 items-center justify-center rounded-full transition-colors",
+        "bg-background hover:bg-background-100 border-border flex size-9 items-center justify-center rounded-full border transition-colors",
         "disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
@@ -141,7 +141,7 @@ const PaginationItem = ({ page, ...props }: PaginationItem) => {
   return (
     <button
       className={cn(
-        "hover:bg-background-200 flex size-7 items-center justify-center rounded-full text-sm transition-colors",
+        "bg-background hover:bg-background-100 flex size-7 items-center justify-center rounded-full text-sm transition-colors",
         isActive && "bg-primary hover:bg-primary-dark text-white",
       )}
       aria-label="페이지 이동"
