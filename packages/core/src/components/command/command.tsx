@@ -42,7 +42,7 @@ type CommandListProps = React.ComponentPropsWithRef<typeof CommandPrimitives.Lis
 const CommandList = ({ className, children, ...props }: CommandListProps) => {
   return (
     <CommandPrimitives.List
-      className={cn("max-h-80 overflow-y-auto overflow-x-hidden p-1", className)}
+      className={cn("max-h-80 overflow-y-auto overflow-x-hidden py-1", className)}
       {...props}
     >
       {children}
@@ -67,7 +67,7 @@ const CommandItem = ({ className, ...props }: CommandItemProps) => {
   return (
     <CommandPrimitives.Item
       className={cn(
-        "outline-hidden relative flex cursor-pointer select-none items-center gap-3 rounded-[0.5rem] px-2 py-1.5 text-sm font-medium",
+        "outline-hidden relative flex cursor-pointer select-none items-center gap-3 px-2 py-2 text-sm font-medium",
         "data-[selected=true]:bg-background-100",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0",

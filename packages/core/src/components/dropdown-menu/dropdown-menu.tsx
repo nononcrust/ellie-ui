@@ -27,7 +27,7 @@ const DropdownMenuContent = ({
     <DropdownMenuPrimitives.Portal>
       <DropdownMenuPrimitives.Content
         className={cn(
-          "border-border bg-background text-main z-50 min-w-40 overflow-hidden rounded-md border p-1 shadow-lg",
+          "border-border bg-background text-main z-50 min-w-40 overflow-hidden rounded-md border py-1 shadow-lg",
           "animate-in fade-in-0",
           "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           className,
@@ -47,7 +47,7 @@ const DropdownMenuItem = ({ className, children, ...props }: DropdownMenuItemPro
   return (
     <DropdownMenuPrimitives.Item
       className={cn(
-        "text-main outline-hidden relative flex cursor-pointer select-none items-center gap-2 rounded-[0.375rem] px-2 py-1.5 text-sm font-medium",
+        "text-main outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-2 py-2 text-sm font-medium",
         "focus:bg-background-hover",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         "[&_svg]:shrink-0",

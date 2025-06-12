@@ -24,7 +24,7 @@ export const buttonVariant = {
 
 const buttonVariants = tv({
   base: cn(
-    "inline-flex justify-center items-center gap-2 font-semibold outline-hidden whitespace-nowrap text-foreground transition-colors",
+    "inline-flex justify-center items-center gap-2 font-semibold outline-hidden whitespace-nowrap transition-colors",
     "disabled:opacity-50 disabled:pointer-events-none",
   ),
   variants: {

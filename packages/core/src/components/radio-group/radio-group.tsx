@@ -65,7 +65,7 @@ const RadioGroup = ({
   return (
     <RadioGroupContext value={{ ariaInvalid, size }}>
       <RadioGroupPrimitives.Root
-        className={cn(radioGroupVariants({ size, className }).root())}
+        className={cn(radioGroupVariants({ size }).root(), className)}
         onValueChange={onChange}
         {...props}
       >

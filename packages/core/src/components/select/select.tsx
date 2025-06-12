@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDownIcon } from "lucide-react";
+import { CheckIcon, ChevronDownIcon } from "lucide-react";
 import { Select as SelectPrimitives } from "radix-ui";
 import React from "react";
 import { cn } from "../../lib/utils";
@@ -99,7 +99,7 @@ const SelectContent = ({
         {...props}
       >
         <SelectPrimitives.Viewport
-          className={cn("p-1", position === "popper" && "h-[var(--radix-select-trigger-height)]")}
+          className={cn("py-1", position === "popper" && "h-[var(--radix-select-trigger-height)]")}
         >
           {children}
         </SelectPrimitives.Viewport>
@@ -127,7 +127,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
     <SelectPrimitives.Item
       className={cn(
-        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[0.5rem] px-2 py-1.5 text-sm font-medium",
+        "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-2 pr-8 text-sm font-medium",
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
@@ -137,6 +137,9 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
       {...props}
     >
       <SelectPrimitives.ItemText>{children}</SelectPrimitives.ItemText>
+      <SelectPrimitives.ItemIndicator className="bg-primary size-4.5 absolute right-2 flex items-center justify-center rounded-full text-white">
+        <CheckIcon className="stroke-3 size-3" />
+      </SelectPrimitives.ItemIndicator>
     </SelectPrimitives.Item>
   );
 };
