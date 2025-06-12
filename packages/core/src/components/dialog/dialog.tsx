@@ -41,7 +41,7 @@ const DialogOverlay = ({ className, children, ...props }: DialogOverlayProps) =>
   return (
     <DialogPrimitives.Overlay
       className={cn(
-        "fixed inset-0 z-50 bg-black/70",
+        "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm",
         animation !== "none" && "animate-in fade-in",
         className,
       )}

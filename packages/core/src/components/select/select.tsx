@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils";
 
 export const selectStyle = {
   base: cn(
-    "border-border bg-background relative text-main flex h-9 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-sm font-medium shadow-xs outline-hidden",
+    "border-border bg-background relative text-main flex h-10 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-sm font-medium shadow-xs outline-hidden",
     "data-placeholder:text-placeholder",
     "[&>span]:min-w-0",
     "placeholder-placeholder",
@@ -26,7 +26,7 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
     <ChevronDownIcon
       strokeWidth={2}
       className={cn(
-        "text-sub pointer-events-none absolute right-3 top-1/2 size-4 shrink-0 -translate-y-1/2",
+        "text-sub size-4.5 pointer-events-none absolute right-3 top-1/2 shrink-0 -translate-y-1/2",
         className,
       )}
     />

@@ -113,7 +113,6 @@ export const Form1 = () => {
             render={({ field }) => (
               <Form.Control>
                 <Checkbox
-                  size="small"
                   checked={field.value}
                   onChange={field.onChange}
                   id={checkboxId}
@@ -148,7 +147,7 @@ export const Form1 = () => {
           control={form.control}
           render={({ field }) => (
             <Form.Control>
-              <RadioGroup {...field} onChange={field.onChange} size="small">
+              <RadioGroup {...field} onChange={field.onChange}>
                 <RadioGroup.Option value="1">남성</RadioGroup.Option>
                 <RadioGroup.Option value="2">여성</RadioGroup.Option>
               </RadioGroup>
