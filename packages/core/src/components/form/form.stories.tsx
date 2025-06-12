@@ -279,7 +279,7 @@ export const WithRadioGroup: Story = {
             control={form.control}
             render={({ field }) => (
               <Form.Control>
-                <RadioGroup size="small" {...field}>
+                <RadioGroup {...field}>
                   <RadioGroup.Option value="1">옵션 1</RadioGroup.Option>
                   <RadioGroup.Option value="2">옵션 2</RadioGroup.Option>
                   <RadioGroup.Option value="3">옵션 3</RadioGroup.Option>
@@ -322,7 +322,7 @@ export const WithCheckbox: Story = {
             render={({ field: { value, ...rest } }) => (
               <Label className="flex items-center gap-2 text-sm">
                 <Form.Control>
-                  <Checkbox size="small" checked={value} {...rest} />
+                  <Checkbox checked={value} {...rest} />
                 </Form.Control>
                 서비스 이용약관에 동의합니다.
               </Label>
