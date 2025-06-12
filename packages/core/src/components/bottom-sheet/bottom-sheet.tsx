@@ -24,7 +24,7 @@ const BottomSheetOverlay = ({ className, children, ...props }: BottomSheetOverla
   return (
     <DialogPrimitives.Overlay
       className={cn(
-        "fixed inset-0 z-50 bg-black/50",
+        "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm",
         "data-[state=open]:animate-in data-[state=open]:fade-in",
         "data-[state=closed]:animate-out data-[state=closed]:fade-out",
         className,
@@ -56,9 +56,9 @@ const BottomSheetContent = ({ className, children, ...props }: DialogContentProp
         {...props}
       >
         {children}
-        <DialogPrimitives.Close className="absolute right-4 top-8" asChild>
+        <DialogPrimitives.Close className="absolute right-4 top-[1.5rem]" asChild>
           <IconButton variant="ghost" aria-label="닫기">
-            <XIcon className="size-6" />
+            <XIcon className="size-5" />
           </IconButton>
         </DialogPrimitives.Close>
       </DialogPrimitives.Content>
@@ -107,7 +107,7 @@ type BottomSheetTitleProps = React.ComponentPropsWithRef<typeof DialogPrimitives
 const BottomSheetTitle = ({ className, children, ...props }: BottomSheetTitleProps) => {
   return (
     <DialogPrimitives.Title
-      className={cn("mt-3 text-[1.375rem] font-semibold", className)}
+      className={cn("mt-2 text-[1.25rem] font-semibold", className)}
       {...props}
     >
       {children}
@@ -119,10 +119,7 @@ type BottomSheetDescriptionProps = React.ComponentPropsWithRef<typeof DialogPrim
 
 const BottomSheetDescription = ({ className, children, ...props }: BottomSheetDescriptionProps) => {
   return (
-    <DialogPrimitives.Description
-      className={cn("text-sub text-lg font-medium", className)}
-      {...props}
-    >
+    <DialogPrimitives.Description className={cn("text-sub font-medium", className)} {...props}>
       {children}
     </DialogPrimitives.Description>
   );
@@ -172,18 +169,23 @@ const BottomSheetSelectItem = ({
   const isSelected = selectedValue === value;
 
   return (
-    <li>
+    <li className="flex">
       <DialogPrimitives.Close
         className={cn(
-          "flex w-full items-center justify-between py-4 text-start text-lg font-medium",
-          "md:hover:text-primary",
+          "-mx-5 flex flex-1 items-center justify-between py-3 text-start font-medium",
+          "hover:bg-background-100 px-5",
+          isSelected && "text-primary",
           className,
         )}
         onClick={() => onChange(value)}
         {...props}
       >
         {children}
-        {isSelected && <CheckIcon className="text-primary" />}
+        {isSelected && (
+          <span className="bg-primary flex size-6 items-center justify-center rounded-full text-white">
+            <CheckIcon className="size-4" />
+          </span>
+        )}
       </DialogPrimitives.Close>
     </li>
   );
