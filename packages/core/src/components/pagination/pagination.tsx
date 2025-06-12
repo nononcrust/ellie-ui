@@ -1,14 +1,8 @@
 "use client";
 
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronsLeftIcon,
-  ChevronsRightIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
-import { IconButton } from "../icon-button";
 
 type PaginationContextValue = {
   page: number;
@@ -91,46 +85,43 @@ const Pagination = ({ className, page, onChange, total, ...props }: PaginationPr
 
   return (
     <PaginationContext.Provider value={value}>
-      <nav className={cn("flex items-center gap-1", className)} {...props}>
-        <IconButton
-          size="xsmall"
-          variant="ghost"
-          aria-label="처음 페이지로 이동"
-          onClick={() => onChange(1)}
-          disabled={page === 1}
-        >
-          <ChevronsLeftIcon className="size-4" />
-        </IconButton>
-        <IconButton
-          size="xsmall"
-          variant="ghost"
+      <nav className={cn("flex items-center gap-2", className)} {...props}>
+        <Navigation
           aria-label="이전 페이지로 이동"
           onClick={() => onChange(page - 1)}
           disabled={page === 1}
         >
-          <ChevronLeftIcon className="size-4" />
-        </IconButton>
-        {renderPages()}
-        <IconButton
-          size="xsmall"
-          variant="ghost"
+          <ChevronLeftIcon className="size-5" />
+        </Navigation>
+        <div className="bg-background-100 flex items-center gap-1 rounded-full p-2">
+          {renderPages()}
+        </div>
+        <Navigation
           aria-label="다음 페이지로 이동"
           onClick={() => onChange(page + 1)}
           disabled={page === total}
         >
-          <ChevronRightIcon className="size-4" />
-        </IconButton>
-        <IconButton
-          size="xsmall"
-          variant="ghost"
-          aria-label="마지막 페이지로 이동"
-          onClick={() => onChange(total)}
-          disabled={page === total}
-        >
-          <ChevronsRightIcon className="size-4" />
-        </IconButton>
+          <ChevronRightIcon className="size-5" />
+        </Navigation>
       </nav>
     </PaginationContext.Provider>
+  );
+};
+
+type NavigationProps = React.ComponentPropsWithoutRef<"button">;
+
+const Navigation = ({ className, children, ...props }: NavigationProps) => {
+  return (
+    <button
+      className={cn(
+        "bg-background-100 hover:bg-background-200 flex size-7 items-center justify-center rounded-full transition-colors",
+        "disabled:pointer-events-none disabled:opacity-50",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </button>
   );
 };
 
@@ -148,16 +139,18 @@ const PaginationItem = ({ page, ...props }: PaginationItem) => {
   };
 
   return (
-    <IconButton
-      size="xsmall"
-      variant={isActive ? "primary" : "outlined"}
+    <button
+      className={cn(
+        "hover:bg-background-200 flex size-7 items-center justify-center rounded-full text-sm transition-colors",
+        isActive && "bg-primary hover:bg-primary-dark text-white",
+      )}
       aria-label="페이지 이동"
       onClick={onClick}
       title={isActive ? "선택됨" : ""}
       {...props}
     >
       {page}
-    </IconButton>
+    </button>
   );
 };
 
