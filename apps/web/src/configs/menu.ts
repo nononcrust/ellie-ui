@@ -35,6 +35,7 @@ export const menu = [
       { title: "Pagination", href: "/components/pagination" },
       { title: "Fab", href: "/components/fab" },
       { title: "Form", href: "/components/form" },
+      { title: "Toast", href: "/components/toast" },
       { title: "Chat", href: "/components/chat" },
     ],
   },
