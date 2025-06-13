@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { ChipTabs, Tabs } from "@ellie-ui/core";
+import { Badge, ChipTabs, Tabs } from "@ellie-ui/core";
 
 export default function TabsPage() {
   return (
@@ -32,6 +32,25 @@ export default function TabsPage() {
             <Tabs.Trigger value="3" disabled>
               공지사항
             </Tabs.Trigger>
+          </Tabs.List>
+        </Tabs>
+      </Grid.Item>
+      <Grid.Item>
+        <Tabs defaultValue="1">
+          <Tabs.List>
+            <Tabs.Trigger value="1">
+              전체
+              <Badge className="ml-2.5" variant="secondary">
+                99+
+              </Badge>
+            </Tabs.Trigger>
+            <Tabs.Trigger value="2">
+              인기글
+              <Badge className="ml-2.5" variant="secondary">
+                24
+              </Badge>
+            </Tabs.Trigger>
+            <Tabs.Trigger value="3">공지사항</Tabs.Trigger>
           </Tabs.List>
         </Tabs>
       </Grid.Item>
