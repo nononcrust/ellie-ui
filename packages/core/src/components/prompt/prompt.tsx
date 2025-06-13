@@ -40,7 +40,7 @@ const PromptOverlay = ({ className, children, ...props }: PromptOverlayProps) =>
   return (
     <AlertDialogPrimitives.Overlay
       className={cn(
-        "fixed inset-0 z-50 bg-black/70 backdrop-blur-sm",
+        "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm",
         animation !== "none" && "animate-in fade-in",
         className,
       )}
