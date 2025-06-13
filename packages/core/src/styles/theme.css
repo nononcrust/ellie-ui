@@ -212,11 +212,7 @@
 @layer base {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #d1d5db white;
-  }
-
-  .dark {
-    scrollbar-color: #6b6b6b #2c2c2c;
+    scrollbar-color: var(--color-background-200) var(--color-background);
   }
 
   button:not(:disabled),
