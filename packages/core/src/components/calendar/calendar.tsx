@@ -20,6 +20,10 @@ const Calendar = (props: CalendarProps) => {
       classNames={classNames}
       locale={ko}
       components={components}
+      labels={{
+        labelPrevious: () => "이전 달",
+        labelNext: () => "다음 달",
+      }}
       {...props}
     />
   );
@@ -31,7 +35,6 @@ const navButton =
 const classNames = {
   months: "flex relative",
   month: "flex flex-col gap-2 w-full",
-  month_caption: "mb-10 flex justify-center relative items-center",
   caption_label:
     "absolute bottom-0 left-0 right-0 top-4 text-[0.8125rem] font-medium flex items-center justify-center text-main",
   nav: "flex justify-between items-center w-full h-8 p-1 absolute top-0 left-0 right-0",
@@ -108,6 +111,14 @@ const components: Partial<CustomComponents> = {
     return <ChevronRightIcon className="size-4" strokeWidth={3} />;
   },
   Day,
+  MonthCaption: ({ calendarMonth }) => (
+    <span className="mx-10 mb-2 flex h-8 items-center justify-center text-sm font-medium">
+      {calendarMonth.date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+      })}
+    </span>
+  ),
 };
 
 export { Calendar };
