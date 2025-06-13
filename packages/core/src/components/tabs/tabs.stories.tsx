@@ -1,4 +1,4 @@
-import { Tabs } from "@ellie-ui/core";
+import { LinkTabs, Tabs } from "@ellie-ui/core";
 import { useTabs } from "@ellie-ui/core/hooks";
 import { Meta, StoryObj } from "@storybook/react-vite";
 
@@ -97,6 +97,24 @@ export const Controlled: Story = {
           <Tabs.Trigger value="3">버튼 3</Tabs.Trigger>
         </Tabs.List>
       </Tabs>
+    );
+  },
+};
+
+export const Link: Story = {
+  render: () => {
+    return (
+      <LinkTabs>
+        <LinkTabs.Trigger active>
+          <a href="#">버튼 1</a>
+        </LinkTabs.Trigger>
+        <LinkTabs.Trigger>
+          <a href="#">버튼 2</a>
+        </LinkTabs.Trigger>
+        <LinkTabs.Trigger>
+          <a href="#">버튼 3</a>
+        </LinkTabs.Trigger>
+      </LinkTabs>
     );
   },
 };

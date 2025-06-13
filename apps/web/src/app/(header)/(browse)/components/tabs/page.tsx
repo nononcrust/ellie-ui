@@ -1,7 +1,8 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { Badge, ChipTabs, Tabs } from "@ellie-ui/core";
+import { Badge, ChipTabs, LinkTabs, Tabs } from "@ellie-ui/core";
+import Link from "next/link";
 
 export default function TabsPage() {
   return (
@@ -53,6 +54,19 @@ export default function TabsPage() {
             <Tabs.Trigger value="3">공지사항</Tabs.Trigger>
           </Tabs.List>
         </Tabs>
+      </Grid.Item>
+      <Grid.Item>
+        <LinkTabs>
+          <LinkTabs.Trigger active>
+            <Link href="#">전체</Link>
+          </LinkTabs.Trigger>
+          <LinkTabs.Trigger>
+            <Link href="/desktop/login">로그인</Link>
+          </LinkTabs.Trigger>
+          <LinkTabs.Trigger>
+            <Link href="/desktop/feed">피드</Link>
+          </LinkTabs.Trigger>
+        </LinkTabs>
       </Grid.Item>
       <Grid.Item>
         <ChipTabs defaultValue="1">

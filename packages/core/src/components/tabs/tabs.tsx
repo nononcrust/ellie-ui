@@ -5,7 +5,7 @@ import { tv, VariantProps } from "tailwind-variants";
 import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
-const tabsVariants = tv({
+export const tabsVariants = tv({
   base: cn(
     "text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
     "disabled:pointer-events-none disabled:opacity-50",

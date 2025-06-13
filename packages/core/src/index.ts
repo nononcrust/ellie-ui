@@ -19,6 +19,7 @@ export * from "./components/form";
 export * from "./components/icon-button";
 export * from "./components/input";
 export * from "./components/label";
+export * from "./components/link-tabs";
 export * from "./components/native-select";
 export * from "./components/pagination";
 export * from "./components/popover";
