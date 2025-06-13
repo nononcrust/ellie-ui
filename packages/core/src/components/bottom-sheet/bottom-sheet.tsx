@@ -74,7 +74,7 @@ const BottomSheetHeader = ({ className, children, ...props }: BottomSheetHeaderP
       <div className={cn("flex flex-col gap-1.5 p-5 pb-1", className)} {...props}>
         {children}
       </div>
-      <div className="to-background bg-linear-to-t absolute -bottom-5 left-2 right-2 h-5 from-transparent" />
+      <div className="to-background bg-linear-to-t absolute -bottom-5 left-0 right-0 h-5 from-transparent" />
     </div>
   );
 };
@@ -94,7 +94,7 @@ type BottomSheetFooterProps = React.ComponentPropsWithRef<"div">;
 const BottomSheetFooter = ({ className, children, ...props }: BottomSheetFooterProps) => {
   return (
     <div className="relative flex flex-col">
-      <div className="from-background bg-linear-to-t absolute -top-5 left-2 right-2 h-5 to-transparent" />
+      <div className="from-background bg-linear-to-t absolute -top-5 left-0 right-0 h-5 to-transparent" />
       <div className={cn("flex p-5 pt-1", className)} {...props}>
         {children}
       </div>
