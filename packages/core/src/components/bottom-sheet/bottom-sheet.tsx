@@ -172,7 +172,7 @@ const BottomSheetSelectItem = ({
     <li className="flex">
       <DialogPrimitives.Close
         className={cn(
-          "-mx-5 flex flex-1 items-center justify-between py-3 text-start font-medium",
+          "-mx-5 flex flex-1 items-center justify-between py-3 text-start text-lg font-medium",
           "hover:bg-background-100 px-5",
           isSelected && "text-primary",
           className,
