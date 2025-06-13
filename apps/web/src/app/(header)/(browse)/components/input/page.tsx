@@ -1,6 +1,6 @@
 import { Grid } from "@/components/layouts/grid";
-import { Input, Label } from "@ellie-ui/core";
-import { SearchIcon } from "lucide-react";
+import { Input, Label, Tooltip } from "@ellie-ui/core";
+import { InfoIcon, SearchIcon } from "lucide-react";
 
 export default function InputPage() {
   return (
@@ -24,8 +24,14 @@ export default function InputPage() {
       </Grid.Item>
       <Grid.Item>
         <div className="flex w-full flex-col">
-          <Label htmlFor="3" className="mb-2">
+          <Label htmlFor="3" className="mb-2 flex items-center">
             이메일
+            <Tooltip content="계정 당 하나의 이메일만 사용할 수 있습니다.">
+              <InfoIcon
+                className="text-subtle outline-hidden focus-visible:focus-ring ml-1.5 size-3.5 rounded-full"
+                tabIndex={0}
+              />
+            </Tooltip>
           </Label>
           <Input id="3" placeholder="이메일을 입력하세요." />
         </div>
