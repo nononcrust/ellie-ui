@@ -9,7 +9,7 @@ export const CheckboxDemo = () => {
 
 export const CheckboxDemoWithLabel = () => {
   return (
-    <Checkbox size="small" defaultChecked>
+    <Checkbox defaultChecked>
       <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
     </Checkbox>
   );
