@@ -14,8 +14,8 @@ type DatePickerProps = Omit<
   PropsBase & PropsSingle & Omit<React.ComponentPropsWithRef<"button">, "hidden">,
   "selected" | "onSelect" | "mode" | "onChange" | "value"
 > & {
-  value?: Date;
-  onChange: (date?: Date) => void;
+  value: Date | undefined;
+  onChange: (date: Date | undefined) => void;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
@@ -112,8 +112,8 @@ type DateRangePickerProps = Omit<
   PropsBase & PropsRange & Omit<React.ComponentPropsWithRef<"button">, "hidden">,
   "selected" | "onSelect" | "mode" | "onChange" | "value"
 > & {
-  value?: DateRange;
-  onChange: (date?: DateRange) => void;
+  value: DateRange | undefined;
+  onChange: (date: DateRange | undefined) => void;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
