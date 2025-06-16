@@ -2,4 +2,230 @@
 title: Date Picker
 ---
 
+import {
+  DatePickerDemo,
+  DatePickerDemoRange,
+  DatePickerDemoWithPlaceholder,
+  DatePickerDemoDisabled,
+  DatePickerDemoDayDisabled,
+  DatePickerDemoWithForm,
+} from "@/components/mdx/date-picker-demo";
+
 ## Usage
+
+<Demo>
+  <Demo.Preview>
+    <DatePickerDemo />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { DatePicker } from "@ellie-ui/core";
+    import { useDatePicker } from "@ellie-ui/core/hooks";
+
+    export const Example = () => {
+        const datePicker = useDatePicker();
+
+        return <DatePicker value={datePicker.value} onChange={datePicker.onChange} />
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Date Range
+
+<Demo>
+  <Demo.Preview>
+    <DatePickerDemoRange />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { DateRangePicker } from "@ellie-ui/core";
+    import { useDateRangePicker } from "@ellie-ui/core/hooks";
+
+    export const Example = () => {
+        const dateRangePicker = useDateRangePicker();
+
+        return <DateRangePicker value={dateRangePicker.value} onChange={dateRangePicker.onChange} />
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### With placeholder
+
+<Demo>
+  <Demo.Preview>
+    <DatePickerDemoWithPlaceholder />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    export const DatePickerDemoWithPlaceholder = () => {
+      const datePicker = useDatePicker();
+    
+      return (
+        <DatePicker
+          className="w-[20rem]"
+          value={datePicker.value}
+          onChange={datePicker.onChange}
+          placeholder="날짜를 선택해주세요"
+        />
+      );
+    };
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Disabled
+
+<Demo>
+  <Demo.Preview>
+    <DatePickerDemoDisabled />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { DatePicker } from "@ellie-ui/core";
+    import { useDatePicker } from "@ellie-ui/core/hooks";
+
+    export const Example = () => {
+        const datePicker = useDatePicker();
+
+        return <DatePicker value={datePicker.value} onChange={datePicker.onChange} disabled />
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### Day Disabled
+
+<Demo>
+  <Demo.Preview>
+    <DatePickerDemoDayDisabled />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { DatePicker } from "@ellie-ui/core";
+    import { useDatePicker } from "@ellie-ui/core/hooks";
+
+    export const Example = () => {
+        const datePicker = useDatePicker();
+
+        return <DatePicker value={datePicker.value} onChange={datePicker.onChange} hidden={{ before: new Date() }} />
+    }
+    ```
+
+  </Demo.Code>
+</Demo>
+
+### With Form
+
+<Demo>
+  <Demo.Preview>
+    <DatePickerDemoWithForm />
+  </Demo.Preview>
+  <Demo.Code>
+    ```tsx
+    import { Button, Form, DatePicker } from "@ellie-ui/core";
+    import { zodResolver } from "@hookform/resolvers/zod";
+    import { useForm } from "react-hook-form";
+    import { z } from "zod";
+
+    const DateForm = z.object({
+      date: z.date({ message: "날짜를 선택해주세요." }),
+    });
+
+    export const DatePickerDemoWithForm = () => {
+      const form = useForm({
+        resolver: zodResolver(DateForm),
+        defaultValues: {
+          date: undefined,
+        },
+      });
+
+      const onSubmit = form.handleSubmit(() => {});
+
+      return (
+        <Form>
+          <Form.Item error={!!form.formState.errors.date}>
+            <Form.Label>날짜</Form.Label>
+            <Controller
+              name="date"
+              control={form.control}
+              render={({ field }) => (
+                <Form.Control>
+                  <DatePicker {...field} placeholder="날짜를 선택해주세요" />
+                </Form.Control>
+              )}
+            />
+            <Form.Description>날짜를 선택해주세요.</Form.Description>
+            <Form.ErrorMessage>{form.formState.errors.date?.message}</Form.ErrorMessage>
+          </Form.Item>
+          <Button className="mt-4" type="submit">
+            제출하기
+          </Button>
+        </Form>
+      );
+    };
+    ```
+
+  </Demo.Code>
+</Demo>
+
+## API
+
+### DatePicker Props
+
+<TypeTable
+  type={{
+    value: {
+      type: "Date | undefined",
+      default: undefined,
+    },
+    onChange: {
+      type: "(value: Date | undefined) => void",
+      default: undefined,
+    },
+    disabled: {
+      type: "boolean",
+      default: false,
+    },
+    placeholder: {
+      type: "string",
+      default: undefined,
+    },
+    "aria-invalid": {
+      type: "boolean",
+      default: undefined,
+    },
+  }}
+/>
+
+### DateRangePicker Props
+
+<TypeTable
+  type={{
+    value: {
+      type: "DateRange | undefined",
+      default: undefined,
+    },
+    onChange: {
+      type: "(value: DateRange | undefined) => void",
+      default: undefined,
+    },
+    disabled: {
+      type: "boolean",
+      default: false,
+    },
+    placeholder: {
+      type: "string",
+      default: undefined,
+    },
+    "aria-invalid": {
+      type: "boolean",
+      default: undefined,
+    },
+  }}
+/>
