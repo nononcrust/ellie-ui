@@ -11,10 +11,9 @@ const Toaster = () => {
           borderRadius: "1rem",
           fontWeight: 600,
           padding: "1rem",
-          maxWidth: "30rem",
-          backgroundColor: "var(--color-background)/90",
+          maxWidth: "100vw",
+          backgroundColor: "var(--color-background)",
           color: "var(--color-main)",
-          backdropFilter: "blur(10px)",
         },
         success: {
           iconTheme: {
