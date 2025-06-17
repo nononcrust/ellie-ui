@@ -92,7 +92,7 @@ export default function TextFieldPage() {
       <Grid.Item>
         <TextField
           label={<TextField.Label>이메일</TextField.Label>}
-          description={<TextField.Description>이메일을 입력해주11세요.</TextField.Description>}
+          description={<TextField.Description>이메일을 입력해주세요.</TextField.Description>}
           required
         >
           <TextField.Input />
