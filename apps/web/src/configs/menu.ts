@@ -13,6 +13,7 @@ export const menu = [
       { title: "Button", href: "/components/button" },
       { title: "Icon Button", href: "/components/icon-button" },
       { title: "Input", href: "/components/input" },
+      { title: "Text Field", href: "/components/text-field" },
       { title: "Select", href: "/components/select" },
       { title: "Checkbox", href: "/components/checkbox" },
       { title: "Radio Group", href: "/components/radio-group" },
