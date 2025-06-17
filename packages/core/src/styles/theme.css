@@ -179,27 +179,19 @@
 }
 
 @utility focus-ring {
-  &:focus-visible {
-    @apply ring-ring ring-offset-background outline-hidden ring-2 ring-offset-2;
-  }
+  @apply ring-ring ring-offset-background outline-hidden ring-2 ring-offset-2;
 }
 
 @utility focus-input-ring {
-  &:focus-visible {
-    @apply border-primary ring-primary-lighter dark:border-primary dark:ring-primary-darker outline-hidden border ring-[3px] ring-offset-0;
-  }
+  @apply border-primary ring-primary-lighter dark:border-primary dark:ring-primary-darker outline-hidden border ring-[3px] ring-offset-0;
 }
 
 @utility focus-input-ring-error {
-  &:focus-visible {
-    @apply border-error ring-error-lighter dark:border-error dark:ring-error-lighter outline-hidden border ring-[3px] ring-offset-0;
-  }
+  @apply border-error ring-error-lighter dark:border-error dark:ring-error-lighter outline-hidden border ring-[3px] ring-offset-0;
 }
 
 @utility disable-focus-ring {
-  &:focus-visible {
-    @apply ring-0;
-  }
+  @apply ring-0;
 }
 
 @utility scrollbar-hide {

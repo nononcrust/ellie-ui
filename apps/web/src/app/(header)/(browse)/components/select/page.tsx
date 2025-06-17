@@ -156,7 +156,7 @@ const Select7 = () => {
               "data-placeholder:text-placeholder",
               "[&>span]:min-w-0",
               "placeholder-placeholder",
-              "disable-focus-ring focus-visible:focus-input-ring",
+              "focus-visible:disable-focus-ring focus-visible:focus-input-ring",
               "disabled:pointer-events-none disabled:opacity-50",
             )}
           >

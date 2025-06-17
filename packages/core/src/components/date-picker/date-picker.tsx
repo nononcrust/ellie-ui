@@ -227,7 +227,7 @@ export const Trigger = ({
       <button
         className={cn(
           "border-border bg-background text-main outline-hidden flex h-10 w-full items-center gap-2 rounded-md border px-3 text-sm font-medium",
-          "disable-focus-ring focus-visible:focus-input-ring",
+          "focus-visible:disable-focus-ring focus-visible:focus-input-ring",
           "disabled:bg-background-100 disabled:pointer-events-none disabled:opacity-50",
           ariaInvalid && "focus-visible:focus-input-ring-error border-error",
           className,
