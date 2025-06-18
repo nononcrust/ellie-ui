@@ -25,7 +25,7 @@ const formSchema = z.object({
   terms: z.boolean().refine((data) => data === true, {
     message: "약관에 동의해주세요.",
   }),
-  gender: z.string({ message: "성별을 선택해주세요." }),
+  gender: z.enum(["male", "female"], { message: "성별을 선택해주세요." }),
 });
 
 type FormSchema = z.infer<typeof formSchema>;
@@ -40,6 +40,7 @@ export const Form1 = () => {
       password: "",
       passwordConfirm: "",
       terms: false,
+      gender: "male",
     },
   });
 
@@ -147,9 +148,9 @@ export const Form1 = () => {
           control={form.control}
           render={({ field }) => (
             <Form.Control>
-              <RadioGroup {...field} onChange={field.onChange}>
-                <RadioGroup.Option value="1">남성</RadioGroup.Option>
-                <RadioGroup.Option value="2">여성</RadioGroup.Option>
+              <RadioGroup {...field}>
+                <RadioGroup.Option value="male">남성</RadioGroup.Option>
+                <RadioGroup.Option value="female">여성</RadioGroup.Option>
               </RadioGroup>
             </Form.Control>
           )}

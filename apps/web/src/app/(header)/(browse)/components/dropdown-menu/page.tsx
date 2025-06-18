@@ -16,8 +16,11 @@ import {
   UserIcon,
   UserRoundMinusIcon,
 } from "lucide-react";
+import { useState } from "react";
 
 export default function DropdownMenuPage() {
+  const [checked, setChecked] = useState(false);
+
   return (
     <Grid>
       <Grid.Item>
@@ -50,10 +53,14 @@ export default function DropdownMenuPage() {
               관심 없음
             </DropdownMenu.Item>
             <DropdownMenu.Separator />
-            <DropdownMenu.Item>
+            <DropdownMenu.CheckboxItem
+              onSelect={(e) => e.preventDefault()}
+              checked={checked}
+              onCheckedChange={setChecked}
+            >
               <BellMinusIcon className="size-4" />
               업데이트 알림 끄기
-            </DropdownMenu.Item>
+            </DropdownMenu.CheckboxItem>
             <DropdownMenu.Item>
               <UserRoundMinusIcon className="size-4" />
               팔로우 취소

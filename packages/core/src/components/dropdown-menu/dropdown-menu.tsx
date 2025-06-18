@@ -1,7 +1,9 @@
 "use client";
 
+import { CheckIcon } from "lucide-react";
 import { DropdownMenu as DropdownMenuPrimitives } from "radix-ui";
 import { cn } from "../../lib/utils";
+import { checkboxVariants } from "../checkbox";
 
 type DropdownMenuProps = Omit<DropdownMenuPrimitives.DropdownMenuProps, "open"> & {
   isOpen?: boolean;
@@ -86,11 +88,51 @@ const DropdownMenuSeparator = ({ className, ...props }: DropdownMenuSeparatorPro
   );
 };
 
+type DropdownMenuCheckboxItemProps = React.ComponentPropsWithRef<
+  typeof DropdownMenuPrimitives.CheckboxItem
+>;
+
+const DropdownMenuCheckboxItem = ({
+  className,
+  children,
+  ...props
+}: DropdownMenuCheckboxItemProps) => {
+  return (
+    <DropdownMenuPrimitives.CheckboxItem
+      className={cn(
+        "text-main outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium",
+        "focus:bg-background-hover",
+        "data-disabled:pointer-events-none data-disabled:opacity-50",
+        "[&_svg]:shrink-0",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      <DropdownMenuPrimitives.ItemIndicator
+        forceMount
+        className={cn(
+          "group ml-3 flex items-center justify-center",
+          checkboxVariants({ size: "medium" }).root(),
+        )}
+      >
+        <CheckIcon
+          className={cn(
+            "invisible group-data-[state=checked]:visible",
+            checkboxVariants({ size: "medium" }).icon(),
+          )}
+        />
+      </DropdownMenuPrimitives.ItemIndicator>
+    </DropdownMenuPrimitives.CheckboxItem>
+  );
+};
+
 DropdownMenu.Trigger = DropdownMenuPrimitives.Trigger;
 DropdownMenu.Group = DropdownMenuPrimitives.Group;
 DropdownMenu.Content = DropdownMenuContent;
 DropdownMenu.Item = DropdownMenuItem;
 DropdownMenu.Label = DropdownMenuLabel;
 DropdownMenu.Separator = DropdownMenuSeparator;
+DropdownMenu.CheckboxItem = DropdownMenuCheckboxItem;
 
 export { DropdownMenu };
