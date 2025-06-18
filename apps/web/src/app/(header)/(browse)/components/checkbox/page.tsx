@@ -7,32 +7,32 @@ export default function CheckboxPage() {
   return (
     <Grid>
       <Grid.Item>
-        <Checkbox size="small" defaultChecked>
+        <Checkbox defaultChecked>
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox size="small" disabled>
+        <Checkbox disabled>
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox size="small" aria-invalid>
+        <Checkbox aria-invalid>
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox checked="indeterminate" size="small">
+        <Checkbox checked="indeterminate">
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox defaultChecked size="medium">
+        <Checkbox defaultChecked>
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox checked="indeterminate" size="medium">
+        <Checkbox defaultChecked size="small">
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>
@@ -42,19 +42,14 @@ export default function CheckboxPage() {
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox checked="indeterminate" size="large">
-          <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
-        </Checkbox>
-      </Grid.Item>
-      <Grid.Item>
-        <Checkbox.Group className="flex flex-col gap-1">
-          <Checkbox size="small" defaultChecked>
+        <Checkbox.Group className="flex flex-col gap-2">
+          <Checkbox size="medium" defaultChecked>
             <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
           </Checkbox>
-          <Checkbox size="small" defaultChecked>
+          <Checkbox size="medium" defaultChecked>
             <Checkbox.Label>개인정보 처리 방침에 동의합니다.</Checkbox.Label>
           </Checkbox>
-          <Checkbox size="small" defaultChecked>
+          <Checkbox size="medium" defaultChecked>
             <Checkbox.Label>마케인 정보 수신에 동의합니다.</Checkbox.Label>
           </Checkbox>
         </Checkbox.Group>

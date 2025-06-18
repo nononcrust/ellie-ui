@@ -18,10 +18,15 @@ type CheckboxProps = Omit<
     onChange?: (checked: boolean) => void;
   };
 
-const checkboxVariants = tv({
+export const checkboxVariants = tv({
   slots: {
-    root: "",
-    icon: "",
+    root: cn(
+      "border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
+      "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
+      "data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-white",
+      "disabled:pointer-events-none disabled:opacity-50",
+    ),
+    icon: "stroke-3",
     label: "flex items-center",
   },
   variants: {
@@ -70,10 +75,6 @@ const Checkbox = ({
         <CheckboxPrimitives.Root
           id={checkboxId}
           className={cn(
-            "border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
-            "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
-            "data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-white",
-            "disabled:pointer-events-none disabled:opacity-50",
             variants.root(),
             ariaInvalid &&
               "border-error focus-visible:ring-ring-error data-[state=checked]:border-error data-[state=checked]:bg-error",
@@ -85,9 +86,9 @@ const Checkbox = ({
         >
           <CheckboxPrimitives.Indicator className="flex items-center justify-center">
             {checked === "indeterminate" ? (
-              <MinusIcon className={variants.icon()} strokeWidth={3} />
+              <MinusIcon className={variants.icon()} />
             ) : (
-              <CheckIcon className={variants.icon()} strokeWidth={3} />
+              <CheckIcon className={variants.icon()} />
             )}
           </CheckboxPrimitives.Indicator>
         </CheckboxPrimitives.Root>
