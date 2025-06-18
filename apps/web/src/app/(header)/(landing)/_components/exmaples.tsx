@@ -250,7 +250,7 @@ const Profile = () => {
     <Card className="mb-5 break-inside-avoid">
       <div className="flex w-full justify-between">
         <div className="flex gap-1">
-          <Avatar className="size-14 rounded-xl">
+          <Avatar className="size-14 rounded-lg">
             <Avatar.Image src={profileImage.src} alt="프로필 이미지" />
             <Avatar.Fallback />
           </Avatar>

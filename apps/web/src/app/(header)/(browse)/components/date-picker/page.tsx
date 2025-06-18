@@ -72,12 +72,12 @@ export default function DatePickerPage() {
         </div>
       </Grid.Item>
       <Grid.Item>
-        <div className="border-border rounded-xl border p-4">
+        <div className="border-border rounded-lg border p-4">
           <Calendar mode="single" />
         </div>
       </Grid.Item>
       <Grid.Item>
-        <div className="border-border rounded-xl border p-4">
+        <div className="border-border rounded-lg border p-4">
           <Calendar mode="multiple" />
         </div>
       </Grid.Item>

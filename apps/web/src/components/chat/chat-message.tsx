@@ -28,7 +28,7 @@ const ChatMessageBubble = ({ className, variant, message, ...props }: ChatMessag
   return (
     <p
       className={cn(
-        "w-fit rounded-xl px-3 py-2 transition-colors",
+        "w-fit rounded-lg px-3 py-2 transition-colors",
         "whitespace-pre-wrap break-all text-start text-sm font-medium",
         variant === "primary" && "hover:bg-primary-hover bg-primary text-white",
         variant === "secondary" && "bg-secondary hover:bg-background-hover",
@@ -190,8 +190,8 @@ const ChatMessageBody = ({
 
   return (
     <Popover>
-      <Popover.Trigger className="rounded-xl">{renderChatMessageBody()}</Popover.Trigger>
-      <Popover.Content className="flex min-w-0 gap-0.5 rounded-xl p-1">
+      <Popover.Trigger className="rounded-lg">{renderChatMessageBody()}</Popover.Trigger>
+      <Popover.Content className="flex min-w-0 gap-0.5 rounded-lg p-1">
         {objectEntries(iconByReactionType).map(([type, icon], index) => (
           <Popover.Close asChild key={index}>
             <IconButton

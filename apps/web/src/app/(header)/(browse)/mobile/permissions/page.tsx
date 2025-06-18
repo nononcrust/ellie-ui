@@ -47,7 +47,7 @@ type PermissionItemProps = {
 const PermissionItem = ({ icon, title, description, required = false }: PermissionItemProps) => {
   return (
     <div className="flex items-center gap-4">
-      <div className="bg-background-100 flex size-11 items-center justify-center rounded-xl">
+      <div className="bg-background-100 flex size-11 items-center justify-center rounded-lg">
         <Slot.Root className="size-5">{icon}</Slot.Root>
       </div>
       <div className="flex flex-1 flex-col">

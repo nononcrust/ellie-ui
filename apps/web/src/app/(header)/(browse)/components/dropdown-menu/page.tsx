@@ -65,7 +65,7 @@ export default function DropdownMenuPage() {
               <UserRoundMinusIcon className="size-4" />
               팔로우 취소
             </DropdownMenu.Item>
-            <DropdownMenu.Item className="text-error">
+            <DropdownMenu.Item variant="danger">
               <MessageSquareWarningIcon className="size-4" />
               신고하기
             </DropdownMenu.Item>
