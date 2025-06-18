@@ -15,10 +15,11 @@ const Form = ({ children, ...props }: FormProps) => {
 type FormLabelProps = React.ComponentPropsWithRef<"label">;
 
 const FormLabel = ({ className, children, ...props }: FormLabelProps) => {
-  const { id } = useFormItemContext();
+  const { labelId, id } = useFormItemContext();
 
   return (
     <Label
+      id={labelId}
       htmlFor={id}
       className={cn("text-main mb-2 w-fit text-sm font-medium", className)}
       {...props}
@@ -56,12 +57,20 @@ const FormDescription = ({ className, children, ...props }: FormDescriptionProps
 };
 
 const FormControl = ({ children }: { children: React.ReactNode }) => {
-  const { error, id, descriptionId, errorMessageId, descriptionElement, errorMessageElement } =
-    useFormItemContext();
+  const {
+    error,
+    id,
+    labelId,
+    descriptionId,
+    errorMessageId,
+    descriptionElement,
+    errorMessageElement,
+  } = useFormItemContext();
 
   return (
     <Slot.Root
       id={id}
+      aria-labelledby={labelId}
       aria-describedby={
         cn(descriptionElement && descriptionId, errorMessageElement && errorMessageId) || undefined
       }
@@ -107,6 +116,7 @@ type FormItemProps = React.ComponentPropsWithRef<"div"> & {
 
 const FormItem = ({ className, children, error = false, ...props }: FormItemProps) => {
   const id = useId();
+  const labelId = useId();
   const descriptionId = useId();
   const errorMessageId = useId();
 
@@ -117,9 +127,10 @@ const FormItem = ({ className, children, error = false, ...props }: FormItemProp
     <FormItemContext
       value={{
         error,
+        id,
+        labelId,
         descriptionId,
         errorMessageId,
-        id,
         descriptionElement,
         errorMessageElement,
         setDescriptionElement,
@@ -135,6 +146,7 @@ const FormItem = ({ className, children, error = false, ...props }: FormItemProp
 
 type FormItemContextValue = {
   id: string;
+  labelId: string;
   errorMessageId: string;
   descriptionId: string;
   error: boolean;
