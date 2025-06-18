@@ -62,13 +62,13 @@ const TextField = ({
   return (
     <TextFieldContext value={contextValue}>
       <div className={cn("flex w-full flex-col", className)} {...props}>
-        {label && label}
+        {label}
         <div
           className={cn(
             "border-border bg-background shadow-xs flex rounded-md border",
             "focus-within:focus-input-ring",
             "has-data-invalid:focus-within:focus-input-ring-error has-data-invalid:border-error",
-            "has-data-disabled:bg-background-100",
+            "has-data-disabled:bg-background-100 has-data-disabled:pointer-events-none has-data-disabled:opacity-50",
             "has-data-readonly:bg-background-100",
           )}
         >
