@@ -36,7 +36,7 @@ const SidebarItem = ({ title, href }: SidebarItemProps) => {
     <Link
       href={href}
       className={cn(
-        "hover:bg-background-hover flex h-8 items-center rounded-lg px-3 text-sm font-medium",
+        "hover:bg-background-hover flex h-8 items-center rounded-sm px-3 text-sm font-medium",
         isActive && "bg-background-hover hover:bg-background-hover font-semibold",
       )}
     >

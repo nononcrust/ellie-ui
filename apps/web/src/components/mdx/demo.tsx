@@ -7,7 +7,7 @@ const Demo = ({ children }: { children: React.ReactNode }) => {
 const DemoPreview = ({ children }: { children: React.ReactNode }) => {
   return (
     <Tab value="미리보기" tabIndex={-1}>
-      <div className="bg-background not-prose flex items-center justify-center rounded-lg p-[3rem] leading-normal">
+      <div className="bg-background not-prose flex items-center justify-center rounded-md p-[3rem] leading-normal">
         {children}
       </div>
     </Tab>

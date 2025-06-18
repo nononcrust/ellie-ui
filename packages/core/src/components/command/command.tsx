@@ -11,7 +11,7 @@ const Command = ({ className, ...props }: CommandProps) => {
   return (
     <CommandPrimitives
       className={cn(
-        "bg-background flex h-full w-full flex-col overflow-hidden rounded-lg",
+        "bg-background flex h-full w-full flex-col overflow-hidden rounded-md",
         className,
       )}
       {...props}
@@ -27,7 +27,7 @@ const CommandInput = ({ className, ...props }: CommandInputProps) => {
       <SearchIcon strokeWidth={2} className="text-placeholder mr-2 size-[1.125rem]" />
       <CommandPrimitives.Input
         className={cn(
-          "placeholder:text-placeholder outline-hidden flex h-10 w-full rounded-lg bg-transparent py-3 text-sm",
+          "placeholder:text-placeholder outline-hidden flex h-10 w-full bg-transparent py-3 text-sm",
           "disabled:pointer-events-none disabled:opacity-50",
           className,
         )}
