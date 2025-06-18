@@ -58,38 +58,6 @@ export default function RadioGroupPage() {
           </RadioGroup>
         </div>
       </Grid.Item>
-      <Grid.Item>
-        <RadioGroup defaultValue="1">
-          <div className="border-border has-data-[state=checked]:border-primary shadow-xs relative flex w-full items-start justify-between gap-2 rounded-lg border p-4">
-            <div className="grid grow gap-2">
-              <Label htmlFor="radio-1">바나나</Label>
-              <p id="1-description" className="text-subtle text-xs">
-                당도 높고 아주 맛있는 바나나입니다.
-              </p>
-            </div>
-            <RadioGroup.Item
-              id="radio-1"
-              className="after:absolute after:inset-0"
-              value="1"
-              aria-describedby="1-description"
-            />
-          </div>
-          <div className="border-border has-data-[state=checked]:border-primary shadow-xs relative flex w-full items-start justify-between gap-2 rounded-lg border p-4">
-            <div className="grid grow gap-2">
-              <Label htmlFor="radio-2">딸기</Label>
-              <p id="2-description" className="text-subtle text-xs">
-                색이 예쁘고 달콤한 딸기입니다.
-              </p>
-            </div>
-            <RadioGroup.Item
-              id="radio-2"
-              className="after:absolute after:inset-0"
-              value="2"
-              aria-describedby="2-description"
-            />
-          </div>
-        </RadioGroup>
-      </Grid.Item>
     </Grid>
   );
 }
