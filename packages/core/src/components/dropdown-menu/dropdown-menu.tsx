@@ -2,6 +2,7 @@
 
 import { CheckIcon } from "lucide-react";
 import { DropdownMenu as DropdownMenuPrimitives } from "radix-ui";
+import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 import { checkboxVariants } from "../checkbox";
 
@@ -43,18 +44,31 @@ const DropdownMenuContent = ({
   );
 };
 
-type DropdownMenuItemProps = React.ComponentPropsWithRef<typeof DropdownMenuPrimitives.Item>;
+const dropdownMenuItemVariants = tv({
+  base: cn(
+    "outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium",
+    "focus:bg-background-hover",
+    "data-disabled:pointer-events-none data-disabled:opacity-50",
+    "[&_svg]:shrink-0",
+  ),
+  variants: {
+    variant: {
+      default: "text-main",
+      danger: "text-error",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
-const DropdownMenuItem = ({ className, children, ...props }: DropdownMenuItemProps) => {
+type DropdownMenuItemProps = React.ComponentPropsWithRef<typeof DropdownMenuPrimitives.Item> &
+  VariantProps<typeof dropdownMenuItemVariants>;
+
+const DropdownMenuItem = ({ className, children, variant, ...props }: DropdownMenuItemProps) => {
   return (
     <DropdownMenuPrimitives.Item
-      className={cn(
-        "text-main outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium",
-        "focus:bg-background-hover",
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
-        "[&_svg]:shrink-0",
-        className,
-      )}
+      className={cn(dropdownMenuItemVariants({ variant }), className)}
       {...props}
     >
       {children}
@@ -99,13 +113,7 @@ const DropdownMenuCheckboxItem = ({
 }: DropdownMenuCheckboxItemProps) => {
   return (
     <DropdownMenuPrimitives.CheckboxItem
-      className={cn(
-        "text-main outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium",
-        "focus:bg-background-hover",
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
-        "[&_svg]:shrink-0",
-        className,
-      )}
+      className={cn(dropdownMenuItemVariants({ variant: "default" }), className)}
       {...props}
     >
       {children}
