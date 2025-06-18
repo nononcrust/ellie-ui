@@ -14,32 +14,32 @@ export default function TextFieldPage() {
   return (
     <Grid>
       <Grid.Item>
-        <TextField>
+        <TextField label={<TextField.Label>레이블</TextField.Label>}>
           <TextField.Input />
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField>
+        <TextField label={<TextField.Label>레이블</TextField.Label>}>
           <TextField.Input placeholder="텍스트를 입력해주세요" />
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField>
+        <TextField label={<TextField.Label>레이블</TextField.Label>}>
           <TextField.Input disabled placeholder="텍스트를 입력해주세요" />
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField>
+        <TextField label={<TextField.Label>레이블</TextField.Label>}>
           <TextField.Input readOnly placeholder="텍스트를 입력해주세요" />
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField defaultValue="12345678">
+        <TextField defaultValue="12345678" label={<TextField.Label>비밀번호</TextField.Label>}>
           <TextField.Input type="password" placeholder="비밀번호를 입력해주세요" />
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField>
+        <TextField label={<TextField.Label>검색</TextField.Label>}>
           <TextField.Prefix>
             <SearchIcon className="text-subtle size-[1rem]" />
           </TextField.Prefix>
@@ -47,7 +47,7 @@ export default function TextFieldPage() {
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField>
+        <TextField label={<TextField.Label>검색</TextField.Label>}>
           <TextField.Input />
           <TextField.Suffix>
             <SearchIcon className="text-subtle size-[1rem]" />
@@ -55,28 +55,24 @@ export default function TextFieldPage() {
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField defaultValue="기본값">
-          <TextField.Input />
-        </TextField>
-      </Grid.Item>
-      <Grid.Item>
-        <TextField value={textField.value} onChange={textField.onChange}>
-          <TextField.Input />
-        </TextField>
-      </Grid.Item>
-      <Grid.Item>
-        <TextField>
-          <TextField.Input aria-invalid />
-        </TextField>
-      </Grid.Item>
-      <Grid.Item>
-        <TextField label={<TextField.Label>이메일</TextField.Label>}>
+        <TextField defaultValue="기본 텍스트" label={<TextField.Label>텍스트</TextField.Label>}>
           <TextField.Input />
         </TextField>
       </Grid.Item>
       <Grid.Item>
         <TextField
-          description={<TextField.Description>이메일을 입력해주세요.</TextField.Description>}
+          value={textField.value}
+          onChange={textField.onChange}
+          label={<TextField.Label>텍스트</TextField.Label>}
+        >
+          <TextField.Input />
+        </TextField>
+      </Grid.Item>
+      <Grid.Item>
+        <TextField
+          error
+          label={<TextField.Label>텍스트</TextField.Label>}
+          errorMessage={<TextField.ErrorMessage>필수 입력 항목입니다.</TextField.ErrorMessage>}
         >
           <TextField.Input />
         </TextField>
