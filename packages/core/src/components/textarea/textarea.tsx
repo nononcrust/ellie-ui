@@ -7,6 +7,7 @@ const Textarea = ({ className, ["aria-invalid"]: ariaInvalid, ...props }: Textar
     <textarea
       className={cn(
         "border-border text-main bg-background shadow-xs flex min-h-[5rem] w-full rounded-md border px-3 py-2 text-sm",
+        "field-sizing-content",
         "focus-visible:focus-input-ring",
         "disabled:pointer-events-none disabled:opacity-50",
         "read-only:bg-background-100",
