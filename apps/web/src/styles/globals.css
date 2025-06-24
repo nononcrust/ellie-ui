@@ -6,6 +6,7 @@
 @source '../../node_modules/fumadocs-ui/dist/**/*.js';
 
 @import "@ellie-ui/core/styles/theme.css";
+@import "@ellie-ui/core/styles/animation.css";
 
 :root {
   --color-fd-primary: var(--color-primary);
