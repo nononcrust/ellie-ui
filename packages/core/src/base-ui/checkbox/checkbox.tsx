@@ -1,10 +1,10 @@
 "use client";
 
 import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
+import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react/checkbox-group";
 import { CheckIcon, MinusIcon } from "lucide-react";
-import React, { useId } from "react";
+import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 const DEFAULT_SIZE = "medium";
@@ -26,7 +26,7 @@ export const checkboxVariants = tv({
       "disabled:pointer-events-none disabled:opacity-50",
     ),
     icon: "stroke-3",
-    label: "flex items-center w-fit font-medium",
+    label: "font-medium",
   },
   variants: {
     size: {
@@ -57,81 +57,64 @@ const Checkbox = ({
   checked,
   ["aria-invalid"]: ariaInvalid,
   size,
-  id: idProp,
+
   children,
   onChange,
   ...props
 }: CheckboxProps) => {
-  const generatedId = useId();
-
-  const checkboxId = idProp ?? generatedId;
-
   const variants = checkboxVariants({ size });
 
   return (
-    <CheckboxContext value={{ size, checkboxId }}>
-      <div className={cn("flex items-center", className)}>
-        <CheckboxBase.Root
-          id={checkboxId}
-          className={cn(
-            variants.root(),
-            ariaInvalid &&
-              "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error",
+    <label className={cn("flex w-fit items-center", className)}>
+      <CheckboxBase.Root
+        className={cn(
+          variants.root(),
+          ariaInvalid &&
+            "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error",
+        )}
+        checked={checked}
+        aria-invalid={ariaInvalid}
+        onCheckedChange={onChange}
+        {...props}
+      >
+        <CheckboxBase.Indicator
+          className="flex items-center justify-center"
+          render={(props, state) => (
+            <span {...props}>
+              {state.indeterminate ? (
+                <MinusIcon className={variants.icon()} />
+              ) : (
+                <CheckIcon className={variants.icon()} />
+              )}
+            </span>
           )}
-          checked={checked}
-          aria-invalid={ariaInvalid}
-          onCheckedChange={onChange}
-          {...props}
-        >
-          <CheckboxBase.Indicator className="flex items-center justify-center">
-            {props.indeterminate ? (
-              <MinusIcon className={variants.icon()} />
-            ) : (
-              <CheckIcon className={variants.icon()} />
-            )}
-          </CheckboxBase.Indicator>
-        </CheckboxBase.Root>
-        {children}
-      </div>
-    </CheckboxContext>
-  );
-};
-
-type CheckboxLabelProps = React.ComponentPropsWithRef<"label">;
-
-const CheckboxLabel = ({ className, children, ...props }: CheckboxLabelProps) => {
-  const { size, checkboxId } = useCheckboxContext();
-
-  return (
-    <label
-      htmlFor={checkboxId}
-      className={cn(checkboxVariants({ size }).label(), className)}
-      {...props}
-    >
-      {children}
+        ></CheckboxBase.Indicator>
+      </CheckboxBase.Root>
+      <span className={cn(variants.label())}>{children}</span>
     </label>
   );
 };
 
-type CheckboxGroupProps = React.ComponentPropsWithRef<"div">;
+type CheckboxGroupProps = Omit<
+  React.ComponentPropsWithRef<typeof CheckboxGroupBase>,
+  "onValueChange" | "onChange" | "value" | "allValues"
+> & {
+  value?: readonly string[];
+  onChange?: (value: string[]) => void;
+  allValues: readonly string[];
+};
 
-const CheckboxGroup = ({ children, ...props }: CheckboxGroupProps) => {
+const CheckboxGroup = ({ value, onChange, allValues, ...props }: CheckboxGroupProps) => {
   return (
-    <div role="group" {...props}>
-      {children}
-    </div>
+    <CheckboxGroupBase
+      value={value as string[]}
+      allValues={allValues as string[]}
+      onValueChange={onChange}
+      {...props}
+    />
   );
 };
 
-Checkbox.Label = CheckboxLabel;
 Checkbox.Group = CheckboxGroup;
 
 export { Checkbox };
-
-type CheckboxContextValue = {
-  checkboxId: string;
-  size: VariantProps<typeof checkboxVariants>["size"];
-};
-
-const [CheckboxContext, useCheckboxContext] =
-  createContextFactory<CheckboxContextValue>("Checkbox");

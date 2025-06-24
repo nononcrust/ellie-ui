@@ -1,4 +1,4 @@
-import { useCheckbox } from "@ellie-ui/core/hooks";
+import { useCheckbox, useCheckboxGroup } from "@ellie-ui/core/hooks";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Checkbox } from ".";
 
@@ -57,12 +57,7 @@ export const Large: Story = {
 
 export const WithLabel: Story = {
   render: () => {
-    return (
-      <label className="flex items-center gap-2">
-        <Checkbox />
-        서비스 약관에 동의합니다.
-      </label>
-    );
+    return <Checkbox>서비스 약관에 동의합니다.</Checkbox>;
   },
 };
 
@@ -72,6 +67,38 @@ export const Controlled: Story = {
 
     return (
       <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} aria-label="체크박스" />
+    );
+  },
+};
+
+const terms = [
+  { value: "terms", label: "서비스 약관에 동의합니다." },
+  { value: "privacy", label: "개인정보 처리방침에 동의합니다." },
+  { value: "marketing", label: "마케팅 정보 수신에 동의합니다." },
+];
+
+export const Group: Story = {
+  render: () => {
+    const checkboxGroup = useCheckboxGroup({
+      entries: terms.map((term) => term.value),
+    });
+
+    return (
+      <Checkbox.Group
+        className="flex flex-col gap-2"
+        value={checkboxGroup.value}
+        onChange={checkboxGroup.onChange}
+        allValues={checkboxGroup.allValues}
+      >
+        <Checkbox className="mb-4" parent>
+          전체 선택
+        </Checkbox>
+        {terms.map((term) => (
+          <Checkbox key={term.value} value={term.value}>
+            {term.label}
+          </Checkbox>
+        ))}
+      </Checkbox.Group>
     );
   },
 };

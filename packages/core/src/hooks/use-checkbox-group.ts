@@ -41,13 +41,20 @@ export const useCheckboxGroup = <TEntry>({
 
   const isAllChecked = checkedItems.length === entries.length;
 
+  const value = checkedItems;
+  const onChange = setCheckedItems;
+  const allValues = entries;
+
   return {
+    value,
     checkedItems,
+    allValues,
     isAllChecked,
     toggleAll,
     getCheckboxProps,
     checkAll,
     uncheckAll,
     setCheckedItems,
+    onChange,
   };
 };
