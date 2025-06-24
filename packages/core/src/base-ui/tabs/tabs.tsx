@@ -9,8 +9,7 @@ export const tabsVariants = tv({
   base: cn(
     "text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
     "data-disabled:pointer-events-none data-disabled:opacity-50",
-    "data-selected:after:bg-main after:absolute after:inset-x-0 after:bottom-0 after:h-[0.125rem]",
-    "data-selected:text-main data-selected:border-main",
+    "data-selected:text-main",
     "hover:text-sub",
   ),
   variants: {
@@ -49,13 +48,21 @@ const TabsList = ({ className, children, fullWidth = false, size, ...props }: Ta
     <TabsListContext value={{ fullWidth, size }}>
       <TabsBase.List
         className={cn(
-          "border-border bg-background inline-flex items-center justify-center border-b",
+          "border-border bg-background relative inline-flex items-center justify-center border-b",
           fullWidth && "w-full",
           className,
         )}
         {...props}
       >
         {children}
+        <TabsBase.Indicator
+          className={cn(
+            "bg-main absolute bottom-0 left-0 h-[0.125rem]",
+            "w-[var(--active-tab-width)]",
+            "translate-x-[var(--active-tab-left)]",
+            "transition-all duration-200 ease-out",
+          )}
+        />
       </TabsBase.List>
     </TabsListContext>
   );
