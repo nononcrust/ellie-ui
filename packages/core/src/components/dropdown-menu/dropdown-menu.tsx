@@ -81,7 +81,7 @@ type DropdownMenuLabelProps = React.ComponentPropsWithRef<typeof DropdownMenuPri
 const DropdownMenuLabel = ({ className, children, ...props }: DropdownMenuLabelProps) => {
   return (
     <DropdownMenuPrimitives.Label
-      className={cn("text-subtle px-2 py-1.5 text-xs font-medium", className)}
+      className={cn("text-subtle px-3 py-1.5 text-xs font-medium", className)}
       {...props}
     >
       {children}
