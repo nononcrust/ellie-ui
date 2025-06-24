@@ -8,6 +8,7 @@
   "exports": {
     "./styles/globals.css": "./src/styles/globals.css",
     "./styles/theme.css": "./src/styles/theme.css",
+    "./styles/animation.css": "./src/styles/animation.css",
     "./styles/base.css": "./src/styles/base.css",
     "./hooks": "./src/hooks/index.ts",
     ".": "./src/index.ts"
