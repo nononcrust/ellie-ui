@@ -113,7 +113,7 @@ type SelectLabelProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Labe
 const SelectLabel = ({ className, children, ...props }: SelectLabelProps) => {
   return (
     <SelectPrimitives.Label
-      className={cn("text-subtle px-2 py-1.5 text-xs font-medium", className)}
+      className={cn("text-subtle px-3 py-1.5 text-xs font-medium", className)}
       {...props}
     >
       {children}
