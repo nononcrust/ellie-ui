@@ -1,5 +1,4 @@
 import {
-  Badge,
   Button,
   Checkbox,
   DatePicker,
@@ -19,7 +18,6 @@ import { noop } from "../../lib/utils";
 
 const meta = {
   title: "components/Form",
-  component: Badge,
   parameters: {
     layout: "centered",
   },
