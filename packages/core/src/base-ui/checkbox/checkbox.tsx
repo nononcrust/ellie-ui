@@ -64,8 +64,8 @@ const Checkbox = ({
 }: CheckboxProps) => {
   const variants = checkboxVariants({ size });
 
-  return (
-    <label className={cn("flex w-fit items-center", className)}>
+  const CheckboxInput = () => {
+    return (
       <CheckboxBase.Root
         className={cn(
           variants.root(),
@@ -88,20 +88,32 @@ const Checkbox = ({
               )}
             </span>
           )}
-        ></CheckboxBase.Indicator>
+        />
       </CheckboxBase.Root>
+    );
+  };
+
+  if (!children) {
+    return <CheckboxInput />;
+  }
+
+  return (
+    <label className={cn("flex w-fit items-center", className)}>
+      <CheckboxInput />
       <span className={cn(variants.label())}>{children}</span>
     </label>
   );
 };
 
+type CheckboxGroupValue = string[] | readonly string[];
+
 type CheckboxGroupProps = Omit<
   React.ComponentPropsWithRef<typeof CheckboxGroupBase>,
   "onValueChange" | "onChange" | "value" | "allValues"
 > & {
-  value?: readonly string[];
-  onChange?: (value: string[]) => void;
-  allValues: readonly string[];
+  value?: CheckboxGroupValue;
+  onChange?: (value: CheckboxGroupValue) => void;
+  allValues: CheckboxGroupValue;
 };
 
 const CheckboxGroup = ({ value, onChange, allValues, ...props }: CheckboxGroupProps) => {
@@ -109,7 +121,7 @@ const CheckboxGroup = ({ value, onChange, allValues, ...props }: CheckboxGroupPr
     <CheckboxGroupBase
       value={value as string[]}
       allValues={allValues as string[]}
-      onValueChange={onChange}
+      onValueChange={onChange as (value: string[]) => void}
       {...props}
     />
   );

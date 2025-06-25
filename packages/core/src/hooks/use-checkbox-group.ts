@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 
-export const useCheckboxGroup = <TEntry>({
+type CheckboxGroupValue = string[] | readonly string[];
+
+export const useCheckboxGroup = ({
   entries,
   initialEntries,
 }: {
-  entries: readonly TEntry[];
-  initialEntries?: readonly TEntry[];
+  entries: CheckboxGroupValue;
+  initialEntries?: CheckboxGroupValue;
 }) => {
-  const [checkedItems, setCheckedItems] = useState(initialEntries ?? []);
+  const [checkedItems, setCheckedItems] = useState<CheckboxGroupValue>(initialEntries ?? []);
 
-  const getCheckboxProps = (value: TEntry) => {
+  const getCheckboxProps = (value: string) => {
     const checked = checkedItems.includes(value);
 
     const onChange = (checked: boolean) => {

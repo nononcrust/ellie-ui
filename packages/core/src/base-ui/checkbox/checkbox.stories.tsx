@@ -75,7 +75,7 @@ const terms = [
   { value: "terms", label: "서비스 약관에 동의합니다." },
   { value: "privacy", label: "개인정보 처리방침에 동의합니다." },
   { value: "marketing", label: "마케팅 정보 수신에 동의합니다." },
-];
+] as const;
 
 export const Group: Story = {
   render: () => {
