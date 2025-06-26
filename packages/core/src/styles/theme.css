@@ -40,9 +40,9 @@
   --color-neutral-dark: var(--color-neutral-200);
   --color-ring: var(--color-blue-400);
   --color-ring-error: var(--color-red-800);
-  --color-error: var(--color-red-400);
-  --color-error-dark: var(--color-red-500);
-  --color-error-light: var(--color-red-300);
+  --color-error: var(--color-red-500);
+  --color-error-dark: var(--color-red-600);
+  --color-error-light: var(--color-red-400);
   --color-error-lighter: var(--color-red-900);
 }
 
