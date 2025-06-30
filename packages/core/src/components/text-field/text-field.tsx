@@ -74,9 +74,12 @@ const TextField = ({
         >
           {children}
         </div>
-        {(description || maxGraphemeCount) && (
+        {(description || maxGraphemeCount || (error && errorMessage)) && (
           <div className="mt-1 flex justify-end gap-3">
-            {description && description}
+            <div className="flex-1">
+              {description && description}
+              {error && errorMessage}
+            </div>
             {maxGraphemeCount && (
               <span
                 className={cn("text-subtle text-[0.8125rem] font-medium", className)}
@@ -87,7 +90,6 @@ const TextField = ({
             )}
           </div>
         )}
-        {error && errorMessage}
       </div>
     </TextFieldContext>
   );
@@ -121,7 +123,8 @@ const TextFieldTextarea = ({ className, ...props }: TextFieldTextareaProps) => {
     <textarea
       className={cn(
         "outline-hidden text-main placeholder-placeholder w-full px-3 py-2 text-sm",
-        "min-h-[120px] resize-y",
+        "min-h-[7.5rem]",
+        "field-sizing-content",
         className,
       )}
       data-disabled={props.disabled}
@@ -211,7 +214,7 @@ const TextFieldErrorMessage = ({ className, children, ...props }: TextFieldError
     <p
       id={errorMessageId}
       ref={refCallback}
-      className={cn("text-error mt-1 text-[0.8125rem] font-medium", className)}
+      className={cn("text-error mt-1 flex-1 text-[0.8125rem] font-medium", className)}
       {...props}
     >
       {children}
