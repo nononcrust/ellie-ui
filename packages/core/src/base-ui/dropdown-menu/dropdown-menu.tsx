@@ -21,7 +21,7 @@ const DropdownMenuContent = ({ className, children, ...props }: DropdownMenuCont
       <DropdownMenuBase.Positioner className="outline-hidden" sideOffset={4} side="bottom">
         <DropdownMenuBase.Popup
           className={cn(
-            "border-border bg-background text-main z-50 min-w-40 rounded-md border py-1 shadow-lg",
+            "border-border bg-background text-main outline-hidden z-50 min-w-40 rounded-md border py-1 shadow-lg",
             "data-starting-style:opacity-0 data-open:duration-150",
             "data-[side=top]:data-starting-style:translate-y-[0.5rem]",
             "data-[side=bottom]:data-starting-style:translate-y-[-0.5rem]",
