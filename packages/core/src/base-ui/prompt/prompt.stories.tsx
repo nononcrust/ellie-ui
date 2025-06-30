@@ -17,7 +17,7 @@ export const Default: Story = {
   render: () => {
     return (
       <Prompt>
-        <Prompt.Trigger render={<Button variant="outlined">열기</Button>} />
+        <Prompt.Trigger render={<Button>열기</Button>} />
         <Prompt.Content>
           <Prompt.Header>
             <Prompt.Title>모달 제목</Prompt.Title>
@@ -37,7 +37,7 @@ export const Destructive: Story = {
   render: () => {
     return (
       <Prompt>
-        <Prompt.Trigger render={<Button variant="outlined">열기</Button>} />
+        <Prompt.Trigger render={<Button>열기</Button>} />
         <Prompt.Content>
           <Prompt.Header>
             <Prompt.Title>모달 제목</Prompt.Title>
