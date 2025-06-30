@@ -50,7 +50,7 @@ const radioGroupVariants = tv({
 });
 
 type RadioGroupProps<TValue extends string> = Omit<
-  React.ComponentProps<typeof RadioGroupBase>,
+  RadioGroupBase.Props,
   "value" | "onValueChange" | "onChange"
 > &
   VariantProps<typeof radioGroupVariants> & {
@@ -79,7 +79,7 @@ const RadioGroup = <TValue extends string>({
   );
 };
 
-type RadioGroupItemProps = Omit<React.ComponentPropsWithRef<typeof RadioBase.Root>, "className"> & {
+type RadioGroupItemProps = Omit<RadioBase.Root.Props, "className"> & {
   className?: string;
 };
 
@@ -112,11 +112,9 @@ const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
   );
 };
 
-const RadioGroupLabel = ({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithRef<"label">) => {
+type RadioGroupLabelProps = React.ComponentPropsWithRef<"label">;
+
+const RadioGroupLabel = ({ className, children, ...props }: RadioGroupLabelProps) => {
   const { size } = useRadioGroupContext();
 
   return (

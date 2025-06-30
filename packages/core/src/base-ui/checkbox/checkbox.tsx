@@ -3,19 +3,10 @@
 import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
 import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react/checkbox-group";
 import { CheckIcon, MinusIcon } from "lucide-react";
-import React from "react";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 
 const DEFAULT_SIZE = "medium";
-
-type CheckboxProps = Omit<
-  React.ComponentPropsWithRef<typeof CheckboxBase.Root>,
-  "onChange" | "onCheckedChange"
-> &
-  VariantProps<typeof checkboxVariants> & {
-    onChange?: (checked: boolean) => void;
-  };
 
 export const checkboxVariants = tv({
   slots: {
@@ -51,6 +42,11 @@ export const checkboxVariants = tv({
     size: DEFAULT_SIZE,
   },
 });
+
+type CheckboxProps = Omit<CheckboxBase.Root.Props, "onChange" | "onCheckedChange"> &
+  VariantProps<typeof checkboxVariants> & {
+    onChange?: (checked: boolean) => void;
+  };
 
 const Checkbox = ({
   className,
@@ -108,7 +104,7 @@ const Checkbox = ({
 type CheckboxGroupValue = string[] | readonly string[];
 
 type CheckboxGroupProps = Omit<
-  React.ComponentPropsWithRef<typeof CheckboxGroupBase>,
+  CheckboxGroupBase.Props,
   "onValueChange" | "onChange" | "value" | "allValues"
 > & {
   value?: CheckboxGroupValue;

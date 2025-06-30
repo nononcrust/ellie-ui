@@ -6,13 +6,13 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Button } from "../button";
 
-type PromptProps = React.ComponentProps<typeof AlertDialogBase.Root>;
+type PromptProps = AlertDialogBase.Root.Props;
 
 const Prompt = ({ children, ...props }: PromptProps) => {
   return <AlertDialogBase.Root {...props}>{children}</AlertDialogBase.Root>;
 };
 
-type PromptBackdropProps = React.ComponentPropsWithRef<typeof AlertDialogBase.Backdrop>;
+type PromptBackdropProps = AlertDialogBase.Backdrop.Props;
 
 const PromptBackdrop = ({ className, children, ...props }: PromptBackdropProps) => {
   const { animation } = usePromptContentContext();
@@ -35,10 +35,6 @@ const PromptBackdrop = ({ className, children, ...props }: PromptBackdropProps) 
 
 type PromptAnimation = "pop" | "slide" | "none";
 
-type PromptContentProps = React.ComponentPropsWithRef<typeof AlertDialogBase.Popup> & {
-  animation?: PromptAnimation;
-};
-
 const animationStyle: Record<PromptAnimation, string> = {
   pop: cn(
     "data-starting-style:scale-95 data-ending-style:scale-95",
@@ -51,6 +47,10 @@ const animationStyle: Record<PromptAnimation, string> = {
     "duration-500 ease-out-expo",
   ),
   none: "",
+};
+
+type PromptContentProps = AlertDialogBase.Popup.Props & {
+  animation?: PromptAnimation;
 };
 
 const PromptContent = ({
@@ -100,7 +100,7 @@ const PromptFooter = ({ className, children, ...props }: PromptFooterProps) => {
   );
 };
 
-type PromptTitleProps = React.ComponentPropsWithRef<typeof AlertDialogBase.Title>;
+type PromptTitleProps = AlertDialogBase.Title.Props;
 
 const PromptTitle = ({ className, children, ...props }: PromptTitleProps) => {
   return (
@@ -113,7 +113,7 @@ const PromptTitle = ({ className, children, ...props }: PromptTitleProps) => {
   );
 };
 
-type PromptDescriptionProps = React.ComponentPropsWithRef<typeof AlertDialogBase.Description>;
+type PromptDescriptionProps = AlertDialogBase.Description.Props;
 
 const PromptDescription = ({ className, children, ...props }: PromptDescriptionProps) => {
   return (
@@ -121,12 +121,6 @@ const PromptDescription = ({ className, children, ...props }: PromptDescriptionP
       {children}
     </AlertDialogBase.Description>
   );
-};
-
-type PromptTriggerProps = React.ComponentPropsWithRef<typeof AlertDialogBase.Trigger>;
-
-const PromptTrigger = ({ children, ...props }: PromptTriggerProps) => {
-  return <AlertDialogBase.Trigger {...props}>{children}</AlertDialogBase.Trigger>;
 };
 
 type PromptCancelProps = React.ComponentPropsWithRef<typeof Button>;
@@ -164,7 +158,7 @@ type PromptContentContextValue = {
 const [PromptContentContext, usePromptContentContext] =
   createContextFactory<PromptContentContextValue>("PromptContent");
 
-Prompt.Trigger = PromptTrigger;
+Prompt.Trigger = AlertDialogBase.Trigger;
 Prompt.Close = AlertDialogBase.Close;
 Prompt.Content = PromptContent;
 Prompt.Header = PromptHeader;

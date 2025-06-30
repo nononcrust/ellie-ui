@@ -6,13 +6,13 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
-type BottomSheetProps = React.ComponentProps<typeof DialogBase.Root>;
+type BottomSheetProps = DialogBase.Root.Props;
 
 const BottomSheet = ({ children, ...props }: BottomSheetProps) => {
   return <DialogBase.Root {...props}>{children}</DialogBase.Root>;
 };
 
-type BottomSheetBackdropProps = React.ComponentPropsWithRef<typeof DialogBase.Backdrop>;
+type BottomSheetBackdropProps = DialogBase.Backdrop.Props;
 
 const BottomSheetBackdrop = ({ className, children, ...props }: BottomSheetBackdropProps) => {
   return (
@@ -30,9 +30,9 @@ const BottomSheetBackdrop = ({ className, children, ...props }: BottomSheetBackd
   );
 };
 
-type DialogContentProps = React.ComponentPropsWithRef<typeof DialogBase.Popup>;
+type BottomSheetContentProps = DialogBase.Popup.Props;
 
-const BottomSheetContent = ({ className, children, ...props }: DialogContentProps) => {
+const BottomSheetContent = ({ className, children, ...props }: BottomSheetContentProps) => {
   return (
     <DialogBase.Portal>
       <BottomSheetBackdrop />
@@ -97,7 +97,7 @@ const BottomSheetFooter = ({ className, children, ...props }: BottomSheetFooterP
   );
 };
 
-type BottomSheetTitleProps = React.ComponentPropsWithRef<typeof DialogBase.Title>;
+type BottomSheetTitleProps = DialogBase.Title.Props;
 
 const BottomSheetTitle = ({ className, children, ...props }: BottomSheetTitleProps) => {
   return (
@@ -107,7 +107,7 @@ const BottomSheetTitle = ({ className, children, ...props }: BottomSheetTitlePro
   );
 };
 
-type BottomSheetDescriptionProps = React.ComponentPropsWithRef<typeof DialogBase.Description>;
+type BottomSheetDescriptionProps = DialogBase.Description.Props;
 
 const BottomSheetDescription = ({ className, children, ...props }: BottomSheetDescriptionProps) => {
   return (
@@ -146,7 +146,7 @@ const BottomSheetSelectGroup = ({
   );
 };
 
-type BottomSheetSelectItemProps = React.ComponentPropsWithRef<typeof DialogBase.Close> & {
+type BottomSheetSelectItemProps = DialogBase.Close.Props & {
   value: string;
 };
 
@@ -183,7 +183,7 @@ const BottomSheetSelectItem = ({
   );
 };
 
-type BottomSheetTriggerProps = React.ComponentPropsWithRef<typeof DialogBase.Trigger>;
+type BottomSheetTriggerProps = DialogBase.Trigger.Props;
 
 const BottomSheetTrigger = ({ children, ...props }: BottomSheetTriggerProps) => {
   return <DialogBase.Trigger {...props}>{children}</DialogBase.Trigger>;

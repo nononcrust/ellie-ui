@@ -23,10 +23,7 @@ export const tabsVariants = tv({
   },
 });
 
-type TabsProps = Omit<
-  React.ComponentPropsWithRef<typeof TabsBase.Root>,
-  "onChange" | "onValueChange"
-> & {
+type TabsProps = Omit<TabsBase.Root.Props, "onChange" | "onValueChange"> & {
   onChange?: (value: string) => void;
 };
 
@@ -38,7 +35,7 @@ const Tabs = ({ className, children, onChange, ...props }: TabsProps) => {
   );
 };
 
-type TabsListProps = React.ComponentPropsWithRef<typeof TabsBase.List> &
+type TabsListProps = TabsBase.List.Props &
   VariantProps<typeof tabsVariants> & {
     fullWidth?: boolean;
   };
@@ -68,7 +65,7 @@ const TabsList = ({ className, children, fullWidth = false, size, ...props }: Ta
   );
 };
 
-type TabsTabProps = Omit<React.ComponentPropsWithRef<typeof TabsBase.Tab>, "className"> & {
+type TabsTabProps = Omit<TabsBase.Tab.Props, "className"> & {
   className?: string;
 };
 
@@ -85,7 +82,7 @@ const TabsTab = ({ className, children, ...props }: TabsTabProps) => {
   );
 };
 
-type TabsPanelProps = React.ComponentPropsWithRef<typeof TabsBase.Panel>;
+type TabsPanelProps = TabsBase.Panel.Props;
 
 const TabsPanel = ({ className, children, ...props }: TabsPanelProps) => {
   return (

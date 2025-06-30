@@ -6,24 +6,27 @@ import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 import { checkboxVariants } from "../checkbox";
 
-type DropdownMenuProps = React.ComponentProps<typeof DropdownMenuBase.Root>;
+type DropdownMenuProps = DropdownMenuBase.Root.Props;
 
 const DropdownMenu = ({ children, ...props }: DropdownMenuProps) => {
   return <DropdownMenuBase.Root {...props}>{children}</DropdownMenuBase.Root>;
 };
 
-type DropdownMenuContentProps = React.ComponentPropsWithRef<typeof DropdownMenuBase.Popup>;
+type DropdownMenuContentProps = DropdownMenuBase.Popup.Props;
 
 const DropdownMenuContent = ({ className, children, ...props }: DropdownMenuContentProps) => {
   return (
     <DropdownMenuBase.Portal>
       <DropdownMenuBase.Backdrop />
-      <DropdownMenuBase.Positioner className="outline-hidden" sideOffset={4}>
+      <DropdownMenuBase.Positioner className="outline-hidden" sideOffset={4} side="bottom">
         <DropdownMenuBase.Popup
           className={cn(
             "border-border bg-background text-main z-50 min-w-40 rounded-md border py-1 shadow-lg",
-            "animate-in fade-in-0",
-            "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+            "data-starting-style:opacity-0 data-open:duration-150",
+            "data-[side=top]:data-starting-style:translate-y-[0.5rem]",
+            "data-[side=bottom]:data-starting-style:translate-y-[-0.5rem]",
+            "data-[side=left]:data-starting-style:translate-x-[0.5rem]",
+            "data-[side=right]:data-starting-style:translate-x-[-0.5rem]",
             className,
           )}
           {...props}
@@ -53,7 +56,7 @@ const dropdownMenuItemVariants = tv({
   },
 });
 
-type DropdownMenuItemProps = React.ComponentPropsWithRef<typeof DropdownMenuBase.Item> &
+type DropdownMenuItemProps = DropdownMenuBase.Item.Props &
   VariantProps<typeof dropdownMenuItemVariants>;
 
 const DropdownMenuItem = ({ className, children, variant, ...props }: DropdownMenuItemProps) => {
@@ -67,7 +70,7 @@ const DropdownMenuItem = ({ className, children, variant, ...props }: DropdownMe
   );
 };
 
-type DropdownMenuGroupLabelProps = React.ComponentPropsWithRef<typeof DropdownMenuBase.GroupLabel>;
+type DropdownMenuGroupLabelProps = DropdownMenuBase.GroupLabel.Props;
 
 const DropdownMenuGroupLabel = ({ className, children, ...props }: DropdownMenuGroupLabelProps) => {
   return (
@@ -80,7 +83,7 @@ const DropdownMenuGroupLabel = ({ className, children, ...props }: DropdownMenuG
   );
 };
 
-type DropdownMenuSeparatorProps = React.ComponentPropsWithRef<typeof DropdownMenuBase.Separator>;
+type DropdownMenuSeparatorProps = DropdownMenuBase.Separator.Props;
 
 const DropdownMenuSeparator = ({ className, ...props }: DropdownMenuSeparatorProps) => {
   return (
@@ -88,9 +91,7 @@ const DropdownMenuSeparator = ({ className, ...props }: DropdownMenuSeparatorPro
   );
 };
 
-type DropdownMenuCheckboxItemProps = React.ComponentPropsWithRef<
-  typeof DropdownMenuBase.CheckboxItem
->;
+type DropdownMenuCheckboxItemProps = DropdownMenuBase.CheckboxItem.Props;
 
 const DropdownMenuCheckboxItem = ({
   className,

@@ -2,10 +2,7 @@ import { Switch as SwitchBase } from "@base-ui-components/react/switch";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 
-type SwitchProps = Omit<
-  React.ComponentPropsWithRef<typeof SwitchBase.Root>,
-  "onChange" | "onCheckedChange" | "className"
-> &
+type SwitchProps = Omit<SwitchBase.Root.Props, "onChange" | "onCheckedChange" | "className"> &
   VariantProps<typeof switchVariants> & {
     className?: string;
     onChange?: (checked: boolean) => void;

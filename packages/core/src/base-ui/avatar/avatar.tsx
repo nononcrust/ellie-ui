@@ -1,7 +1,7 @@
 import { Avatar as AvatarBase } from "@base-ui-components/react";
 import { cn } from "../../lib/utils";
 
-type AvatarProps = React.ComponentPropsWithRef<typeof AvatarBase.Root>;
+type AvatarProps = AvatarBase.Root.Props;
 
 const Avatar = ({ className, children, ...props }: AvatarProps) => {
   return (
@@ -14,13 +14,13 @@ const Avatar = ({ className, children, ...props }: AvatarProps) => {
   );
 };
 
-type AvatarImageProps = React.ComponentPropsWithRef<typeof AvatarBase.Image>;
+type AvatarImageProps = AvatarBase.Image.Props;
 
 const AvatarImage = ({ className, ...props }: AvatarImageProps) => {
   return <AvatarBase.Image className={cn("aspect-square h-full w-full", className)} {...props} />;
 };
 
-type AvatarFallbackProps = React.ComponentPropsWithRef<typeof AvatarBase.Fallback>;
+type AvatarFallbackProps = AvatarBase.Fallback.Props;
 
 const AvatarFallback = ({ className, ...props }: AvatarFallbackProps) => {
   return (

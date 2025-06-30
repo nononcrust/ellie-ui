@@ -2,7 +2,6 @@
 
 import { Select as SelectBase } from "@base-ui-components/react/select";
 import { CheckIcon, ChevronDownIcon } from "lucide-react";
-import React from "react";
 import { cn } from "../../lib/utils";
 
 export const selectStyle = {
@@ -31,10 +30,7 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
   );
 };
 
-type SelectProps = Omit<
-  React.ComponentPropsWithRef<typeof SelectBase.Trigger>,
-  "onChange" | "onValueChange"
-> & {
+type SelectProps = Omit<SelectBase.Trigger.Props, "onChange" | "onValueChange"> & {
   value?: string;
   onChange?: (value: string) => void;
   defaultValue?: string;
@@ -71,7 +67,7 @@ const Select = ({
   );
 };
 
-type SelectContentProps = React.ComponentPropsWithRef<typeof SelectBase.Popup>;
+type SelectContentProps = SelectBase.Popup.Props;
 
 const SelectContent = ({ className, children, ...props }: SelectContentProps) => {
   return (
@@ -96,7 +92,7 @@ const SelectContent = ({ className, children, ...props }: SelectContentProps) =>
   );
 };
 
-type SelectGroupLabelProps = React.ComponentPropsWithRef<typeof SelectBase.GroupLabel>;
+type SelectGroupLabelProps = SelectBase.GroupLabel.Props;
 
 const SelectGroupLabel = ({ className, children, ...props }: SelectGroupLabelProps) => {
   return (
@@ -109,7 +105,7 @@ const SelectGroupLabel = ({ className, children, ...props }: SelectGroupLabelPro
   );
 };
 
-type SelectOptionProps = React.ComponentPropsWithRef<typeof SelectBase.Item>;
+type SelectOptionProps = SelectBase.Item.Props;
 
 const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
@@ -132,7 +128,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   );
 };
 
-type SelectSeparatorProps = React.ComponentPropsWithRef<typeof SelectBase.Separator>;
+type SelectSeparatorProps = SelectBase.Separator.Props;
 
 const SelectSeparator = ({ className, children, ...props }: SelectSeparatorProps) => {
   return (

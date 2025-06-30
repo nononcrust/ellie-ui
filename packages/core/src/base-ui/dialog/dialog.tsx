@@ -6,13 +6,13 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
-type DialogProps = React.ComponentProps<typeof DialogBase.Root>;
+type DialogProps = DialogBase.Root.Props;
 
 const Dialog = ({ children, ...props }: DialogProps) => {
   return <DialogBase.Root {...props}>{children}</DialogBase.Root>;
 };
 
-type DialogBackdropProps = React.ComponentPropsWithRef<typeof DialogBase.Backdrop>;
+type DialogBackdropProps = DialogBase.Backdrop.Props;
 
 const DialogBackdrop = ({ className, children, ...props }: DialogBackdropProps) => {
   const { animation } = useDialogContentContext();
@@ -35,10 +35,6 @@ const DialogBackdrop = ({ className, children, ...props }: DialogBackdropProps) 
 
 type DialogAnimation = "pop" | "slide" | "none";
 
-type DialogContentProps = React.ComponentPropsWithRef<typeof DialogBase.Popup> & {
-  animation?: DialogAnimation;
-};
-
 const animationStyle: Record<DialogAnimation, string> = {
   pop: cn(
     "data-starting-style:scale-95 data-ending-style:scale-95",
@@ -51,6 +47,10 @@ const animationStyle: Record<DialogAnimation, string> = {
     "duration-500 ease-out-expo",
   ),
   none: "",
+};
+
+type DialogContentProps = DialogBase.Popup.Props & {
+  animation?: DialogAnimation;
 };
 
 const DialogContent = ({
@@ -132,7 +132,7 @@ const DialogTitle = ({ className, children, ...props }: DialogTitleProps) => {
   );
 };
 
-type DialogDescriptionProps = React.ComponentPropsWithRef<typeof DialogBase.Description>;
+type DialogDescriptionProps = DialogBase.Description.Props;
 
 const DialogDescription = ({ className, children, ...props }: DialogDescriptionProps) => {
   return (
@@ -142,7 +142,7 @@ const DialogDescription = ({ className, children, ...props }: DialogDescriptionP
   );
 };
 
-type DialogTriggerProps = React.ComponentPropsWithRef<typeof DialogBase.Trigger>;
+type DialogTriggerProps = DialogBase.Trigger.Props;
 
 const DialogTrigger = ({ children, ...props }: DialogTriggerProps) => {
   return <DialogBase.Trigger {...props}>{children}</DialogBase.Trigger>;
