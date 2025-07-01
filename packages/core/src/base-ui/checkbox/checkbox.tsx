@@ -4,7 +4,7 @@ import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
 import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react/checkbox-group";
 import { CheckIcon, MinusIcon } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
-import { cn } from "../../lib/utils";
+import { cn, noop } from "../../lib/utils";
 
 const DEFAULT_SIZE = "medium";
 
@@ -53,9 +53,8 @@ const Checkbox = ({
   checked,
   ["aria-invalid"]: ariaInvalid,
   size,
-
   children,
-  onChange,
+  onChange = noop,
   ...props
 }: CheckboxProps) => {
   const variants = checkboxVariants({ size });

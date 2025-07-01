@@ -65,7 +65,7 @@ const DialogContent = ({
         <DialogBackdrop />
         <DialogBase.Popup
           className={cn(
-            "fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2",
+            "outline-hidden fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2",
             "max-h-[calc(100%-4rem)] max-w-[calc(100%-4rem)]",
             "bg-background flex w-full flex-col overflow-y-auto rounded-[1rem]",
             animationStyle[animation],
