@@ -65,7 +65,7 @@ const TextField = ({
         {label}
         <div
           className={cn(
-            "border-border bg-background shadow-xs flex rounded-md border",
+            "border-border bg-background shadow-xs flex min-h-10 rounded-md border",
             "focus-within:focus-input-ring",
             "has-data-invalid:focus-within:focus-input-ring-error has-data-invalid:border-error",
             "has-data-disabled:bg-background-100 has-data-disabled:pointer-events-none has-data-disabled:opacity-50",
@@ -103,7 +103,7 @@ const TextFieldInput = ({ className, ...props }: TextFieldInputProps) => {
   return (
     <input
       className={cn(
-        "outline-hidden text-main placeholder-placeholder h-10 w-full px-3 text-sm",
+        "outline-hidden text-main placeholder-placeholder w-full px-3 text-sm",
         className,
       )}
       data-disabled={props.disabled}
