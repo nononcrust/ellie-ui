@@ -56,7 +56,7 @@ export const checkboxVariants = tv({
 const Checkbox = ({
   className,
   checked,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   size,
   id: idProp,
   children,

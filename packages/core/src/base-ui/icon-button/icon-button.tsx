@@ -5,7 +5,7 @@ import { buttonVariant } from "../button";
 
 export type IconButtonProps = useRender.ComponentProps<"button"> &
   VariantProps<typeof iconButtonVariants> & {
-    ["aria-label"]: string;
+    "aria-label": string;
   };
 
 const iconButtonVariants = tv({

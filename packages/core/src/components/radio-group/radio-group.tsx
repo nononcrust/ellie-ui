@@ -61,7 +61,7 @@ type RadioGroupProps<TValue extends string> = Omit<
 const RadioGroup = <TValue extends string>({
   className,
   children,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   size,
   onChange,
   ...props

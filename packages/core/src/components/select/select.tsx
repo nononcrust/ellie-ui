@@ -50,7 +50,7 @@ const Select = ({
   children,
   placeholder,
   defaultValue,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   ...props
 }: SelectProps) => {
   return (

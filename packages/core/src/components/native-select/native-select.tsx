@@ -9,7 +9,7 @@ type NativeSelectProps = React.ComponentPropsWithRef<"select"> & {
 const NativeSelect = ({
   className,
   children,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   placeholder,
   ...props
 }: NativeSelectProps) => {

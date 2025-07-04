@@ -51,7 +51,7 @@ type CheckboxProps = Omit<CheckboxBase.Root.Props, "onChange" | "onCheckedChange
 const Checkbox = ({
   className,
   checked,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   size,
   children,
   onChange = noop,

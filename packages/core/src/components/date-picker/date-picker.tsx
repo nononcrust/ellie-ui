@@ -219,7 +219,7 @@ export const Trigger = ({
   className,
   children,
   placeholder,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   ...props
 }: TriggerProps) => {
   return (

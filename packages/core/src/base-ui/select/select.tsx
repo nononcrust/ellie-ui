@@ -4,7 +4,7 @@ import { Select as SelectBase } from "@base-ui-components/react/select";
 import { CheckIcon, ChevronDownIcon } from "lucide-react";
 import { cn } from "../../lib/utils";
 
-export const selectStyle = {
+export const selectTriggerStyle = {
   base: cn(
     "border-border bg-background relative text-main flex h-10 w-full items-center justify-between rounded-md border pl-3 pr-9 text-start text-sm font-medium shadow-xs outline-hidden cursor-pointer",
     "[&>span]:min-w-0",
@@ -44,13 +44,17 @@ const Select = ({
   children,
   placeholder,
   defaultValue,
-  ["aria-invalid"]: ariaInvalid,
+  "aria-invalid": ariaInvalid,
   ...props
 }: SelectProps) => {
   return (
     <SelectBase.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
       <SelectBase.Trigger
-        className={cn(selectStyle.base, ariaInvalid && selectStyle.invalid, className)}
+        className={cn(
+          selectTriggerStyle.base,
+          ariaInvalid && selectTriggerStyle.invalid,
+          className,
+        )}
         aria-invalid={ariaInvalid}
         {...props}
       >
@@ -105,26 +109,31 @@ const SelectGroupLabel = ({ className, children, ...props }: SelectGroupLabelPro
   );
 };
 
+export const selectItemStyle = {
+  base: cn(
+    "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-3 pr-8 text-sm font-medium",
+    "data-highlighted:bg-background-hover data-highlighted:text-main",
+    "data-selected:text-primary data-selected:font-semibold",
+    "data-disabled:pointer-events-none data-disabled:opacity-50",
+  ),
+};
+
 type SelectOptionProps = SelectBase.Item.Props;
 
 const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
   return (
-    <SelectBase.Item
-      className={cn(
-        "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-3 pr-8 text-sm font-medium",
-        "data-highlighted:bg-background-hover data-highlighted:text-main",
-        "data-selected:text-primary data-selected:font-semibold",
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
-
-        className,
-      )}
-      {...props}
-    >
+    <SelectBase.Item className={cn(selectItemStyle.base, className)} {...props}>
       <SelectBase.ItemText>{children}</SelectBase.ItemText>
-      <SelectBase.ItemIndicator className="bg-primary size-4.5 absolute right-3 flex items-center justify-center rounded-full text-white">
-        <CheckIcon className="stroke-3 size-3" />
-      </SelectBase.ItemIndicator>
+      <SelectBase.ItemIndicator render={<SelectItemIndicator />} />
     </SelectBase.Item>
+  );
+};
+
+export const SelectItemIndicator = () => {
+  return (
+    <span className="bg-primary size-4.5 absolute right-3 flex items-center justify-center rounded-full text-white">
+      <CheckIcon className="stroke-3 size-3" />
+    </span>
   );
 };
 

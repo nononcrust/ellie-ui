@@ -6,7 +6,7 @@ import { buttonVariant } from "../button";
 
 export type IconButtonProps = React.ComponentPropsWithRef<"button"> &
   VariantProps<typeof iconButtonVariants> & {
-    ["aria-label"]: string;
+    "aria-label": string;
     asChild?: boolean;
   };
 
