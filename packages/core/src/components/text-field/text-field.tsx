@@ -266,9 +266,9 @@ const useRegisterTextField = () => {
     id: textFieldId,
     value,
     onChange: onFieldChange,
-    ["aria-invalid"]: error || undefined,
-    ["data-invalid"]: error || undefined,
-    ["aria-describedby"]: cn(
+    "aria-invalid": error || undefined,
+    "data-invalid": error || undefined,
+    "aria-describedby": cn(
       descriptionElement && descriptionId,
       errorMessageElement && errorMessageId,
     ),
