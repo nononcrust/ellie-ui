@@ -198,7 +198,7 @@ const DateRangePicker = ({
             {...props}
           />
         </div>
-        <div className="flex items-center gap-2 p-3 pt-0">
+        <div className="flex items-center gap-2 border-t p-3">
           <Button variant="outlined" className="w-full" type="button" onClick={onCancel}>
             취소하기
           </Button>

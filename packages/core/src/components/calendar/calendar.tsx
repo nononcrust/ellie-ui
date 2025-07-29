@@ -1,12 +1,13 @@
 "use client";
 
 import { ko } from "date-fns/locale/ko";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import {
   CustomComponents,
   DayPicker,
   DayPickerProps,
   DayProps,
+  DropdownProps,
   useDayPicker,
 } from "react-day-picker";
 import { cn } from "../../lib/utils";
@@ -20,6 +21,7 @@ const Calendar = (props: CalendarProps) => {
       classNames={classNames}
       locale={ko}
       components={components}
+      captionLayout="dropdown"
       labels={{
         labelPrevious: () => "이전 달",
         labelNext: () => "다음 달",
@@ -30,14 +32,14 @@ const Calendar = (props: CalendarProps) => {
 };
 
 const navButton =
-  "text-main absolute size-8 flex justify-center items-center rounded-full bg-background-100 hover:bg-background-200 transition-colors disabled:pointer-events-none disabled:opacity-50";
+  "text-main absolute size-8 flex justify-center items-center rounded-sm bg-background hover:bg-background-100 transition-colors disabled:pointer-events-none disabled:opacity-50";
 
 const classNames = {
   months: "flex relative",
   month: "flex flex-col gap-2 w-full",
-  caption_label:
-    "absolute bottom-0 left-0 right-0 top-4 text-[0.8125rem] font-medium flex items-center justify-center text-main",
-  nav: "flex justify-between items-center w-full h-8 p-1 absolute top-0 left-0 right-0",
+  month_caption: "h-8 flex justify-center items-center",
+  caption_label: "hidden",
+  dropdowns: "flex gap-1 flex-row-reverse",
   button_previous: cn(navButton, "left-[0.125rem]"),
   button_next: cn(navButton, "right-[0.125rem]"),
   month_grid: "w-full border-collapse gap-2",
@@ -47,7 +49,7 @@ const classNames = {
   week: "flex w-full mt-2 gap-2 justify-center",
   day: "text-[0.8125rem] font-medium relative rounded-[0.5rem] size-8 flex justify-center items-center p-0 text-center text-main",
   day_button:
-    "text-[0.8125rem] font-medium outline-hidden text-center w-full h-full p-0 rounded-[0.5rem] disabled:pointer-events-none hover:bg-background-200",
+    "text-[0.8125rem] font-medium outline-hidden text-center w-full h-full p-0 rounded-[0.5rem] disabled:pointer-events-none hover:bg-background-hover",
   selected: "bg-primary text-white hover:[&>button]:bg-primary-dark",
   outside: "text-sub",
   disabled: "text-subtle",
@@ -103,22 +105,44 @@ const Day = ({ children, day, className, ...props }: DayProps) => {
   );
 };
 
+const Dropdown = ({ className, options, value, onChange }: DropdownProps) => {
+  const isYearDropdown = !!value && value.toString().length === 4;
+
+  return (
+    <div className="relative">
+      <select
+        className={cn(
+          "focus-visible:focus-ring outline-hidden border-border hover:bg-background-hover flex h-8 cursor-pointer appearance-none items-center justify-center rounded-sm border pl-2.5 pr-7 text-center text-sm font-medium transition-colors",
+          className,
+        )}
+        value={value}
+        onChange={onChange}
+      >
+        {options &&
+          options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+              {isYearDropdown && "년"}
+            </option>
+          ))}
+      </select>
+      <ChevronDownIcon
+        className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2"
+        size={16}
+      />
+    </div>
+  );
+};
+
 const components: Partial<CustomComponents> = {
   Chevron: ({ orientation }) => {
     if (orientation === "left") {
-      return <ChevronLeftIcon className="size-4" strokeWidth={3} />;
+      return <ChevronLeftIcon className="size-5" strokeWidth={2.5} />;
     }
-    return <ChevronRightIcon className="size-4" strokeWidth={3} />;
+    return <ChevronRightIcon className="size-5" strokeWidth={2.5} />;
   },
   Day,
-  MonthCaption: ({ calendarMonth }) => (
-    <span className="mx-10 mb-2 flex h-8 items-center justify-center text-sm font-medium">
-      {calendarMonth.date.toLocaleDateString("ko-KR", {
-        year: "numeric",
-        month: "long",
-      })}
-    </span>
-  ),
+  Dropdown,
 };
 
 export { Calendar };
