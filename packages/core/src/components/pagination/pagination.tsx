@@ -85,7 +85,7 @@ const Pagination = ({ className, page, onChange, total, ...props }: PaginationPr
 
   return (
     <PaginationContext.Provider value={value}>
-      <nav className={cn("flex items-center gap-2", className)} {...props}>
+      <nav className={cn("text-sub flex items-center gap-2", className)} {...props}>
         <Navigation
           aria-label="이전 페이지로 이동"
           onClick={() => onChange(page - 1)}
@@ -112,7 +112,7 @@ const Navigation = ({ className, children, ...props }: NavigationProps) => {
   return (
     <button
       className={cn(
-        "bg-background hover:bg-background-100 border-border flex size-8 items-center justify-center rounded-sm border transition-colors",
+        "bg-background hover:bg-background-100 flex size-8 items-center justify-center rounded-sm transition-colors",
         "disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
@@ -140,11 +140,11 @@ const PaginationItem = ({ page, ...props }: PaginationItem) => {
     <button
       className={cn(
         "bg-background hover:bg-background-100 flex size-8 items-center justify-center rounded-sm text-sm font-medium transition-colors",
-        isActive && "bg-primary hover:bg-primary-dark text-white",
+        isActive && "bg-background-100 text-main font-semibold",
       )}
       aria-label="페이지 이동"
+      aria-current={isActive ? "page" : undefined}
       onClick={onClick}
-      title={isActive ? "선택됨" : ""}
       {...props}
     >
       {page}
