@@ -72,7 +72,7 @@ const RadioListGroupOption = ({ className, children, ...props }: RadioListGroupO
           <circle cx="3" cy="3" r="3" />
         </svg>
       </RadioBase.Indicator>
-      <div className="flex flex-col items-start">{children}</div>
+      <span className="flex flex-col items-start">{children}</span>
     </RadioBase.Root>
   );
 };

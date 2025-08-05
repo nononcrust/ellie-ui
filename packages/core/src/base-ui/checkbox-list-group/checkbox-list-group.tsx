@@ -71,7 +71,7 @@ const CheckboxListGroupOption = ({
       >
         <CheckIcon className="stroke-3 size-[0.875rem]" />
       </CheckboxBase.Indicator>
-      <div className="flex flex-col items-start">{children}</div>
+      <span className="flex flex-col items-start">{children}</span>
     </CheckboxBase.Root>
   );
 };
