@@ -11,7 +11,7 @@ const DEFAULT_SIZE = "medium";
 export const checkboxVariants = tv({
   slots: {
     root: cn(
-      "border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
+      "bg-background border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
       "data-checked:border-primary data-checked:bg-primary data-checked:text-white",
       "data-indeterminate:border-primary data-indeterminate:bg-primary data-indeterminate:text-white",
       "disabled:pointer-events-none disabled:opacity-50",
