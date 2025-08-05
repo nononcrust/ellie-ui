@@ -33,14 +33,10 @@ export const Default: Story = {
       <div className="min-w-[24rem]">
         <RadioListGroup defaultValue="1">
           {options.map((option) => (
-            <RadioListGroup.Option
-              key={option.value}
-              value={option.value}
-              label={<RadioListGroup.Label>{option.label}</RadioListGroup.Label>}
-              description={
-                <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
-              }
-            />
+            <RadioListGroup.Option key={option.value} value={option.value}>
+              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
+              <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
+            </RadioListGroup.Option>
           ))}
         </RadioListGroup>
       </div>
@@ -54,11 +50,9 @@ export const LabelOnly: Story = {
       <div className="min-w-[24rem]">
         <RadioListGroup defaultValue="1">
           {options.map((option) => (
-            <RadioListGroup.Option
-              key={option.value}
-              value={option.value}
-              label={<RadioListGroup.Label>{option.label}</RadioListGroup.Label>}
-            />
+            <RadioListGroup.Option key={option.value} value={option.value}>
+              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
+            </RadioListGroup.Option>
           ))}
         </RadioListGroup>
       </div>
@@ -72,14 +66,10 @@ export const Disabled: Story = {
       <div className="min-w-[24rem]">
         <RadioListGroup disabled>
           {options.map((option) => (
-            <RadioListGroup.Option
-              key={option.value}
-              value={option.value}
-              label={<RadioListGroup.Label>{option.label}</RadioListGroup.Label>}
-              description={
-                <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
-              }
-            />
+            <RadioListGroup.Option key={option.value} value={option.value}>
+              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
+              <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
+            </RadioListGroup.Option>
           ))}
         </RadioListGroup>
       </div>
@@ -96,12 +86,11 @@ export const OptionDisabled: Story = {
             <RadioListGroup.Option
               key={option.value}
               value={option.value}
-              label={<RadioListGroup.Label>{option.label}</RadioListGroup.Label>}
-              description={
-                <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
-              }
               disabled={option.value === "2"}
-            />
+            >
+              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
+              <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
+            </RadioListGroup.Option>
           ))}
         </RadioListGroup>
       </div>
@@ -115,14 +104,10 @@ export const Error: Story = {
       <div className="min-w-[24rem]">
         <RadioListGroup aria-invalid defaultValue="1">
           {options.map((option) => (
-            <RadioListGroup.Option
-              key={option.value}
-              value={option.value}
-              label={<RadioListGroup.Label>{option.label}</RadioListGroup.Label>}
-              description={
-                <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
-              }
-            />
+            <RadioListGroup.Option key={option.value} value={option.value}>
+              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
+              <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
+            </RadioListGroup.Option>
           ))}
         </RadioListGroup>
       </div>
@@ -138,14 +123,10 @@ export const Controlled: Story = {
       <div className="min-w-[24rem]">
         <RadioListGroup value={radioGroup.value} onChange={radioGroup.onChange}>
           {options.map((option) => (
-            <RadioListGroup.Option
-              key={option.value}
-              value={option.value}
-              label={<RadioListGroup.Label>{option.label}</RadioListGroup.Label>}
-              description={
-                <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
-              }
-            />
+            <RadioListGroup.Option key={option.value} value={option.value}>
+              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
+              <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
+            </RadioListGroup.Option>
           ))}
         </RadioListGroup>
       </div>

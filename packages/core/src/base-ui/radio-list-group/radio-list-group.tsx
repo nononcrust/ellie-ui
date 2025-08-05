@@ -22,7 +22,7 @@ const RadioListGroup = <TValue extends string>({
   ...props
 }: RadioListGroupProps<TValue>) => {
   return (
-    <RadioGroupContext value={{ ariaInvalid }}>
+    <RadioListGroupContext value={{ ariaInvalid }}>
       <RadioGroupBase
         className={cn("grid gap-0.5", className)}
         onValueChange={onChange as (value: unknown) => void}
@@ -30,24 +30,17 @@ const RadioListGroup = <TValue extends string>({
       >
         {children}
       </RadioGroupBase>
-    </RadioGroupContext>
+    </RadioListGroupContext>
   );
 };
 
 type RadioListGroupOptionProps = Omit<RadioBase.Root.Props, "className"> & {
-  label: React.ReactNode;
-  description?: React.ReactNode;
   className?: string;
 };
 
-const RadioListGroupOption = ({
-  className,
-  label,
-  description,
-  ...props
-}: RadioListGroupOptionProps) => {
+const RadioListGroupOption = ({ className, children, ...props }: RadioListGroupOptionProps) => {
   const id = useId();
-  const { ariaInvalid } = useRadioGroupContext();
+  const { ariaInvalid } = useRadioListGroupContext();
 
   return (
     <RadioBase.Root
@@ -61,30 +54,25 @@ const RadioListGroupOption = ({
       )}
       {...props}
     >
-      <span>
-        <RadioBase.Indicator
-          className={cn(
-            "flex size-5 items-center justify-center rounded-full",
-            "border-border bg-background text-background border",
-            "data-checked:bg-primary",
-            ariaInvalid && "data-checked:bg-error",
-          )}
-          keepMounted
+      <RadioBase.Indicator
+        className={cn(
+          "flex size-5 items-center justify-center rounded-full",
+          "border-border bg-background text-background border",
+          "data-checked:bg-primary data-checked:text-white",
+          ariaInvalid && "data-checked:bg-error",
+        )}
+        keepMounted
+      >
+        <svg
+          className="size-[0.5rem]"
+          viewBox="0 0 6 6"
+          fill="currentcolor"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            className="size-[0.5rem]"
-            viewBox="0 0 6 6"
-            fill="currentcolor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="3" cy="3" r="3" />
-          </svg>
-        </RadioBase.Indicator>
-      </span>
-      <div className="flex flex-col items-start">
-        {label}
-        {description}
-      </div>
+          <circle cx="3" cy="3" r="3" />
+        </svg>
+      </RadioBase.Indicator>
+      <div className="flex flex-col items-start">{children}</div>
     </RadioBase.Root>
   );
 };
@@ -115,15 +103,15 @@ const RadioListGroupDescription = ({
   );
 };
 
-RadioListGroup.Option = RadioListGroupOption;
-RadioListGroup.Label = RadioListGroupLabel;
-RadioListGroup.Description = RadioListGroupDescription;
-
-type RadioGroupContextValue = {
+type RadioListGroupContextValue = {
   ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
 };
 
-const [RadioGroupContext, useRadioGroupContext] =
-  createContextFactory<RadioGroupContextValue>("RadioGroup");
+const [RadioListGroupContext, useRadioListGroupContext] =
+  createContextFactory<RadioListGroupContextValue>("RadioListGroup");
+
+RadioListGroup.Option = RadioListGroupOption;
+RadioListGroup.Label = RadioListGroupLabel;
+RadioListGroup.Description = RadioListGroupDescription;
 
 export { RadioListGroup };
