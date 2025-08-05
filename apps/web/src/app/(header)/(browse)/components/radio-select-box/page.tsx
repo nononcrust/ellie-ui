@@ -1,20 +1,20 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { RadioListGroup } from "@ellie-ui/core";
+import { RadioSelectBox } from "@ellie-ui/core";
 
-export default function RadioListGroupPage() {
+export default function RadioSelectBoxPage() {
   return (
     <Grid>
       <div className="col-span-3 mt-8 px-4">
-        <RadioListGroup defaultValue="1">
+        <RadioSelectBox defaultValue="1">
           {options.map((option) => (
-            <RadioListGroup.Option key={option.value} value={option.value}>
-              <RadioListGroup.Label>{option.label}</RadioListGroup.Label>
-              <RadioListGroup.Description>{option.description}</RadioListGroup.Description>
-            </RadioListGroup.Option>
+            <RadioSelectBox.Option key={option.value} value={option.value}>
+              <RadioSelectBox.Label>{option.label}</RadioSelectBox.Label>
+              <RadioSelectBox.Description>{option.description}</RadioSelectBox.Description>
+            </RadioSelectBox.Option>
           ))}
-        </RadioListGroup>
+        </RadioSelectBox>
       </div>
     </Grid>
   );

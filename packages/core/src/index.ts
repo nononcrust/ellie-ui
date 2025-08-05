@@ -1,5 +1,5 @@
-export * from "./base-ui/checkbox-list-group";
-export * from "./base-ui/radio-list-group";
+export * from "./base-ui/check-select-box";
+export * from "./base-ui/radio-select-box";
 export * from "./components/accordion";
 export * from "./components/avatar";
 export * from "./components/badge";

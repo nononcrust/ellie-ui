@@ -6,7 +6,7 @@ import { useId } from "react";
 import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
-type RadioListGroupProps<TValue extends string> = Omit<
+type RadioSelectBoxProps<TValue extends string> = Omit<
   RadioGroupBase.Props,
   "value" | "onValueChange" | "onChange"
 > & {
@@ -14,15 +14,15 @@ type RadioListGroupProps<TValue extends string> = Omit<
   onChange?: (value: TValue) => void;
 };
 
-const RadioListGroup = <TValue extends string>({
+const RadioSelectBox = <TValue extends string>({
   className,
   children,
   "aria-invalid": ariaInvalid,
   onChange,
   ...props
-}: RadioListGroupProps<TValue>) => {
+}: RadioSelectBoxProps<TValue>) => {
   return (
-    <RadioListGroupContext value={{ ariaInvalid }}>
+    <RadioSelectBoxContext value={{ ariaInvalid }}>
       <RadioGroupBase
         className={cn("grid gap-0.5", className)}
         onValueChange={onChange as (value: unknown) => void}
@@ -30,17 +30,17 @@ const RadioListGroup = <TValue extends string>({
       >
         {children}
       </RadioGroupBase>
-    </RadioListGroupContext>
+    </RadioSelectBoxContext>
   );
 };
 
-type RadioListGroupOptionProps = Omit<RadioBase.Root.Props, "className"> & {
+type RadioSelectBoxOptionProps = Omit<RadioBase.Root.Props, "className"> & {
   className?: string;
 };
 
-const RadioListGroupOption = ({ className, children, ...props }: RadioListGroupOptionProps) => {
+const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxOptionProps) => {
   const id = useId();
-  const { ariaInvalid } = useRadioListGroupContext();
+  const { ariaInvalid } = useRadioSelectBoxContext();
 
   return (
     <RadioBase.Root
@@ -77,11 +77,11 @@ const RadioListGroupOption = ({ className, children, ...props }: RadioListGroupO
   );
 };
 
-RadioListGroup.Item = RadioListGroupOption;
+RadioSelectBox.Item = RadioSelectBoxOption;
 
-type RadioListGroupLabelProps = React.ComponentPropsWithRef<"span">;
+type RadioSelectBoxLabelProps = React.ComponentPropsWithRef<"span">;
 
-const RadioListGroupLabel = ({ className, children, ...props }: RadioListGroupLabelProps) => {
+const RadioSelectBoxLabel = ({ className, children, ...props }: RadioSelectBoxLabelProps) => {
   return (
     <span className={cn("text-[0.9375rem] font-medium", className)} {...props}>
       {children}
@@ -89,13 +89,13 @@ const RadioListGroupLabel = ({ className, children, ...props }: RadioListGroupLa
   );
 };
 
-type RadioListGroupDescriptionProps = React.ComponentPropsWithRef<"span">;
+type RadioSelectBoxDescriptionProps = React.ComponentPropsWithRef<"span">;
 
-const RadioListGroupDescription = ({
+const RadioSelectBoxDescription = ({
   className,
   children,
   ...props
-}: RadioListGroupDescriptionProps) => {
+}: RadioSelectBoxDescriptionProps) => {
   return (
     <span className={cn("text-sub text-start text-[0.8125rem]", className)} {...props}>
       {children}
@@ -103,15 +103,15 @@ const RadioListGroupDescription = ({
   );
 };
 
-type RadioListGroupContextValue = {
+type RadioSelectBoxContextValue = {
   ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
 };
 
-const [RadioListGroupContext, useRadioListGroupContext] =
-  createContextFactory<RadioListGroupContextValue>("RadioListGroup");
+const [RadioSelectBoxContext, useRadioSelectBoxContext] =
+  createContextFactory<RadioSelectBoxContextValue>("RadioSelectBox");
 
-RadioListGroup.Option = RadioListGroupOption;
-RadioListGroup.Label = RadioListGroupLabel;
-RadioListGroup.Description = RadioListGroupDescription;
+RadioSelectBox.Option = RadioSelectBoxOption;
+RadioSelectBox.Label = RadioSelectBoxLabel;
+RadioSelectBox.Description = RadioSelectBoxDescription;
 
-export { RadioListGroup };
+export { RadioSelectBox };

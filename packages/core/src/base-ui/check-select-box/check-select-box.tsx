@@ -8,7 +8,7 @@ import { cn } from "../../lib/utils";
 
 type CheckboxGroupValue = string[] | readonly string[];
 
-type CheckboxListGroup<TValue extends CheckboxGroupValue> = Omit<
+type CheckSelectBox<TValue extends CheckboxGroupValue> = Omit<
   CheckboxGroupBase.Props,
   "value" | "onValueChange" | "onChange"
 > & {
@@ -16,16 +16,16 @@ type CheckboxListGroup<TValue extends CheckboxGroupValue> = Omit<
   onChange?: (value: TValue) => void;
 };
 
-const CheckboxListGroup = <TValue extends CheckboxGroupValue>({
+const CheckSelectBox = <TValue extends CheckboxGroupValue>({
   className,
   children,
   "aria-invalid": ariaInvalid,
   value,
   onChange,
   ...props
-}: CheckboxListGroup<TValue>) => {
+}: CheckSelectBox<TValue>) => {
   return (
-    <CheckboxListGroupContext value={{ ariaInvalid }}>
+    <CheckSelectBoxContext value={{ ariaInvalid }}>
       <CheckboxGroupBase
         className={cn("grid gap-0.5", className)}
         value={value as string[]}
@@ -34,20 +34,16 @@ const CheckboxListGroup = <TValue extends CheckboxGroupValue>({
       >
         {children}
       </CheckboxGroupBase>
-    </CheckboxListGroupContext>
+    </CheckSelectBoxContext>
   );
 };
 
-type CheckboxListGroupOptionProps = Omit<CheckboxBase.Root.Props, "className"> & {
+type CheckSelectBoxOptionProps = Omit<CheckboxBase.Root.Props, "className"> & {
   className?: string;
 };
 
-const CheckboxListGroupOption = ({
-  className,
-  children,
-  ...props
-}: CheckboxListGroupOptionProps) => {
-  const { ariaInvalid } = useCheckboxListGroupContext();
+const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxOptionProps) => {
+  const { ariaInvalid } = useCheckSelectBoxContext();
 
   return (
     <CheckboxBase.Root
@@ -76,9 +72,9 @@ const CheckboxListGroupOption = ({
   );
 };
 
-type CheckboxListGroupLabelProps = React.ComponentPropsWithRef<"span">;
+type CheckSelectBoxLabelProps = React.ComponentPropsWithRef<"span">;
 
-const CheckboxListGroupLabel = ({ className, children, ...props }: CheckboxListGroupLabelProps) => {
+const CheckSelectBoxLabel = ({ className, children, ...props }: CheckSelectBoxLabelProps) => {
   return (
     <span className={cn("text-[0.9375rem] font-medium", className)} {...props}>
       {children}
@@ -86,13 +82,13 @@ const CheckboxListGroupLabel = ({ className, children, ...props }: CheckboxListG
   );
 };
 
-type CheckboxListGroupDescriptionProps = React.ComponentPropsWithRef<"span">;
+type CheckSelectBoxDescriptionProps = React.ComponentPropsWithRef<"span">;
 
-const CheckboxListGroupDescription = ({
+const CheckSelectBoxDescription = ({
   className,
   children,
   ...props
-}: CheckboxListGroupDescriptionProps) => {
+}: CheckSelectBoxDescriptionProps) => {
   return (
     <span className={cn("text-sub text-start text-[0.8125rem]", className)} {...props}>
       {children}
@@ -100,15 +96,15 @@ const CheckboxListGroupDescription = ({
   );
 };
 
-type CheckboxListGroupGroupContextValue = {
+type CheckSelectBoxGroupContextValue = {
   ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
 };
 
-const [CheckboxListGroupContext, useCheckboxListGroupContext] =
-  createContextFactory<CheckboxListGroupGroupContextValue>("CheckboxListGroup");
+const [CheckSelectBoxContext, useCheckSelectBoxContext] =
+  createContextFactory<CheckSelectBoxGroupContextValue>("CheckSelectBox");
 
-CheckboxListGroup.Option = CheckboxListGroupOption;
-CheckboxListGroup.Label = CheckboxListGroupLabel;
-CheckboxListGroup.Description = CheckboxListGroupDescription;
+CheckSelectBox.Option = CheckSelectBoxOption;
+CheckSelectBox.Label = CheckSelectBoxLabel;
+CheckSelectBox.Description = CheckSelectBoxDescription;
 
-export { CheckboxListGroup };
+export { CheckSelectBox };

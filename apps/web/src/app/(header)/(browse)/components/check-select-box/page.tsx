@@ -1,20 +1,20 @@
 "use client";
 
 import { Grid } from "@/components/layouts/grid";
-import { CheckboxListGroup } from "@ellie-ui/core";
+import { CheckSelectBox } from "@ellie-ui/core";
 
-export default function CheckboxListGroupPage() {
+export default function CheckSelectBoxPage() {
   return (
     <Grid>
       <div className="col-span-3 mt-8 px-4">
-        <CheckboxListGroup defaultValue={["1"]}>
+        <CheckSelectBox defaultValue={["1"]}>
           {options.map((option) => (
-            <CheckboxListGroup.Option key={option.value} value={option.value}>
-              <CheckboxListGroup.Label>{option.label}</CheckboxListGroup.Label>
-              <CheckboxListGroup.Description>{option.description}</CheckboxListGroup.Description>
-            </CheckboxListGroup.Option>
+            <CheckSelectBox.Option key={option.value} value={option.value}>
+              <CheckSelectBox.Label>{option.label}</CheckSelectBox.Label>
+              <CheckSelectBox.Description>{option.description}</CheckSelectBox.Description>
+            </CheckSelectBox.Option>
           ))}
-        </CheckboxListGroup>
+        </CheckSelectBox>
       </div>
     </Grid>
   );
