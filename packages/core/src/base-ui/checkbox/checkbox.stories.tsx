@@ -1,6 +1,11 @@
 import { useCheckbox, useCheckboxGroup } from "@ellie-ui/core/hooks";
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
 import { Checkbox } from ".";
+import { Button } from "../button";
+import { Form } from "../form";
 
 const meta = {
   title: "base-ui/Checkbox",
@@ -67,6 +72,53 @@ export const Controlled: Story = {
 
     return (
       <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} aria-label="체크박스" />
+    );
+  },
+};
+
+export const WithForm: Story = {
+  render: () => {
+    const CheckboxForm = z.object({
+      terms: z.boolean().refine((value) => value === true, {
+        message: "서비스 이용약관에 동의해주세요.",
+      }),
+    });
+
+    const form = useForm({
+      resolver: zodResolver(CheckboxForm),
+      defaultValues: {
+        terms: false,
+      },
+    });
+
+    const onSubmit = form.handleSubmit(() => {});
+
+    return (
+      <Form className="flex w-[20rem] flex-col" onSubmit={onSubmit}>
+        <Form.Item error={!!form.formState.errors.terms}>
+          <Form.Label>이용약관 동의</Form.Label>
+          <Controller
+            name="terms"
+            control={form.control}
+            render={({ field }) => (
+              <Form.Control>
+                <Checkbox
+                  checked={field.value}
+                  onChange={field.onChange}
+                  ref={field.ref}
+                  aria-label="체크박스"
+                >
+                  서비스 약관에 동의합니다.
+                </Checkbox>
+              </Form.Control>
+            )}
+          />
+          <Form.ErrorMessage>{form.formState.errors.terms?.message}</Form.ErrorMessage>
+        </Form.Item>
+        <Button className="mt-4" type="submit">
+          제출하기
+        </Button>
+      </Form>
     );
   },
 };

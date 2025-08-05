@@ -45,6 +45,7 @@ export const checkboxVariants = tv({
 
 type CheckboxProps = Omit<CheckboxBase.Root.Props, "onChange" | "onCheckedChange"> &
   VariantProps<typeof checkboxVariants> & {
+    ref?: React.Ref<HTMLButtonElement>;
     onChange?: (checked: boolean) => void;
   };
 
