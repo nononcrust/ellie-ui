@@ -126,11 +126,7 @@ export const Controlled: Story = {
       <div className="min-w-[24rem]">
         <CheckboxListGroup value={checkboxGroup.value} onChange={checkboxGroup.onChange}>
           {options.map((option) => (
-            <CheckboxListGroup.Option
-              key={option.value}
-              value={option.value}
-              disabled={option.value === "2"}
-            >
+            <CheckboxListGroup.Option key={option.value} value={option.value}>
               <CheckboxListGroup.Label>{option.label}</CheckboxListGroup.Label>
               <CheckboxListGroup.Description>{option.description}</CheckboxListGroup.Description>
             </CheckboxListGroup.Option>

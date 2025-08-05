@@ -65,7 +65,7 @@ const CheckboxListGroupOption = ({
           "bg-background text-background flex size-5 items-center justify-center rounded-[0.3125rem]",
           "border-border shadow-xs outline-hidden shrink-0 border",
           "data-checked:border-primary data-checked:bg-primary data-checked:text-white",
-          ariaInvalid && "data-checked:bg-error",
+          ariaInvalid && "data-checked:bg-error data-checked:border-error",
         )}
         keepMounted
       >
