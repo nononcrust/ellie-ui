@@ -21,7 +21,7 @@ const DropdownMenuContent = ({ className, children, ...props }: DropdownMenuCont
       <DropdownMenuBase.Positioner className="outline-hidden" sideOffset={4} side="bottom">
         <DropdownMenuBase.Popup
           className={cn(
-            "border-border bg-background text-main outline-hidden z-50 min-w-40 rounded-md border py-1 shadow-lg",
+            "border-border bg-background text-main outline-hidden z-50 min-w-40 rounded-md border p-1 shadow-lg",
             "data-starting-style:opacity-0 data-open:duration-150",
             "data-[side=top]:data-starting-style:translate-y-[0.5rem]",
             "data-[side=bottom]:data-starting-style:translate-y-[-0.5rem]",
@@ -40,7 +40,7 @@ const DropdownMenuContent = ({ className, children, ...props }: DropdownMenuCont
 
 const dropdownMenuItemVariants = tv({
   base: cn(
-    "outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium",
+    "outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium rounded-[0.375rem]",
     "focus:bg-background-hover",
     "data-disabled:pointer-events-none data-disabled:opacity-50",
     "[&_svg]:shrink-0",

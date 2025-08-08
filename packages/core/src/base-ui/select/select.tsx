@@ -79,7 +79,7 @@ const SelectContent = ({ className, children, ...props }: SelectContentProps) =>
       <SelectBase.Positioner className="outline-hidden" alignItemWithTrigger={false} sideOffset={4}>
         <SelectBase.Popup
           className={cn(
-            "border-border bg-background text-main outline-hidden relative z-50 overflow-y-auto overflow-x-hidden rounded-md border py-1 shadow-lg",
+            "border-border bg-background text-main outline-hidden relative z-50 overflow-y-auto overflow-x-hidden rounded-md border p-1 shadow-lg",
             "max-h-[var(--available-height)] min-w-[8rem] max-w-[calc(100vw-0.75rem)]",
             "w-full min-w-[var(--anchor-width)]",
             "data-starting-style:opacity-0 data-open:duration-150",
@@ -111,7 +111,7 @@ const SelectGroupLabel = ({ className, children, ...props }: SelectGroupLabelPro
 
 export const selectItemStyle = {
   base: cn(
-    "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-3 pr-8 text-sm font-medium",
+    "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-3 pr-8 text-sm font-medium rounded-[0.375rem]",
     "data-highlighted:bg-background-hover data-highlighted:text-main",
     "data-selected:text-primary data-selected:font-semibold",
     "data-disabled:pointer-events-none data-disabled:opacity-50",

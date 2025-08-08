@@ -30,7 +30,7 @@ const DropdownMenuContent = ({
     <DropdownMenuPrimitives.Portal>
       <DropdownMenuPrimitives.Content
         className={cn(
-          "border-border bg-background text-main z-50 min-w-40 overflow-hidden rounded-md border py-1 shadow-lg",
+          "border-border bg-background text-main z-50 min-w-40 overflow-hidden rounded-md border p-1 shadow-lg",
           "animate-in fade-in-0",
           "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           className,
@@ -46,7 +46,7 @@ const DropdownMenuContent = ({
 
 const dropdownMenuItemVariants = tv({
   base: cn(
-    "outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium",
+    "outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium rounded-[0.375rem]",
     "focus:bg-background-hover",
     "data-disabled:pointer-events-none data-disabled:opacity-50",
     "[&_svg]:shrink-0",
