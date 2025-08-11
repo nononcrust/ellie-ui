@@ -94,7 +94,7 @@ type PromptFooterProps = React.ComponentPropsWithRef<"div">;
 
 const PromptFooter = ({ className, children, ...props }: PromptFooterProps) => {
   return (
-    <div className={cn("flex justify-end gap-2 p-5", className)} {...props}>
+    <div className={cn("flex justify-end gap-2 p-5 pt-0", className)} {...props}>
       {children}
     </div>
   );
