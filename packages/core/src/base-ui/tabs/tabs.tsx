@@ -86,7 +86,7 @@ type TabsPanelProps = TabsBase.Panel.Props;
 
 const TabsPanel = ({ className, children, ...props }: TabsPanelProps) => {
   return (
-    <TabsBase.Panel className={className} {...props}>
+    <TabsBase.Panel className={cn("outline-hidden", className)} {...props}>
       {children}
     </TabsBase.Panel>
   );

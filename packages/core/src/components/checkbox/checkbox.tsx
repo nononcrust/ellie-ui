@@ -21,7 +21,7 @@ type CheckboxProps = Omit<
 export const checkboxVariants = tv({
   slots: {
     root: cn(
-      "border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
+      "bg-background border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
       "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white",
       "data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-white",
       "disabled:pointer-events-none disabled:opacity-50",
