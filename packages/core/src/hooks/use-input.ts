@@ -1,16 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { formatter, NumberFormatType } from "../lib/format";
 
-export const useInput = (initialValue = "") => {
-  const [value, setValue] = useState(initialValue);
+export const useInput = (options?: { initialValue?: string; format?: NumberFormatType }) => {
+  const [value, setValue] = useState(options?.initialValue ?? "");
 
   const onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {
-    setValue(event.target.value);
+    if (!options || !options.format) {
+      setValue(event.target.value);
+      return;
+    }
+
+    setValue(formatter[options.format](event.target.value));
   };
 
   const reset = () => {
-    setValue(initialValue);
+    setValue(options?.initialValue ?? "");
   };
 
   const clear = () => {

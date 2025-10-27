@@ -23,7 +23,7 @@ const terms = [
 const formSchema = z.object({
   type: z.string().nonempty({ message: "타입을 선택해주세요." }),
   name: z.string().nonempty({ message: "이름을 입력해주세요." }),
-  email: z.string().email({ message: "유효한 이메일을 입력해주세요." }),
+  email: z.email({ message: "유효한 이메일을 입력해주세요." }),
   password: z.string().min(8, { message: "비밀번호는 8자 이상이어야 합니다." }),
   passwordConfirm: z.string().min(8, { message: "비밀번호를 한번 더 입력해주세요." }),
   date: z.date({ message: "생년월일을 입력해주세요." }),
@@ -58,16 +58,14 @@ export const Form1 = () => {
     toast.success(JSON.stringify(data, null, 2));
   });
 
-  console.log("Error:", form.formState.errors);
-
   return (
     <Form className="flex flex-col gap-8" onSubmit={onSubmit}>
-      <Form.Item error={!!form.formState.errors.type}>
-        <Form.Label>타입</Form.Label>
-        <Controller
-          name="type"
-          control={form.control}
-          render={({ field }) => (
+      <Controller
+        name="type"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>타입</Form.Label>
             <Form.Control>
               <Select {...field} placeholder="타입을 선택해주세요.">
                 <Select.Option value="1">개인</Select.Option>
@@ -75,119 +73,165 @@ export const Form1 = () => {
                 <Select.Option value="3">단체</Select.Option>
               </Select>
             </Form.Control>
-          )}
-        />
-        <Form.Description>타입을 선택하세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.type?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.name}>
-        <Form.Label>이름</Form.Label>
-        <Form.Control>
-          <Input {...form.register("name")} placeholder="이름" />
-        </Form.Control>
-        <Form.Description>이름을 입력하세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.name?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.email}>
-        <Form.Label>이메일</Form.Label>
-        <Form.Control>
-          <Input {...form.register("email")} placeholder="이메일" />
-        </Form.Control>
-        <Form.Description>이메일을 입력하세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.email?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.password}>
-        <Form.Label>비밀번호</Form.Label>
-        <Form.Control>
-          <Input type="password" {...form.register("password")} placeholder="비밀번호" />
-        </Form.Control>
-        <Form.Description>비밀번호를 입력하세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.passwordConfirm}>
-        <Form.Label>비밀번호 확인</Form.Label>
-        <Form.Control>
-          <Input
-            type="password"
-            {...form.register("passwordConfirm")}
-            placeholder="비밀번호 확인"
-          />
-        </Form.Control>
-        <Form.Description>비밀번호를 다시 입력하세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.passwordConfirm?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.date}>
-        <Form.Label>생년월일</Form.Label>
-        <Controller
-          name="date"
-          control={form.control}
-          render={({ field }) => (
+            <Form.Description>타입을 선택하세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+
+      <Controller
+        name="name"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>이름</Form.Label>
+            <Form.Control>
+              <Input {...field} placeholder="이름" />
+            </Form.Control>
+            <Form.Description>이름을 입력하세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+      <Controller
+        name="email"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>이메일</Form.Label>
+            <Form.Control>
+              <Input {...field} placeholder="이메일" />
+            </Form.Control>
+            <Form.Description>이메일을 입력하세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+
+      <Controller
+        name="password"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>비밀번호</Form.Label>
+            <Form.Control>
+              <Input type="password" {...field} placeholder="비밀번호" />
+            </Form.Control>
+            <Form.Description>비밀번호를 입력하세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+
+      <Controller
+        name="passwordConfirm"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>비밀번호 확인</Form.Label>
+            <Form.Control>
+              <Input type="password" {...field} placeholder="비밀번호 확인" />
+            </Form.Control>
+            <Form.Description>비밀번호를 다시 입력하세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+
+      <Controller
+        name="date"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>생년월일</Form.Label>
             <Form.Control>
               <DatePicker {...field} placeholder="생년월일" />
             </Form.Control>
-          )}
-        />
-        <Form.Description>생년월일을 입력하세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.date?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.gender}>
-        <Form.Label>성별</Form.Label>
-        <Controller
-          name="gender"
-          control={form.control}
-          render={({ field }) => (
+            <Form.Description>생년월일을 입력하세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+
+      <Controller
+        name="gender"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>성별</Form.Label>
             <Form.Control>
               <RadioGroup {...field}>
                 <RadioGroup.Option value="male">남성</RadioGroup.Option>
                 <RadioGroup.Option value="female">여성</RadioGroup.Option>
               </RadioGroup>
             </Form.Control>
-          )}
-        />
-        <Form.ErrorMessage>{form.formState.errors.gender?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.terms}>
-        <Form.Label>약관 동의</Form.Label>
-        <Controller
-          name="terms"
-          control={form.control}
-          render={({ field }) => (
-            <Checkbox.Group className="flex flex-col gap-2">
-              <Checkbox
-                className="mb-4"
-                aria-invalid={!!form.formState.errors.terms}
-                checked={field.value.length === terms.length}
-                onChange={() => {
-                  const allTerms = terms.map((term) => term.id);
-                  const newTerms = field.value.length === allTerms.length ? [] : allTerms;
-
-                  field.onChange(newTerms);
-                }}
-              >
-                <Checkbox.Label>전체 동의</Checkbox.Label>
-              </Checkbox>
-              {terms.map((term) => (
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+      <Controller
+        name="terms"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Fieldset>
+            <Form.Legend>약관 동의</Form.Legend>
+            <Form.Field invalid={fieldState.invalid}>
+              <Checkbox.Group className="flex flex-col gap-2">
                 <Checkbox
-                  key={term.id}
-                  checked={field.value.some((t) => t === term.id)}
-                  aria-invalid={!!form.formState.errors.terms && !field.value.includes(term.id)}
+                  className="mb-4"
+                  aria-invalid={fieldState.invalid}
+                  checked={field.value.length === terms.length}
                   onChange={() => {
-                    const newTerms = field.value.includes(term.id)
-                      ? field.value.filter((t) => t !== term.id)
-                      : [...field.value, term.id];
+                    const allTerms = terms.map((term) => term.id);
+                    const newTerms = field.value.length === allTerms.length ? [] : allTerms;
 
                     field.onChange(newTerms);
                   }}
                 >
-                  <Checkbox.Label>{term.label}</Checkbox.Label>
+                  <Checkbox.Label>전체 동의</Checkbox.Label>
                 </Checkbox>
-              ))}
-            </Checkbox.Group>
+                {terms.map((term) => (
+                  <Checkbox
+                    key={term.id}
+                    checked={field.value.some((t) => t === term.id)}
+                    aria-invalid={fieldState.invalid && !field.value.includes(term.id)}
+                    onChange={() => {
+                      const newTerms = field.value.includes(term.id)
+                        ? field.value.filter((t) => t !== term.id)
+                        : [...field.value, term.id];
+
+                      field.onChange(newTerms);
+                    }}
+                  >
+                    <Checkbox.Label>{term.label}</Checkbox.Label>
+                  </Checkbox>
+                ))}
+              </Checkbox.Group>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          </Form.Fieldset>
+        )}
+      />
+      <Button type="submit">가입하기</Button>
+      <Form onSubmit={onSubmit}>
+        <Controller
+          name="email"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>이메일</Form.Label>
+              <Form.Control>
+                <Input {...field} placeholder="이메일을 입력해주세요" />
+              </Form.Control>
+              <Form.Description>이메일을 입력해주세요</Form.Description>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
           )}
         />
-        <Form.ErrorMessage>{form.formState.errors.terms?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Button type="submit">가입하기</Button>
+        <Button className="mt-4" type="submit">
+          제출하기
+        </Button>
+      </Form>
     </Form>
   );
 };

@@ -44,7 +44,7 @@ export const Disabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return (
       <div className="w-[20rem]">
@@ -72,13 +72,13 @@ export const WithLabel: Story = {
 export const WithForm: Story = {
   render: () => {
     return (
-      <Form.Item className="w-[20rem]">
+      <Form.Field className="w-[20rem]">
         <Form.Label>내용</Form.Label>
         <Form.Control>
           <Textarea />
         </Form.Control>
         <Form.Description>내용을 입력해주세요.</Form.Description>
-      </Form.Item>
+      </Form.Field>
     );
   },
 };

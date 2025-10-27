@@ -6,7 +6,7 @@ const credential = {
 };
 
 export const emailFormSchema = z.object({
-  email: z.string().email("올바른 이메일 주소를 입력해 주세요."),
+  email: z.email("올바른 이메일 주소를 입력해 주세요."),
 });
 
 export type EmailForm = z.infer<typeof emailFormSchema>;

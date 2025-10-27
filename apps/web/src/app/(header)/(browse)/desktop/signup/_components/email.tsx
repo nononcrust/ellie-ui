@@ -2,7 +2,7 @@
 
 import { Button, Form, Input } from "@ellie-ui/core";
 import { useState } from "react";
-import { UseFormReturn } from "react-hook-form";
+import { Controller, UseFormReturn } from "react-hook-form";
 import { authApi, EmailForm } from "../_utils/schema";
 
 type EmailProps = {
@@ -27,12 +27,18 @@ export const Email = ({ form, onSubmit: afterSubmit }: EmailProps) => {
 
   return (
     <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
-      <Form.Item error={!!form.formState.errors.email}>
-        <Form.Label>이메일</Form.Label>
-        <Form.Control>
-          <Input {...form.register("email")} />
-        </Form.Control>
-      </Form.Item>
+      <Controller
+        name="email"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>이메일</Form.Label>
+            <Form.Control>
+              <Input {...field} />
+            </Form.Control>
+          </Form.Field>
+        )}
+      />
       <Button type="submit" disabled={isLoading}>
         다음
       </Button>

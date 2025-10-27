@@ -92,24 +92,24 @@ export default function SettingsPage() {
       <h2 className="mt-8 flex items-center gap-2 text-lg font-semibold">워크스페이스</h2>
       <Divider className="my-3" />
       <div className="flex flex-col gap-6">
-        <Form.Item className="flex flex-col">
+        <Form.Field className="flex flex-col">
           <Form.Label>이름</Form.Label>
           <Input placeholder="예: 회사 이름" />
           <Form.Description>
             조직이나 회사 이름을 사용할 수 있습니다. 간단한 이름을 사용하세요.
           </Form.Description>
-        </Form.Item>
+        </Form.Field>
       </div>
       <h2 className="mt-8 flex items-center gap-2 text-lg font-semibold">공개 설정</h2>
       <Divider className="my-3" />
       <div className="flex flex-col gap-6">
-        <Form.Item className="flex flex-col">
+        <Form.Field className="flex flex-col">
           <Form.Label>허용된 이메일 도메인</Form.Label>
           <Input placeholder="이메일 도메인을 입력하세요" />
           <Form.Description>
             이 도메인의 이메일 주소를 가진 사람은 모두 자동으로 워크스페이스에 참여할 수 있습니다.
           </Form.Description>
-        </Form.Item>
+        </Form.Field>
       </div>
       <div className="mt-6 flex justify-end gap-2">
         <Button>변경</Button>

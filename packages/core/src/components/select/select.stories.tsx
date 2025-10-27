@@ -67,7 +67,7 @@ export const OptionDisabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return (
       <Select

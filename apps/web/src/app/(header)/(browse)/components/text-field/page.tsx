@@ -70,7 +70,7 @@ export default function TextFieldPage() {
       </Grid.Item>
       <Grid.Item>
         <TextField
-          error
+          invalid
           label={<TextField.Label>텍스트</TextField.Label>}
           errorMessage={<TextField.ErrorMessage>필수 입력 항목입니다.</TextField.ErrorMessage>}
         >
@@ -158,17 +158,15 @@ const TextFieldWithForm = () => {
       <Controller
         name="input"
         control={form.control}
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <TextField
             label={<TextField.Label>텍스트</TextField.Label>}
             description={<TextField.Description>텍스트를 입력해주세요.</TextField.Description>}
             value={field.value}
             onChange={field.onChange}
-            error={!!form.formState.errors.input}
+            invalid={fieldState.invalid}
             errorMessage={
-              <TextField.ErrorMessage>
-                {form.formState.errors.input?.message}
-              </TextField.ErrorMessage>
+              <TextField.ErrorMessage>{fieldState.error?.message}</TextField.ErrorMessage>
             }
             maxGraphemeCount={100}
             required

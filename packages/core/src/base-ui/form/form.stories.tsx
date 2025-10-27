@@ -22,13 +22,13 @@ export const Default: Story = {
   render: () => {
     return (
       <Form onSubmit={(e) => e.preventDefault()} className="flex w-[20rem] flex-col gap-4">
-        <Form.Item>
+        <Form.Field>
           <Form.Label>라벨</Form.Label>
           <Form.Control>
             <Input placeholder="텍스트를 입력해주세요" />
           </Form.Control>
           <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
-        </Form.Item>
+        </Form.Field>
       </Form>
     );
   },
@@ -51,20 +51,20 @@ export const WithInput: Story = {
 
     return (
       <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
-        <Form.Item error={!!form.formState.errors.input}>
-          <Form.Label>라벨</Form.Label>
-          <Controller
-            name="input"
-            control={form.control}
-            render={({ field }) => (
+        <Controller
+          name="input"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>라벨</Form.Label>
               <Form.Control>
                 <Input placeholder="텍스트를 입력해주세요" {...field} />
               </Form.Control>
-            )}
-          />
-          <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
-          <Form.ErrorMessage>{form.formState.errors.input?.message}</Form.ErrorMessage>
-        </Form.Item>
+              <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
         <Button type="submit">제출하기</Button>
       </Form>
     );

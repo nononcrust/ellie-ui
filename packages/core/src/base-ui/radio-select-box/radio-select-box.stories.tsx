@@ -98,7 +98,7 @@ export const OptionDisabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return (
       <div className="min-w-[24rem]">

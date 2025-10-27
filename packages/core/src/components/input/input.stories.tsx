@@ -17,9 +17,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => {
+    const input = useInput({ format: "phoneNumberDashed" });
+
     return (
       <div className="w-[20rem]">
-        <Input />
+        <Input value={input.value} onChange={input.onChange} />
       </div>
     );
   },
@@ -45,7 +47,7 @@ export const Disabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return (
       <div className="w-[20rem]">
@@ -73,13 +75,13 @@ export const WithLabel: Story = {
 export const WithForm: Story = {
   render: () => {
     return (
-      <Form.Item className="w-[20rem]">
+      <Form.Field className="w-[20rem]">
         <Form.Label>이름</Form.Label>
         <Form.Control>
           <Input />
         </Form.Control>
         <Form.Description>이름은 2자 이상 20자 이하로 입력해주세요.</Form.Description>
-      </Form.Item>
+      </Form.Field>
     );
   },
 };

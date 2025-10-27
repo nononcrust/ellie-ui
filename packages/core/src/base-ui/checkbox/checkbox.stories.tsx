@@ -42,7 +42,7 @@ export const Indeterminate: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return <Checkbox aria-invalid aria-label="체크박스" />;
   },
@@ -95,12 +95,12 @@ export const WithForm: Story = {
 
     return (
       <Form className="flex w-[20rem] flex-col" onSubmit={onSubmit}>
-        <Form.Item error={!!form.formState.errors.terms}>
-          <Form.Label>이용약관 동의</Form.Label>
-          <Controller
-            name="terms"
-            control={form.control}
-            render={({ field }) => (
+        <Controller
+          name="terms"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>이용약관 동의</Form.Label>
               <Form.Control>
                 <Checkbox
                   checked={field.value}
@@ -111,10 +111,10 @@ export const WithForm: Story = {
                   서비스 약관에 동의합니다.
                 </Checkbox>
               </Form.Control>
-            )}
-          />
-          <Form.ErrorMessage>{form.formState.errors.terms?.message}</Form.ErrorMessage>
-        </Form.Item>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
         <Button className="mt-4" type="submit">
           제출하기
         </Button>

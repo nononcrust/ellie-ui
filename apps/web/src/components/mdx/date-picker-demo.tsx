@@ -96,20 +96,20 @@ export const DatePickerDemoWithForm = () => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Form.Item error={!!form.formState.errors.date}>
-        <Form.Label>날짜</Form.Label>
-        <Controller
-          name="date"
-          control={form.control}
-          render={({ field }) => (
+      <Controller
+        name="date"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>날짜</Form.Label>
             <Form.Control>
               <DatePicker className="w-[20rem]" {...field} placeholder="날짜를 선택해주세요" />
             </Form.Control>
-          )}
-        />
-        <Form.Description>날짜를 선택해주세요.</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.date?.message}</Form.ErrorMessage>
-      </Form.Item>
+            <Form.Description>날짜를 선택해주세요.</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
       <Button className="mt-4" type="submit">
         제출하기
       </Button>

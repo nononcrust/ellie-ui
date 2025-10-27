@@ -81,13 +81,13 @@ const LoginForm = () => {
     <Card className="mb-5 break-inside-avoid">
       <span className="text-lg font-semibold">로그인</span>
       <Form className="mt-6 flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
-        <Form.Item>
+        <Form.Field>
           <Form.Label>이메일</Form.Label>
           <Form.Control>
             <Input placeholder="이메일을 입력해주세요" />
           </Form.Control>
-        </Form.Item>
-        <Form.Item>
+        </Form.Field>
+        <Form.Field>
           <Form.Label>비밀번호</Form.Label>
           <div className="relative">
             <Form.Control>
@@ -102,7 +102,7 @@ const LoginForm = () => {
               <EyeOffIcon className="size-[0.875rem]" />
             </IconButton>
           </div>
-        </Form.Item>
+        </Form.Field>
         <Button className="mt-2 w-full" type="submit">
           로그인
         </Button>
@@ -439,12 +439,12 @@ const ReservationForm = () => {
     <Card className="mb-5 break-inside-avoid">
       <span className="text-lg font-semibold">강의 예약</span>
       <Form className="mt-4 flex flex-col gap-4" onSubmit={onSubmit}>
-        <Form.Item error={!!form.formState.errors.session}>
-          <Form.Label>참가할 세션</Form.Label>
-          <Controller
-            name="session"
-            control={form.control}
-            render={({ field }) => (
+        <Controller
+          name="session"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>참가할 세션</Form.Label>
               <Form.Control>
                 <Select placeholder="참가할 세션을 선택해주세요" {...field}>
                   <Select.Option value="1">강의</Select.Option>
@@ -452,39 +452,39 @@ const ReservationForm = () => {
                   <Select.Option value="3">네트워킹</Select.Option>
                 </Select>
               </Form.Control>
-            )}
-          />
-          <Form.ErrorMessage>{form.formState.errors.session?.message}</Form.ErrorMessage>
-        </Form.Item>
-        <Form.Item error={!!form.formState.errors.date}>
-          <Form.Label>예약 날짜</Form.Label>
-          <Controller
-            name="date"
-            control={form.control}
-            render={({ field }) => (
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
+        <Controller
+          name="date"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>예약 날짜</Form.Label>
               <Form.Control>
                 <DatePicker {...field} placeholder="예약 날짜를 선택해주세요" />
               </Form.Control>
-            )}
-          />
-          <Form.ErrorMessage>{form.formState.errors.date?.message}</Form.ErrorMessage>
-        </Form.Item>
-        <Form.Item error={!!form.formState.errors.type}>
-          <Form.Label>참가 유형</Form.Label>
-          <Controller
-            name="type"
-            control={form.control}
-            render={({ field }) => (
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
+        <Controller
+          name="type"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>참가 유형</Form.Label>
               <Form.Control>
                 <RadioGroup size="small" {...field}>
                   <RadioGroup.Option value="online">온라인</RadioGroup.Option>
                   <RadioGroup.Option value="offline">오프라인</RadioGroup.Option>
                 </RadioGroup>
               </Form.Control>
-            )}
-          />
-          <Form.ErrorMessage>{form.formState.errors.type?.message}</Form.ErrorMessage>
-        </Form.Item>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
         <Button className="w-full" type="submit">
           제출하기
         </Button>

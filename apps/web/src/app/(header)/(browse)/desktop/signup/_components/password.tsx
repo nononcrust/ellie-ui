@@ -1,7 +1,7 @@
 import { Button, Form, Input } from "@ellie-ui/core";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { authApi } from "../_utils/schema";
 
@@ -36,19 +36,25 @@ export const Password = ({ email, onPrevious }: PasswordProps) => {
 
   return (
     <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
-      <Form.Item>
+      <Form.Field>
         <Form.Label>이메일</Form.Label>
         <Form.Control>
           <Input defaultValue={email} readOnly />
         </Form.Control>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.password}>
-        <Form.Label>비밀번호</Form.Label>
-        <Form.Control>
-          <Input type="password" {...form.register("password")} />
-        </Form.Control>
-        <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
-      </Form.Item>
+      </Form.Field>
+      <Controller
+        name="password"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>비밀번호</Form.Label>
+            <Form.Control>
+              <Input {...field} type="password" />
+            </Form.Control>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
       {credentialError && (
         <p className="text-error text-sm font-medium">비밀번호가 일치하지 않습니다.</p>
       )}

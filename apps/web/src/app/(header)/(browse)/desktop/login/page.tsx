@@ -4,7 +4,7 @@ import { Button, Checkbox, Divider, Form, IconButton, Input, Label, Switch } fro
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeOffIcon } from "lucide-react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const loginFormSchema = z.object({
@@ -29,39 +29,47 @@ export default function LoginPage() {
     <div className="px-4 md:mx-auto md:max-w-sm">
       <main className="mt-24 w-full">
         <Form onSubmit={onSubmit}>
-          <Form.Item error={!!form.formState.errors.email}>
-            <Form.Label>이메일</Form.Label>
-            <Form.Control>
-              <Input
-                className="h-10"
-                placeholder="이메일을 입력해주세요"
-                {...form.register("email")}
-              />
-            </Form.Control>
-            <Form.ErrorMessage>{form.formState.errors.email?.message}</Form.ErrorMessage>
-          </Form.Item>
-          <Form.Item className="mt-4" error={!!form.formState.errors.password}>
-            <Form.Label>비밀번호</Form.Label>
-            <div className="relative">
-              <Form.Control>
-                <Input
-                  className="h-10 pr-8"
-                  placeholder="비밀번호를 입력해주세요"
-                  type="password"
-                  {...form.register("password")}
-                />
-              </Form.Control>
-              <IconButton
-                aria-label="비밀번호 표시"
-                size="xsmall"
-                variant="ghost"
-                className="text-subtle absolute right-1 top-1/2 -translate-y-1/2"
-              >
-                <EyeOffIcon className="size-[0.875rem]" />
-              </IconButton>
-            </div>
-            <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
-          </Form.Item>
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Form.Field invalid={fieldState.invalid}>
+                <Form.Label>이메일</Form.Label>
+                <Form.Control>
+                  <Input {...field} className="h-10" placeholder="이메일을 입력해주세요" />
+                </Form.Control>
+                <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+              </Form.Field>
+            )}
+          />
+          <Controller
+            name="password"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Form.Field className="mt-4" invalid={fieldState.invalid}>
+                <Form.Label>비밀번호</Form.Label>
+                <div className="relative">
+                  <Form.Control>
+                    <Input
+                      {...field}
+                      className="h-10 pr-8"
+                      placeholder="비밀번호를 입력해주세요"
+                      type="password"
+                    />
+                  </Form.Control>
+                  <IconButton
+                    aria-label="비밀번호 표시"
+                    size="xsmall"
+                    variant="ghost"
+                    className="text-subtle absolute right-1 top-1/2 -translate-y-1/2"
+                  >
+                    <EyeOffIcon className="size-[0.875rem]" />
+                  </IconButton>
+                </div>
+                <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+              </Form.Field>
+            )}
+          />
           <div className="mt-3 flex justify-between">
             <Label className="flex items-center gap-2">
               <Checkbox />

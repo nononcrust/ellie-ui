@@ -12,10 +12,44 @@ const Form = ({ children, ...props }: FormProps) => {
   return <form {...props}>{children}</form>;
 };
 
+type FormFieldProps = React.ComponentPropsWithRef<"div"> & {
+  invalid?: boolean;
+};
+
+const FormField = ({ className, children, invalid = false, ...props }: FormFieldProps) => {
+  const id = useId();
+  const labelId = useId();
+  const descriptionId = useId();
+  const errorMessageId = useId();
+
+  const [descriptionElement, setDescriptionElement] = useState<HTMLParagraphElement | null>(null);
+  const [errorMessageElement, setErrorMessageElement] = useState<HTMLParagraphElement | null>(null);
+
+  return (
+    <FormFieldContext
+      value={{
+        invalid,
+        id,
+        labelId,
+        descriptionId,
+        errorMessageId,
+        descriptionElement,
+        errorMessageElement,
+        setDescriptionElement,
+        setErrorMessageElement,
+      }}
+    >
+      <div className={cn("flex flex-col", className)} {...props}>
+        {children}
+      </div>
+    </FormFieldContext>
+  );
+};
+
 type FormLabelProps = React.ComponentPropsWithRef<"label">;
 
 const FormLabel = ({ className, children, ...props }: FormLabelProps) => {
-  const { labelId, id } = useFormItemContext();
+  const { labelId, id } = useFormFieldContext();
 
   return (
     <Label
@@ -32,7 +66,7 @@ const FormLabel = ({ className, children, ...props }: FormLabelProps) => {
 type FormDescriptionProps = React.ComponentPropsWithoutRef<"p">;
 
 const FormDescription = ({ className, children, ...props }: FormDescriptionProps) => {
-  const { descriptionId, setDescriptionElement } = useFormItemContext();
+  const { descriptionId, setDescriptionElement } = useFormFieldContext();
 
   const refCallback = (node: HTMLParagraphElement | null) => {
     if (node) {
@@ -58,14 +92,14 @@ const FormDescription = ({ className, children, ...props }: FormDescriptionProps
 
 const FormControl = ({ children }: { children: React.ReactNode }) => {
   const {
-    error,
+    invalid,
     id,
     labelId,
     descriptionId,
     errorMessageId,
     descriptionElement,
     errorMessageElement,
-  } = useFormItemContext();
+  } = useFormFieldContext();
 
   return (
     <Slot.Root
@@ -74,7 +108,7 @@ const FormControl = ({ children }: { children: React.ReactNode }) => {
       aria-describedby={
         cn(descriptionElement && descriptionId, errorMessageElement && errorMessageId) || undefined
       }
-      aria-invalid={error || undefined}
+      aria-invalid={invalid || undefined}
     >
       {children}
     </Slot.Root>
@@ -84,7 +118,7 @@ const FormControl = ({ children }: { children: React.ReactNode }) => {
 type FormErrorMessageProps = React.ComponentPropsWithoutRef<"p">;
 
 const FormErrorMessage = ({ className, children, ...props }: FormErrorMessageProps) => {
-  const { errorMessageId, setErrorMessageElement, error } = useFormItemContext();
+  const { errorMessageId, setErrorMessageElement, invalid } = useFormFieldContext();
 
   const refCallback = (node: HTMLParagraphElement | null) => {
     if (node) {
@@ -96,7 +130,7 @@ const FormErrorMessage = ({ className, children, ...props }: FormErrorMessagePro
     };
   };
 
-  if (!error) return null;
+  if (!invalid) return null;
 
   return (
     <p
@@ -110,59 +144,47 @@ const FormErrorMessage = ({ className, children, ...props }: FormErrorMessagePro
   );
 };
 
-type FormItemProps = React.ComponentPropsWithRef<"div"> & {
-  error?: boolean;
-};
+type FieldsetProps = React.ComponentPropsWithRef<"fieldset">;
 
-const FormItem = ({ className, children, error = false, ...props }: FormItemProps) => {
-  const id = useId();
-  const labelId = useId();
-  const descriptionId = useId();
-  const errorMessageId = useId();
-
-  const [descriptionElement, setDescriptionElement] = useState<HTMLParagraphElement | null>(null);
-  const [errorMessageElement, setErrorMessageElement] = useState<HTMLParagraphElement | null>(null);
-
+const Fieldset = ({ className, children, ...props }: FieldsetProps) => {
   return (
-    <FormItemContext
-      value={{
-        error,
-        id,
-        labelId,
-        descriptionId,
-        errorMessageId,
-        descriptionElement,
-        errorMessageElement,
-        setDescriptionElement,
-        setErrorMessageElement,
-      }}
-    >
-      <div className={cn("flex flex-col", className)} {...props}>
-        {children}
-      </div>
-    </FormItemContext>
+    <fieldset className={cn("flex flex-col", className)} {...props}>
+      {children}
+    </fieldset>
   );
 };
 
-type FormItemContextValue = {
+type LegendProps = React.ComponentPropsWithRef<"legend">;
+
+const Legend = ({ className, children, ...props }: LegendProps) => {
+  return (
+    <legend className={cn("text-main mb-2 w-fit text-sm font-medium", className)} {...props}>
+      {children}
+    </legend>
+  );
+};
+
+type FormFieldContextValue = {
   id: string;
   labelId: string;
   errorMessageId: string;
   descriptionId: string;
-  error: boolean;
+  invalid: boolean;
   descriptionElement: HTMLParagraphElement | null;
   errorMessageElement: HTMLParagraphElement | null;
   setDescriptionElement: (element: HTMLParagraphElement | null) => void;
   setErrorMessageElement: (element: HTMLParagraphElement | null) => void;
 };
 
-const [FormItemContext, useFormItemContext] =
-  createContextFactory<FormItemContextValue>("FormItem");
+const [FormFieldContext, useFormFieldContext] =
+  createContextFactory<FormFieldContextValue>("FormField");
 
-Form.Item = FormItem;
+Form.Field = FormField;
 Form.Control = FormControl;
 Form.Label = FormLabel;
 Form.Description = FormDescription;
 Form.ErrorMessage = FormErrorMessage;
+Form.Fieldset = Fieldset;
+Form.Legend = Legend;
 
 export { Form };

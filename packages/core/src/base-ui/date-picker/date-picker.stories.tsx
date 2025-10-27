@@ -58,7 +58,7 @@ export const Disabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     const datePicker = useDatePicker();
 

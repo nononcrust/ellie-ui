@@ -37,7 +37,7 @@ export const Indeterminate: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return <Checkbox aria-invalid aria-label="체크박스" />;
   },

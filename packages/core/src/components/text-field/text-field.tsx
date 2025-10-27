@@ -11,7 +11,7 @@ type TextFieldProps = Omit<React.ComponentPropsWithRef<"div">, "onChange" | "val
   defaultValue?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
-  error?: boolean;
+  invalid?: boolean;
   errorMessage?: React.ReactNode;
   maxGraphemeCount?: number;
   required?: boolean;
@@ -27,7 +27,7 @@ const TextField = ({
   description,
   maxGraphemeCount,
   required,
-  error,
+  invalid,
   errorMessage,
   ...props
 }: TextFieldProps) => {
@@ -49,7 +49,7 @@ const TextField = ({
     defaultValue,
     required,
     maxGraphemeCount,
-    error,
+    invalid,
     textFieldId,
     descriptionId,
     errorMessageId,
@@ -74,11 +74,11 @@ const TextField = ({
         >
           {children}
         </div>
-        {(description || maxGraphemeCount || (error && errorMessage)) && (
+        {(description || maxGraphemeCount || (invalid && errorMessage)) && (
           <div className="mt-1 flex justify-end gap-3">
             <div className="flex-1">
               {description && description}
-              {error && errorMessage}
+              {invalid && errorMessage}
             </div>
             {maxGraphemeCount && (
               <span
@@ -228,7 +228,7 @@ type TextFieldContextValue = {
   defaultValue?: string;
   maxGraphemeCount?: number;
   required?: boolean;
-  error?: boolean;
+  invalid?: boolean;
   textFieldId: string;
   errorMessageId: string;
   descriptionId: string;
@@ -245,7 +245,7 @@ const useRegisterTextField = () => {
     textFieldId,
     value,
     onChange,
-    error,
+    invalid,
     descriptionElement,
     errorMessageElement,
     errorMessageId,
@@ -266,8 +266,8 @@ const useRegisterTextField = () => {
     id: textFieldId,
     value,
     onChange: onFieldChange,
-    "aria-invalid": error || undefined,
-    "data-invalid": error || undefined,
+    "aria-invalid": invalid || undefined,
+    "data-invalid": invalid || undefined,
     "aria-describedby": cn(
       descriptionElement && descriptionId,
       errorMessageElement && errorMessageId,

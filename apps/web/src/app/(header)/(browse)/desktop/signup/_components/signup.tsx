@@ -3,7 +3,7 @@
 import { Button, Form, Input } from "@ellie-ui/core";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 // const terms = [
@@ -16,7 +16,7 @@ import { z } from "zod";
 
 const formSchema = z
   .object({
-    email: z.string().email("올바른 이메일 주소를 입력해 주세요."),
+    email: z.email("올바른 이메일 주소를 입력해 주세요."),
     password: z.string().min(8, "비밀번호는 8자 이상이어야 합니다."),
     confirmPassword: z.string(),
   })
@@ -43,21 +43,27 @@ export const Signup = () => {
 
   return (
     <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
-      <Form.Item>
-        <Form.Label>이메일</Form.Label>
-        <div className="flex gap-2">
-          <Form.Control>
-            <Input {...form.register("email")} readOnly={verificationCodeSent} />
-          </Form.Control>
-          {!verificationCodeSent && (
-            <Button variant="outlined" onClick={() => setVerificationCodeSent(true)}>
-              인증번호 보내기
-            </Button>
-          )}
-        </div>
-      </Form.Item>
+      <Controller
+        name="email"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>이메일</Form.Label>
+            <div className="flex gap-2">
+              <Form.Control>
+                <Input {...field} readOnly={verificationCodeSent} />
+              </Form.Control>
+              {!verificationCodeSent && (
+                <Button variant="outlined" onClick={() => setVerificationCodeSent(true)}>
+                  인증번호 보내기
+                </Button>
+              )}
+            </div>
+          </Form.Field>
+        )}
+      />
       {verificationCodeSent && (
-        <Form.Item>
+        <Form.Field>
           <Form.Label>인증번호</Form.Label>
           <div className="flex gap-2">
             <Form.Control>
@@ -65,22 +71,34 @@ export const Signup = () => {
             </Form.Control>
             <Button variant="outlined">인증하기</Button>
           </div>
-        </Form.Item>
+        </Form.Field>
       )}
-      <Form.Item error={!!form.formState.errors.password}>
-        <Form.Label>비밀번호</Form.Label>
-        <Form.Control>
-          <Input {...form.register("password")} />
-        </Form.Control>
-        <Form.ErrorMessage>{form.formState.errors.password?.message}</Form.ErrorMessage>
-      </Form.Item>
-      <Form.Item error={!!form.formState.errors.confirmPassword}>
-        <Form.Label>비밀번호 확인</Form.Label>
-        <Form.Control>
-          <Input {...form.register("confirmPassword")} />
-        </Form.Control>
-        <Form.ErrorMessage>{form.formState.errors.confirmPassword?.message}</Form.ErrorMessage>
-      </Form.Item>
+      <Controller
+        name="password"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>비밀번호</Form.Label>
+            <Form.Control>
+              <Input {...field} />
+            </Form.Control>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
+      <Controller
+        name="confirmPassword"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>비밀번호 확인</Form.Label>
+            <Form.Control>
+              <Input {...field} />
+            </Form.Control>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
       <Button className="mt-4" type="submit">
         회원가입
       </Button>

@@ -3,12 +3,12 @@
 import { Button, Form, Input } from "@ellie-ui/core";
 import { useInput } from "@ellie-ui/core/hooks";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 type EmailForm = z.infer<typeof EmailForm>;
 const EmailForm = z.object({
-  email: z.string().email({ message: "올바른 이메일 형식을 입력해주세요" }),
+  email: z.email({ message: "올바른 이메일 형식을 입력해주세요" }),
 });
 
 export const InputDemoWithForm = () => {
@@ -23,18 +23,20 @@ export const InputDemoWithForm = () => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Form.Item error={!!form.formState.errors.email}>
-        <Form.Label>이메일</Form.Label>
-        <Form.Control>
-          <Input
-            {...form.register("email")}
-            className="w-[20rem]"
-            placeholder="이메일을 입력해주세요"
-          />
-        </Form.Control>
-        <Form.Description>이메일을 입력해주세요</Form.Description>
-        <Form.ErrorMessage>{form.formState.errors.email?.message}</Form.ErrorMessage>
-      </Form.Item>
+      <Controller
+        name="email"
+        control={form.control}
+        render={({ field, fieldState }) => (
+          <Form.Field invalid={fieldState.invalid}>
+            <Form.Label>이메일</Form.Label>
+            <Form.Control>
+              <Input {...field} className="w-[20rem]" placeholder="이메일을 입력해주세요" />
+            </Form.Control>
+            <Form.Description>이메일을 입력해주세요</Form.Description>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+          </Form.Field>
+        )}
+      />
       <Button className="mt-4" type="submit">
         제출하기
       </Button>

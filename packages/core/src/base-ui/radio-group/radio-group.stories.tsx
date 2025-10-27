@@ -48,7 +48,7 @@ export const OptionDisabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const Invalid: Story = {
   render: () => {
     return (
       <RadioGroup aria-invalid defaultValue="1">
