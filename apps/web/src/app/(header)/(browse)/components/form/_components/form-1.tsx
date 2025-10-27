@@ -78,7 +78,6 @@ export const Form1 = () => {
           </Form.Field>
         )}
       />
-
       <Controller
         name="name"
         control={form.control}
@@ -107,7 +106,6 @@ export const Form1 = () => {
           </Form.Field>
         )}
       />
-
       <Controller
         name="password"
         control={form.control}
@@ -122,7 +120,6 @@ export const Form1 = () => {
           </Form.Field>
         )}
       />
-
       <Controller
         name="passwordConfirm"
         control={form.control}
@@ -137,7 +134,6 @@ export const Form1 = () => {
           </Form.Field>
         )}
       />
-
       <Controller
         name="date"
         control={form.control}
@@ -152,7 +148,6 @@ export const Form1 = () => {
           </Form.Field>
         )}
       />
-
       <Controller
         name="gender"
         control={form.control}
@@ -213,25 +208,6 @@ export const Form1 = () => {
         )}
       />
       <Button type="submit">가입하기</Button>
-      <Form onSubmit={onSubmit}>
-        <Controller
-          name="email"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>이메일</Form.Label>
-              <Form.Control>
-                <Input {...field} placeholder="이메일을 입력해주세요" />
-              </Form.Control>
-              <Form.Description>이메일을 입력해주세요</Form.Description>
-              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
-            </Form.Field>
-          )}
-        />
-        <Button className="mt-4" type="submit">
-          제출하기
-        </Button>
-      </Form>
     </Form>
   );
 };
