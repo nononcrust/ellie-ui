@@ -36,8 +36,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/core
       '@hookform/resolvers':
-        specifier: ^3.9.1
-        version: 3.10.0(react-hook-form@7.55.0(react@19.1.0))
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.65.0(react@19.1.0))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -90,8 +90,8 @@ importers:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
       react-hook-form:
-        specifier: ^7.54.2
-        version: 7.55.0(react@19.1.0)
+        specifier: ^7.65.0
+        version: 7.65.0(react@19.1.0)
       react-hot-toast:
         specifier: ^2.4.1
         version: 2.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -170,8 +170,8 @@ importers:
         specifier: 1.0.0-beta.0
         version: 1.0.0-beta.0(@types/react@19.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@hookform/resolvers':
-        specifier: ^3.9.1
-        version: 3.10.0(react-hook-form@7.55.0(react@19.1.0))
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.65.0(react@19.1.0))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -200,8 +200,8 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
       react-hook-form:
-        specifier: ^7.54.2
-        version: 7.55.0(react@19.1.0)
+        specifier: ^7.65.0
+        version: 7.65.0(react@19.1.0)
       react-hot-toast:
         specifier: ^2.4.1
         version: 2.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -688,10 +688,10 @@ packages:
   '@formatjs/intl-localematcher@0.6.1':
     resolution: {integrity: sha512-ePEgLgVCqi2BBFnTMWPfIghu6FkbZnnBVhO2sSxvLfrdFw7wCHAHiDoM2h4NRgjbaY7+B7HgOLZGkK187pZTZg==}
 
-  '@hookform/resolvers@3.10.0':
-    resolution: {integrity: sha512-79Dv+3mDF7i+2ajj7SkypSKHhl1cbln1OGavqrsF7p6mbUv11xpqpacPsGDCTRvCSjEEIez2ef1NveSVL3b0Ag==}
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
     peerDependencies:
-      react-hook-form: ^7.0.0
+      react-hook-form: ^7.55.0
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2022,6 +2022,9 @@ packages:
 
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
   '@storybook/addon-docs@9.0.4':
     resolution: {integrity: sha512-g9Cywdicc8iXFwQm3XFLwZgFMel7BF21zTumErLs30tsowTCqE9dTxwPSrqlbvfknhLp7I/lwyzDXGf9SXmERA==}
@@ -4559,8 +4562,8 @@ packages:
     peerDependencies:
       react: ^19.1.0
 
-  react-hook-form@7.55.0:
-    resolution: {integrity: sha512-XRnjsH3GVMQz1moZTW53MxfoWN7aDpUg/GpVNc4A3eXRVNdGXfbzJ4vM4aLQ8g6XCUh1nIbx70aaNCl7kxnjog==}
+  react-hook-form@7.65.0:
+    resolution: {integrity: sha512-xtOzDz063WcXvGWaHgLNrNzlsdFgtUWcb32E6WFaGTd7kPZG3EeDusjdZfUsPwKCKVXy1ZlntifaHZ4l8pAsmw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -5870,9 +5873,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@hookform/resolvers@3.10.0(react-hook-form@7.55.0(react@19.1.0))':
+  '@hookform/resolvers@5.2.2(react-hook-form@7.65.0(react@19.1.0))':
     dependencies:
-      react-hook-form: 7.55.0(react@19.1.0)
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.65.0(react@19.1.0)
 
   '@humanfs/core@0.19.1': {}
 
@@ -7233,6 +7237,8 @@ snapshots:
   '@shikijs/vscode-textmate@10.0.2': {}
 
   '@standard-schema/spec@1.0.0': {}
+
+  '@standard-schema/utils@0.3.0': {}
 
   '@storybook/addon-docs@9.0.4(@types/react@19.1.0)(storybook@9.0.4(@testing-library/dom@10.4.0)(prettier@3.5.3))':
     dependencies:
@@ -10259,7 +10265,7 @@ snapshots:
       react: 19.1.0
       scheduler: 0.26.0
 
-  react-hook-form@7.55.0(react@19.1.0):
+  react-hook-form@7.65.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 
