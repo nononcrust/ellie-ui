@@ -422,19 +422,17 @@ const reservationFormSchema = z.object({
 });
 
 const ReservationForm = () => {
-  const defaultValues = {
-    session: "",
-    date: undefined,
-    type: "online",
-  };
-
   const form = useForm({
     resolver: zodResolver(reservationFormSchema),
-    defaultValues,
+    defaultValues: {
+      session: "",
+      date: undefined,
+      type: "online",
+    },
   });
 
   const onSubmit = form.handleSubmit(() => {
-    form.reset(defaultValues);
+    form.reset();
   });
 
   return (
