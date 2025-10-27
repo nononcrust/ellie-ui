@@ -54,19 +54,20 @@ const Checkbox = ({
   checked,
   "aria-invalid": ariaInvalid,
   size,
-  children,
   onChange = noop,
+  children,
   ...props
 }: CheckboxProps) => {
   const variants = checkboxVariants({ size });
 
-  const CheckboxInput = () => {
-    return (
+  return (
+    <label className={cn("flex w-fit items-center", className)}>
       <CheckboxBase.Root
         className={cn(
           variants.root(),
           ariaInvalid &&
             "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error",
+          className,
         )}
         checked={checked}
         aria-invalid={ariaInvalid}
@@ -86,17 +87,7 @@ const Checkbox = ({
           )}
         />
       </CheckboxBase.Root>
-    );
-  };
-
-  if (!children) {
-    return <CheckboxInput />;
-  }
-
-  return (
-    <label className={cn("flex w-fit items-center", className)}>
-      <CheckboxInput />
-      <span className={cn(variants.label())}>{children}</span>
+      {children && <span className={cn(variants.label())}>{children}</span>}
     </label>
   );
 };

@@ -1,23 +1,34 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import js from "@eslint/js";
+import reactPlugin from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
 import storybook from "eslint-plugin-storybook";
+import { defineConfig, globalIgnores } from "eslint/config";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [...compat.extends("next/typescript"), {
-  rules: {
-    "@next/next/no-img-element": "off",
+export default defineConfig([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactPlugin.configs.flat.recommended,
+      reactPlugin.configs.flat["jsx-runtime"],
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    settings: {
+      react: { version: "detect" },
+    },
+    rules: {
+      "react/no-unknown-property": "off",
+      "react/prop-types": "off",
+      "react-hooks/set-state-in-effect": "off",
+    },
   },
-}, {
-  ignores: ["**/*.stories.tsx"],
-}, ...storybook.configs["flat/recommended"]];
-
-export default eslintConfig;
+  ...storybook.configs["flat/recommended"],
+]);
