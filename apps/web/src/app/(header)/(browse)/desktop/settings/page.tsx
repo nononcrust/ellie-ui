@@ -2,9 +2,9 @@
 
 import profileImage from "@/assets/images/nonon.png";
 import { Avatar, Button, Divider, Form, Input, Select, Switch, Tag, Tooltip } from "@ellie-ui/core";
+import { Suspense } from "@suspensive/react";
 import { ArrowUpRightIcon, ChevronRightIcon, CircleHelpIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 export default function SettingsPage() {
   return (
@@ -26,7 +26,9 @@ export default function SettingsPage() {
             밝은 테마, 어두운 테마, 시스템 설정 중에서 선택하세요.
           </span>
         </div>
-        <ThemeSelect />
+        <Suspense clientOnly>
+          <ThemeSelect />
+        </Suspense>
       </div>
       <h2 className="mt-8 text-lg font-semibold">계정 보안</h2>
       <Divider className="my-3" />
@@ -141,14 +143,7 @@ export default function SettingsPage() {
 }
 
 const ThemeSelect = () => {
-  const [isClient, setIsClient] = useState(false);
   const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) return null;
 
   return (
     <Select className="w-[7.25rem]" value={theme} onChange={setTheme}>
