@@ -20,23 +20,38 @@ const terms = [
   { id: "marketing", label: "마케팅 정보 수신에 동의합니다. (선택)", required: false },
 ] as const;
 
-const formSchema = z.object({
-  type: z.string().nonempty({ message: "타입을 선택해주세요." }),
-  name: z.string().nonempty({ message: "이름을 입력해주세요." }),
-  email: z.email({ message: "유효한 이메일을 입력해주세요." }),
-  password: z.string().min(8, { message: "비밀번호는 8자 이상이어야 합니다." }),
-  passwordConfirm: z.string().min(8, { message: "비밀번호를 한번 더 입력해주세요." }),
-  date: z.date({ message: "생년월일을 입력해주세요." }),
-  gender: z.enum(["male", "female"], { message: "성별을 선택해주세요." }),
-  terms: z.array(z.string()).refine(
-    (value) => {
-      const requiredTermIds = terms.filter((term) => term.required === true).map((term) => term.id);
+const formSchema = z
+  .object({
+    type: z.string().nonempty({ message: "타입을 선택해주세요." }),
+    name: z.string().nonempty({ message: "이름을 입력해주세요." }),
+    email: z
+      .string()
+      .min(1, { message: "이메일을 입력해주세요." })
+      .refine((value) => z.email().safeParse(value).success === true, {
+        message: "유효한 이메일 주소를 입력해주세요.",
+      }),
+    password: z
+      .string()
+      .min(1, "비밀번호를 입력해주세요.")
+      .min(8, { message: "비밀번호는 8자 이상이어야 합니다." }),
+    passwordConfirm: z.string().min(1, { message: "비밀번호를 한번 더 입력해주세요." }),
+    date: z.date({ message: "생년월일을 입력해주세요." }),
+    gender: z.enum(["male", "female"], { message: "성별을 선택해주세요." }),
+    terms: z.array(z.string()).refine(
+      (value) => {
+        const requiredTermIds = terms
+          .filter((term) => term.required === true)
+          .map((term) => term.id);
 
-      return requiredTermIds.every((id) => value.some((termId) => termId === id));
-    },
-    { message: "모든 필수 약관에 동의해주세요." },
-  ),
-});
+        return requiredTermIds.every((id) => value.some((termId) => termId === id));
+      },
+      { message: "모든 필수 약관에 동의해주세요." },
+    ),
+  })
+  .refine((value) => value.password === value.passwordConfirm, {
+    path: ["passwordConfirm"],
+    message: "비밀번호가 일치하지 않습니다.",
+  });
 
 type FormSchema = z.infer<typeof formSchema>;
 
