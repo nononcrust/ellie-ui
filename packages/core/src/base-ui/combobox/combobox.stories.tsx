@@ -62,7 +62,7 @@ export const AsyncSearch: Story = {
       };
 
       fetchBanks(value);
-    }, [inputValue]);
+    }, [inputValue, value]);
 
     return (
       <Combobox value={value} onChange={setValue}>
