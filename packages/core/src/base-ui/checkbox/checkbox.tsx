@@ -67,7 +67,6 @@ const Checkbox = ({
           variants.root(),
           ariaInvalid &&
             "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error",
-          className,
         )}
         checked={checked}
         aria-invalid={ariaInvalid}
