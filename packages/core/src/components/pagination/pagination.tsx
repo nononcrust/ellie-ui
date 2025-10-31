@@ -6,19 +6,19 @@ import { cn } from "../../lib/utils";
 
 type PaginationContextValue = {
   page: number;
-  onChange: (page: number) => void;
+  onPageChange: (page: number) => void;
 };
 
 const [PaginationContext, usePaginationContext] =
   createContextFactory<PaginationContextValue>("Pagination");
 
-interface PaginationProps extends Omit<React.ComponentPropsWithoutRef<"nav">, "onChange"> {
+interface PaginationProps extends React.ComponentPropsWithoutRef<"nav"> {
   page: number;
-  onChange: (page: number) => void;
+  onPageChange: (page: number) => void;
   total: number;
 }
 
-const Pagination = ({ className, page, onChange, total, ...props }: PaginationProps) => {
+const Pagination = ({ className, page, onPageChange, total, ...props }: PaginationProps) => {
   const currentPage = page;
 
   const renderPages = () => {
@@ -78,17 +78,17 @@ const Pagination = ({ className, page, onChange, total, ...props }: PaginationPr
 
   const value = {
     page,
-    onChange,
+    onPageChange,
   };
 
   if (total === 0) return null;
 
   return (
-    <PaginationContext.Provider value={value}>
+    <PaginationContext value={value}>
       <nav className={cn("text-sub flex items-center gap-2", className)} {...props}>
         <Navigation
           aria-label="이전 페이지로 이동"
-          onClick={() => onChange(page - 1)}
+          onClick={() => onPageChange(page - 1)}
           disabled={page === 1}
         >
           <ChevronLeftIcon className="size-5" />
@@ -96,13 +96,13 @@ const Pagination = ({ className, page, onChange, total, ...props }: PaginationPr
         <div className="bg-background flex items-center gap-1 p-1">{renderPages()}</div>
         <Navigation
           aria-label="다음 페이지로 이동"
-          onClick={() => onChange(page + 1)}
+          onClick={() => onPageChange(page + 1)}
           disabled={page === total}
         >
           <ChevronRightIcon className="size-5" />
         </Navigation>
       </nav>
-    </PaginationContext.Provider>
+    </PaginationContext>
   );
 };
 
@@ -128,12 +128,12 @@ interface PaginationItem extends React.ComponentPropsWithoutRef<"button"> {
 }
 
 const PaginationItem = ({ page, ...props }: PaginationItem) => {
-  const { page: currentPage, onChange } = usePaginationContext();
+  const { page: currentPage, onPageChange } = usePaginationContext();
 
   const isActive = page === currentPage;
 
   const onClick = () => {
-    onChange(page);
+    onPageChange(page);
   };
 
   return (

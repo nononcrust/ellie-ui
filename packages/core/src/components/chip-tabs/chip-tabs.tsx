@@ -23,13 +23,11 @@ const chipTabsVariants = tv({
   },
 });
 
-type ChipTabsProps = Omit<TabsPrimitives.TabsProps, "onChange" | "onValueChange"> & {
-  onChange?: (value: string) => void;
-};
+type ChipTabsProps = TabsPrimitives.TabsProps;
 
-const ChipTabs = ({ className, children, onChange, ...props }: ChipTabsProps) => {
+const ChipTabs = ({ className, children, ...props }: ChipTabsProps) => {
   return (
-    <TabsPrimitives.Root className={cn("w-full", className)} onValueChange={onChange} {...props}>
+    <TabsPrimitives.Root className={cn("w-full", className)} {...props}>
       {children}
     </TabsPrimitives.Root>
   );

@@ -86,7 +86,7 @@ export const Controlled: Story = {
     const radioGroup = useRadioGroup("1");
 
     return (
-      <RadioGroup value={radioGroup.value} onChange={radioGroup.onChange}>
+      <RadioGroup {...radioGroup.register()}>
         <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
         <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
       </RadioGroup>

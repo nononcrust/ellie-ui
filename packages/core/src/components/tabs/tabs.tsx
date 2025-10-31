@@ -24,13 +24,11 @@ export const tabsVariants = tv({
   },
 });
 
-type TabsProps = Omit<TabsPrimitives.TabsProps, "onChange" | "onValueChange"> & {
-  onChange?: (value: string) => void;
-};
+type TabsProps = TabsPrimitives.TabsProps;
 
-const Tabs = ({ className, children, onChange, ...props }: TabsProps) => {
+const Tabs = ({ className, children, ...props }: TabsProps) => {
   return (
-    <TabsPrimitives.Root className={cn("w-full", className)} onValueChange={onChange} {...props}>
+    <TabsPrimitives.Root className={cn("w-full", className)} {...props}>
       {children}
     </TabsPrimitives.Root>
   );

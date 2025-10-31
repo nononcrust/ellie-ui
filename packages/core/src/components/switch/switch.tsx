@@ -2,10 +2,7 @@ import { Switch as SwitchPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 
-type SwitchProps = Omit<SwitchPrimitives.SwitchProps, "onChange" | "onCheckedChange"> &
-  VariantProps<typeof switchVariants> & {
-    onChange?: (checked: boolean) => void;
-  };
+type SwitchProps = SwitchPrimitives.SwitchProps & VariantProps<typeof switchVariants>;
 
 const switchVariants = tv({
   slots: {
@@ -42,11 +39,11 @@ const switchVariants = tv({
   },
 });
 
-const Switch = ({ className, onChange, size, ...props }: SwitchProps) => {
+const Switch = ({ className, size, ...props }: SwitchProps) => {
   const variants = switchVariants({ size, className });
 
   return (
-    <SwitchPrimitives.Root className={variants.root()} onCheckedChange={onChange} {...props}>
+    <SwitchPrimitives.Root className={variants.root()} {...props}>
       <SwitchPrimitives.Thumb className={variants.thumb()} />
     </SwitchPrimitives.Root>
   );

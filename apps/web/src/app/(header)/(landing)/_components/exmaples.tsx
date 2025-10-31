@@ -459,11 +459,16 @@ const ReservationForm = () => {
         <Controller
           name="date"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>예약 날짜</Form.Label>
               <Form.Control>
-                <DatePicker {...field} placeholder="예약 날짜를 선택해주세요" />
+                <DatePicker
+                  placeholder="예약 날짜를 선택해주세요"
+                  value={value}
+                  onValueChange={onChange}
+                  {...rest}
+                />
               </Form.Control>
               <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
             </Form.Field>

@@ -148,7 +148,7 @@ const Select7 = () => {
   return (
     <div className="flex w-full flex-col">
       <Label className="mb-2">은행 선택</Label>
-      <Popover isOpen={popover.isOpen} onOpenChange={popover.onOpenChange}>
+      <Popover {...popover.register()}>
         <Popover.Trigger asChild>
           <button
             className={cn(

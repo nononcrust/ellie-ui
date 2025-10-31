@@ -6,16 +6,10 @@ import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 import { checkboxVariants } from "../checkbox";
 
-type DropdownMenuProps = Omit<DropdownMenuPrimitives.DropdownMenuProps, "open"> & {
-  isOpen?: boolean;
-};
+type DropdownMenuProps = DropdownMenuPrimitives.DropdownMenuProps;
 
-const DropdownMenu = ({ children, isOpen, ...props }: DropdownMenuProps) => {
-  return (
-    <DropdownMenuPrimitives.Root open={isOpen} {...props}>
-      {children}
-    </DropdownMenuPrimitives.Root>
-  );
+const DropdownMenu = ({ children, ...props }: DropdownMenuProps) => {
+  return <DropdownMenuPrimitives.Root {...props}>{children}</DropdownMenuPrimitives.Root>;
 };
 
 type DropdownMenuContentProps = React.ComponentPropsWithRef<typeof DropdownMenuPrimitives.Content>;

@@ -30,16 +30,16 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
   );
 };
 
-type SelectProps = Omit<SelectBase.Trigger.Props, "onChange" | "onValueChange"> & {
+type SelectProps = Omit<SelectBase.Trigger.Props, "onValueChange"> & {
   value?: string;
-  onChange?: (value: string) => void;
+  onValueChange?: (value: string) => void;
   defaultValue?: string;
   placeholder?: string;
 };
 
 const Select = ({
   value,
-  onChange,
+  onValueChange,
   className,
   children,
   placeholder,
@@ -48,7 +48,7 @@ const Select = ({
   ...props
 }: SelectProps) => {
   return (
-    <SelectBase.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
+    <SelectBase.Root value={value} onValueChange={onValueChange} defaultValue={defaultValue}>
       <SelectBase.Trigger
         className={cn(
           selectTriggerStyle.base,

@@ -29,7 +29,7 @@ export const Default: Story = {
             <BottomSheet.Description className="sr-only">바텀시트 설명</BottomSheet.Description>
           </BottomSheet.Header>
           <BottomSheet.Body>
-            <BottomSheet.SelectGroup value={select.value} onChange={select.onChange}>
+            <BottomSheet.SelectGroup {...select.register()}>
               <BottomSheet.SelectItem value="1">선택 1</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="2">선택 2</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="3">선택 3</BottomSheet.SelectItem>
@@ -57,7 +57,7 @@ export const WithDescription: Story = {
             <BottomSheet.Description>바텀시트 설명이 여기에 들어갑니다.</BottomSheet.Description>
           </BottomSheet.Header>
           <BottomSheet.Body>
-            <BottomSheet.SelectGroup value={select.value} onChange={select.onChange}>
+            <BottomSheet.SelectGroup {...select.register()}>
               <BottomSheet.SelectItem value="1">선택 1</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="2">선택 2</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="3">선택 3</BottomSheet.SelectItem>
@@ -85,7 +85,7 @@ export const ScrollBody: Story = {
             <BottomSheet.Description>바텀시트 설명이 여기에 들어갑니다.</BottomSheet.Description>
           </BottomSheet.Header>
           <BottomSheet.Body>
-            <BottomSheet.SelectGroup value={select.value} onChange={select.onChange}>
+            <BottomSheet.SelectGroup {...select.register()}>
               {Array.from({ length: 20 }).map((_, index) => (
                 <BottomSheet.SelectItem key={index} value={index.toString()}>
                   선택 {index}
@@ -114,7 +114,7 @@ export const WithFooter: Story = {
             <BottomSheet.Description>바텀시트 설명이 여기에 들어갑니다.</BottomSheet.Description>
           </BottomSheet.Header>
           <BottomSheet.Body>
-            <BottomSheet.SelectGroup value={select.value} onChange={select.onChange}>
+            <BottomSheet.SelectGroup {...select.register()}>
               <BottomSheet.SelectItem value="1">선택 1</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="2">선택 2</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="3">선택 3</BottomSheet.SelectItem>
@@ -145,7 +145,7 @@ export const Controlled: Story = {
     const select = useSelect("1");
 
     return (
-      <BottomSheet isOpen={bottomSheet.isOpen} onOpenChange={bottomSheet.onOpenChange}>
+      <BottomSheet {...bottomSheet.register()}>
         <BottomSheet.Trigger asChild>
           <Button>바텀시트</Button>
         </BottomSheet.Trigger>
@@ -155,7 +155,7 @@ export const Controlled: Story = {
             <BottomSheet.Description className="sr-only">바텀시트 설명</BottomSheet.Description>
           </BottomSheet.Header>
           <BottomSheet.Body>
-            <BottomSheet.SelectGroup value={select.value} onChange={select.onChange}>
+            <BottomSheet.SelectGroup {...select.register()}>
               <BottomSheet.SelectItem value="1">선택 1</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="2">선택 2</BottomSheet.SelectItem>
               <BottomSheet.SelectItem value="3">선택 3</BottomSheet.SelectItem>

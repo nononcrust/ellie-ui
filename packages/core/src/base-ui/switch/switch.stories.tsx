@@ -33,8 +33,8 @@ export const Disabled: Story = {
 
 export const Controlled: Story = {
   render: () => {
-    const { checked, onChange } = useSwitch();
+    const { register } = useSwitch();
 
-    return <Switch checked={checked} onChange={onChange} />;
+    return <Switch {...register()} />;
   },
 };

@@ -10,10 +10,10 @@ type CheckboxGroupValue = string[] | readonly string[];
 
 type CheckSelectBox<TValue extends CheckboxGroupValue> = Omit<
   CheckboxGroupBase.Props,
-  "value" | "onValueChange" | "onChange"
+  "value" | "onValueChange"
 > & {
   value?: TValue;
-  onChange?: (value: TValue) => void;
+  onValueChange?: (value: TValue) => void;
 };
 
 const CheckSelectBox = <TValue extends CheckboxGroupValue>({
@@ -21,7 +21,7 @@ const CheckSelectBox = <TValue extends CheckboxGroupValue>({
   children,
   "aria-invalid": ariaInvalid,
   value,
-  onChange,
+  onValueChange,
   ...props
 }: CheckSelectBox<TValue>) => {
   return (
@@ -29,7 +29,7 @@ const CheckSelectBox = <TValue extends CheckboxGroupValue>({
       <CheckboxGroupBase
         className={cn("grid gap-0.5", className)}
         value={value as string[]}
-        onValueChange={onChange as (value: string[]) => void}
+        onValueChange={onValueChange as (value: string[]) => void}
         {...props}
       >
         {children}

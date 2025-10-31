@@ -7,17 +7,14 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
-type DialogProps = Omit<DialogPrimitives.DialogProps, "open"> & {
-  isOpen?: boolean;
+type DialogProps = DialogPrimitives.DialogProps & {
   triggerRef?: React.RefObject<HTMLElement | null>;
 };
 
-const Dialog = ({ children, isOpen, triggerRef, ...props }: DialogProps) => {
+const Dialog = ({ children, triggerRef, ...props }: DialogProps) => {
   return (
     <DialogContext value={{ triggerRef }}>
-      <DialogPrimitives.Root open={isOpen} {...props}>
-        {children}
-      </DialogPrimitives.Root>
+      <DialogPrimitives.Root {...props}>{children}</DialogPrimitives.Root>
     </DialogContext>
   );
 };

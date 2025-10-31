@@ -8,24 +8,24 @@ import { cn } from "../../lib/utils";
 
 type RadioSelectBoxProps<TValue extends string> = Omit<
   RadioGroupBase.Props,
-  "value" | "onValueChange" | "onChange"
+  "value" | "onValueChange"
 > & {
   value?: TValue;
-  onChange?: (value: TValue) => void;
+  onValueChange?: (value: TValue) => void;
 };
 
 const RadioSelectBox = <TValue extends string>({
   className,
   children,
   "aria-invalid": ariaInvalid,
-  onChange,
+  onValueChange,
   ...props
 }: RadioSelectBoxProps<TValue>) => {
   return (
     <RadioSelectBoxContext value={{ ariaInvalid }}>
       <RadioGroupBase
         className={cn("grid gap-0.5", className)}
-        onValueChange={onChange as (value: unknown) => void}
+        onValueChange={onValueChange as (value: unknown) => void}
         {...props}
       >
         {children}

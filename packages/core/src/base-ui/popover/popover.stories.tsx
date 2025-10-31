@@ -38,7 +38,7 @@ export const Controlled: Story = {
     const popover = usePopover();
 
     return (
-      <Popover isOpen={popover.isOpen} onOpenChange={popover.onOpenChange}>
+      <Popover {...popover.register()}>
         <Popover.Trigger asChild>
           <Button>열기</Button>
         </Popover.Trigger>

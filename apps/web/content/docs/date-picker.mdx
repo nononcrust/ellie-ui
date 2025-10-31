@@ -25,7 +25,7 @@ import {
     export const Example = () => {
         const datePicker = useDatePicker();
 
-        return <DatePicker value={datePicker.value} onChange={datePicker.onChange} />
+        return <DatePicker value={datePicker.value} onValueChange={datePicker.onValueChange} />
     }
     ```
 
@@ -46,7 +46,7 @@ import {
     export const Example = () => {
         const dateRangePicker = useDateRangePicker();
 
-        return <DateRangePicker value={dateRangePicker.value} onChange={dateRangePicker.onChange} />
+        return <DateRangePicker value={dateRangePicker.value} onValueChange={dateRangePicker.onValueChange} />
     }
     ```
 
@@ -68,7 +68,7 @@ import {
         <DatePicker
           className="w-[20rem]"
           value={datePicker.value}
-          onChange={datePicker.onChange}
+          onValueChange={datePicker.onValueChange}
           placeholder="날짜를 선택해주세요"
         />
       );
@@ -92,7 +92,7 @@ import {
     export const Example = () => {
         const datePicker = useDatePicker();
 
-        return <DatePicker value={datePicker.value} onChange={datePicker.onChange} disabled />
+        return <DatePicker value={datePicker.value} onValueChange={datePicker.onValueChange} disabled />
     }
     ```
 
@@ -113,7 +113,7 @@ import {
     export const Example = () => {
         const datePicker = useDatePicker();
 
-        return <DatePicker value={datePicker.value} onChange={datePicker.onChange} hidden={{ before: new Date() }} />
+        return <DatePicker value={datePicker.value} onValueChange={datePicker.onValueChange} hidden={{ before: new Date() }} />
     }
     ```
 
@@ -184,7 +184,7 @@ import {
       type: "Date | undefined",
       default: undefined,
     },
-    onChange: {
+    onValueChange: {
       type: "(value: Date | undefined) => void",
       default: undefined,
     },
@@ -211,7 +211,7 @@ import {
       type: "DateRange | undefined",
       default: undefined,
     },
-    onChange: {
+    onValueChange: {
       type: "(value: DateRange | undefined) => void",
       default: undefined,
     },

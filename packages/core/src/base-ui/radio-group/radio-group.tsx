@@ -51,11 +51,11 @@ const radioGroupVariants = tv({
 
 type RadioGroupProps<TValue extends string> = Omit<
   RadioGroupBase.Props,
-  "value" | "onValueChange" | "onChange"
+  "value" | "onValueChange"
 > &
   VariantProps<typeof radioGroupVariants> & {
     value?: TValue;
-    onChange?: (value: TValue) => void;
+    onValueChange?: (value: TValue) => void;
   };
 
 const RadioGroup = <TValue extends string>({
@@ -63,14 +63,14 @@ const RadioGroup = <TValue extends string>({
   children,
   "aria-invalid": ariaInvalid,
   size,
-  onChange,
+  onValueChange,
   ...props
 }: RadioGroupProps<TValue>) => {
   return (
     <RadioGroupContext value={{ ariaInvalid, size }}>
       <RadioGroupBase
         className={cn(radioGroupVariants({ size }).root(), className)}
-        onValueChange={onChange as (value: unknown) => void}
+        onValueChange={onValueChange as (value: unknown) => void}
         {...props}
       >
         {children}

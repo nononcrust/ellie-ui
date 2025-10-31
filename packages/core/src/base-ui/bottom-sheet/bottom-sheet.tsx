@@ -119,26 +119,26 @@ const BottomSheetDescription = ({ className, children, ...props }: BottomSheetDe
 
 type BottomSheetSelectContextValue = {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
 };
 
 const [BottomSheetSelectContext, useBottomSheetSelectContext] =
   createContextFactory<BottomSheetSelectContextValue>("BottomSheetSelect");
 
-type BottomSheetSelectGroupProps = Omit<React.ComponentPropsWithRef<"ul">, "value" | "onChange"> & {
+type BottomSheetSelectGroupProps = Omit<React.ComponentPropsWithRef<"ul">, "value"> & {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
 };
 
 const BottomSheetSelectGroup = ({
   className,
   children,
   value,
-  onChange,
+  onValueChange,
   ...props
 }: BottomSheetSelectGroupProps) => {
   return (
-    <BottomSheetSelectContext value={{ value, onChange }}>
+    <BottomSheetSelectContext value={{ value, onValueChange }}>
       <ul className={cn("flex flex-col", className)} {...props}>
         {children}
       </ul>
@@ -156,7 +156,7 @@ const BottomSheetSelectItem = ({
   value,
   ...props
 }: BottomSheetSelectItemProps) => {
-  const { value: selectedValue, onChange } = useBottomSheetSelectContext();
+  const { value: selectedValue, onValueChange } = useBottomSheetSelectContext();
 
   const isSelected = selectedValue === value;
 
@@ -169,7 +169,7 @@ const BottomSheetSelectItem = ({
           isSelected && "text-primary",
           className,
         )}
-        onClick={() => onChange(value)}
+        onClick={() => onValueChange(value)}
         {...props}
       >
         {children}

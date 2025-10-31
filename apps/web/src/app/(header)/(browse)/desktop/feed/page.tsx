@@ -15,7 +15,7 @@ export default function FeedPage() {
   return (
     <div className="mx-auto flex w-full md:max-w-4xl">
       <main className="border-border w-full py-16 md:border-x">
-        <Tabs value={tabs.value} onChange={tabs.onChange}>
+        <Tabs {...tabs.register()}>
           <Tabs.List fullWidth size="large">
             <Tabs.Trigger value="discover">찾아보기</Tabs.Trigger>
             <Tabs.Trigger value="following">팔로잉</Tabs.Trigger>
@@ -34,7 +34,7 @@ export default function FeedPage() {
               <Button
                 variant="primaryLow"
                 className="mt-4"
-                onClick={() => tabs.navigate("discover")}
+                onClick={() => tabs.setValue("discover")}
               >
                 찾아보기
               </Button>

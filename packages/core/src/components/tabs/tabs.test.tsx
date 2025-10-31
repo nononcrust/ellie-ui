@@ -101,11 +101,11 @@ describe("Tabs", async () => {
     expect(tab2).toHaveAttribute("aria-selected", "true");
   });
 
-  test("선택된 tab이 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
-    const onChange = vi.fn();
+  test("선택된 tab이 변경되었을 때 onValueChange가 호출되어야 합니다.", async () => {
+    const onValueChange = vi.fn();
 
     render(
-      <Tabs onChange={onChange}>
+      <Tabs onValueChange={onValueChange}>
         <Tabs.List>
           <Tabs.Trigger value="1">탭 1</Tabs.Trigger>
           <Tabs.Trigger value="2">탭 2</Tabs.Trigger>
@@ -121,7 +121,7 @@ describe("Tabs", async () => {
 
     await user.click(tab2);
 
-    expect(onChange).toHaveBeenCalledWith("2");
+    expect(onValueChange).toHaveBeenCalledWith("2");
   });
 
   test("[a11y] tablist에 role='tablist' 속성이 존재해야 합니다.", async () => {

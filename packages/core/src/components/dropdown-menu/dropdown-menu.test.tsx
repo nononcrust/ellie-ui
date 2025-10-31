@@ -85,9 +85,9 @@ describe("DropdownMenu", () => {
     expect(menu).not.toBeInTheDocument();
   });
 
-  test('isOpen이 true일 때 드랍다운이 열려야 합니다."', async () => {
+  test('open이 true일 때 드랍다운이 열려야 합니다."', async () => {
     render(
-      <DropdownMenu isOpen>
+      <DropdownMenu open>
         <DropdownMenu.Content />
       </DropdownMenu>,
     );
@@ -97,9 +97,9 @@ describe("DropdownMenu", () => {
     expect(menu).toBeInTheDocument();
   });
 
-  test('isOpen이 false일 때 드랍다운이 닫혀야 합니다."', async () => {
+  test('open이 false일 때 드랍다운이 닫혀야 합니다."', async () => {
     render(
-      <DropdownMenu isOpen={false}>
+      <DropdownMenu open={false}>
         <DropdownMenu.Content />
       </DropdownMenu>,
     );

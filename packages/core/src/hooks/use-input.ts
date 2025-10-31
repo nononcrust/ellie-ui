@@ -23,11 +23,17 @@ export const useInput = (options?: { initialValue?: string; format?: NumberForma
     setValue("");
   };
 
+  const register = () => ({
+    value,
+    onChange,
+  });
+
   return {
     value,
     onChange,
     reset,
     clear,
     setValue,
+    register,
   };
 };

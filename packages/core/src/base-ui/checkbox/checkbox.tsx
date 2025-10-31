@@ -3,8 +3,9 @@
 import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
 import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react/checkbox-group";
 import { CheckIcon, MinusIcon } from "lucide-react";
+import { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { cn, noop } from "../../lib/utils";
+import { cn } from "../../lib/utils";
 
 const DEFAULT_SIZE = "medium";
 
@@ -43,34 +44,35 @@ export const checkboxVariants = tv({
   },
 });
 
-type CheckboxProps = Omit<CheckboxBase.Root.Props, "onChange" | "onCheckedChange"> &
+type CheckboxProps = CheckboxBase.Root.Props &
   VariantProps<typeof checkboxVariants> & {
     ref?: React.Ref<HTMLButtonElement>;
-    onChange?: (checked: boolean) => void;
   };
 
 const Checkbox = ({
   className,
-  checked,
   "aria-invalid": ariaInvalid,
   size,
-  onChange = noop,
   children,
+  id: idProp,
   ...props
 }: CheckboxProps) => {
   const variants = checkboxVariants({ size });
 
+  const generatedId = useId();
+
+  const id = idProp ?? generatedId;
+
   return (
-    <label className={cn("flex w-fit items-center", className)}>
+    <div className={cn("flex w-fit items-center", className)}>
       <CheckboxBase.Root
+        id={id}
         className={cn(
           variants.root(),
           ariaInvalid &&
             "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error",
         )}
-        checked={checked}
         aria-invalid={ariaInvalid}
-        onCheckedChange={onChange}
         {...props}
       >
         <CheckboxBase.Indicator
@@ -86,8 +88,12 @@ const Checkbox = ({
           )}
         />
       </CheckboxBase.Root>
-      {children && <span className={cn(variants.label())}>{children}</span>}
-    </label>
+      {children && (
+        <label htmlFor={id} className={cn(variants.label())}>
+          {children}
+        </label>
+      )}
+    </div>
   );
 };
 
@@ -98,16 +104,16 @@ type CheckboxGroupProps = Omit<
   "onValueChange" | "onChange" | "value" | "allValues"
 > & {
   value?: CheckboxGroupValue;
-  onChange?: (value: CheckboxGroupValue) => void;
+  onValueChange?: (value: CheckboxGroupValue) => void;
   allValues: CheckboxGroupValue;
 };
 
-const CheckboxGroup = ({ value, onChange, allValues, ...props }: CheckboxGroupProps) => {
+const CheckboxGroup = ({ value, onValueChange, allValues, ...props }: CheckboxGroupProps) => {
   return (
     <CheckboxGroupBase
       value={value as string[]}
       allValues={allValues as string[]}
-      onValueChange={onChange as (value: string[]) => void}
+      onValueChange={onValueChange as (value: string[]) => void}
       {...props}
     />
   );

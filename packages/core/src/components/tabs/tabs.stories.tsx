@@ -90,7 +90,7 @@ export const Controlled: Story = {
     const tabs = useTabs("1");
 
     return (
-      <Tabs value={tabs.value} onChange={tabs.onChange}>
+      <Tabs {...tabs.register()}>
         <Tabs.List>
           <Tabs.Trigger value="1">버튼 1</Tabs.Trigger>
           <Tabs.Trigger value="2">버튼 2</Tabs.Trigger>

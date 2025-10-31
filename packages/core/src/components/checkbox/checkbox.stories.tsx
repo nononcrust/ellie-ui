@@ -70,8 +70,6 @@ export const Controlled: Story = {
   render: () => {
     const checkbox = useCheckbox();
 
-    return (
-      <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} aria-label="체크박스" />
-    );
+    return <Checkbox {...checkbox.register()} aria-label="체크박스" />;
   },
 };

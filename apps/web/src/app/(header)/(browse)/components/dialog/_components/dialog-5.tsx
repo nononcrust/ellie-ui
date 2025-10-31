@@ -20,11 +20,7 @@ export const Dialog5 = () => {
         <DropdownMenu.Item onClick={loginDialog.open}>로그인</DropdownMenu.Item>
         <DropdownMenu.Item onClick={signupDialog.open}>회원가입</DropdownMenu.Item>
       </DropdownMenu.Content>
-      <Dialog
-        isOpen={loginDialog.isOpen}
-        onOpenChange={loginDialog.onOpenChange}
-        triggerRef={triggerRef}
-      >
+      <Dialog {...loginDialog.register()} triggerRef={triggerRef}>
         <Dialog.Content className="w-[27.5rem]">
           <Dialog.Header>
             <Dialog.Title>로그인</Dialog.Title>
@@ -39,11 +35,7 @@ export const Dialog5 = () => {
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>
-      <Dialog
-        isOpen={signupDialog.isOpen}
-        onOpenChange={signupDialog.onOpenChange}
-        triggerRef={triggerRef}
-      >
+      <Dialog {...signupDialog.register()} triggerRef={triggerRef}>
         <Dialog.Content className="w-[27.5rem]">
           <Dialog.Header>
             <Dialog.Title>회원가입</Dialog.Title>

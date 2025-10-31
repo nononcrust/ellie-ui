@@ -5,9 +5,7 @@ import { DatePicker } from "./date-picker";
 const DefaultDatePicker = () => {
   const datePicker = useDatePicker();
 
-  return (
-    <DatePicker value={datePicker.value} onChange={datePicker.onChange} placeholder="날짜 선택" />
-  );
+  return <DatePicker {...datePicker.register()} placeholder="날짜 선택" />;
 };
 
 describe("DatePicker", () => {

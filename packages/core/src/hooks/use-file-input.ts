@@ -5,13 +5,19 @@ import { useState } from "react";
 export const useFileInput = (initialValue = null) => {
   const [value, setValue] = useState<File | null>(initialValue);
 
-  const onChange = (value: File | null) => {
+  const onValueChange = (value: File | null) => {
     setValue(value);
   };
 
+  const register = () => ({
+    value,
+    onValueChange,
+  });
+
   return {
     value,
-    onChange,
+    onValueChange,
     setValue,
+    register,
   };
 };

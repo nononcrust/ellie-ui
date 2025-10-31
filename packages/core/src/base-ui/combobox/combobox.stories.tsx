@@ -19,7 +19,7 @@ export const Default: Story = {
     const [value, setValue] = useState("");
 
     return (
-      <Combobox value={value} onChange={setValue}>
+      <Combobox value={value} onValueChange={setValue}>
         <Combobox.Trigger className="w-[16rem]" placeholder="은행을 선택해주세요.">
           {value}
         </Combobox.Trigger>
@@ -65,7 +65,7 @@ export const AsyncSearch: Story = {
     }, [inputValue, value]);
 
     return (
-      <Combobox value={value} onChange={setValue}>
+      <Combobox value={value} onValueChange={setValue}>
         <Combobox.Trigger className="w-[16rem]" placeholder="은행을 선택해주세요.">
           {value}
         </Combobox.Trigger>

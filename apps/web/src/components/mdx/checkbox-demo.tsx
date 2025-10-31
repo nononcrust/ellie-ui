@@ -46,5 +46,5 @@ export const CheckboxDemoIndeterminate = () => {
 export const CheckboxDemoControlled = () => {
   const checkbox = useCheckbox();
 
-  return <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} />;
+  return <Checkbox {...checkbox.register()} />;
 };

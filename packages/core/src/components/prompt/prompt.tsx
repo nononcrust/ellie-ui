@@ -6,17 +6,14 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Button } from "../button";
 
-type PromptProps = Omit<AlertDialogPrimitives.AlertDialogProps, "open"> & {
-  isOpen?: boolean;
+type PromptProps = AlertDialogPrimitives.AlertDialogProps & {
   triggerRef?: React.RefObject<HTMLElement | null>;
 };
 
-const Prompt = ({ children, isOpen, triggerRef, ...props }: PromptProps) => {
+const Prompt = ({ children, triggerRef, ...props }: PromptProps) => {
   return (
     <PromptContext value={{ triggerRef }}>
-      <AlertDialogPrimitives.Root open={isOpen} {...props}>
-        {children}
-      </AlertDialogPrimitives.Root>
+      <AlertDialogPrimitives.Root {...props}>{children}</AlertDialogPrimitives.Root>
     </PromptContext>
   );
 };

@@ -9,13 +9,19 @@ export const useCheckbox = (initialChecked = false) => {
     setChecked((prev) => !prev);
   };
 
-  const onChange = () => {
+  const onCheckedChange = () => {
     toggle();
   };
+
+  const register = () => ({
+    checked,
+    onCheckedChange,
+  });
 
   return {
     checked,
     toggle,
-    onChange,
+    onCheckedChange,
+    register,
   };
 };

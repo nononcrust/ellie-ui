@@ -39,11 +39,7 @@ export const Dialog6 = () => {
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>
-      <Dialog
-        isOpen={confirmDialog.isOpen}
-        onOpenChange={confirmDialog.onOpenChange}
-        triggerRef={triggerRef}
-      >
+      <Dialog {...confirmDialog.register()} triggerRef={triggerRef}>
         <Dialog.Content className="w-[20rem]" animation="none">
           <Dialog.Header>
             <Dialog.Title>신고하기</Dialog.Title>

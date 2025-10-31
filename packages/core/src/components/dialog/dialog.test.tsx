@@ -124,9 +124,9 @@ describe("Dialog", () => {
     expect(body).toHaveStyle("overflow: hidden");
   });
 
-  test('isOpen이 true일 때 모달이 열려야 합니다."', async () => {
+  test('open이 true일 때 모달이 열려야 합니다."', async () => {
     render(
-      <Dialog isOpen>
+      <Dialog open>
         <Dialog.Content>
           <Dialog.Header>
             <Dialog.Title>{DIALOG_TITLE}</Dialog.Title>
@@ -141,9 +141,9 @@ describe("Dialog", () => {
     expect(dialog).toBeInTheDocument();
   });
 
-  test("isOpen이 false일 떄 모달이 닫혀야 합니다.", async () => {
+  test("open이 false일 떄 모달이 닫혀야 합니다.", async () => {
     render(
-      <Dialog isOpen={false}>
+      <Dialog open={false}>
         <Dialog.Content />
       </Dialog>,
     );

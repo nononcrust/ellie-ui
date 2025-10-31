@@ -6,16 +6,10 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
-type BottomSheetProps = Omit<DialogPrimitives.DialogProps, "open"> & {
-  isOpen?: boolean;
-};
+type BottomSheetProps = DialogPrimitives.DialogProps;
 
-const BottomSheet = ({ children, isOpen, ...props }: BottomSheetProps) => {
-  return (
-    <DialogPrimitives.Root open={isOpen} {...props}>
-      {children}
-    </DialogPrimitives.Root>
-  );
+const BottomSheet = ({ children, ...props }: BottomSheetProps) => {
+  return <DialogPrimitives.Root {...props}>{children}</DialogPrimitives.Root>;
 };
 
 type BottomSheetOverlayProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Overlay>;
@@ -127,26 +121,26 @@ const BottomSheetDescription = ({ className, children, ...props }: BottomSheetDe
 
 type BottomSheetSelectContextValue = {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
 };
 
 const [BottomSheetSelectContext, useBottomSheetSelectContext] =
   createContextFactory<BottomSheetSelectContextValue>("BottomSheetSelect");
 
-type BottomSheetSelectGroupProps = Omit<React.ComponentPropsWithRef<"ul">, "value" | "onChange"> & {
+type BottomSheetSelectGroupProps = Omit<React.ComponentPropsWithRef<"ul">, "value"> & {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
 };
 
 const BottomSheetSelectGroup = ({
   className,
   children,
   value,
-  onChange,
+  onValueChange,
   ...props
 }: BottomSheetSelectGroupProps) => {
   return (
-    <BottomSheetSelectContext value={{ value, onChange }}>
+    <BottomSheetSelectContext value={{ value, onValueChange }}>
       <ul className={cn("flex flex-col", className)} {...props}>
         {children}
       </ul>
@@ -164,7 +158,7 @@ const BottomSheetSelectItem = ({
   value,
   ...props
 }: BottomSheetSelectItemProps) => {
-  const { value: selectedValue, onChange } = useBottomSheetSelectContext();
+  const { value: selectedValue, onValueChange } = useBottomSheetSelectContext();
 
   const isSelected = selectedValue === value;
 
@@ -177,7 +171,7 @@ const BottomSheetSelectItem = ({
           isSelected && "text-primary",
           className,
         )}
-        onClick={() => onChange(value)}
+        onClick={() => onValueChange(value)}
         {...props}
       >
         {children}

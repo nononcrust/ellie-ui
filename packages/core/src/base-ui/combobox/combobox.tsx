@@ -10,15 +10,15 @@ import { SelectChevronDownIcon, SelectItemIndicator, selectTriggerStyle } from "
 
 type ComboboxProps = PopoverBase.Root.Props & {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
 };
 
-const Combobox = ({ children, value, onChange, ...props }: ComboboxProps) => {
+const Combobox = ({ children, value, onValueChange, ...props }: ComboboxProps) => {
   const popover = usePopover();
 
   return (
-    <ComboboxContext value={{ value, onChange, popover }}>
-      <PopoverBase.Root open={popover.isOpen} onOpenChange={popover.onOpenChange} {...props}>
+    <ComboboxContext value={{ value, onValueChange, popover }}>
+      <PopoverBase.Root {...popover.register()} {...props}>
         {children}
       </PopoverBase.Root>
     </ComboboxContext>
@@ -103,12 +103,12 @@ type ComboboxOptionProps = {
 };
 
 const ComboboxOption = ({ value, children }: ComboboxOptionProps) => {
-  const { value: currentValue, onChange, popover } = useComboboxContext();
+  const { value: currentValue, onValueChange, popover } = useComboboxContext();
 
   const isSelected = value === currentValue;
 
   const onSelect = (value: string) => {
-    onChange(value);
+    onValueChange(value);
     popover.close();
   };
 
@@ -150,7 +150,7 @@ const ComboboxInput = ({ className, ...props }: ComboboxInputProps) => {
 
 type ComboboxContextValue = {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
   popover: ReturnType<typeof usePopover>;
 };
 

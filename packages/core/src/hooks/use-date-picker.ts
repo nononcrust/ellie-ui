@@ -5,12 +5,18 @@ import { useState } from "react";
 export const useDatePicker = (initialValue?: Date) => {
   const [value, setValue] = useState(initialValue);
 
-  const onChange = (date?: Date) => {
+  const onValueChange = (date?: Date) => {
     setValue(date);
   };
 
+  const register = () => ({
+    value,
+    onValueChange,
+  });
+
   return {
     value,
-    onChange,
+    onValueChange,
+    register,
   };
 };

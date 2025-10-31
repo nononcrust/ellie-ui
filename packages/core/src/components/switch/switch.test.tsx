@@ -19,10 +19,10 @@ describe("Switch", () => {
     expect(switchElement).toBeChecked();
   });
 
-  test("체크 상태가 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
-    const onChange = vi.fn();
+  test("체크 상태가 변경되었을 때 onCheckedChange가 호출되어야 합니다.", async () => {
+    const onCheckedChange = vi.fn();
 
-    render(<Switch onChange={onChange} />);
+    render(<Switch onCheckedChange={onCheckedChange} />);
 
     const user = userEvent.setup();
 
@@ -30,7 +30,7 @@ describe("Switch", () => {
 
     await user.click(switchElement);
 
-    expect(onChange).toBeCalledWith(true);
+    expect(onCheckedChange).toBeCalledWith(true);
   });
 
   test("[a11y] switch에 role='switch' 속성이 존재해야 합니다.", async () => {

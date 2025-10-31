@@ -121,7 +121,7 @@ export const Controlled: Story = {
 
     return (
       <div className="min-w-[24rem]">
-        <RadioSelectBox value={radioGroup.value} onChange={radioGroup.onChange}>
+        <RadioSelectBox {...radioGroup.register()}>
           {options.map((option) => (
             <RadioSelectBox.Option key={option.value} value={option.value}>
               <RadioSelectBox.Label>{option.label}</RadioSelectBox.Label>

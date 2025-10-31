@@ -124,12 +124,7 @@ export const Controlled: Story = {
     const select = useSelect();
 
     return (
-      <Select
-        className="w-[12.5rem]"
-        placeholder="과일을 선택해주세요."
-        value={select.value}
-        onChange={select.onChange}
-      >
+      <Select {...select.register()} className="w-[12.5rem]" placeholder="과일을 선택해주세요.">
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2">사과</Select.Option>
         <Select.Option value="3">포도</Select.Option>

@@ -5,9 +5,9 @@ import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Label } from "../label";
 
-type TextFieldProps = Omit<React.ComponentPropsWithRef<"div">, "onChange" | "value"> & {
+type TextFieldProps = Omit<React.ComponentPropsWithRef<"div">, "value"> & {
   value?: string;
-  onChange?: (value: string) => void;
+  onValueChange?: (value: string) => void;
   defaultValue?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
@@ -19,7 +19,7 @@ type TextFieldProps = Omit<React.ComponentPropsWithRef<"div">, "onChange" | "val
 
 const TextField = ({
   value: externalValue,
-  onChange: externalOnChange,
+  onValueChange: externalOnValueChange,
   defaultValue,
   className,
   children,
@@ -34,7 +34,7 @@ const TextField = ({
   const [internalValue, setInternalValue] = useState(defaultValue ?? "");
 
   const value = externalValue ?? internalValue;
-  const onChange = externalOnChange ?? setInternalValue;
+  const onValueChange = externalOnValueChange ?? setInternalValue;
 
   const textFieldId = useId();
   const descriptionId = useId();
@@ -45,7 +45,7 @@ const TextField = ({
 
   const contextValue = {
     value,
-    onChange,
+    onValueChange,
     defaultValue,
     required,
     maxGraphemeCount,
@@ -224,7 +224,7 @@ const TextFieldErrorMessage = ({ className, children, ...props }: TextFieldError
 
 type TextFieldContextValue = {
   value: string;
-  onChange: (value: string) => void;
+  onValueChange: (value: string) => void;
   defaultValue?: string;
   maxGraphemeCount?: number;
   required?: boolean;
@@ -244,7 +244,7 @@ const useRegisterTextField = () => {
   const {
     textFieldId,
     value,
-    onChange,
+    onValueChange,
     invalid,
     descriptionElement,
     errorMessageElement,
@@ -256,16 +256,16 @@ const useRegisterTextField = () => {
   const onFieldChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (maxGraphemeCount) {
       const slicedValue = event.target.value.slice(0, maxGraphemeCount);
-      return onChange(slicedValue);
+      return onValueChange(slicedValue);
     }
 
-    onChange(event.target.value);
+    onValueChange(event.target.value);
   };
 
   const register = {
     id: textFieldId,
     value,
-    onChange: onFieldChange,
+    onValueChange: onFieldChange,
     "aria-invalid": invalid || undefined,
     "data-invalid": invalid || undefined,
     "aria-describedby": cn(

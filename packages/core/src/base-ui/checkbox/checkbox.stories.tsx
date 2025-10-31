@@ -70,9 +70,7 @@ export const Controlled: Story = {
   render: () => {
     const checkbox = useCheckbox();
 
-    return (
-      <Checkbox checked={checkbox.checked} onChange={checkbox.onChange} aria-label="체크박스" />
-    );
+    return <Checkbox {...checkbox.register()} aria-label="체크박스" />;
   },
 };
 
@@ -98,14 +96,14 @@ export const WithForm: Story = {
         <Controller
           name="terms"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>이용약관 동의</Form.Label>
               <Form.Control>
                 <Checkbox
-                  checked={field.value}
-                  onChange={field.onChange}
-                  ref={field.ref}
+                  {...rest}
+                  checked={value}
+                  onCheckedChange={onChange}
                   aria-label="체크박스"
                 >
                   서비스 약관에 동의합니다.
@@ -139,7 +137,7 @@ export const Group: Story = {
       <Checkbox.Group
         className="flex flex-col gap-2"
         value={checkboxGroup.value}
-        onChange={checkboxGroup.onChange}
+        onValueChange={checkboxGroup.onValueChange}
         allValues={checkboxGroup.allValues}
       >
         <Checkbox className="mb-4" parent>

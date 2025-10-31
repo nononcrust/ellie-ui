@@ -2,10 +2,9 @@ import { Switch as SwitchBase } from "@base-ui-components/react/switch";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 
-type SwitchProps = Omit<SwitchBase.Root.Props, "onChange" | "onCheckedChange" | "className"> &
+type SwitchProps = Omit<SwitchBase.Root.Props, "className"> &
   VariantProps<typeof switchVariants> & {
     className?: string;
-    onChange?: (checked: boolean) => void;
   };
 
 const switchVariants = tv({
@@ -43,11 +42,11 @@ const switchVariants = tv({
   },
 });
 
-const Switch = ({ className, onChange, size, ...props }: SwitchProps) => {
+const Switch = ({ className, size, ...props }: SwitchProps) => {
   const variants = switchVariants({ size, className });
 
   return (
-    <SwitchBase.Root className={variants.root()} onCheckedChange={onChange} {...props}>
+    <SwitchBase.Root className={variants.root()} {...props}>
       <SwitchBase.Thumb className={variants.thumb()} />
     </SwitchBase.Root>
   );

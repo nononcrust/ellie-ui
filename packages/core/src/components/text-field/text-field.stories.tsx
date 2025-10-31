@@ -100,11 +100,7 @@ export const Controlled: Story = {
     const textField = useTextField();
 
     return (
-      <TextField
-        value={textField.value}
-        onChange={textField.onChange}
-        label={<TextField.Label>텍스트</TextField.Label>}
-      >
+      <TextField {...textField.register()} label={<TextField.Label>텍스트</TextField.Label>}>
         <TextField.Input />
       </TextField>
     );
@@ -169,7 +165,7 @@ export const WithForm: Story = {
               label={<TextField.Label>텍스트</TextField.Label>}
               description={<TextField.Description>텍스트를 입력해주세요.</TextField.Description>}
               value={field.value}
-              onChange={field.onChange}
+              onValueChange={field.onChange}
               invalid={fieldState.invalid}
               errorMessage={
                 <TextField.ErrorMessage>{fieldState.error?.message}</TextField.ErrorMessage>

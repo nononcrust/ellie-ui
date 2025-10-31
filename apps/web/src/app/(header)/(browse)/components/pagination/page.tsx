@@ -10,7 +10,7 @@ export default function PaginationPage() {
   return (
     <Grid>
       <Grid.Item>
-        <Pagination page={page} onChange={setPage} total={30} />
+        <Pagination page={page} onPageChange={setPage} total={30} />
       </Grid.Item>
     </Grid>
   );

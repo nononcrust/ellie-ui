@@ -6,7 +6,6 @@ import { ChevronDownIcon, StarIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function ProductsPage() {
-  const [sort, setSort] = useState("추천 순");
   const [currentCategory, setCurrentCategory] = useState("추천");
 
   return (
@@ -27,7 +26,7 @@ export default function ProductsPage() {
       </ul>
       <div className="mt-6 flex justify-between">
         <span className="font-semibold">전체 13,048개</span>
-        <Sort initialValue={sort} onChange={setSort} />
+        <Sort initialValue="추천 순" />
       </div>
       <ul className="mt-3 grid grid-cols-2 gap-4">
         {products.map((product) => (
@@ -46,7 +45,6 @@ const categories = ["추천", "예쁜", "유용한", "귀여운", "오늘의딜"
 
 type SortProps = {
   initialValue: string;
-  onChange: (value: string) => void;
 };
 
 const Sort = ({ initialValue }: SortProps) => {
@@ -63,7 +61,7 @@ const Sort = ({ initialValue }: SortProps) => {
           <BottomSheet.Title>상품 정렬</BottomSheet.Title>
         </BottomSheet.Header>
         <BottomSheet.Body>
-          <BottomSheet.SelectGroup value={sort} onChange={setSort}>
+          <BottomSheet.SelectGroup value={sort} onValueChange={setSort}>
             {sorts.map((sort) => (
               <BottomSheet.SelectItem key={sort} value={sort}>
                 {sort}

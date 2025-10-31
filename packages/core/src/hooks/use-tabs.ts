@@ -5,11 +5,14 @@ import { useState } from "react";
 export const useTabs = (initialValue = "") => {
   const [value, setValue] = useState(initialValue);
 
-  const navigate = (value: string) => {
+  const onValueChange = (value: string) => {
     setValue(value);
   };
 
-  const onChange = navigate;
+  const register = () => ({
+    value,
+    onValueChange,
+  });
 
-  return { value, onChange, navigate };
+  return { value, setValue, onValueChange, register };
 };

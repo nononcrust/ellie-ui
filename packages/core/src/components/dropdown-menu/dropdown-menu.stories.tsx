@@ -104,7 +104,7 @@ export const Controlled: Story = {
     const dropdownMenu = useDropdownMenu();
 
     return (
-      <DropdownMenu isOpen={dropdownMenu.isOpen} onOpenChange={dropdownMenu.onOpenChange}>
+      <DropdownMenu {...dropdownMenu.register()}>
         <DropdownMenu.Trigger asChild>
           <Button>열기</Button>
         </DropdownMenu.Trigger>

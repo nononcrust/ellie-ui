@@ -16,19 +16,14 @@ export default function DatePickerPage() {
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">날짜 선택</Label>
-          <DatePicker
-            value={datePicker.value}
-            onChange={datePicker.onChange}
-            placeholder="날짜 선택"
-          />
+          <DatePicker {...datePicker.register()} placeholder="날짜 선택" />
         </div>
       </Grid.Item>
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">날짜 범위 선택</Label>
           <DateRangePicker
-            value={dateRangePicker.value}
-            onChange={dateRangePicker.onChange}
+            {...dateRangePicker.register()}
             placeholder="날짜 범위 선택"
             hidden={{
               before: new Date(),
@@ -39,20 +34,14 @@ export default function DatePickerPage() {
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">날짜 선택</Label>
-          <DatePicker
-            value={disabledDatePicker.value}
-            onChange={disabledDatePicker.onChange}
-            placeholder="날짜 선택"
-            disabled
-          />
+          <DatePicker {...disabledDatePicker.register()} placeholder="날짜 선택" disabled />
         </div>
       </Grid.Item>
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">날짜 선택</Label>
           <DatePicker
-            value={rangeLimitDatePicker.value}
-            onChange={rangeLimitDatePicker.onChange}
+            {...rangeLimitDatePicker.register()}
             placeholder="날짜 선택"
             hidden={{
               before: new Date(),
@@ -63,12 +52,7 @@ export default function DatePickerPage() {
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">날짜 선택</Label>
-          <DatePicker
-            value={invalidDatePicker.value}
-            onChange={invalidDatePicker.onChange}
-            placeholder="날짜 선택"
-            aria-invalid
-          />
+          <DatePicker {...invalidDatePicker.register()} placeholder="날짜 선택" aria-invalid />
         </div>
       </Grid.Item>
       <Grid.Item>

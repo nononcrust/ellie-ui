@@ -36,10 +36,7 @@ const BottomSheet1 = () => {
           </BottomSheet.Description>
         </BottomSheet.Header>
         <BottomSheet.Body>
-          <BottomSheet.SelectGroup
-            value={bottomSheetSelect.value}
-            onChange={bottomSheetSelect.onChange}
-          >
+          <BottomSheet.SelectGroup {...bottomSheetSelect.register()}>
             <BottomSheet.SelectItem value="all">전체</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="one-room">원룸</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>
@@ -90,10 +87,7 @@ const BottomSheet3 = () => {
           <BottomSheet.Description className="sr-only">키워드 선택</BottomSheet.Description>
         </BottomSheet.Header>
         <BottomSheet.Body>
-          <BottomSheet.SelectGroup
-            value={bottomSheetSelect.value}
-            onChange={bottomSheetSelect.onChange}
-          >
+          <BottomSheet.SelectGroup {...bottomSheetSelect.register()}>
             <BottomSheet.SelectItem value="all">전체</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="one-room">원룸</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="officetel">오피스텔</BottomSheet.SelectItem>

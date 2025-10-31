@@ -21,11 +21,17 @@ export const useBottomSheet = (initialIsOpen = false) => {
     setIsOpen(isOpen);
   };
 
+  const register = () => ({
+    open: isOpen,
+    onOpenChange,
+  });
+
   return {
     isOpen,
     open,
     close,
     toggle,
     onOpenChange,
+    register,
   };
 };

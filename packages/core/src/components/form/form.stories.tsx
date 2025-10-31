@@ -193,11 +193,16 @@ export const WithDatePicker: Story = {
         <Controller
           name="date"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>라벨</Form.Label>
               <Form.Control>
-                <DatePicker placeholder="날짜를 선택해주세요." {...field} />
+                <DatePicker
+                  placeholder="날짜를 선택해주세요."
+                  value={value}
+                  onValueChange={onChange}
+                  {...rest}
+                />
               </Form.Control>
               <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
               <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
@@ -236,11 +241,16 @@ export const WithDateRangePicker: Story = {
         <Controller
           name="date"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>라벨</Form.Label>
               <Form.Control>
-                <DateRangePicker placeholder="날짜 범위를 선택해주세요." {...field} />
+                <DateRangePicker
+                  placeholder="날짜 범위를 선택해주세요."
+                  value={value}
+                  onValueChange={onChange}
+                  {...rest}
+                />
               </Form.Control>
               <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
               <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
@@ -316,11 +326,11 @@ export const WithCheckbox: Story = {
         <Controller
           name="checkbox"
           control={form.control}
-          render={({ field: { value, ...rest }, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Label className="flex items-center gap-2 text-sm">
                 <Form.Control>
-                  <Checkbox checked={value} {...rest} />
+                  <Checkbox checked={value} onCheckedChange={onChange} {...rest} />
                 </Form.Control>
                 서비스 이용약관에 동의합니다.
               </Label>

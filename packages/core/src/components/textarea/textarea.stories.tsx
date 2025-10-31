@@ -99,7 +99,7 @@ export const Controlled: Story = {
 
     return (
       <div className="w-[20rem]">
-        <Textarea value={input.value} onChange={input.onChange} />
+        <Textarea {...input.register()} />
       </div>
     );
   },

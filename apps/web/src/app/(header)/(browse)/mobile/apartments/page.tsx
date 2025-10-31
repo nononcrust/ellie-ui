@@ -148,7 +148,7 @@ const TypeFilter = () => {
           <BottomSheet.Title>주거 형태</BottomSheet.Title>
         </BottomSheet.Header>
         <BottomSheet.Body>
-          <BottomSheet.SelectGroup value={typeSelect.value} onChange={typeSelect.onChange}>
+          <BottomSheet.SelectGroup {...typeSelect.register()}>
             <BottomSheet.SelectItem value="아파트">아파트</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="주택">주택</BottomSheet.SelectItem>
             <BottomSheet.SelectItem value="오피스텔">오피스텔</BottomSheet.SelectItem>

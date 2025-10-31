@@ -17,6 +17,6 @@ export const Default: Story = {
   render: () => {
     const [page, setPage] = useState(1);
 
-    return <Pagination page={page} onChange={setPage} total={30} />;
+    return <Pagination page={page} onPageChange={setPage} total={30} />;
   },
 };

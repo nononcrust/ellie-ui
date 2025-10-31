@@ -163,7 +163,7 @@ import {
       return (
         <Checkbox
           checked={checkbox.checked}
-          onChange={checkbox.onChange}
+          onCheckedChange={checkbox.onCheckedChange}
         />
       )
     }
@@ -185,7 +185,7 @@ import {
     checked: {
       type: 'boolean | "indeterminate"',
     },
-    onChange: {
+    onCheckedChange: {
       type: "(checked: boolean) => void",
       default: undefined,
     },

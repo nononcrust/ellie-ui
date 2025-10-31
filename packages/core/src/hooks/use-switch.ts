@@ -5,12 +5,18 @@ import { useState } from "react";
 export const useSwitch = (initialValue = false) => {
   const [checked, setChecked] = useState(initialValue);
 
-  const onChange = () => {
+  const onCheckedChange = () => {
     setChecked((prev) => !prev);
   };
 
+  const register = () => ({
+    checked,
+    onCheckedChange,
+  });
+
   return {
     checked,
-    onChange,
+    onCheckedChange,
+    register,
   };
 };

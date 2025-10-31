@@ -21,5 +21,10 @@ export const useDropdownMenu = (defaultIsOpen = false) => {
     setIsOpen(isOpen);
   };
 
-  return { isOpen, open, close, toggle, onOpenChange };
+  const register = () => ({
+    open: isOpen,
+    onOpenChange,
+  });
+
+  return { isOpen, open, close, toggle, onOpenChange, register };
 };

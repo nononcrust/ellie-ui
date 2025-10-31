@@ -152,11 +152,11 @@ export const Form1 = () => {
       <Controller
         name="date"
         control={form.control}
-        render={({ field, fieldState }) => (
+        render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
             <Form.Label>생년월일</Form.Label>
             <Form.Control>
-              <DatePicker {...field} placeholder="생년월일" />
+              <DatePicker value={value} onValueChange={onChange} {...rest} placeholder="생년월일" />
             </Form.Control>
             <Form.Description>생년월일을 입력하세요.</Form.Description>
             <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
@@ -191,7 +191,7 @@ export const Form1 = () => {
                   className="mb-4"
                   aria-invalid={fieldState.invalid}
                   checked={field.value.length === terms.length}
-                  onChange={() => {
+                  onCheckedChange={() => {
                     const allTerms = terms.map((term) => term.id);
                     const newTerms = field.value.length === allTerms.length ? [] : allTerms;
 
@@ -205,7 +205,7 @@ export const Form1 = () => {
                     key={term.id}
                     checked={field.value.some((t) => t === term.id)}
                     aria-invalid={fieldState.invalid && !field.value.includes(term.id)}
-                    onChange={() => {
+                    onCheckedChange={() => {
                       const newTerms = field.value.includes(term.id)
                         ? field.value.filter((t) => t !== term.id)
                         : [...field.value, term.id];

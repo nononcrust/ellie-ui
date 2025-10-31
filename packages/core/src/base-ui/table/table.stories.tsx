@@ -44,12 +44,7 @@ export const Default: Story = {
             <Select.Option value="user">사용자</Select.Option>
             <Select.Option value="admin">관리자</Select.Option>
           </Select>
-          <DatePicker
-            value={datePicker.value}
-            onChange={datePicker.onChange}
-            placeholder="YYYY-MM-DD"
-            className="w-[160px]"
-          />
+          <DatePicker {...datePicker.register()} placeholder="YYYY-MM-DD" className="w-[160px]" />
           <TextField className="w-[240px]">
             <TextField.Prefix>
               <SearchIcon className="text-subtle size-4" />
@@ -141,7 +136,7 @@ export const Default: Story = {
           </Table.Body>
         </Table>
         <div className="mt-4 flex justify-center">
-          <Pagination page={page} onChange={setPage} total={100} />
+          <Pagination page={page} onPageChange={setPage} total={100} />
         </div>
       </div>
     );

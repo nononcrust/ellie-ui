@@ -33,19 +33,16 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
   );
 };
 
-type SelectProps = Omit<
-  React.ComponentPropsWithRef<typeof SelectPrimitives.Trigger>,
-  "onChange" | "onValueChange"
-> & {
+type SelectProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Trigger> & {
   value?: string;
-  onChange?: (value: string) => void;
+  onValueChange?: (value: string) => void;
   defaultValue?: string;
   placeholder?: string;
 };
 
 const Select = ({
   value,
-  onChange,
+  onValueChange,
   className,
   children,
   placeholder,
@@ -54,7 +51,7 @@ const Select = ({
   ...props
 }: SelectProps) => {
   return (
-    <SelectPrimitives.Root value={value} onValueChange={onChange} defaultValue={defaultValue}>
+    <SelectPrimitives.Root value={value} onValueChange={onValueChange} defaultValue={defaultValue}>
       <SelectPrimitives.Trigger
         className={cn(selectStyle.base, ariaInvalid && selectStyle.invalid, className)}
         aria-invalid={ariaInvalid}

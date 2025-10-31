@@ -6,12 +6,18 @@ import { DateRange } from "react-day-picker";
 export const useDateRangePicker = (initialValue?: DateRange) => {
   const [value, setValue] = useState(initialValue);
 
-  const onChange = (dateRange?: DateRange) => {
+  const onValueChange = (dateRange?: DateRange) => {
     setValue(dateRange);
   };
 
+  const register = () => ({
+    value,
+    onValueChange,
+  });
+
   return {
     value,
-    onChange,
+    onValueChange,
+    register,
   };
 };

@@ -9,21 +9,13 @@ import { z } from "zod";
 export const DatePickerDemo = () => {
   const datePicker = useDatePicker();
 
-  return (
-    <DatePicker className="w-[20rem]" value={datePicker.value} onChange={datePicker.onChange} />
-  );
+  return <DatePicker className="w-[20rem]" {...datePicker.register()} />;
 };
 
 export const DatePickerDemoRange = () => {
   const dateRangePicker = useDateRangePicker();
 
-  return (
-    <DateRangePicker
-      className="w-[20rem]"
-      value={dateRangePicker.value}
-      onChange={dateRangePicker.onChange}
-    />
-  );
+  return <DateRangePicker {...dateRangePicker.register()} className="w-[20rem]" />;
 };
 
 export const DatePickerDemoWithPlaceholder = () => {
@@ -31,9 +23,8 @@ export const DatePickerDemoWithPlaceholder = () => {
 
   return (
     <DatePicker
+      {...datePicker.register()}
       className="w-[20rem]"
-      value={datePicker.value}
-      onChange={datePicker.onChange}
       placeholder="날짜를 선택해주세요"
     />
   );
@@ -42,14 +33,7 @@ export const DatePickerDemoWithPlaceholder = () => {
 export const DatePickerDemoDisabled = () => {
   const datePicker = useDatePicker();
 
-  return (
-    <DatePicker
-      className="w-[20rem]"
-      value={datePicker.value}
-      onChange={datePicker.onChange}
-      disabled
-    />
-  );
+  return <DatePicker {...datePicker.register()} className="w-[20rem]" disabled />;
 };
 
 export const DatePickerDemoDayDisabled = () => {
@@ -57,9 +41,8 @@ export const DatePickerDemoDayDisabled = () => {
 
   return (
     <DatePicker
+      {...datePicker.register()}
       className="w-[20rem]"
-      value={datePicker.value}
-      onChange={datePicker.onChange}
       hidden={{
         before: new Date(),
       }}
@@ -70,14 +53,7 @@ export const DatePickerDemoDayDisabled = () => {
 export const DatePickerDemoInvalid = () => {
   const datePicker = useDatePicker();
 
-  return (
-    <DatePicker
-      className="w-[20rem]"
-      value={datePicker.value}
-      onChange={datePicker.onChange}
-      aria-invalid
-    />
-  );
+  return <DatePicker {...datePicker.register()} className="w-[20rem]" aria-invalid />;
 };
 
 const DateForm = z.object({
@@ -99,11 +75,17 @@ export const DatePickerDemoWithForm = () => {
       <Controller
         name="date"
         control={form.control}
-        render={({ field, fieldState }) => (
+        render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
             <Form.Label>날짜</Form.Label>
             <Form.Control>
-              <DatePicker className="w-[20rem]" {...field} placeholder="날짜를 선택해주세요" />
+              <DatePicker
+                placeholder="날짜를 선택해주세요"
+                className="w-[20rem]"
+                value={value}
+                onValueChange={onChange}
+                {...rest}
+              />
             </Form.Control>
             <Form.Description>날짜를 선택해주세요.</Form.Description>
             <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>

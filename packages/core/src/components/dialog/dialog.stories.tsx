@@ -128,7 +128,7 @@ export const Controlled: Story = {
     const dialog = useDialog();
 
     return (
-      <Dialog isOpen={dialog.isOpen} onOpenChange={dialog.onOpenChange}>
+      <Dialog {...dialog.register()}>
         <Dialog.Trigger asChild>
           <Button>열기</Button>
         </Dialog.Trigger>
@@ -161,7 +161,7 @@ export const WithCustomTrigger: Story = {
         <Button ref={triggerRef} onClick={dialog.open}>
           열기
         </Button>
-        <Dialog isOpen={dialog.isOpen} onOpenChange={dialog.onOpenChange} triggerRef={triggerRef}>
+        <Dialog {...dialog.register()} triggerRef={triggerRef}>
           <Dialog.Content className="w-[25rem]" animation="pop">
             <Dialog.Header>
               <Dialog.Title>모달 제목</Dialog.Title>

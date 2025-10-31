@@ -15,7 +15,7 @@ type DatePickerProps = Omit<
   "selected" | "onSelect" | "mode" | "onChange" | "value"
 > & {
   value: Date | undefined;
-  onChange: (date: Date | undefined) => void;
+  onValueChange: (date: Date | undefined) => void;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
@@ -28,7 +28,7 @@ type DatePickerProps = Omit<
 
 const DatePicker = ({
   value: initialDate,
-  onChange,
+  onValueChange,
   placeholder,
   disabled,
   className,
@@ -51,7 +51,7 @@ const DatePicker = ({
   };
 
   const onApply = () => {
-    onChange(date);
+    onValueChange(date);
     popover.close();
   };
 
@@ -71,7 +71,7 @@ const DatePicker = ({
   }, [initialDate]);
 
   return (
-    <Popover isOpen={popover.isOpen} onOpenChange={onOpenChange}>
+    <Popover open={popover.isOpen} onOpenChange={onOpenChange}>
       <Trigger
         placeholder={placeholder}
         disabled={disabled}
@@ -113,7 +113,7 @@ type DateRangePickerProps = Omit<
   "selected" | "onSelect" | "mode" | "onChange" | "value"
 > & {
   value: DateRange | undefined;
-  onChange: (date: DateRange | undefined) => void;
+  onValueChange: (date: DateRange | undefined) => void;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
@@ -126,7 +126,7 @@ type DateRangePickerProps = Omit<
 
 const DateRangePicker = ({
   value: initialDateRange,
-  onChange,
+  onValueChange,
   placeholder,
   disabled,
   className,
@@ -149,7 +149,7 @@ const DateRangePicker = ({
   };
 
   const onApply = () => {
-    onChange(dateRange);
+    onValueChange(dateRange);
     popover.close();
   };
 
@@ -173,7 +173,7 @@ const DateRangePicker = ({
   }, [initialDateRange]);
 
   return (
-    <Popover isOpen={popover.isOpen} onOpenChange={onOpenChange}>
+    <Popover open={popover.isOpen} onOpenChange={onOpenChange}>
       <Trigger
         placeholder={placeholder}
         disabled={disabled}

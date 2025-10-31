@@ -21,7 +21,7 @@ export default function TermsPage() {
           <Checkbox
             size="large"
             checked={termsCheckboxGroup.isAllChecked}
-            onChange={termsCheckboxGroup.toggleAll}
+            onCheckedChange={termsCheckboxGroup.toggleAll}
           />
           <span className="ml-3 text-lg font-semibold">약관 전체 동의하기</span>
         </div>
@@ -67,14 +67,14 @@ type TermsItemProps = {
   title: string;
   required?: boolean;
   checked: boolean;
-  onChange: (value: boolean) => void;
+  onCheckedChange: (value: boolean) => void;
 };
 
-const TermsItem = ({ title, required = false, checked, onChange }: TermsItemProps) => {
+const TermsItem = ({ title, required = false, checked, onCheckedChange }: TermsItemProps) => {
   return (
     <li className="flex items-center justify-between">
       <label className="flex flex-1 items-center">
-        <Checkbox checked={checked} onChange={onChange} />
+        <Checkbox checked={checked} onCheckedChange={onCheckedChange} />
         <span className="ml-2 font-medium">
           [{required ? "필수" : "선택"}] {title}
         </span>

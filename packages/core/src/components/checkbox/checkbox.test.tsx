@@ -23,10 +23,10 @@ describe("Checkbox", () => {
     expect(checkbox).toBeChecked();
   });
 
-  test("체크 상태가 변경되었을 때 onChange가 호출되어야 합니다.", async () => {
-    const onChange = vi.fn();
+  test("체크 상태가 변경되었을 때 onCheckedChange가 호출되어야 합니다.", async () => {
+    const onCheckedChange = vi.fn();
 
-    render(<Checkbox onChange={onChange} />);
+    render(<Checkbox onCheckedChange={onCheckedChange} />);
 
     const user = userEvent.setup();
 
@@ -34,7 +34,7 @@ describe("Checkbox", () => {
 
     await user.click(checkbox);
 
-    expect(onChange).toBeCalledWith(true);
+    expect(onCheckedChange).toBeCalledWith(true);
   });
 
   test("disabled가 true인 경우 disabled 상태가 되어야 합니다.", async () => {

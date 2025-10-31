@@ -21,7 +21,7 @@ export const Default: Story = {
 
     return (
       <div className="w-[20rem]">
-        <Input value={input.value} onChange={input.onChange} />
+        <Input {...input.register()} />
       </div>
     );
   },
@@ -146,7 +146,7 @@ export const Controlled: Story = {
 
     return (
       <div className="w-[20rem]">
-        <Input value={input.value} onChange={input.onChange} />
+        <Input {...input.register()} />
       </div>
     );
   },

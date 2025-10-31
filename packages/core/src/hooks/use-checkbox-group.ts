@@ -16,13 +16,13 @@ export const useCheckboxGroup = ({
   const getCheckboxProps = (value: string) => {
     const checked = checkedItems.includes(value);
 
-    const onChange = (checked: boolean) => {
+    const onCheckedChange = (checked: boolean) => {
       setCheckedItems((prev) =>
         checked ? [...prev, value] : prev.filter((item) => item !== value),
       );
     };
 
-    return { checked, onChange };
+    return { checked, onCheckedChange };
   };
 
   const checkAll = () => {
@@ -44,7 +44,7 @@ export const useCheckboxGroup = ({
   const isAllChecked = checkedItems.length === entries.length;
 
   const value = checkedItems;
-  const onChange = setCheckedItems;
+  const onValueChange = setCheckedItems;
   const allValues = entries;
 
   return {
@@ -57,6 +57,6 @@ export const useCheckboxGroup = ({
     checkAll,
     uncheckAll,
     setCheckedItems,
-    onChange,
+    onValueChange,
   };
 };
