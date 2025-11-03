@@ -442,11 +442,16 @@ const ReservationForm = () => {
         <Controller
           name="session"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>참가할 세션</Form.Label>
               <Form.Control>
-                <Select placeholder="참가할 세션을 선택해주세요" {...field}>
+                <Select
+                  placeholder="참가할 세션을 선택해주세요"
+                  value={value}
+                  onValueChange={onChange}
+                  {...rest}
+                >
                   <Select.Option value="1">강의</Select.Option>
                   <Select.Option value="2">패널 토론</Select.Option>
                   <Select.Option value="3">네트워킹</Select.Option>
@@ -477,11 +482,11 @@ const ReservationForm = () => {
         <Controller
           name="type"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>참가 유형</Form.Label>
               <Form.Control>
-                <RadioGroup size="small" {...field}>
+                <RadioGroup size="small" value={value} onValueChange={onChange} {...rest}>
                   <RadioGroup.Option value="online">온라인</RadioGroup.Option>
                   <RadioGroup.Option value="offline">오프라인</RadioGroup.Option>
                 </RadioGroup>

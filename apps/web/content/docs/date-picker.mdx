@@ -152,11 +152,11 @@ import {
         <Controller
           name="date"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>날짜</Form.Label>
               <Form.Control>
-                <DatePicker {...field} placeholder="날짜를 선택해주세요" />
+                <DatePicker placeholder="날짜를 선택해주세요" value={value} onValueChange={onChange} {...rest} />
               </Form.Control>
               <Form.Description>날짜를 선택해주세요.</Form.Description>
               <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>

@@ -153,11 +153,16 @@ export const WithSelect = () => {
       <Controller
         name="select"
         control={form.control}
-        render={({ field, fieldState }) => (
+        render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
             <Form.Label>라벨</Form.Label>
             <Form.Control>
-              <Select placeholder="항목을 선택해주세요" {...field}>
+              <Select
+                placeholder="항목을 선택해주세요"
+                value={value}
+                onValueChange={onChange}
+                {...rest}
+              >
                 <Select.Option value="1">옵션 1</Select.Option>
                 <Select.Option value="2">옵션 2</Select.Option>
                 <Select.Option value="3">옵션 3</Select.Option>
@@ -283,11 +288,11 @@ export const WithRadioGroup: Story = {
         <Controller
           name="radioGroup"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
               <Form.Label>라벨</Form.Label>
               <Form.Control>
-                <RadioGroup {...field}>
+                <RadioGroup value={value} onValueChange={onChange} {...rest}>
                   <RadioGroup.Option value="1">옵션 1</RadioGroup.Option>
                   <RadioGroup.Option value="2">옵션 2</RadioGroup.Option>
                   <RadioGroup.Option value="3">옵션 3</RadioGroup.Option>

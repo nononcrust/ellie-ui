@@ -78,11 +78,16 @@ export const Form1 = () => {
       <Controller
         name="type"
         control={form.control}
-        render={({ field, fieldState }) => (
+        render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
             <Form.Label>타입</Form.Label>
             <Form.Control>
-              <Select {...field} placeholder="타입을 선택해주세요.">
+              <Select
+                placeholder="타입을 선택해주세요."
+                value={value}
+                onValueChange={onChange}
+                {...rest}
+              >
                 <Select.Option value="1">개인</Select.Option>
                 <Select.Option value="2">기업</Select.Option>
                 <Select.Option value="3">단체</Select.Option>
