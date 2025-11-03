@@ -73,7 +73,7 @@ const Select3 = () => {
   return (
     <div className="flex w-full flex-col">
       <Label className="mb-2">회원 등급</Label>
-      <Select placeholder="회원 등급" aria-invalid>
+      <Select placeholder="회원 등급" invalid>
         <Select.Option value="1">일반</Select.Option>
         <Select.Option value="2">프리미엄</Select.Option>
         <Select.Option value="3">관리자</Select.Option>

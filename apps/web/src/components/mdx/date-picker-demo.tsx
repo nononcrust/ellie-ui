@@ -53,7 +53,7 @@ export const DatePickerDemoDayDisabled = () => {
 export const DatePickerDemoInvalid = () => {
   const datePicker = useDatePicker();
 
-  return <DatePicker {...datePicker.register()} className="w-[20rem]" aria-invalid />;
+  return <DatePicker {...datePicker.register()} className="w-[20rem]" invalid />;
 };
 
 const DateForm = z.object({

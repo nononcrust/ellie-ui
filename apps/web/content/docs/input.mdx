@@ -74,7 +74,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
 <Demo>
   <Demo.Preview>
-    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" aria-invalid />
+    <Input className="w-[20rem]" placeholder="텍스트를 입력해주세요" invalid />
   </Demo.Preview>
   <Demo.Code>
     ```tsx
@@ -82,7 +82,7 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
     export const Example = () => {
       return (
-        <Input placeholder="텍스트를 입력해주세요" aria-invalid />
+        <Input placeholder="텍스트를 입력해주세요" invalid />
       )
     }
     ```
@@ -178,13 +178,13 @@ import { InputDemoWithForm, InputDemoControlled } from "@/components/mdx/input-d
 
 <TypeTable
   type={{
-    "aria-invalid": {
-      type: "boolean",
-      default: undefined,
-    },
     disabled: {
       type: "boolean",
       default: false,
+    },
+    invalid: {
+      type: "boolean",
+      default: undefined,
     },
     readOnly: {
       type: "boolean",

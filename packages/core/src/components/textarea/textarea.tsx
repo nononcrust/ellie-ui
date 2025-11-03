@@ -1,8 +1,10 @@
 import { cn } from "../../lib/utils";
 
-type TextareaProps = React.ComponentPropsWithRef<"textarea">;
+type TextareaProps = React.ComponentPropsWithRef<"textarea"> & {
+  invalid?: boolean;
+};
 
-const Textarea = ({ className, "aria-invalid": ariaInvalid, ...props }: TextareaProps) => {
+const Textarea = ({ className, invalid, ...props }: TextareaProps) => {
   return (
     <textarea
       className={cn(
@@ -11,10 +13,10 @@ const Textarea = ({ className, "aria-invalid": ariaInvalid, ...props }: Textarea
         "focus-visible:focus-input-ring",
         "disabled:pointer-events-none disabled:opacity-50",
         "read-only:bg-background-100",
-        ariaInvalid && "focus-visible:focus-input-ring-error border-error",
+        invalid && "focus-visible:focus-input-ring-error border-error",
         className,
       )}
-      aria-invalid={ariaInvalid}
+      aria-invalid={invalid}
       {...props}
     />
   );

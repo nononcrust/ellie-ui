@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { Input } from "../../components/input";
 import { Form } from "./form";
 
 const FORM_FIELD_ELEMENT_TEST_ID = "form-element";
@@ -9,7 +10,7 @@ const DefaultForm = () => {
       <Form.Field>
         <Form.Label>라벨</Form.Label>
         <Form.Control>
-          <input data-testid={FORM_FIELD_ELEMENT_TEST_ID} />
+          <Input data-testid={FORM_FIELD_ELEMENT_TEST_ID} />
         </Form.Control>
         <Form.Description>설명</Form.Description>
         <Form.ErrorMessage>에러 메시지</Form.ErrorMessage>
@@ -24,7 +25,7 @@ const InvalidForm = () => {
       <Form.Field invalid>
         <Form.Label>라벨</Form.Label>
         <Form.Control>
-          <input data-testid={FORM_FIELD_ELEMENT_TEST_ID} />
+          <Input data-testid={FORM_FIELD_ELEMENT_TEST_ID} />
         </Form.Control>
         <Form.Description>설명</Form.Description>
         <Form.ErrorMessage>에러 메시지</Form.ErrorMessage>

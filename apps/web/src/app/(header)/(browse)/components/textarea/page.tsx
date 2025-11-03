@@ -41,7 +41,7 @@ export default function TextareaPage() {
           <Label htmlFor="4" className="mb-2">
             내용
           </Label>
-          <Textarea id="4" aria-invalid />
+          <Textarea id="4" invalid />
         </div>
       </Grid.Item>
     </Grid>

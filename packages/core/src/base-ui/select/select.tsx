@@ -35,6 +35,7 @@ type SelectProps = Omit<SelectBase.Trigger.Props, "onValueChange"> & {
   onValueChange?: (value: string) => void;
   defaultValue?: string;
   placeholder?: string;
+  invalid?: boolean;
 };
 
 const Select = ({
@@ -44,18 +45,18 @@ const Select = ({
   children,
   placeholder,
   defaultValue,
-  "aria-invalid": ariaInvalid,
+  invalid,
   ...props
 }: SelectProps) => {
   return (
-    <SelectBase.Root value={value} onValueChange={onValueChange} defaultValue={defaultValue}>
+    <SelectBase.Root
+      value={value}
+      onValueChange={onValueChange}
+      defaultValue={defaultValue}
+      aria-invalid={invalid}
+    >
       <SelectBase.Trigger
-        className={cn(
-          selectTriggerStyle.base,
-          ariaInvalid && selectTriggerStyle.invalid,
-          className,
-        )}
-        aria-invalid={ariaInvalid}
+        className={cn(selectTriggerStyle.base, invalid && selectTriggerStyle.invalid, className)}
         {...props}
       >
         <SelectBase.Value

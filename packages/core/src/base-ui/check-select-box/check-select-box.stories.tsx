@@ -102,7 +102,7 @@ export const Invalid: Story = {
   render: () => {
     return (
       <div className="min-w-[24rem]">
-        <CheckSelectBox defaultValue={["1"]} aria-invalid>
+        <CheckSelectBox defaultValue={["1"]} invalid>
           {options.map((option) => (
             <CheckSelectBox.Option key={option.value} value={option.value}>
               <CheckSelectBox.Label>{option.label}</CheckSelectBox.Label>

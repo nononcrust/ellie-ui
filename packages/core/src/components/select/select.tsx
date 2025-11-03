@@ -38,6 +38,7 @@ type SelectProps = React.ComponentPropsWithRef<typeof SelectPrimitives.Trigger> 
   onValueChange?: (value: string) => void;
   defaultValue?: string;
   placeholder?: string;
+  invalid?: boolean;
 };
 
 const Select = ({
@@ -47,14 +48,14 @@ const Select = ({
   children,
   placeholder,
   defaultValue,
-  "aria-invalid": ariaInvalid,
+  invalid,
   ...props
 }: SelectProps) => {
   return (
     <SelectPrimitives.Root value={value} onValueChange={onValueChange} defaultValue={defaultValue}>
       <SelectPrimitives.Trigger
-        className={cn(selectStyle.base, ariaInvalid && selectStyle.invalid, className)}
-        aria-invalid={ariaInvalid}
+        className={cn(selectStyle.base, invalid && selectStyle.invalid, className)}
+        aria-invalid={invalid}
         {...props}
       >
         <span className="truncate">

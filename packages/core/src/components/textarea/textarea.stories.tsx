@@ -48,7 +48,7 @@ export const Invalid: Story = {
   render: () => {
     return (
       <div className="w-[20rem]">
-        <Textarea aria-invalid />
+        <Textarea invalid />
       </div>
     );
   },

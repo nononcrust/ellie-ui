@@ -17,7 +17,7 @@ export default function CheckboxPage() {
         </Checkbox>
       </Grid.Item>
       <Grid.Item>
-        <Checkbox aria-invalid>
+        <Checkbox invalid>
           <Checkbox.Label>서비스 약관에 동의합니다.</Checkbox.Label>
         </Checkbox>
       </Grid.Item>

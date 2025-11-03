@@ -56,21 +56,23 @@ type RadioGroupProps<TValue extends string> = Omit<
   VariantProps<typeof radioGroupVariants> & {
     value?: TValue;
     onValueChange?: (value: TValue) => void;
+    invalid?: boolean;
   };
 
 const RadioGroup = <TValue extends string>({
   className,
   children,
-  "aria-invalid": ariaInvalid,
+  invalid,
   size,
   onValueChange,
   ...props
 }: RadioGroupProps<TValue>) => {
   return (
-    <RadioGroupContext value={{ ariaInvalid, size }}>
+    <RadioGroupContext value={{ invalid, size }}>
       <RadioGroupBase
         className={cn(radioGroupVariants({ size }).root(), className)}
         onValueChange={onValueChange as (value: unknown) => void}
+        aria-invalid={invalid}
         {...props}
       >
         {children}
@@ -85,14 +87,14 @@ type RadioGroupItemProps = Omit<RadioBase.Root.Props, "className"> & {
 
 const RadioGroupItem = ({ className, ...props }: RadioGroupItemProps) => {
   const id = useId();
-  const { ariaInvalid, size } = useRadioGroupContext();
+  const { invalid, size } = useRadioGroupContext();
 
   return (
     <RadioBase.Root
       id={id}
       className={cn(
         radioGroupVariants({ size }).item(),
-        ariaInvalid &&
+        invalid &&
           "border-error focus-visible:ring-ring-error data-checked:bg-error data-checked:border-error",
         className,
       )}
@@ -139,7 +141,7 @@ RadioGroup.Item = RadioGroupItem;
 RadioGroup.Option = RadioGroupOption;
 
 type RadioGroupContextValue = {
-  ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
+  invalid?: boolean;
   size: VariantProps<typeof radioGroupVariants>["size"];
 };
 

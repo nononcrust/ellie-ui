@@ -70,12 +70,7 @@ export const OptionDisabled: Story = {
 export const Invalid: Story = {
   render: () => {
     return (
-      <Select
-        className="w-[12.5rem]"
-        placeholder="과일을 선택해주세요."
-        defaultValue=""
-        aria-invalid
-      >
+      <Select className="w-[12.5rem]" placeholder="과일을 선택해주세요." defaultValue="" invalid>
         <Select.Option value="1">바나나</Select.Option>
         <Select.Option value="2">사과</Select.Option>
         <Select.Option value="3">포도</Select.Option>

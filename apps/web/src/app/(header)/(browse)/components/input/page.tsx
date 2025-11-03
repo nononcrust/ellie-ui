@@ -85,7 +85,7 @@ export default function InputPage() {
           <Label htmlFor="7" className="mb-2">
             이메일
           </Label>
-          <Input id="7" placeholder="이메일을 입력하세요." aria-invalid />
+          <Input id="7" placeholder="이메일을 입력하세요." invalid />
         </div>
       </Grid.Item>
     </Grid>

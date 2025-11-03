@@ -14,22 +14,24 @@ type CheckSelectBox<TValue extends CheckboxGroupValue> = Omit<
 > & {
   value?: TValue;
   onValueChange?: (value: TValue) => void;
+  invalid?: boolean;
 };
 
 const CheckSelectBox = <TValue extends CheckboxGroupValue>({
   className,
   children,
-  "aria-invalid": ariaInvalid,
+  invalid,
   value,
   onValueChange,
   ...props
 }: CheckSelectBox<TValue>) => {
   return (
-    <CheckSelectBoxContext value={{ ariaInvalid }}>
+    <CheckSelectBoxContext value={{ invalid }}>
       <CheckboxGroupBase
         className={cn("grid gap-2", className)}
         value={value as string[]}
         onValueChange={onValueChange as (value: string[]) => void}
+        aria-invalid={invalid}
         {...props}
       >
         {children}
@@ -43,7 +45,7 @@ type CheckSelectBoxOptionProps = Omit<CheckboxBase.Root.Props, "className"> & {
 };
 
 const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxOptionProps) => {
-  const { ariaInvalid } = useCheckSelectBoxContext();
+  const { invalid } = useCheckSelectBoxContext();
 
   return (
     <CheckboxBase.Root
@@ -52,8 +54,8 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
         "data-checked:bg-primary-lighter data-checked:border-primary",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         "focus-visible:z-10",
-        !ariaInvalid && "dark:data-checked:bg-primary-darker",
-        ariaInvalid &&
+        !invalid && "dark:data-checked:bg-primary-darker",
+        invalid &&
           "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error-lighter",
         className,
       )}
@@ -65,7 +67,7 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
           "bg-background text-background flex size-5 items-center justify-center rounded-[0.3125rem]",
           "border-border shadow-xs outline-hidden shrink-0 border",
           "data-checked:border-primary data-checked:bg-primary data-checked:text-white",
-          ariaInvalid && "data-checked:bg-error data-checked:border-error",
+          invalid && "data-checked:bg-error data-checked:border-error",
         )}
         keepMounted
       >
@@ -100,7 +102,7 @@ const CheckSelectBoxDescription = ({
 };
 
 type CheckSelectBoxGroupContextValue = {
-  ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
+  invalid?: boolean;
 };
 
 const [CheckSelectBoxContext, useCheckSelectBoxContext] =

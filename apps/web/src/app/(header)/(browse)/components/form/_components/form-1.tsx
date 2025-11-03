@@ -205,7 +205,7 @@ export const Form1 = () => {
               <Checkbox.Group className="flex flex-col gap-2">
                 <Checkbox
                   className="mb-4"
-                  aria-invalid={fieldState.invalid}
+                  invalid={fieldState.invalid}
                   checked={field.value.length === terms.length}
                   onCheckedChange={() => {
                     const allTerms = terms.map((term) => term.id);
@@ -220,7 +220,7 @@ export const Form1 = () => {
                   <Checkbox
                     key={term.id}
                     checked={field.value.some((t) => t === term.id)}
-                    aria-invalid={fieldState.invalid && !field.value.includes(term.id)}
+                    invalid={fieldState.invalid && !field.value.includes(term.id)}
                     onCheckedChange={() => {
                       const newTerms = field.value.includes(term.id)
                         ? field.value.filter((t) => t !== term.id)

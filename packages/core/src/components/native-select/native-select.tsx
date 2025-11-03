@@ -4,12 +4,13 @@ import { SelectChevronDownIcon, selectStyle } from "../select";
 
 type NativeSelectProps = React.ComponentPropsWithRef<"select"> & {
   placeholder?: string;
+  invalid?: boolean;
 };
 
 const NativeSelect = ({
   className,
   children,
-  "aria-invalid": ariaInvalid,
+  invalid,
   placeholder,
   ...props
 }: NativeSelectProps) => {
@@ -18,11 +19,11 @@ const NativeSelect = ({
       <select
         className={cn(
           selectStyle.base,
-          ariaInvalid && selectStyle.invalid,
+          invalid && selectStyle.invalid,
           "has-[option[disabled]:checked]:text-placeholder peer cursor-pointer appearance-none",
           className,
         )}
-        aria-invalid={ariaInvalid}
+        aria-invalid={invalid}
         {...props}
       >
         {placeholder && (

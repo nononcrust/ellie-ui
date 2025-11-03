@@ -17,7 +17,7 @@ export default function RadioSelectBoxPage() {
         </RadioSelectBox>
       </div>
       <div className="col-span-3 mx-auto mt-8 w-full max-w-lg px-4">
-        <RadioSelectBox defaultValue="1" aria-invalid>
+        <RadioSelectBox defaultValue="1" invalid>
           {options.map((option) => (
             <RadioSelectBox.Option key={option.value} value={option.value}>
               <RadioSelectBox.Label>{option.label}</RadioSelectBox.Label>

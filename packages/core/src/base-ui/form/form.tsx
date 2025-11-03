@@ -109,7 +109,7 @@ const FormControl = ({ children }: { children: useRender.RenderProp }) => {
       id,
       "aria-labelledby": labelId,
       "aria-describedby": ariaDescribedBy,
-      "aria-invalid": invalid || undefined,
+      invalid: invalid || undefined,
     },
   });
 };

@@ -108,7 +108,7 @@ export const Invalid: Story = {
   render: () => {
     return (
       <div className="min-w-[24rem]">
-        <RadioSelectBox aria-invalid defaultValue="1">
+        <RadioSelectBox invalid defaultValue="1">
           {options.map((option) => (
             <RadioSelectBox.Option key={option.value} value={option.value}>
               <RadioSelectBox.Label>{option.label}</RadioSelectBox.Label>

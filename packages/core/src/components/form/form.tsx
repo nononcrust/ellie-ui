@@ -90,6 +90,14 @@ const FormDescription = ({ className, children, ...props }: FormDescriptionProps
   );
 };
 
+type FormSlotProps = React.ComponentPropsWithRef<typeof Slot.Root> & {
+  invalid?: boolean;
+};
+
+const FormSlot = (props: FormSlotProps) => {
+  return <Slot.Root {...props} />;
+};
+
 const FormControl = ({ children }: { children: React.ReactNode }) => {
   const {
     invalid,
@@ -102,16 +110,16 @@ const FormControl = ({ children }: { children: React.ReactNode }) => {
   } = useFormFieldContext();
 
   return (
-    <Slot.Root
+    <FormSlot
       id={id}
       aria-labelledby={labelId}
       aria-describedby={
         cn(descriptionElement && descriptionId, errorMessageElement && errorMessageId) || undefined
       }
-      aria-invalid={invalid || undefined}
+      invalid={invalid || undefined}
     >
       {children}
-    </Slot.Root>
+    </FormSlot>
   );
 };
 

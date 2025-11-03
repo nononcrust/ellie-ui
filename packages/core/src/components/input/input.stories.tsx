@@ -51,7 +51,7 @@ export const Invalid: Story = {
   render: () => {
     return (
       <div className="w-[20rem]">
-        <Input aria-invalid />
+        <Input invalid />
       </div>
     );
   },

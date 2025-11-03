@@ -12,20 +12,22 @@ type RadioSelectBoxProps<TValue extends string> = Omit<
 > & {
   value?: TValue;
   onValueChange?: (value: TValue) => void;
+  invalid?: boolean;
 };
 
 const RadioSelectBox = <TValue extends string>({
   className,
   children,
-  "aria-invalid": ariaInvalid,
+  invalid,
   onValueChange,
   ...props
 }: RadioSelectBoxProps<TValue>) => {
   return (
-    <RadioSelectBoxContext value={{ ariaInvalid }}>
+    <RadioSelectBoxContext value={{ invalid }}>
       <RadioGroupBase
         className={cn("grid gap-2", className)}
         onValueChange={onValueChange as (value: unknown) => void}
+        aria-invalid={invalid}
         {...props}
       >
         {children}
@@ -40,7 +42,7 @@ type RadioSelectBoxOptionProps = Omit<RadioBase.Root.Props, "className"> & {
 
 const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxOptionProps) => {
   const id = useId();
-  const { ariaInvalid } = useRadioSelectBoxContext();
+  const { invalid } = useRadioSelectBoxContext();
 
   return (
     <RadioBase.Root
@@ -49,8 +51,8 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
         "border-border flex items-center gap-4 rounded-md border px-4 py-3",
         "data-checked:border-primary data-checked:bg-primary-lighter",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
-        !ariaInvalid && "dark:data-checked:bg-primary-darker",
-        ariaInvalid &&
+        !invalid && "dark:data-checked:bg-primary-darker",
+        invalid &&
           "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error-lighter",
         className,
       )}
@@ -62,7 +64,7 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
           "flex size-5 items-center justify-center rounded-full",
           "border-border bg-background text-background border",
           "data-checked:bg-primary data-checked:text-white",
-          ariaInvalid && "data-checked:bg-error",
+          invalid && "data-checked:bg-error",
         )}
         keepMounted
       >
@@ -78,8 +80,6 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
     </RadioBase.Root>
   );
 };
-
-RadioSelectBox.Item = RadioSelectBoxOption;
 
 type RadioSelectBoxLabelProps = React.ComponentPropsWithRef<"span">;
 
@@ -106,7 +106,7 @@ const RadioSelectBoxDescription = ({
 };
 
 type RadioSelectBoxContextValue = {
-  ariaInvalid?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
+  invalid?: boolean;
 };
 
 const [RadioSelectBoxContext, useRadioSelectBoxContext] =

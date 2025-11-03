@@ -47,16 +47,10 @@ export const checkboxVariants = tv({
 type CheckboxProps = CheckboxBase.Root.Props &
   VariantProps<typeof checkboxVariants> & {
     ref?: React.Ref<HTMLButtonElement>;
+    invalid?: boolean;
   };
 
-const Checkbox = ({
-  className,
-  "aria-invalid": ariaInvalid,
-  size,
-  children,
-  id: idProp,
-  ...props
-}: CheckboxProps) => {
+const Checkbox = ({ className, invalid, size, children, id: idProp, ...props }: CheckboxProps) => {
   const variants = checkboxVariants({ size });
 
   const generatedId = useId();
@@ -69,10 +63,10 @@ const Checkbox = ({
         id={id}
         className={cn(
           variants.root(),
-          ariaInvalid &&
+          invalid &&
             "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error",
         )}
-        aria-invalid={ariaInvalid}
+        aria-invalid={invalid}
         {...props}
       >
         <CheckboxBase.Indicator

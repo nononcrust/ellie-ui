@@ -52,7 +52,7 @@ export default function DatePickerPage() {
       <Grid.Item>
         <div className="flex w-full flex-col">
           <Label className="mb-2">날짜 선택</Label>
-          <DatePicker {...invalidDatePicker.register()} placeholder="날짜 선택" aria-invalid />
+          <DatePicker {...invalidDatePicker.register()} placeholder="날짜 선택" invalid />
         </div>
       </Grid.Item>
       <Grid.Item>

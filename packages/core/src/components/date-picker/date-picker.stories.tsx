@@ -47,7 +47,7 @@ export const Invalid: Story = {
   render: () => {
     const datePicker = useDatePicker();
 
-    return <DatePicker {...datePicker.register()} className="w-[15rem]" aria-invalid />;
+    return <DatePicker {...datePicker.register()} className="w-[15rem]" invalid />;
   },
 };
 

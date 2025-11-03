@@ -11,7 +11,9 @@ import { Label } from "../label";
 const DEFAULT_SIZE = "medium";
 
 type CheckboxProps = React.ComponentPropsWithRef<typeof CheckboxPrimitives.Root> &
-  VariantProps<typeof checkboxVariants>;
+  VariantProps<typeof checkboxVariants> & {
+    invalid?: boolean;
+  };
 
 export const checkboxVariants = tv({
   slots: {
@@ -51,7 +53,7 @@ export const checkboxVariants = tv({
 const Checkbox = ({
   className,
   checked,
-  "aria-invalid": ariaInvalid,
+  invalid,
   size,
   id: idProp,
   children,
@@ -70,11 +72,11 @@ const Checkbox = ({
           id={checkboxId}
           className={cn(
             variants.root(),
-            ariaInvalid &&
+            invalid &&
               "border-error focus-visible:ring-ring-error data-[state=checked]:border-error data-[state=checked]:bg-error",
           )}
           checked={checked}
-          aria-invalid={ariaInvalid}
+          aria-invalid={invalid}
           {...props}
         >
           <CheckboxPrimitives.Indicator className="flex items-center justify-center">

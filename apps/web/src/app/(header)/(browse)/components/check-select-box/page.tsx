@@ -17,7 +17,7 @@ export default function CheckSelectBoxPage() {
         </CheckSelectBox>
       </div>
       <div className="col-span-3 mx-auto mt-8 w-full max-w-lg px-4">
-        <CheckSelectBox defaultValue={["1"]} aria-invalid>
+        <CheckSelectBox defaultValue={["1"]} invalid>
           {options.map((option) => (
             <CheckSelectBox.Option key={option.value} value={option.value}>
               <CheckSelectBox.Label>{option.label}</CheckSelectBox.Label>

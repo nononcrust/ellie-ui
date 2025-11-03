@@ -57,7 +57,7 @@ export const OptionDisabled: Story = {
 export const Invalid: Story = {
   render: () => {
     return (
-      <RadioGroup aria-invalid defaultValue="1">
+      <RadioGroup invalid defaultValue="1">
         <RadioGroup.Option value="1">선택 1</RadioGroup.Option>
         <RadioGroup.Option value="2">선택 2</RadioGroup.Option>
       </RadioGroup>

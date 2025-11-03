@@ -25,7 +25,7 @@ export const SelectDemoDisabled = () => {
 
 export const SelectDemoInvalid = () => {
   return (
-    <Select className="w-[20rem]" placeholder="항목을 선택해주세요" aria-invalid>
+    <Select className="w-[20rem]" placeholder="항목을 선택해주세요" invalid>
       <Select.Option value="1">항목 1</Select.Option>
       <Select.Option value="2">항목 2</Select.Option>
       <Select.Option value="3">항목 3</Select.Option>

@@ -36,7 +36,7 @@ export const CheckboxDemoDisabled = () => {
 };
 
 export const CheckboxDemoInvalid = () => {
-  return <Checkbox defaultChecked aria-invalid />;
+  return <Checkbox defaultChecked invalid />;
 };
 
 export const CheckboxDemoIndeterminate = () => {

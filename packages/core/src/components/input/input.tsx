@@ -1,8 +1,10 @@
 import { cn } from "../../lib/utils";
 
-type InputProps = React.ComponentPropsWithRef<"input">;
+type InputProps = React.ComponentPropsWithRef<"input"> & {
+  invalid?: boolean;
+};
 
-const Input = ({ className, "aria-invalid": ariaInvalid, ...props }: InputProps) => {
+const Input = ({ className, invalid, ...props }: InputProps) => {
   return (
     <input
       className={cn(
@@ -11,10 +13,10 @@ const Input = ({ className, "aria-invalid": ariaInvalid, ...props }: InputProps)
         "placeholder-placeholder",
         "disabled:bg-background-100 disabled:pointer-events-none disabled:opacity-50",
         "read-only:bg-background-100",
-        ariaInvalid && "focus-visible:focus-input-ring-error border-error",
+        invalid && "focus-visible:focus-input-ring-error border-error",
         className,
       )}
-      aria-invalid={ariaInvalid}
+      aria-invalid={invalid}
       {...props}
     />
   );

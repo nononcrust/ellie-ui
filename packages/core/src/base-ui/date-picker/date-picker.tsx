@@ -20,8 +20,8 @@ type DatePickerProps = Omit<
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  invalid?: boolean;
   "aria-required"?: boolean;
-  "aria-invalid"?: boolean;
   "aria-label"?: string;
   "aria-labelledby"?: string;
 };
@@ -34,8 +34,8 @@ const DatePicker = ({
   className,
   style,
   required,
+  invalid,
   "aria-required": ariaRequired,
-  "aria-invalid": ariaInvalid,
   "aria-label": ariaLabel,
   "aria-labelledby": ariaLabelledby,
   ref,
@@ -77,8 +77,8 @@ const DatePicker = ({
         disabled={disabled}
         className={className}
         style={style}
+        invalid={invalid}
         aria-required={required || ariaRequired}
-        aria-invalid={ariaInvalid}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledby}
         ref={ref}
@@ -118,8 +118,8 @@ type DateRangePickerProps = Omit<
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  invalid?: boolean;
   "aria-required"?: boolean;
-  "aria-invalid"?: boolean;
   "aria-label"?: string;
   "aria-labelledby"?: string;
 };
@@ -132,8 +132,8 @@ const DateRangePicker = ({
   className,
   style,
   required,
+  invalid,
   "aria-required": ariaRequired,
-  "aria-invalid": ariaInvalid,
   "aria-label": ariaLabel,
   "aria-labelledby": ariaLabelledby,
   ref,
@@ -179,7 +179,7 @@ const DateRangePicker = ({
         disabled={disabled}
         className={className}
         aria-required={required || ariaRequired}
-        aria-invalid={ariaInvalid}
+        invalid={invalid}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledby}
         style={style}
@@ -213,15 +213,10 @@ const DateRangePicker = ({
 
 type TriggerProps = React.ComponentPropsWithRef<"button"> & {
   placeholder?: string;
+  invalid?: boolean;
 };
 
-export const Trigger = ({
-  className,
-  children,
-  placeholder,
-  "aria-invalid": ariaInvalid,
-  ...props
-}: TriggerProps) => {
+export const Trigger = ({ className, children, placeholder, invalid, ...props }: TriggerProps) => {
   return (
     <Popover.Trigger
       render={
@@ -230,7 +225,7 @@ export const Trigger = ({
             "border-border bg-background text-main outline-hidden flex h-10 w-full items-center gap-2 rounded-md border px-3 text-sm font-medium",
             "focus-visible:focus-input-ring",
             "disabled:bg-background-100 disabled:pointer-events-none disabled:opacity-50",
-            ariaInvalid && "focus-visible:focus-input-ring-error border-error",
+            invalid && "focus-visible:focus-input-ring-error border-error",
             className,
           )}
           {...props}
