@@ -6,7 +6,7 @@ import { RadioSelectBox } from "@ellie-ui/core";
 export default function RadioSelectBoxPage() {
   return (
     <Grid>
-      <div className="col-span-3 mt-8 px-4">
+      <div className="col-span-3 mx-auto mt-8 w-full max-w-lg px-4">
         <RadioSelectBox defaultValue="1">
           {options.map((option) => (
             <RadioSelectBox.Option key={option.value} value={option.value}>

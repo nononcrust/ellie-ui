@@ -6,7 +6,7 @@ import { CheckSelectBox } from "@ellie-ui/core";
 export default function CheckSelectBoxPage() {
   return (
     <Grid>
-      <div className="col-span-3 mt-8 px-4">
+      <div className="col-span-3 mx-auto mt-8 w-full max-w-lg px-4">
         <CheckSelectBox defaultValue={["1"]}>
           {options.map((option) => (
             <CheckSelectBox.Option key={option.value} value={option.value}>

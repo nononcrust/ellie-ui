@@ -27,7 +27,7 @@ const CheckSelectBox = <TValue extends CheckboxGroupValue>({
   return (
     <CheckSelectBoxContext value={{ ariaInvalid }}>
       <CheckboxGroupBase
-        className={cn("grid gap-0.5", className)}
+        className={cn("grid gap-2", className)}
         value={value as string[]}
         onValueChange={onValueChange as (value: string[]) => void}
         {...props}
@@ -48,14 +48,16 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
   return (
     <CheckboxBase.Root
       className={cn(
-        "hover:bg-background-100 flex items-center gap-4 rounded-md px-4 py-3",
-        "data-checked:bg-background-100",
+        "border-border flex items-center gap-4 rounded-md border px-4 py-3",
+        "data-checked:bg-primary-lighter data-checked:border-primary",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
+        "focus-visible:z-10",
         ariaInvalid && "border-error focus-visible:ring-ring-error data-checked:border-error",
         className,
       )}
       {...props}
     >
+      <span className="flex flex-1 flex-col items-start">{children}</span>
       <CheckboxBase.Indicator
         className={cn(
           "bg-background text-background flex size-5 items-center justify-center rounded-[0.3125rem]",
@@ -67,7 +69,6 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
       >
         <CheckIcon className="stroke-3 size-[0.875rem]" />
       </CheckboxBase.Indicator>
-      <span className="flex flex-col items-start">{children}</span>
     </CheckboxBase.Root>
   );
 };

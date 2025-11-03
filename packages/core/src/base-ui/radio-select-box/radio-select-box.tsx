@@ -24,7 +24,7 @@ const RadioSelectBox = <TValue extends string>({
   return (
     <RadioSelectBoxContext value={{ ariaInvalid }}>
       <RadioGroupBase
-        className={cn("grid gap-0.5", className)}
+        className={cn("grid gap-2", className)}
         onValueChange={onValueChange as (value: unknown) => void}
         {...props}
       >
@@ -46,14 +46,15 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
     <RadioBase.Root
       id={id}
       className={cn(
-        "hover:bg-background-100 flex items-center gap-4 rounded-md px-4 py-3",
-        "data-checked:bg-background-100",
+        "border-border flex items-center gap-4 rounded-md border px-4 py-3",
+        "data-checked:border-primary data-checked:bg-primary-lighter",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         ariaInvalid && "border-error focus-visible:ring-ring-error data-checked:border-error",
         className,
       )}
       {...props}
     >
+      <span className="flex flex-1 flex-col items-start">{children}</span>
       <RadioBase.Indicator
         className={cn(
           "flex size-5 items-center justify-center rounded-full",
@@ -72,7 +73,6 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
           <circle cx="3" cy="3" r="3" />
         </svg>
       </RadioBase.Indicator>
-      <span className="flex flex-col items-start">{children}</span>
     </RadioBase.Root>
   );
 };

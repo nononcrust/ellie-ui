@@ -6,7 +6,7 @@ import {
   DatePicker,
   Form,
   Input,
-  RadioGroup,
+  RadioSelectBox,
   Select,
   toast,
 } from "@ellie-ui/core";
@@ -166,16 +166,25 @@ export const Form1 = () => {
       <Controller
         name="gender"
         control={form.control}
-        render={({ field, fieldState }) => (
+        render={({ field: { value, onChange }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
             <Form.Label>성별</Form.Label>
             <Form.Control>
-              <RadioGroup {...field}>
-                <RadioGroup.Option value="male">남성</RadioGroup.Option>
-                <RadioGroup.Option value="female">여성</RadioGroup.Option>
-              </RadioGroup>
+              <RadioSelectBox value={value} onValueChange={onChange}>
+                <RadioSelectBox.Option value="male">
+                  <RadioSelectBox.Label>남성</RadioSelectBox.Label>
+                  <RadioSelectBox.Description>
+                    성별이 남성인 경우 선택해주세요.
+                  </RadioSelectBox.Description>
+                </RadioSelectBox.Option>
+                <RadioSelectBox.Option value="female">
+                  <RadioSelectBox.Label>여성</RadioSelectBox.Label>
+                  <RadioSelectBox.Description>
+                    성별이 여성인 경우 선택해주세요.
+                  </RadioSelectBox.Description>
+                </RadioSelectBox.Option>
+              </RadioSelectBox>
             </Form.Control>
-            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
           </Form.Field>
         )}
       />
