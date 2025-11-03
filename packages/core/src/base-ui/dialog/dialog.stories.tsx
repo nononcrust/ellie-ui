@@ -1,5 +1,6 @@
 import { useDialog } from "@ellie-ui/core/hooks";
 import { Meta, StoryObj } from "@storybook/react-vite";
+import { overlay, OverlayProvider } from "overlay-kit";
 import { useRef } from "react";
 import { Dialog } from ".";
 import { Button } from "../button";
@@ -129,7 +130,7 @@ export const WithCustomTrigger: Story = {
 
     return (
       <>
-        <Button ref={triggerRef} onClick={dialog.open}>
+        <Button onClick={dialog.open} ref={triggerRef}>
           열기
         </Button>
         <Dialog {...dialog.register()}>
@@ -146,5 +147,35 @@ export const WithCustomTrigger: Story = {
         </Dialog>
       </>
     );
+  },
+};
+
+export const WithOverlayKit: Story = {
+  decorators: [
+    (Story) => (
+      <OverlayProvider>
+        <Story />
+      </OverlayProvider>
+    ),
+  ],
+  render: () => {
+    const onClick = () => {
+      overlay.open(({ isOpen, close }) => (
+        <Dialog open={isOpen} onOpenChange={close}>
+          <Dialog.Content className="w-[25rem]" animation="pop">
+            <Dialog.Header>
+              <Dialog.Title>모달 제목</Dialog.Title>
+              <Dialog.Description>모달 설명이 여기에 표시됩니다.</Dialog.Description>
+            </Dialog.Header>
+            <Dialog.Footer className="mt-3">
+              <Dialog.Close render={<Button variant="outlined">취소</Button>} />
+              <Dialog.Close render={<Button>확인</Button>} />
+            </Dialog.Footer>
+          </Dialog.Content>
+        </Dialog>
+      ));
+    };
+
+    return <Button onClick={onClick}>열기</Button>;
   },
 };

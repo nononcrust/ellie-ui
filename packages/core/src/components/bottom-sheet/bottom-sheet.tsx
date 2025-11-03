@@ -2,19 +2,38 @@
 
 import { CheckIcon, XIcon } from "lucide-react";
 import { Dialog as DialogPrimitives } from "radix-ui";
+import { useEffect } from "react";
 import { createContextFactory } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
-type BottomSheetProps = DialogPrimitives.DialogProps;
+type BottomSheetProps = DialogPrimitives.DialogProps & {
+  triggerRef?: React.RefObject<HTMLElement | null>;
+};
 
-const BottomSheet = ({ children, ...props }: BottomSheetProps) => {
-  return <DialogPrimitives.Root {...props}>{children}</DialogPrimitives.Root>;
+const BottomSheet = ({ children, triggerRef, ...props }: BottomSheetProps) => {
+  return (
+    <BottomSheetContext value={{ triggerRef }}>
+      <DialogPrimitives.Root {...props}>{children}</DialogPrimitives.Root>
+    </BottomSheetContext>
+  );
 };
 
 type BottomSheetOverlayProps = React.ComponentPropsWithRef<typeof DialogPrimitives.Overlay>;
 
 const BottomSheetOverlay = ({ className, children, ...props }: BottomSheetOverlayProps) => {
+  const { triggerRef } = useBottomSheetContext();
+
+  useEffect(() => {
+    if (!triggerRef) return;
+
+    const triggerElement = triggerRef.current;
+
+    return () => {
+      triggerElement?.focus();
+    };
+  }, [triggerRef]);
+
   return (
     <DialogPrimitives.Overlay
       className={cn(
@@ -194,6 +213,13 @@ const BottomSheetTrigger = ({ children, ...props }: BottomSheetTriggerProps) => 
     </DialogPrimitives.Trigger>
   );
 };
+
+type BottomSheetContextValue = {
+  triggerRef: BottomSheetProps["triggerRef"];
+};
+
+const [BottomSheetContext, useBottomSheetContext] =
+  createContextFactory<BottomSheetContextValue>("BottomSheet");
 
 BottomSheet.Trigger = BottomSheetTrigger;
 BottomSheet.Close = DialogPrimitives.Close;

@@ -1,5 +1,6 @@
 import { useBottomSheet, useSelect } from "@ellie-ui/core/hooks";
 import { Meta, StoryObj } from "@storybook/react-vite";
+import { overlay, OverlayProvider } from "overlay-kit";
 import { BottomSheet } from ".";
 import { Button } from "../button";
 
@@ -160,5 +161,41 @@ export const Controlled: Story = {
         </BottomSheet.Content>
       </BottomSheet>
     );
+  },
+};
+
+export const WithOverlayKit: Story = {
+  decorators: [
+    (Story) => (
+      <OverlayProvider>
+        <Story />
+      </OverlayProvider>
+    ),
+  ],
+  render: () => {
+    const select = useSelect("1");
+
+    const onClick = () => {
+      overlay.open(({ isOpen, close }) => (
+        <BottomSheet open={isOpen} onOpenChange={close}>
+          <BottomSheet.Content>
+            <BottomSheet.Header>
+              <BottomSheet.Title>바텀시트 제목</BottomSheet.Title>
+              <BottomSheet.Description className="sr-only">바텀시트 설명</BottomSheet.Description>
+            </BottomSheet.Header>
+            <BottomSheet.Body>
+              <BottomSheet.SelectGroup {...select.register()}>
+                <BottomSheet.SelectItem value="1">선택 1</BottomSheet.SelectItem>
+                <BottomSheet.SelectItem value="2">선택 2</BottomSheet.SelectItem>
+                <BottomSheet.SelectItem value="3">선택 3</BottomSheet.SelectItem>
+                <BottomSheet.SelectItem value="4">선택 4</BottomSheet.SelectItem>
+              </BottomSheet.SelectGroup>
+            </BottomSheet.Body>
+          </BottomSheet.Content>
+        </BottomSheet>
+      ));
+    };
+
+    return <Button onClick={onClick}>바텀시트</Button>;
   },
 };

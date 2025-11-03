@@ -192,6 +192,7 @@ export const Form1 = () => {
                 ))}
               </RadioSelectBox>
             </Form.Control>
+            <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
           </Form.Field>
         )}
       />
