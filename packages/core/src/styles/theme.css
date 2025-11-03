@@ -21,7 +21,7 @@
   --color-error: var(--color-red-500);
   --color-error-dark: var(--color-red-600);
   --color-error-light: var(--color-red-400);
-  --color-error-lighter: var(--color-red-100);
+  --color-error-lighter: var(--color-red-50);
 }
 
 .dark {

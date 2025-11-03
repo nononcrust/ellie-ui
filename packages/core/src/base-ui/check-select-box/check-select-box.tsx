@@ -52,7 +52,9 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
         "data-checked:bg-primary-lighter data-checked:border-primary",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         "focus-visible:z-10",
-        ariaInvalid && "border-error focus-visible:ring-ring-error data-checked:border-error",
+        !ariaInvalid && "dark:data-checked:bg-primary-darker",
+        ariaInvalid &&
+          "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error-lighter",
         className,
       )}
       {...props}

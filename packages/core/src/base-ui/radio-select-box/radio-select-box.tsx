@@ -49,7 +49,9 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
         "border-border flex items-center gap-4 rounded-md border px-4 py-3",
         "data-checked:border-primary data-checked:bg-primary-lighter",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
-        ariaInvalid && "border-error focus-visible:ring-ring-error data-checked:border-error",
+        !ariaInvalid && "dark:data-checked:bg-primary-darker",
+        ariaInvalid &&
+          "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error-lighter",
         className,
       )}
       {...props}
