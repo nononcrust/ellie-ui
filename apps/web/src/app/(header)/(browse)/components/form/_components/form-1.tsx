@@ -20,6 +20,11 @@ const terms = [
   { id: "marketing", label: "마케팅 정보 수신에 동의합니다. (선택)", required: false },
 ] as const;
 
+const genders = [
+  { value: "male", label: "남성", description: "성별이 남성인 경우 선택해주세요." },
+  { value: "female", label: "여성", description: "성별이 여성인 경우 선택해주세요." },
+] as const;
+
 const formSchema = z
   .object({
     type: z.string().nonempty({ message: "타입을 선택해주세요." }),
@@ -36,7 +41,10 @@ const formSchema = z
       .min(8, { message: "비밀번호는 8자 이상이어야 합니다." }),
     passwordConfirm: z.string().min(1, { message: "비밀번호를 한번 더 입력해주세요." }),
     date: z.date({ message: "생년월일을 입력해주세요." }),
-    gender: z.enum(["male", "female"], { message: "성별을 선택해주세요." }),
+    gender: z.enum(
+      genders.map((gender) => gender.value),
+      { message: "성별을 선택해주세요." },
+    ),
     terms: z.array(z.string()).refine(
       (value) => {
         const requiredTermIds = terms
@@ -64,7 +72,7 @@ export const Form1 = () => {
       email: "",
       password: "",
       passwordConfirm: "",
-      gender: "male",
+      gender: undefined,
       terms: [],
     },
   });
@@ -171,23 +179,17 @@ export const Form1 = () => {
       <Controller
         name="gender"
         control={form.control}
-        render={({ field: { value, onChange }, fieldState }) => (
+        render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
             <Form.Label>성별</Form.Label>
             <Form.Control>
-              <RadioSelectBox value={value} onValueChange={onChange}>
-                <RadioSelectBox.Option value="male">
-                  <RadioSelectBox.Label>남성</RadioSelectBox.Label>
-                  <RadioSelectBox.Description>
-                    성별이 남성인 경우 선택해주세요.
-                  </RadioSelectBox.Description>
-                </RadioSelectBox.Option>
-                <RadioSelectBox.Option value="female">
-                  <RadioSelectBox.Label>여성</RadioSelectBox.Label>
-                  <RadioSelectBox.Description>
-                    성별이 여성인 경우 선택해주세요.
-                  </RadioSelectBox.Description>
-                </RadioSelectBox.Option>
+              <RadioSelectBox value={value ?? ""} onValueChange={onChange} {...rest}>
+                {genders.map((gender) => (
+                  <RadioSelectBox.Option key={gender.value} value={gender.value}>
+                    <RadioSelectBox.Label>{gender.label}</RadioSelectBox.Label>
+                    <RadioSelectBox.Description>{gender.description}</RadioSelectBox.Description>
+                  </RadioSelectBox.Option>
+                ))}
               </RadioSelectBox>
             </Form.Control>
           </Form.Field>

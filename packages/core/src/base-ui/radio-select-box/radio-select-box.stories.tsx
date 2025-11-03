@@ -1,5 +1,11 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Controller, useForm } from "react-hook-form";
+import z from "zod";
 import { useRadioGroup } from "../../hooks";
+import { noop } from "../../lib/utils";
+import { Button } from "../button";
+import { Form } from "../form";
 import { RadioSelectBox } from "./radio-select-box";
 
 const meta = {
@@ -130,6 +136,53 @@ export const Controlled: Story = {
           ))}
         </RadioSelectBox>
       </div>
+    );
+  },
+};
+
+export const WithForm: Story = {
+  render: () => {
+    const schema = z.object({
+      radioGroup: z.enum(
+        options.map((option) => option.value),
+        { message: "옵션을 선택해주세요." },
+      ),
+    });
+
+    const form = useForm({
+      resolver: zodResolver(schema),
+      defaultValues: {
+        radioGroup: undefined,
+      },
+    });
+
+    const onSubmit = form.handleSubmit(noop);
+
+    return (
+      <Form onSubmit={onSubmit} className="flex w-[24rem] flex-col gap-4">
+        <Controller
+          name="radioGroup"
+          control={form.control}
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>라벨</Form.Label>
+              <Form.Control>
+                <RadioSelectBox value={value ?? ""} onValueChange={onChange} {...rest}>
+                  {options.map((option) => (
+                    <RadioSelectBox.Option key={option.value} value={option.value}>
+                      <RadioSelectBox.Label>{option.label}</RadioSelectBox.Label>
+                      <RadioSelectBox.Description>{option.description}</RadioSelectBox.Description>
+                    </RadioSelectBox.Option>
+                  ))}
+                </RadioSelectBox>
+              </Form.Control>
+              <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
+        <Button type="submit">제출하기</Button>
+      </Form>
     );
   },
 };
