@@ -76,7 +76,10 @@ type ComboboxListProps = React.ComponentPropsWithRef<typeof CommandBase.List>;
 const ComboboxList = ({ className, children, ...props }: ComboboxListProps) => {
   return (
     <CommandBase.List
-      className={cn("outline-hidden max-h-80 overflow-y-auto overflow-x-hidden py-1", className)}
+      className={cn(
+        "outline-hidden max-h-80 overflow-y-auto overflow-x-hidden p-1 py-1",
+        className,
+      )}
       {...props}
     >
       {children}
@@ -115,7 +118,7 @@ const ComboboxOption = ({ value, children }: ComboboxOptionProps) => {
   return (
     <CommandBase.Item
       className={cn(
-        "outline-hidden relative flex w-full cursor-pointer select-none items-center py-2 pl-3 pr-8 text-sm font-medium",
+        "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[0.375rem] py-2 pl-3 pr-8 text-sm font-medium",
         "data-[selected=true]:bg-background-100",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0",
