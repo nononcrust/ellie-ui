@@ -165,7 +165,7 @@ export const WithForm: Story = {
           control={form.control}
           render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>라벨</Form.Label>
+              <Form.Label>레이블</Form.Label>
               <Form.Control>
                 <RadioSelectBox value={value ?? ""} onValueChange={onChange} {...rest}>
                   {options.map((option) => (

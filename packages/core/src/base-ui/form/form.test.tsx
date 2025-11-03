@@ -8,7 +8,7 @@ const DefaultForm = () => {
   return (
     <Form>
       <Form.Field>
-        <Form.Label>라벨</Form.Label>
+        <Form.Label>레이블</Form.Label>
         <Form.Control>
           <Input data-testid={FORM_FIELD_ELEMENT_TEST_ID} />
         </Form.Control>
@@ -23,7 +23,7 @@ const InvalidForm = () => {
   return (
     <Form>
       <Form.Field invalid>
-        <Form.Label>라벨</Form.Label>
+        <Form.Label>레이블</Form.Label>
         <Form.Control>
           <Input data-testid={FORM_FIELD_ELEMENT_TEST_ID} />
         </Form.Control>
@@ -47,7 +47,7 @@ describe("Form", () => {
     render(<DefaultForm />);
 
     const formFieldElement = screen.getByTestId(FORM_FIELD_ELEMENT_TEST_ID);
-    const label = screen.getByText("라벨");
+    const label = screen.getByText("레이블");
 
     expect(label).toHaveAttribute("for", formFieldElement.id);
   });

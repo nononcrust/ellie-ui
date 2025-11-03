@@ -32,7 +32,7 @@ export const Default: Story = {
     return (
       <Form onSubmit={(e) => e.preventDefault()} className="flex w-[20rem] flex-col gap-4">
         <Form.Field>
-          <Form.Label>라벨</Form.Label>
+          <Form.Label>레이블</Form.Label>
           <Form.Control>
             <Input placeholder="텍스트를 입력해주세요" />
           </Form.Control>
@@ -48,7 +48,7 @@ export const Invalid: Story = {
     return (
       <Form onSubmit={(e) => e.preventDefault()} className="flex w-[20rem] flex-col gap-4">
         <Form.Field invalid>
-          <Form.Label>라벨</Form.Label>
+          <Form.Label>레이블</Form.Label>
           <Form.Control>
             <Input placeholder="텍스트를 입력해주세요" />
           </Form.Control>
@@ -82,7 +82,7 @@ export const WithInput: Story = {
           control={form.control}
           render={({ field, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>라벨</Form.Label>
+              <Form.Label>레이블</Form.Label>
               <Form.Control>
                 <Input placeholder="텍스트를 입력해주세요" {...field} />
               </Form.Control>
@@ -119,7 +119,7 @@ export const WithTextarea: Story = {
           control={form.control}
           render={({ field, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>라벨</Form.Label>
+              <Form.Label>레이블</Form.Label>
               <Form.Control>
                 <Textarea placeholder="텍스트를 입력해주세요" {...field} />
               </Form.Control>
@@ -155,7 +155,7 @@ export const WithSelect = () => {
         control={form.control}
         render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <Form.Field invalid={fieldState.invalid}>
-            <Form.Label>라벨</Form.Label>
+            <Form.Label>레이블</Form.Label>
             <Form.Control>
               <Select
                 placeholder="항목을 선택해주세요"
@@ -200,7 +200,7 @@ export const WithDatePicker: Story = {
           control={form.control}
           render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>라벨</Form.Label>
+              <Form.Label>레이블</Form.Label>
               <Form.Control>
                 <DatePicker
                   placeholder="날짜를 선택해주세요."
@@ -248,7 +248,7 @@ export const WithDateRangePicker: Story = {
           control={form.control}
           render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>라벨</Form.Label>
+              <Form.Label>레이블</Form.Label>
               <Form.Control>
                 <DateRangePicker
                   placeholder="날짜 범위를 선택해주세요."
@@ -290,7 +290,7 @@ export const WithRadioGroup: Story = {
           control={form.control}
           render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <Form.Field invalid={fieldState.invalid}>
-              <Form.Label>라벨</Form.Label>
+              <Form.Label>레이블</Form.Label>
               <Form.Control>
                 <RadioGroup value={value} onValueChange={onChange} {...rest}>
                   <RadioGroup.Option value="1">옵션 1</RadioGroup.Option>

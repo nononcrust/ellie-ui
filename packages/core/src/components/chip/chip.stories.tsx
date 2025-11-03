@@ -14,36 +14,36 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: () => {
-    return <Chip>라벨</Chip>;
+    return <Chip>레이블</Chip>;
   },
 };
 
 export const Secondary: Story = {
   render: () => {
-    return <Chip variant="secondary">라벨</Chip>;
+    return <Chip variant="secondary">레이블</Chip>;
   },
 };
 
 export const PrimaryLowOutlined: Story = {
   render: () => {
-    return <Chip variant="primaryLowOutlined">라벨</Chip>;
+    return <Chip variant="primaryLowOutlined">레이블</Chip>;
   },
 };
 
 export const XSmall: Story = {
   render: () => {
-    return <Chip size="xsmall">라벨</Chip>;
+    return <Chip size="xsmall">레이블</Chip>;
   },
 };
 
 export const Small: Story = {
   render: () => {
-    return <Chip size="small">라벨</Chip>;
+    return <Chip size="small">레이블</Chip>;
   },
 };
 
 export const Large: Story = {
   render: () => {
-    return <Chip size="large">라벨</Chip>;
+    return <Chip size="large">레이블</Chip>;
   },
 };
