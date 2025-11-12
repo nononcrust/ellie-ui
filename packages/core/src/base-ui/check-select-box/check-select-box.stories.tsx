@@ -1,5 +1,11 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Controller, useForm } from "react-hook-form";
+import z from "zod";
 import { useCheckboxGroup } from "../../hooks";
+import { noop } from "../../lib/utils";
+import { Button } from "../button";
+import { Form } from "../form";
 import { CheckSelectBox } from "./check-select-box";
 
 const meta = {
@@ -133,6 +139,52 @@ export const Controlled: Story = {
           ))}
         </CheckSelectBox>
       </div>
+    );
+  },
+};
+
+export const WithForm: Story = {
+  render: () => {
+    const schema = z.object({
+      options: z
+        .array(z.enum(options.map((option) => option.value)))
+        .min(1, "최소 하나 이상의 옵션을 선택해 주세요."),
+    });
+
+    const form = useForm({
+      resolver: zodResolver(schema),
+      defaultValues: {
+        options: [],
+      },
+    });
+
+    const onSubmit = form.handleSubmit(noop);
+
+    return (
+      <Form onSubmit={onSubmit} className="flex w-[24rem] flex-col gap-4">
+        <Controller
+          name="options"
+          control={form.control}
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
+            <Form.Field invalid={fieldState.invalid}>
+              <Form.Label>레이블</Form.Label>
+              <Form.Control>
+                <CheckSelectBox value={value} onValueChange={onChange} {...rest}>
+                  {options.map((option) => (
+                    <CheckSelectBox.Option key={option.value} value={option.value}>
+                      <CheckSelectBox.Label>{option.label}</CheckSelectBox.Label>
+                      <CheckSelectBox.Description>{option.description}</CheckSelectBox.Description>
+                    </CheckSelectBox.Option>
+                  ))}
+                </CheckSelectBox>
+              </Form.Control>
+              <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
+              <Form.ErrorMessage>{fieldState.error?.message}</Form.ErrorMessage>
+            </Form.Field>
+          )}
+        />
+        <Button type="submit">제출하기</Button>
+      </Form>
     );
   },
 };
