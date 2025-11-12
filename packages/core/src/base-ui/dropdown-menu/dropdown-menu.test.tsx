@@ -115,7 +115,7 @@ describe("DropdownMenu", () => {
     const onOpenChange = vi.fn();
 
     render(
-      <DropdownMenu onOpenChange={onOpenChange}>
+      <DropdownMenu onOpenChange={(open) => onOpenChange(open)}>
         <DropdownMenu.Trigger>열기</DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Item>메뉴 1</DropdownMenu.Item>
@@ -127,13 +127,13 @@ describe("DropdownMenu", () => {
 
     await user.click(trigger);
 
-    expect(onOpenChange).toHaveBeenCalledWith(true, expect.anything(), expect.anything());
+    expect(onOpenChange).toHaveBeenCalledWith(true);
 
     const item = screen.getByRole("menuitem", { name: "메뉴 1" });
 
     await user.click(item);
 
-    expect(onOpenChange).toHaveBeenCalledWith(false, expect.anything(), expect.anything());
+    expect(onOpenChange).toHaveBeenCalledWith(false);
   });
 
   test("[a11y] Space 키를 눌러 드랍다운을 열 수 있어야 합니다.", async () => {

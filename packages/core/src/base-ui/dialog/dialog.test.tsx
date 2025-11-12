@@ -157,7 +157,7 @@ describe("Dialog", () => {
     const onOpenChange = vi.fn();
 
     render(
-      <Dialog onOpenChange={onOpenChange}>
+      <Dialog onOpenChange={(open) => onOpenChange(open)}>
         <Dialog.Trigger>열기</Dialog.Trigger>
         <Dialog.Content>
           <Dialog.Header>
@@ -175,13 +175,13 @@ describe("Dialog", () => {
 
     await user.click(trigger);
 
-    expect(onOpenChange).toHaveBeenCalledWith(true, expect.anything(), expect.anything());
+    expect(onOpenChange).toHaveBeenCalledWith(true);
 
     const close = screen.getByRole("button", { name: "취소" });
 
     await user.click(close);
 
-    expect(onOpenChange).toHaveBeenCalledWith(false, expect.anything(), expect.anything());
+    expect(onOpenChange).toHaveBeenCalledWith(false);
   });
 
   test("모달을 중첩했을 때 중첩된 모달이 첫 번째 모달 위에 보여야 합니다.", async () => {

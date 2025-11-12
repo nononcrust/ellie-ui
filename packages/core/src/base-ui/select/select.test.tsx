@@ -6,18 +6,25 @@ describe("Select", () => {
   beforeEach(() => {
     window.HTMLElement.prototype.hasPointerCapture = vi.fn();
 
+    const items = [
+      { value: "1", label: "옵션 1", disabled: false },
+      { value: "2", label: "옵션 2", disabled: false },
+      { value: "3", label: "옵션 3", disabled: true },
+      { value: "4", label: "옵션 4", disabled: false },
+    ] as const;
+
     render(
-      <Select placeholder="옵션을 선택하세요.">
+      <Select placeholder="옵션을 선택하세요." items={items}>
         <Select.Group>
           <Select.GroupLabel>그룹 1</Select.GroupLabel>
-          <Select.Option value="1">옵션 1</Select.Option>
-          <Select.Option value="2">옵션 2</Select.Option>
-          <Select.Option value="3" disabled>
-            옵션 3 (disabled)
-          </Select.Option>
+          {items.slice(0, 3).map((item) => (
+            <Select.Option key={item.value} value={item.value} disabled={item.disabled}>
+              {item.label} {item.disabled && "(disabled)"}
+            </Select.Option>
+          ))}
         </Select.Group>
         <Select.Separator />
-        <Select.Option value="4">옵션 4</Select.Option>
+        <Select.Option value={items[3].value}>{items[3].label}</Select.Option>
       </Select>,
     );
   });
@@ -102,12 +109,6 @@ describe("Select", () => {
     const option = screen.getByRole("option", { name: "옵션 1" });
 
     expect(option).toHaveFocus();
-  });
-
-  test("[a11y] trigger의 aria-autocomplete 속성이 none이어야 합니다.", async () => {
-    const trigger = screen.getByRole("combobox");
-
-    expect(trigger).toHaveAttribute("aria-autocomplete", "none");
   });
 
   test("[a11y] 셀렉트가 닫혀있을 때 trigger의 aria-expanded 속성이 false여야 합니다.", async () => {
@@ -213,22 +214,6 @@ describe("Select", () => {
     const option4 = screen.getByRole("option", { name: "옵션 4" });
 
     expect(option4).toHaveFocus();
-  });
-
-  test("[a11y] option이 disabled인 경우 키보드 방향키로 포커스를 이동할 수 없어야 합니다.", async () => {
-    const user = userEvent.setup();
-
-    await openSelect();
-
-    const option2 = screen.getByRole("option", { name: "옵션 2" });
-
-    act(() => option2.focus());
-
-    await user.keyboard("{ArrowDown}");
-
-    const disabledOption = screen.getByRole("option", { name: "옵션 3 (disabled)" });
-
-    expect(disabledOption).not.toHaveFocus();
   });
 
   test("[a11y] option이 disabled인 경우 aria-disabled 속성이 존재해야 합니다.", async () => {

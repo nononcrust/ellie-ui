@@ -30,39 +30,45 @@ export const SelectChevronDownIcon = ({ className }: SelectChevronDownIconProps)
   );
 };
 
-type SelectProps = Omit<SelectBase.Trigger.Props, "onValueChange"> & {
-  value?: string;
-  onValueChange?: (value: string) => void;
-  defaultValue?: string;
-  placeholder?: string;
+type SelectProps<TValue = string | string[]> = Omit<
+  React.ComponentPropsWithRef<typeof SelectBase.Root>,
+  "items" | "value" | "onValueChange" | "defaultValue"
+> & {
+  className?: string;
   invalid?: boolean;
+  items: readonly { value: string; label: string }[];
+  value?: TValue;
+  defaultValue?: TValue;
+  onValueChange?: (value: TValue) => void;
+  placeholder?: string;
 };
 
-const Select = ({
-  value,
-  onValueChange,
+const Select = <TValue extends string | string[]>({
   className,
   children,
-  placeholder,
-  defaultValue,
   invalid,
+  value,
+  onValueChange,
+  items,
+  placeholder,
   ...props
-}: SelectProps) => {
+}: SelectProps<TValue>) => {
+  const itemsWithPlaceholder = placeholder
+    ? [...items, { value: null, label: placeholder }]
+    : items;
+
   return (
     <SelectBase.Root
-      value={value}
-      onValueChange={onValueChange}
-      defaultValue={defaultValue}
       aria-invalid={invalid}
+      value={value as string | string[]}
+      onValueChange={onValueChange as (value: string | string[]) => void}
+      items={itemsWithPlaceholder as { value: string; label: string }[]}
+      {...props}
     >
       <SelectBase.Trigger
         className={cn(selectTriggerStyle.base, invalid && selectTriggerStyle.invalid, className)}
-        {...props}
       >
-        <SelectBase.Value
-          className="has-data-placeholder:text-sub truncate"
-          placeholder={placeholder ? <span data-placeholder>{placeholder}</span> : null}
-        />
+        <SelectBase.Value className="truncate" />
         <SelectBase.Icon>
           <SelectChevronDownIcon />
         </SelectBase.Icon>

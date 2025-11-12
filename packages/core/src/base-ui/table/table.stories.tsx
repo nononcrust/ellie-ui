@@ -36,13 +36,21 @@ export const Default: Story = {
     const datePicker = useDatePicker();
     const [page, setPage] = useState(1);
 
+    const items = [
+      { label: "전체", value: "all" },
+      { label: "사용자", value: "user" },
+      { label: "관리자", value: "admin" },
+    ] as const;
+
     return (
       <div>
         <div className="mb-3 flex justify-end gap-3">
-          <Select placeholder="필터" className="w-[100px]">
-            <Select.Option value="all">전체</Select.Option>
-            <Select.Option value="user">사용자</Select.Option>
-            <Select.Option value="admin">관리자</Select.Option>
+          <Select placeholder="필터" className="w-[100px]" items={items}>
+            {items.map((item) => (
+              <Select.Option key={item.value} value={item.value}>
+                {item.label}
+              </Select.Option>
+            ))}
           </Select>
           <DatePicker {...datePicker.register()} placeholder="YYYY-MM-DD" className="w-[160px]" />
           <TextField className="w-[240px]">

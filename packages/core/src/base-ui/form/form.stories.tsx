@@ -146,6 +146,12 @@ export const WithSelect = () => {
 
   const onSubmit = form.handleSubmit(noop);
 
+  const items = [
+    { value: "1", label: "옵션 1" },
+    { value: "2", label: "옵션 2" },
+    { value: "3", label: "옵션 3" },
+  ] as const;
+
   return (
     <Form onSubmit={onSubmit} className="flex w-[20rem] flex-col gap-4">
       <Controller
@@ -156,14 +162,17 @@ export const WithSelect = () => {
             <Form.Label>레이블</Form.Label>
             <Form.Control>
               <Select
+                items={items}
                 placeholder="항목을 선택해주세요"
                 value={value}
                 onValueChange={onChange}
                 {...rest}
               >
-                <Select.Option value="1">옵션 1</Select.Option>
-                <Select.Option value="2">옵션 2</Select.Option>
-                <Select.Option value="3">옵션 3</Select.Option>
+                {items.map((item) => (
+                  <Select.Option key={item.value} value={item.value}>
+                    {item.label}
+                  </Select.Option>
+                ))}
               </Select>
             </Form.Control>
             <Form.Description>설명이 여기에 표시됩니다.</Form.Description>
