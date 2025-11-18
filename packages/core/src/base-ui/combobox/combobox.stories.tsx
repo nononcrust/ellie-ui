@@ -1,5 +1,6 @@
 import { StoryObj } from "@storybook/react-vite";
-import { useEffect, useState } from "react";
+import { debounce } from "es-toolkit";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Skeleton } from "../../components/skeleton";
 import { Combobox } from "./combobox";
 
@@ -45,56 +46,107 @@ const sleep = (ms: number) => {
 
 export const AsyncSearch: Story = {
   render: () => {
-    const [inputValue, setInputValue] = useState("");
-    const [value, setValue] = useState("");
-    const [banks, setBanks] = useState<string[]>();
-    const [isPending, setIsPending] = useState(false);
-
-    useEffect(() => {
-      const fetchBanks = async (search: string) => {
-        setIsPending(true);
-        await sleep(1000);
-
-        const filteredBanks = BANKS.filter((bank) => bank.includes(search));
-
-        setBanks(filteredBanks);
-        setIsPending(false);
-      };
-
-      fetchBanks(value);
-    }, [inputValue, value]);
-
-    return (
-      <Combobox value={value} onValueChange={setValue}>
-        <Combobox.Trigger className="w-[16rem]" placeholder="은행을 선택해주세요.">
-          {value}
-        </Combobox.Trigger>
-        <Combobox.Content>
-          <Combobox.Input value={inputValue} onValueChange={setInputValue} />
-          <Combobox.List>
-            {banks &&
-              !isPending &&
-              banks.map((bank) => (
-                <Combobox.Option key={bank} value={bank}>
-                  {bank}
-                </Combobox.Option>
-              ))}
-            {isPending && (
-              <Combobox.Loading>
-                <div className="flex flex-col gap-2 p-2">
-                  <Skeleton width={240} height={28} />
-                  <Skeleton width={240} height={28} />
-                  <Skeleton width={240} height={28} />
-                  <Skeleton width={240} height={28} />
-                </div>
-              </Combobox.Loading>
-            )}
-            {!isPending && <Combobox.Empty>검색 결과가 없습니다.</Combobox.Empty>}
-          </Combobox.List>
-        </Combobox.Content>
-      </Combobox>
-    );
+    return <AsyncSearchCombobox />;
   },
+};
+
+const AsyncSearchCombobox = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <Combobox value={value} onValueChange={setValue}>
+      <Combobox.Trigger className="w-[16rem]" placeholder="은행을 선택해주세요.">
+        {value}
+      </Combobox.Trigger>
+      <Combobox.Content shouldFilter={false}>
+        <ComboboxContent />
+      </Combobox.Content>
+    </Combobox>
+  );
+};
+
+const getBanks = async (search: string) => {
+  await sleep(1000);
+
+  const filteredBanks = BANKS.filter((bank) => bank.includes(search));
+
+  return filteredBanks;
+};
+
+const ComboboxContent = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [banks, setBanks] = useState<string[]>();
+  const [isPending, setIsPending] = useState(false);
+
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  const onInputValueChange = (value: string) => {
+    setInputValue(value);
+  };
+
+  const fetchBanks = useCallback(async (search: string, signal: AbortSignal) => {
+    setIsPending(true);
+
+    const banks = await getBanks(search);
+
+    if (signal.aborted) return;
+
+    setBanks(banks);
+    setIsPending(false);
+  }, []);
+
+  const debouncedFetchBanks = useMemo(() => debounce(fetchBanks, 300), [fetchBanks]);
+
+  const isMountedRef = useRef(false);
+
+  useEffect(() => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    const abortController = new AbortController();
+    abortControllerRef.current = new AbortController();
+
+    if (isMountedRef.current) {
+      debouncedFetchBanks(inputValue, abortController.signal);
+    } else {
+      fetchBanks(inputValue, abortController.signal);
+    }
+
+    isMountedRef.current = true;
+
+    return () => {
+      abortController.abort();
+    };
+  }, [inputValue, debouncedFetchBanks, fetchBanks]);
+
+  return (
+    <>
+      <Combobox.Input value={inputValue} onValueChange={onInputValueChange} />
+      <Combobox.List>
+        {banks &&
+          !isPending &&
+          banks.map((bank) => (
+            <Combobox.Option key={bank} value={bank}>
+              {bank}
+            </Combobox.Option>
+          ))}
+        {isPending && (
+          <Combobox.Loading>
+            <div className="flex flex-col gap-2 p-2">
+              <Skeleton width={240} height={28} />
+              <Skeleton width={240} height={28} />
+              <Skeleton width={240} height={28} />
+              <Skeleton width={240} height={28} />
+            </div>
+          </Combobox.Loading>
+        )}
+        {!isPending && banks && banks.length === 0 && (
+          <Combobox.Empty>검색 결과가 없습니다.</Combobox.Empty>
+        )}
+      </Combobox.List>
+    </>
+  );
 };
 
 const BANKS = [

@@ -46,9 +46,16 @@ const ComboboxTrigger = ({ className, placeholder, children, ...props }: Combobo
   );
 };
 
-type ComboboxContentProps = PopoverBase.Popup.Props;
+type ComboboxContentProps = PopoverBase.Popup.Props & {
+  shouldFilter?: boolean;
+};
 
-const ComboboxContent = ({ className, children, ...props }: ComboboxContentProps) => {
+const ComboboxContent = ({
+  className,
+  children,
+  shouldFilter = false,
+  ...props
+}: ComboboxContentProps) => {
   return (
     <PopoverBase.Portal>
       <PopoverBase.Positioner sideOffset={4} side="bottom" className="min-w-[var(--anchor-width)]">
@@ -64,7 +71,7 @@ const ComboboxContent = ({ className, children, ...props }: ComboboxContentProps
           )}
           {...props}
         >
-          <CommandBase>{children}</CommandBase>
+          <CommandBase shouldFilter={shouldFilter}>{children}</CommandBase>
         </PopoverBase.Popup>
       </PopoverBase.Positioner>
     </PopoverBase.Portal>
