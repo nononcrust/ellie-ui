@@ -104,6 +104,13 @@ const ComboboxContent = () => {
       abortControllerRef.current.abort();
     }
 
+    if (isMountedRef.current === true && inputValue === "") {
+      setBanks([...BANKS]);
+      setIsPending(false);
+
+      return;
+    }
+
     const abortController = new AbortController();
     abortControllerRef.current = new AbortController();
 
