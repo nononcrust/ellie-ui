@@ -3,7 +3,6 @@
 import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
 import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react/checkbox-group";
 import { CheckIcon, MinusIcon } from "lucide-react";
-import { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 
@@ -12,7 +11,9 @@ const DEFAULT_SIZE = "medium";
 export const checkboxVariants = tv({
   slots: {
     root: cn(
+      "flex justify-center items-center cursor-pointer",
       "bg-background border-border shadow-xs outline-hidden peer size-4 shrink-0 border",
+      "focus-visible:focus-ring",
       "data-checked:border-primary data-checked:bg-primary data-checked:text-white",
       "data-indeterminate:border-primary data-indeterminate:bg-primary data-indeterminate:text-white",
       "disabled:pointer-events-none disabled:opacity-50",
@@ -50,17 +51,12 @@ type CheckboxProps = CheckboxBase.Root.Props &
     invalid?: boolean;
   };
 
-const Checkbox = ({ className, invalid, size, children, id: idProp, ...props }: CheckboxProps) => {
+const Checkbox = ({ className, invalid, size, children, ...props }: CheckboxProps) => {
   const variants = checkboxVariants({ size });
 
-  const generatedId = useId();
-
-  const id = idProp ?? generatedId;
-
   return (
-    <div className={cn("flex w-fit items-center", className)}>
+    <label className={cn("flex w-fit items-center", className)}>
       <CheckboxBase.Root
-        id={id}
         className={cn(
           variants.root(),
           invalid &&
@@ -82,12 +78,8 @@ const Checkbox = ({ className, invalid, size, children, id: idProp, ...props }: 
           )}
         />
       </CheckboxBase.Root>
-      {children && (
-        <label htmlFor={id} className={cn(variants.label())}>
-          {children}
-        </label>
-      )}
-    </div>
+      {children && <span className={cn(variants.label())}>{children}</span>}
+    </label>
   );
 };
 

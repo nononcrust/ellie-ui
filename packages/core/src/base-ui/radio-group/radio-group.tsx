@@ -11,7 +11,9 @@ const radioGroupVariants = tv({
   slots: {
     root: "grid",
     item: cn(
+      "flex justify-center items-center cursor-pointer",
       "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
+      "focus-visible:focus-ring",
       "data-checked:border-primary data-checked:bg-primary data-checked:text-white",
       "data-disabled:pointer-events-none data-disabled:opacity-50",
     ),

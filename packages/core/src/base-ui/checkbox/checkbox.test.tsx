@@ -42,7 +42,7 @@ describe("Checkbox", () => {
 
     const checkbox = screen.getByRole("checkbox");
 
-    expect(checkbox).toBeDisabled();
+    expect(checkbox).toHaveAttribute("aria-disabled", "true");
   });
 
   test("disabled 상태인 경우 클릭할 수 없어야 합니다.", async () => {

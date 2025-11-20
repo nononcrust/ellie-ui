@@ -121,7 +121,7 @@ describe("Dialog", () => {
 
     const body = document.body;
 
-    expect(body).toHaveStyle("overflow: hidden");
+    expect(body).toHaveStyle({ overflowX: "hidden", overflowY: "hidden" });
   });
 
   test('open 속성이 true일 때 모달이 표시되어야 합니다."', async () => {

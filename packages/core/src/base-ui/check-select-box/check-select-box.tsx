@@ -50,10 +50,10 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
   return (
     <CheckboxBase.Root
       className={cn(
-        "border-border flex items-center gap-4 rounded-md border px-4 py-3",
+        "border-border flex cursor-pointer items-center gap-4 rounded-md border px-4 py-3",
         "data-checked:bg-primary-lighter data-checked:border-primary",
         "data-disabled:pointer-events-none data-disabled:opacity-50",
-        "focus-visible:z-10",
+        "focus-visible:focus-ring focus-visible:z-10",
         !invalid && "dark:data-checked:bg-primary-darker",
         invalid &&
           "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error-lighter",

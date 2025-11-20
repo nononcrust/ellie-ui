@@ -68,7 +68,7 @@ describe("DropdownMenu", () => {
 
     const body = document.body;
 
-    expect(body).toHaveStyle("overflow: hidden");
+    expect(body).toHaveStyle({ overflowX: "hidden", overflowY: "hidden" });
   });
 
   test("menu 바깥을 클릭했을 때 드랍다운이 닫혀야 합니다.", async () => {
