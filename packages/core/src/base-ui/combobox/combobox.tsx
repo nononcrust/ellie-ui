@@ -4,7 +4,7 @@ import { Popover as PopoverBase } from "@base-ui-components/react";
 import { Command as CommandBase } from "cmdk";
 import { SearchIcon } from "lucide-react";
 import { usePopover } from "../../hooks";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { SelectChevronDownIcon, SelectItemIndicator, selectTriggerStyle } from "../select";
 
@@ -164,8 +164,7 @@ type ComboboxContextValue = {
   popover: ReturnType<typeof usePopover>;
 };
 
-const [ComboboxContext, useComboboxContext] =
-  createContextFactory<ComboboxContextValue>("Combobox");
+const [ComboboxContext, useComboboxContext] = buildContext<ComboboxContextValue>("Combobox");
 
 Combobox.Trigger = ComboboxTrigger;
 Combobox.Content = ComboboxContent;

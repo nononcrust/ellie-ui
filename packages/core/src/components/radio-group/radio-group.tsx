@@ -3,7 +3,7 @@
 import { RadioGroup as RadioGroupPrimitives } from "radix-ui";
 import React, { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Label } from "../label";
 
@@ -148,6 +148,6 @@ type RadioGroupContextValue = {
 };
 
 const [RadioGroupContext, useRadioGroupContext] =
-  createContextFactory<RadioGroupContextValue>("RadioGroup");
+  buildContext<RadioGroupContextValue>("RadioGroup");
 
 export { RadioGroup };

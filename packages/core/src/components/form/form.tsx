@@ -3,7 +3,7 @@
 import { Slot } from "radix-ui";
 import { useId, useState } from "react";
 import { Label } from "../../components/label";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 type FormProps = React.ComponentPropsWithRef<"form">;
@@ -184,8 +184,7 @@ type FormFieldContextValue = {
   setErrorMessageElement: (element: HTMLParagraphElement | null) => void;
 };
 
-const [FormFieldContext, useFormFieldContext] =
-  createContextFactory<FormFieldContextValue>("FormField");
+const [FormFieldContext, useFormFieldContext] = buildContext<FormFieldContextValue>("FormField");
 
 Form.Field = FormField;
 Form.Control = FormControl;

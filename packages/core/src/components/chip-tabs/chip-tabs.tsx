@@ -2,7 +2,7 @@
 
 import { Tabs as TabsPrimitives } from "radix-ui";
 import { tv, VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 const chipTabsVariants = tv({
@@ -76,7 +76,7 @@ type ChipTabsListContextValue = {
 };
 
 const [ChipTabsListContext, useChipTabsListContext] =
-  createContextFactory<ChipTabsListContextValue>("ChipTabsList");
+  buildContext<ChipTabsListContextValue>("ChipTabsList");
 
 ChipTabs.List = ChipTabsList;
 ChipTabs.Trigger = ChipTabsTrigger;

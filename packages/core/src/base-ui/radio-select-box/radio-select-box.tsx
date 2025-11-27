@@ -3,7 +3,7 @@
 import { Radio as RadioBase } from "@base-ui-components/react/radio";
 import { RadioGroup as RadioGroupBase } from "@base-ui-components/react/radio-group";
 import { useId } from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 type RadioSelectBoxProps<TValue extends string> = Omit<
@@ -110,7 +110,7 @@ type RadioSelectBoxContextValue = {
 };
 
 const [RadioSelectBoxContext, useRadioSelectBoxContext] =
-  createContextFactory<RadioSelectBoxContextValue>("RadioSelectBox");
+  buildContext<RadioSelectBoxContextValue>("RadioSelectBox");
 
 RadioSelectBox.Option = RadioSelectBoxOption;
 RadioSelectBox.Label = RadioSelectBoxLabel;

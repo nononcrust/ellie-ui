@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 type FieldProps = React.ComponentPropsWithRef<"div"> & {
@@ -107,7 +107,7 @@ type FieldContextValue = {
   setErrorMessageElement: (element: HTMLParagraphElement | null) => void;
 };
 
-const [FieldContext, useFieldContext] = createContextFactory<FieldContextValue>("Field");
+const [FieldContext, useFieldContext] = buildContext<FieldContextValue>("Field");
 
 Field.Fieldset = Fieldset;
 Field.Legend = FieldLegend;

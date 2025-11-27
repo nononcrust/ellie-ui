@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon, EllipsisIcon } from "lucide-react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 type PaginationContextValue = {
@@ -10,7 +10,7 @@ type PaginationContextValue = {
 };
 
 const [PaginationContext, usePaginationContext] =
-  createContextFactory<PaginationContextValue>("Pagination");
+  buildContext<PaginationContextValue>("Pagination");
 
 interface PaginationProps extends React.ComponentPropsWithoutRef<"nav"> {
   page: number;

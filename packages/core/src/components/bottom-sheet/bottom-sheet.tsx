@@ -3,7 +3,7 @@
 import { CheckIcon, XIcon } from "lucide-react";
 import { Dialog as DialogPrimitives } from "radix-ui";
 import { useEffect } from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
@@ -144,7 +144,7 @@ type BottomSheetSelectContextValue = {
 };
 
 const [BottomSheetSelectContext, useBottomSheetSelectContext] =
-  createContextFactory<BottomSheetSelectContextValue>("BottomSheetSelect");
+  buildContext<BottomSheetSelectContextValue>("BottomSheetSelect");
 
 type BottomSheetSelectGroupProps = Omit<React.ComponentPropsWithRef<"ul">, "value"> & {
   value: string;
@@ -219,7 +219,7 @@ type BottomSheetContextValue = {
 };
 
 const [BottomSheetContext, useBottomSheetContext] =
-  createContextFactory<BottomSheetContextValue>("BottomSheet");
+  buildContext<BottomSheetContextValue>("BottomSheet");
 
 BottomSheet.Trigger = BottomSheetTrigger;
 BottomSheet.Close = DialogPrimitives.Close;

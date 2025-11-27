@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId, useState } from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Label } from "../label";
 
@@ -238,7 +238,7 @@ type TextFieldContextValue = {
   setErrorMessageElement: (element: HTMLParagraphElement | null) => void;
 };
 
-const [TextFieldContext, useTextFieldContext] = createContextFactory<TextFieldContextValue>("");
+const [TextFieldContext, useTextFieldContext] = buildContext<TextFieldContextValue>("");
 
 const useRegisterTextField = () => {
   const {

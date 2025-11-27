@@ -6,7 +6,7 @@ import {
   ReactionType,
 } from "@/components/chat/chat-message";
 import { isNonEmptyArray, NonEmptyArray } from "@/lib/array";
-import { createContextFactory } from "@/lib/context";
+import { buildContext } from "@/lib/context";
 import { useReducer } from "react";
 import { useSession } from "../_hooks/use-session";
 
@@ -31,7 +31,7 @@ type ChatMessageGroupsContextValue = {
 };
 
 const [ChatMessageGroupsContext, useChatMessageGroups] =
-  createContextFactory<ChatMessageGroupsContextValue>("ChatMessageGroups");
+  buildContext<ChatMessageGroupsContextValue>("ChatMessageGroups");
 export { ChatMessageGroupsContext, useChatMessageGroups };
 
 type ChatMessageGroupsContextProviderProps = {

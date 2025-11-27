@@ -4,7 +4,7 @@ import { Radio as RadioBase } from "@base-ui-components/react/radio";
 import { RadioGroup as RadioGroupBase } from "@base-ui-components/react/radio-group";
 import React, { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 const radioGroupVariants = tv({
@@ -148,6 +148,6 @@ type RadioGroupContextValue = {
 };
 
 const [RadioGroupContext, useRadioGroupContext] =
-  createContextFactory<RadioGroupContextValue>("RadioGroup");
+  buildContext<RadioGroupContextValue>("RadioGroup");
 
 export { RadioGroup };

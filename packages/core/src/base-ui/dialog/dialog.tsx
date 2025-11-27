@@ -2,7 +2,7 @@
 
 import { Dialog as DialogBase } from "@base-ui-components/react/dialog";
 import { XIcon } from "lucide-react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
@@ -153,7 +153,7 @@ type DialogContentContextValue = {
 };
 
 const [DialogContentContext, useDialogContentContext] =
-  createContextFactory<DialogContentContextValue>("DialogContent");
+  buildContext<DialogContentContextValue>("DialogContent");
 
 Dialog.Trigger = DialogTrigger;
 Dialog.Close = DialogBase.Close;

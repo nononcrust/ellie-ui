@@ -3,7 +3,7 @@
 import { XIcon } from "lucide-react";
 import { Dialog as DialogPrimitives } from "radix-ui";
 import React, { useEffect } from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
@@ -163,14 +163,14 @@ type DialogContextValue = {
   triggerRef: DialogProps["triggerRef"];
 };
 
-const [DialogContext, useDialogContext] = createContextFactory<DialogContextValue>("Dialog");
+const [DialogContext, useDialogContext] = buildContext<DialogContextValue>("Dialog");
 
 type DialogContentContextValue = {
   animation: DialogContentProps["animation"];
 };
 
 const [DialogContentContext, useDialogContentContext] =
-  createContextFactory<DialogContentContextValue>("DialogContent");
+  buildContext<DialogContentContextValue>("DialogContent");
 
 Dialog.Trigger = DialogTrigger;
 Dialog.Close = DialogPrimitives.Close;

@@ -2,7 +2,7 @@
 
 import { Slot } from "radix-ui";
 import { VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { tabsVariants } from "../tabs";
 
@@ -62,8 +62,7 @@ type LinkTabsContextValue = {
   size: VariantProps<typeof tabsVariants>["size"];
 };
 
-const [LinkTabsContext, useLinkTabsContext] =
-  createContextFactory<LinkTabsContextValue>("LinkTabs");
+const [LinkTabsContext, useLinkTabsContext] = buildContext<LinkTabsContextValue>("LinkTabs");
 
 LinkTabs.Trigger = LinkTabsTrigger;
 

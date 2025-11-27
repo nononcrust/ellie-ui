@@ -4,7 +4,7 @@ import { CheckIcon, MinusIcon } from "lucide-react";
 import { Checkbox as CheckboxPrimitives } from "radix-ui";
 import React, { useId } from "react";
 import { tv, VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Label } from "../label";
 
@@ -129,5 +129,4 @@ type CheckboxContextValue = {
   size: VariantProps<typeof checkboxVariants>["size"];
 };
 
-const [CheckboxContext, useCheckboxContext] =
-  createContextFactory<CheckboxContextValue>("Checkbox");
+const [CheckboxContext, useCheckboxContext] = buildContext<CheckboxContextValue>("Checkbox");

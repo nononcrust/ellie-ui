@@ -3,7 +3,7 @@
 import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react";
 import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
 import { CheckIcon } from "lucide-react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 type CheckboxGroupValue = string[] | readonly string[];
@@ -106,7 +106,7 @@ type CheckSelectBoxGroupContextValue = {
 };
 
 const [CheckSelectBoxContext, useCheckSelectBoxContext] =
-  createContextFactory<CheckSelectBoxGroupContextValue>("CheckSelectBox");
+  buildContext<CheckSelectBoxGroupContextValue>("CheckSelectBox");
 
 CheckSelectBox.Option = CheckSelectBoxOption;
 CheckSelectBox.Label = CheckSelectBoxLabel;

@@ -2,7 +2,7 @@
 
 import { Tabs as TabsBase } from "@base-ui-components/react/tabs";
 import { tv, VariantProps } from "tailwind-variants";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 
 export const tabsVariants = tv({
@@ -95,8 +95,7 @@ type TabsListContextValue = {
   size: VariantProps<typeof tabsVariants>["size"];
 };
 
-const [TabsListContext, useTabsListContext] =
-  createContextFactory<TabsListContextValue>("TabsList");
+const [TabsListContext, useTabsListContext] = buildContext<TabsListContextValue>("TabsList");
 
 Tabs.List = TabsList;
 Tabs.Tab = TabsTab;

@@ -2,7 +2,7 @@
 
 import { Dialog as DialogBase } from "@base-ui-components/react/dialog";
 import { CheckIcon, XIcon } from "lucide-react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
@@ -123,7 +123,7 @@ type BottomSheetSelectContextValue = {
 };
 
 const [BottomSheetSelectContext, useBottomSheetSelectContext] =
-  createContextFactory<BottomSheetSelectContextValue>("BottomSheetSelect");
+  buildContext<BottomSheetSelectContextValue>("BottomSheetSelect");
 
 type BottomSheetSelectGroupProps = Omit<React.ComponentPropsWithRef<"ul">, "value"> & {
   value: string;

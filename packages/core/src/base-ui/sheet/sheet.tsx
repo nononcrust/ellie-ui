@@ -2,7 +2,7 @@
 
 import { Dialog as SheetBase } from "@base-ui-components/react/dialog";
 import { XIcon } from "lucide-react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { IconButton } from "../icon-button";
 
@@ -151,7 +151,7 @@ type SheetContentContextValue = {
   side: SheetContentProps["side"];
 };
 
-const [SheetContentContext] = createContextFactory<SheetContentContextValue>("SheetContent");
+const [SheetContentContext] = buildContext<SheetContentContextValue>("SheetContent");
 
 Sheet.Trigger = SheetTrigger;
 Sheet.Close = SheetBase.Close;

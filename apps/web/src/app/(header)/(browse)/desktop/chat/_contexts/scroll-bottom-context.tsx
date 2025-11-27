@@ -1,4 +1,4 @@
-import { createContextFactory } from "@/lib/context";
+import { buildContext } from "@/lib/context";
 import { useScrollToBottom } from "@ellie-ui/core/hooks";
 import { useEffect } from "react";
 
@@ -8,7 +8,7 @@ type ScrollBottomContextValue = {
   scrollToBottomAsync: () => void;
 };
 const [ScrollBottomContext, useScrollBottom] =
-  createContextFactory<ScrollBottomContextValue>("ScrollBottom");
+  buildContext<ScrollBottomContextValue>("ScrollBottom");
 export { useScrollBottom };
 
 export const ScrollBottomContextProvider = ({ children }: { children: React.ReactNode }) => {

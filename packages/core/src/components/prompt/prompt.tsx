@@ -2,7 +2,7 @@
 
 import { AlertDialog as AlertDialogPrimitives } from "radix-ui";
 import React, { useEffect } from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Button } from "../button";
 
@@ -171,14 +171,14 @@ type PromptContextValue = {
   triggerRef: PromptProps["triggerRef"];
 };
 
-const [PromptContext, useDialogContext] = createContextFactory<PromptContextValue>("Prompt");
+const [PromptContext, useDialogContext] = buildContext<PromptContextValue>("Prompt");
 
 type PromptContentContextValue = {
   animation: PromptContentProps["animation"];
 };
 
 const [PromptContentContext, usePromptContentContext] =
-  createContextFactory<PromptContentContextValue>("PromptContent");
+  buildContext<PromptContentContextValue>("PromptContent");
 
 Prompt.Trigger = PromptTrigger;
 Prompt.Close = AlertDialogPrimitives.Cancel;

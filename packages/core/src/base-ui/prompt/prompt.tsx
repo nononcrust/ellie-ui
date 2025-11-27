@@ -2,7 +2,7 @@
 
 import { AlertDialog as AlertDialogBase } from "@base-ui-components/react/alert-dialog";
 import React from "react";
-import { createContextFactory } from "../../lib/context";
+import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
 import { Button } from "../button";
 
@@ -156,7 +156,7 @@ type PromptContentContextValue = {
 };
 
 const [PromptContentContext, usePromptContentContext] =
-  createContextFactory<PromptContentContextValue>("PromptContent");
+  buildContext<PromptContentContextValue>("PromptContent");
 
 Prompt.Trigger = AlertDialogBase.Trigger;
 Prompt.Close = AlertDialogBase.Close;
