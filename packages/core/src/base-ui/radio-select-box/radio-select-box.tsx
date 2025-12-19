@@ -1,7 +1,7 @@
 "use client";
 
-import { Radio as RadioBase } from "@base-ui-components/react/radio";
-import { RadioGroup as RadioGroupBase } from "@base-ui-components/react/radio-group";
+import { Radio as RadioBase } from "@base-ui/react/radio";
+import { RadioGroup as RadioGroupBase } from "@base-ui/react/radio-group";
 import { useId } from "react";
 import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";

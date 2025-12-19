@@ -1,4 +1,4 @@
-import { Switch as SwitchBase } from "@base-ui-components/react/switch";
+import { Switch as SwitchBase } from "@base-ui/react/switch";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 

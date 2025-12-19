@@ -1,6 +1,6 @@
 "use client";
 
-import { Popover as PopoverBase } from "@base-ui-components/react/popover";
+import { Popover as PopoverBase } from "@base-ui/react/popover";
 import { cn } from "../../lib/utils";
 
 type PopoverProps = PopoverBase.Root.Props;

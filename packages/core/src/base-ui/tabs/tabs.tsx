@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs as TabsBase } from "@base-ui-components/react/tabs";
+import { Tabs as TabsBase } from "@base-ui/react/tabs";
 import { tv, VariantProps } from "tailwind-variants";
 import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";

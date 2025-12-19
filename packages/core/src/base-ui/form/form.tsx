@@ -1,6 +1,6 @@
 "use client";
 
-import { useRender } from "@base-ui-components/react";
+import { useRender } from "@base-ui/react";
 import { useId, useState } from "react";
 import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";

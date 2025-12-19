@@ -1,6 +1,6 @@
 "use client";
 
-import { Tooltip as TooltipBase } from "@base-ui-components/react";
+import { Tooltip as TooltipBase } from "@base-ui/react";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";
 

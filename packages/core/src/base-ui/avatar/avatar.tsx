@@ -1,4 +1,4 @@
-import { Avatar as AvatarBase } from "@base-ui-components/react";
+import { Avatar as AvatarBase } from "@base-ui/react";
 import { cn } from "../../lib/utils";
 
 type AvatarProps = AvatarBase.Root.Props;

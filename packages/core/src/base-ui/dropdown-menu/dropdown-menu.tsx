@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu as DropdownMenuBase } from "@base-ui-components/react/menu";
+import { Menu as DropdownMenuBase } from "@base-ui/react/menu";
 import { CheckIcon } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";

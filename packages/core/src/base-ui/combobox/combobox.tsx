@@ -1,6 +1,6 @@
 "use client";
 
-import { Popover as PopoverBase } from "@base-ui-components/react";
+import { Popover as PopoverBase } from "@base-ui/react";
 import { Command as CommandBase } from "cmdk";
 import { SearchIcon } from "lucide-react";
 import { usePopover } from "../../hooks";

@@ -1,7 +1,7 @@
 "use client";
 
-import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react";
-import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
+import { CheckboxGroup as CheckboxGroupBase } from "@base-ui/react";
+import { Checkbox as CheckboxBase } from "@base-ui/react/checkbox";
 import { CheckIcon } from "lucide-react";
 import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";

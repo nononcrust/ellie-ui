@@ -1,6 +1,6 @@
 "use client";
 
-import { Select as SelectBase } from "@base-ui-components/react/select";
+import { Select as SelectBase } from "@base-ui/react/select";
 import { CheckIcon, ChevronDownIcon } from "lucide-react";
 import { cn } from "../../lib/utils";
 
@@ -60,9 +60,9 @@ const Select = <TValue extends string | string[]>({
   return (
     <SelectBase.Root
       aria-invalid={invalid}
-      value={value as string | string[]}
-      onValueChange={onValueChange as (value: string | string[]) => void}
-      items={itemsWithPlaceholder as { value: string; label: string }[]}
+      value={value}
+      onValueChange={onValueChange as (value: string | string[] | null) => void}
+      items={itemsWithPlaceholder}
       {...props}
     >
       <SelectBase.Trigger

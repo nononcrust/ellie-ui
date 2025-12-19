@@ -1,7 +1,7 @@
 "use client";
 
-import { Checkbox as CheckboxBase } from "@base-ui-components/react/checkbox";
-import { CheckboxGroup as CheckboxGroupBase } from "@base-ui-components/react/checkbox-group";
+import { Checkbox as CheckboxBase } from "@base-ui/react/checkbox";
+import { CheckboxGroup as CheckboxGroupBase } from "@base-ui/react/checkbox-group";
 import { CheckIcon, MinusIcon } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
 import { cn } from "../../lib/utils";

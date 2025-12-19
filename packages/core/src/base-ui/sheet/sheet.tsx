@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog as SheetBase } from "@base-ui-components/react/dialog";
+import { Dialog as SheetBase } from "@base-ui/react/dialog";
 import { XIcon } from "lucide-react";
 import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";

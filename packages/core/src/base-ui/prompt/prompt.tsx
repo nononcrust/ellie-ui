@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertDialog as AlertDialogBase } from "@base-ui-components/react/alert-dialog";
+import { AlertDialog as AlertDialogBase } from "@base-ui/react/alert-dialog";
 import React from "react";
 import { buildContext } from "../../lib/context";
 import { cn } from "../../lib/utils";
