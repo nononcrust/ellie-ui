@@ -40,18 +40,18 @@ export default function TextFieldPage() {
       </Grid.Item>
       <Grid.Item>
         <TextField label={<TextField.Label>검색</TextField.Label>}>
-          <TextField.Prefix>
+          <TextField.InlineAffix>
             <SearchIcon className="text-subtle size-[1rem]" />
-          </TextField.Prefix>
+          </TextField.InlineAffix>
           <TextField.Input />
         </TextField>
       </Grid.Item>
       <Grid.Item>
         <TextField label={<TextField.Label>검색</TextField.Label>}>
           <TextField.Input />
-          <TextField.Suffix>
+          <TextField.InlineAffix>
             <SearchIcon className="text-subtle size-[1rem]" />
-          </TextField.Suffix>
+          </TextField.InlineAffix>
         </TextField>
       </Grid.Item>
       <Grid.Item>
@@ -83,15 +83,14 @@ export default function TextFieldPage() {
       </Grid.Item>
       <Grid.Item>
         <TextField
-          label={<TextField.Label>이메일</TextField.Label>}
+          label={<TextField.Label asterisk>이메일</TextField.Label>}
           description={<TextField.Description>이메일을 입력해주세요.</TextField.Description>}
-          required
         >
           <TextField.Input />
         </TextField>
       </Grid.Item>
       <Grid.Item>
-        <TextField label={<TextField.Label>이메일</TextField.Label>} maxGraphemeCount={10}>
+        <TextField label={<TextField.Label>이메일</TextField.Label>}>
           <TextField.Input />
         </TextField>
       </Grid.Item>
@@ -122,7 +121,6 @@ export default function TextFieldPage() {
           description={
             <TextField.Description>1000자 이하의 텍스트를 입력해주세요.</TextField.Description>
           }
-          maxGraphemeCount={1000}
         >
           <TextField.Textarea placeholder="텍스트를 입력해주세요" />
         </TextField>
@@ -154,20 +152,18 @@ const TextFieldWithForm = () => {
       <Controller
         name="input"
         control={form.control}
-        render={({ field, fieldState }) => (
+        render={({ field: { value, onChange, ...rest }, fieldState }) => (
           <TextField
-            label={<TextField.Label>텍스트</TextField.Label>}
+            label={<TextField.Label asterisk>텍스트</TextField.Label>}
             description={<TextField.Description>텍스트를 입력해주세요.</TextField.Description>}
-            value={field.value}
-            onValueChange={field.onChange}
+            value={value}
+            onValueChange={onChange}
             invalid={fieldState.invalid}
             errorMessage={
               <TextField.ErrorMessage>{fieldState.error?.message}</TextField.ErrorMessage>
             }
-            maxGraphemeCount={100}
-            required
           >
-            <TextField.Input ref={field.ref} placeholder="100자 이하의 텍스트" />
+            <TextField.Input {...rest} placeholder="100자 이하의 텍스트" />
           </TextField>
         )}
       />

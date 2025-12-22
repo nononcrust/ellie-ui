@@ -1,7 +1,6 @@
 import { Form, Input, Label } from "@ellie-ui/core";
 import { useInput } from "@ellie-ui/core/hooks";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { SearchIcon } from "lucide-react";
 import { useId } from "react";
 
 const meta = {
@@ -10,6 +9,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="w-[20rem]">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -19,41 +25,25 @@ export const Default: Story = {
   render: () => {
     const input = useInput({ format: "phoneNumberDashed" });
 
-    return (
-      <div className="w-[20rem]">
-        <Input {...input.register()} />
-      </div>
-    );
+    return <Input {...input.register()} />;
   },
 };
 
 export const WithPlaceholder: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Input placeholder="텍스트를 입력하세요" />
-      </div>
-    );
+    return <Input placeholder="텍스트를 입력하세요" />;
   },
 };
 
 export const Disabled: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Input disabled />
-      </div>
-    );
+    return <Input disabled />;
   },
 };
 
 export const Invalid: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Input invalid />
-      </div>
-    );
+    return <Input invalid />;
   },
 };
 
@@ -62,7 +52,7 @@ export const WithLabel: Story = {
     const inputId = useId();
 
     return (
-      <div className="w-[20rem]">
+      <div>
         <Label className="mb-2 flex" htmlFor={inputId}>
           이름
         </Label>
@@ -75,7 +65,7 @@ export const WithLabel: Story = {
 export const WithForm: Story = {
   render: () => {
     return (
-      <Form.Field className="w-[20rem]">
+      <Form.Field>
         <Form.Label>이름</Form.Label>
         <Form.Control>
           <Input />
@@ -86,57 +76,9 @@ export const WithForm: Story = {
   },
 };
 
-export const WithPrefixIcon: Story = {
-  render: () => {
-    return (
-      <div className="relative w-[20rem]">
-        <SearchIcon className="text-sub absolute left-3 top-1/2 size-4 -translate-y-1/2" />
-        <Input className="pl-9" />
-      </div>
-    );
-  },
-};
-
-export const WithSuffixIcon: Story = {
-  render: () => {
-    return (
-      <div className="relative w-[20rem]">
-        <Input className="pr-9" />
-        <SearchIcon className="text-sub absolute right-3 top-1/2 size-4 -translate-y-1/2" />
-      </div>
-    );
-  },
-};
-
-export const WithPrefix: Story = {
-  render: () => {
-    return (
-      <div className="relative w-[20rem]">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm">https://</span>
-        <Input className="pl-15" placeholder="google.com" />
-      </div>
-    );
-  },
-};
-
-export const WithSuffix: Story = {
-  render: () => {
-    return (
-      <div className="relative w-[20rem]">
-        <Input className="pr-12" placeholder="google" />
-        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm">.com</span>
-      </div>
-    );
-  },
-};
-
 export const ReadOnly: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Input readOnly value="읽기 전용입니다." />
-      </div>
-    );
+    return <Input readOnly value="읽기 전용입니다." />;
   },
 };
 
@@ -144,10 +86,6 @@ export const Controlled: Story = {
   render: () => {
     const input = useInput();
 
-    return (
-      <div className="w-[20rem]">
-        <Input {...input.register()} />
-      </div>
-    );
+    return <Input {...input.register()} />;
   },
 };

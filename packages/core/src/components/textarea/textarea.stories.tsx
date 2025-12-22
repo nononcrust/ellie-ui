@@ -9,6 +9,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="w-[20rem]">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Textarea>;
 
 export default meta;
@@ -16,41 +23,25 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Textarea />
-      </div>
-    );
+    return <Textarea />;
   },
 };
 
 export const WithPlaceholder: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Textarea placeholder="텍스트를 입력하세요" />
-      </div>
-    );
+    return <Textarea placeholder="텍스트를 입력하세요" />;
   },
 };
 
 export const Disabled: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Textarea disabled />
-      </div>
-    );
+    return <Textarea disabled />;
   },
 };
 
 export const Invalid: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Textarea invalid />
-      </div>
-    );
+    return <Textarea invalid />;
   },
 };
 
@@ -59,7 +50,7 @@ export const WithLabel: Story = {
     const inputId = useId();
 
     return (
-      <div className="w-[20rem]">
+      <div>
         <Label className="mb-2 flex" htmlFor={inputId}>
           내용
         </Label>
@@ -72,7 +63,7 @@ export const WithLabel: Story = {
 export const WithForm: Story = {
   render: () => {
     return (
-      <Form.Field className="w-[20rem]">
+      <Form.Field>
         <Form.Label>내용</Form.Label>
         <Form.Control>
           <Textarea />
@@ -85,11 +76,7 @@ export const WithForm: Story = {
 
 export const ReadOnly: Story = {
   render: () => {
-    return (
-      <div className="w-[20rem]">
-        <Textarea readOnly value="읽기 전용입니다." />
-      </div>
-    );
+    return <Textarea readOnly value="읽기 전용입니다." />;
   },
 };
 
@@ -97,10 +84,6 @@ export const Controlled: Story = {
   render: () => {
     const input = useInput();
 
-    return (
-      <div className="w-[20rem]">
-        <Textarea {...input.register()} />
-      </div>
-    );
+    return <Textarea {...input.register()} />;
   },
 };

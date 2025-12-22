@@ -8,8 +8,8 @@ import { cn } from "../../lib/utils";
 export const tabsVariants = tv({
   base: cn(
     "text-subtle relative inline-flex items-center justify-center border-transparent font-semibold whitespace-nowrap",
-    "data-disabled:pointer-events-none data-disabled:opacity-50",
-    "data-selected:text-main",
+    "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
+    "data-[selected=true]:text-main",
     "hover:text-sub",
   ),
   variants: {

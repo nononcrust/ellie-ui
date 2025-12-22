@@ -54,9 +54,9 @@ export const Default: Story = {
           </Select>
           <DatePicker {...datePicker.register()} placeholder="YYYY-MM-DD" className="w-[160px]" />
           <TextField className="w-[240px]">
-            <TextField.Prefix>
+            <TextField.InlineAffix>
               <SearchIcon className="text-subtle size-4" />
-            </TextField.Prefix>
+            </TextField.InlineAffix>
             <TextField.Input placeholder="클라이언트 검색" />
           </TextField>
         </div>

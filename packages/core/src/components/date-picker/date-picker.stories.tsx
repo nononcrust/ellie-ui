@@ -8,6 +8,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="w-[20rem]">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;
@@ -17,7 +24,7 @@ export const Default: Story = {
   render: () => {
     const datePicker = useDatePicker();
 
-    return <DatePicker {...datePicker.register()} className="w-[15rem]" aria-label="날짜 선택" />;
+    return <DatePicker {...datePicker.register()} aria-label="날짜 선택" />;
   },
 };
 
@@ -25,13 +32,7 @@ export const WithPlaceholder: Story = {
   render: () => {
     const datePicker = useDatePicker();
 
-    return (
-      <DatePicker
-        {...datePicker.register()}
-        className="w-[15rem]"
-        placeholder="날짜를 선택해주세요"
-      />
-    );
+    return <DatePicker {...datePicker.register()} placeholder="날짜를 선택해주세요" />;
   },
 };
 
@@ -39,7 +40,7 @@ export const Disabled: Story = {
   render: () => {
     const datePicker = useDatePicker();
 
-    return <DatePicker {...datePicker.register()} className="w-[15rem]" disabled />;
+    return <DatePicker {...datePicker.register()} disabled />;
   },
 };
 
@@ -47,7 +48,7 @@ export const Invalid: Story = {
   render: () => {
     const datePicker = useDatePicker();
 
-    return <DatePicker {...datePicker.register()} className="w-[15rem]" invalid />;
+    return <DatePicker {...datePicker.register()} invalid />;
   },
 };
 
@@ -56,11 +57,7 @@ export const Range: Story = {
     const dateRangePicker = useDateRangePicker();
 
     return (
-      <DateRangePicker
-        {...dateRangePicker.register()}
-        className="w-[15rem]"
-        placeholder="날짜 범위를 선택해주세요"
-      />
+      <DateRangePicker {...dateRangePicker.register()} placeholder="날짜 범위를 선택해주세요" />
     );
   },
 };
@@ -72,7 +69,6 @@ export const DateBoundary: Story = {
     return (
       <DatePicker
         {...datePicker.register()}
-        className="w-[15rem]"
         placeholder="오늘부터 일주일 이내"
         hidden={{
           before: new Date(),

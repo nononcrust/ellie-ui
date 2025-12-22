@@ -42,7 +42,7 @@ const dropdownMenuItemVariants = tv({
   base: cn(
     "outline-hidden relative flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-medium rounded-[0.375rem]",
     "focus:bg-background-hover",
-    "data-disabled:pointer-events-none data-disabled:opacity-50",
+    "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
     "[&_svg]:shrink-0",
   ),
   variants: {

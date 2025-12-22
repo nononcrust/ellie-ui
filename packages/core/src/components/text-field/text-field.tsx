@@ -13,8 +13,6 @@ type TextFieldProps = Omit<React.ComponentPropsWithRef<"div">, "value"> & {
   description?: React.ReactNode;
   invalid?: boolean;
   errorMessage?: React.ReactNode;
-  maxGraphemeCount?: number;
-  required?: boolean;
 };
 
 const TextField = ({
@@ -25,9 +23,7 @@ const TextField = ({
   children,
   label,
   description,
-  maxGraphemeCount,
-  required,
-  invalid,
+  invalid = false,
   errorMessage,
   ...props
 }: TextFieldProps) => {
@@ -47,8 +43,6 @@ const TextField = ({
     value,
     onValueChange,
     defaultValue,
-    required,
-    maxGraphemeCount,
     invalid,
     textFieldId,
     descriptionId,
@@ -65,29 +59,19 @@ const TextField = ({
         {label}
         <div
           className={cn(
-            "border-border bg-background shadow-xs flex min-h-10 rounded-md border",
+            "border-border bg-background shadow-xs flex min-h-10 gap-3 rounded-md border px-3",
             "focus-within:focus-input-ring",
-            "has-data-invalid:focus-within:focus-input-ring-error has-data-invalid:border-error",
-            "has-data-disabled:bg-background-100 has-data-disabled:pointer-events-none has-data-disabled:opacity-50",
-            "has-data-readonly:bg-background-100",
+            "has-data-[invalid=true]:focus-within:focus-input-ring-error has-data-[invalid=true]:border-error",
+            "has-data-[disabled=true]:bg-background-100 has-data-[disabled=true]:pointer-events-none has-data-[disabled=true]:opacity-50",
+            "has-data-[readonly=true]:bg-background-100",
           )}
         >
           {children}
         </div>
-        {(description || maxGraphemeCount || (invalid && errorMessage)) && (
-          <div className="mt-1 flex justify-end gap-3">
-            <div className="flex-1">
-              {description && description}
-              {invalid && errorMessage}
-            </div>
-            {maxGraphemeCount && (
-              <span
-                className={cn("text-subtle text-[0.8125rem] font-medium", className)}
-                {...props}
-              >
-                {value.length}/{maxGraphemeCount}
-              </span>
-            )}
+        {(description || (invalid && errorMessage)) && (
+          <div className="mt-1 flex flex-col">
+            {description && description}
+            {invalid && errorMessage}
           </div>
         )}
       </div>
@@ -102,10 +86,7 @@ const TextFieldInput = ({ className, ...props }: TextFieldInputProps) => {
 
   return (
     <input
-      className={cn(
-        "outline-hidden text-main placeholder-placeholder w-full px-3 text-sm",
-        className,
-      )}
+      className={cn("outline-hidden text-main placeholder-placeholder w-full text-sm", className)}
       data-disabled={props.disabled}
       data-readonly={props.readOnly}
       {...register}
@@ -122,7 +103,7 @@ const TextFieldTextarea = ({ className, ...props }: TextFieldTextareaProps) => {
   return (
     <textarea
       className={cn(
-        "outline-hidden text-main placeholder-placeholder w-full px-3 py-2 text-sm",
+        "outline-hidden text-main placeholder-placeholder w-full py-2.5 text-sm",
         "min-h-[7.5rem]",
         "field-sizing-content",
         className,
@@ -135,35 +116,64 @@ const TextFieldTextarea = ({ className, ...props }: TextFieldTextareaProps) => {
   );
 };
 
-type TextFieldAdornmentProps = React.ComponentPropsWithRef<"div">;
+type TextFieldPrefixProps = React.ComponentPropsWithRef<"div">;
 
-const TextFieldPrefix = ({ className, children, ...props }: TextFieldAdornmentProps) => {
+const TextFieldPrefix = ({ className, children, ...props }: TextFieldPrefixProps) => {
   return (
-    <div className={cn("flex items-center justify-center pl-3", className)} {...props}>
+    <div
+      className={cn(
+        "border-border text-placeholder flex items-center justify-center border-r pr-3 text-sm",
+        className,
+      )}
+      {...props}
+    >
       {children}
     </div>
   );
 };
 
-const TextFieldSuffix = ({ className, children, ...props }: TextFieldAdornmentProps) => {
+type TextFieldSuffixProps = React.ComponentPropsWithRef<"div">;
+
+const TextFieldSuffix = ({ className, children, ...props }: TextFieldSuffixProps) => {
   return (
-    <div className={cn("flex items-center justify-center pr-3", className)} {...props}>
+    <div
+      className={cn(
+        "border-border text-placeholder flex items-center justify-center border-l pl-3 text-sm",
+        className,
+      )}
+      {...props}
+    >
       {children}
     </div>
   );
+};
+
+type TextFieldInlineAffixProps = React.ComponentPropsWithRef<"div">;
+
+const TextFieldInlineAffix = ({ className, children, ...props }: TextFieldInlineAffixProps) => {
+  return (
+    <div className={cn("flex items-center justify-center", className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+type TextFieldLabelProps = React.ComponentPropsWithRef<typeof Label> & {
+  asterisk?: boolean;
 };
 
 const TextFieldLabel = ({
   className,
   children,
+  asterisk = false,
   ...props
-}: React.ComponentPropsWithRef<typeof Label>) => {
-  const { required, textFieldId } = useTextFieldContext();
+}: TextFieldLabelProps) => {
+  const { textFieldId } = useTextFieldContext();
 
   return (
     <Label htmlFor={textFieldId} className={cn("mb-2 flex items-center", className)} {...props}>
       {children}
-      {required && <span className="text-error ml-1">*</span>}
+      {asterisk && <span className="text-error ml-1">*</span>}
     </Label>
   );
 };
@@ -226,9 +236,7 @@ type TextFieldContextValue = {
   value: string;
   onValueChange: (value: string) => void;
   defaultValue?: string;
-  maxGraphemeCount?: number;
-  required?: boolean;
-  invalid?: boolean;
+  invalid: boolean;
   textFieldId: string;
   errorMessageId: string;
   descriptionId: string;
@@ -250,15 +258,9 @@ const useRegisterTextField = () => {
     errorMessageElement,
     errorMessageId,
     descriptionId,
-    maxGraphemeCount,
   } = useTextFieldContext();
 
   const onFieldChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (maxGraphemeCount) {
-      const slicedValue = event.target.value.slice(0, maxGraphemeCount);
-      return onValueChange(slicedValue);
-    }
-
     onValueChange(event.target.value);
   };
 
@@ -267,7 +269,7 @@ const useRegisterTextField = () => {
     value,
     onChange: onFieldChange,
     "aria-invalid": invalid,
-    "data-invalid": invalid || undefined,
+    "data-invalid": invalid,
     "aria-describedby": cn(
       descriptionElement && descriptionId,
       errorMessageElement && errorMessageId,
@@ -279,6 +281,7 @@ const useRegisterTextField = () => {
 
 TextField.Input = TextFieldInput;
 TextField.Textarea = TextFieldTextarea;
+TextField.InlineAffix = TextFieldInlineAffix;
 TextField.Prefix = TextFieldPrefix;
 TextField.Suffix = TextFieldSuffix;
 TextField.Label = TextFieldLabel;

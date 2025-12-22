@@ -12,6 +12,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="w-[20rem]">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof TextField>;
 
 export default meta;
@@ -47,6 +54,16 @@ export const WithLabel: Story = {
   },
 };
 
+export const WithLabelAsterisk: Story = {
+  render: () => {
+    return (
+      <TextField label={<TextField.Label asterisk>레이블</TextField.Label>}>
+        <TextField.Input />
+      </TextField>
+    );
+  },
+};
+
 export const WithDescription: Story = {
   render: () => {
     return (
@@ -73,9 +90,7 @@ export const WithPrefix: Story = {
   render: () => {
     return (
       <TextField>
-        <TextField.Prefix>
-          <SearchIcon className="text-subtle size-[1rem]" />
-        </TextField.Prefix>
+        <TextField.Prefix>https://</TextField.Prefix>
         <TextField.Input />
       </TextField>
     );
@@ -87,9 +102,33 @@ export const WithSuffix: Story = {
     return (
       <TextField>
         <TextField.Input />
-        <TextField.Suffix>
+        <TextField.Suffix>@gmail.com</TextField.Suffix>
+      </TextField>
+    );
+  },
+};
+
+export const WithInlinePrefix: Story = {
+  render: () => {
+    return (
+      <TextField>
+        <TextField.InlineAffix>
           <SearchIcon className="text-subtle size-[1rem]" />
-        </TextField.Suffix>
+        </TextField.InlineAffix>
+        <TextField.Input />
+      </TextField>
+    );
+  },
+};
+
+export const WithInlineSuffix: Story = {
+  render: () => {
+    return (
+      <TextField>
+        <TextField.Input />
+        <TextField.InlineAffix>
+          <SearchIcon className="text-subtle size-[1rem]" />
+        </TextField.InlineAffix>
       </TextField>
     );
   },
@@ -120,26 +159,6 @@ export const ErrorMessage: Story = {
   },
 };
 
-export const Required: Story = {
-  render: () => {
-    return (
-      <TextField label={<TextField.Label>레이블</TextField.Label>} required>
-        <TextField.Input />
-      </TextField>
-    );
-  },
-};
-
-export const WithMaxGraphemeCount: Story = {
-  render: () => {
-    return (
-      <TextField maxGraphemeCount={10}>
-        <TextField.Input />
-      </TextField>
-    );
-  },
-};
-
 export const WithForm: Story = {
   render: () => {
     const InputForm = z.object({
@@ -160,20 +179,18 @@ export const WithForm: Story = {
         <Controller
           name="input"
           control={form.control}
-          render={({ field, fieldState }) => (
+          render={({ field: { value, onChange, ...rest }, fieldState }) => (
             <TextField
-              label={<TextField.Label>텍스트</TextField.Label>}
+              label={<TextField.Label asterisk>텍스트</TextField.Label>}
               description={<TextField.Description>텍스트를 입력해주세요.</TextField.Description>}
-              value={field.value}
-              onValueChange={field.onChange}
+              value={value}
+              onValueChange={onChange}
               invalid={fieldState.invalid}
               errorMessage={
                 <TextField.ErrorMessage>{fieldState.error?.message}</TextField.ErrorMessage>
               }
-              maxGraphemeCount={100}
-              required
             >
-              <TextField.Input ref={field.ref} placeholder="100자 이하의 텍스트" />
+              <TextField.Input {...rest} placeholder="100자 이하의 텍스트" />
             </TextField>
           )}
         />
@@ -190,10 +207,7 @@ export const WithTextarea: Story = {
     return (
       <TextField
         label={<TextField.Label>긴 텍스트</TextField.Label>}
-        description={
-          <TextField.Description>1000자 이하의 텍스트를 입력해주세요.</TextField.Description>
-        }
-        maxGraphemeCount={1000}
+        description={<TextField.Description>텍스트를 입력해주세요.</TextField.Description>}
       >
         <TextField.Textarea placeholder="텍스트를 입력해주세요" />
       </TextField>

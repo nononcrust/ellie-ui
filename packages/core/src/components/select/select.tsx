@@ -128,7 +128,7 @@ const SelectOption = ({ className, children, ...props }: SelectOptionProps) => {
         "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[0.375rem] py-2 pl-3 pr-8 text-sm font-medium",
         "focus:bg-background-hover focus:text-main",
         "data-[state=checked]:text-primary data-[state=checked]:font-semibold",
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
+        "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
 
         className,
       )}
