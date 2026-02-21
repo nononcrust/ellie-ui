@@ -52,7 +52,7 @@ const CheckSelectBoxOption = ({ className, children, ...props }: CheckSelectBoxO
       className={cn(
         "border-border flex cursor-pointer items-center gap-4 rounded-md border px-4 py-3",
         "data-checked:bg-primary-lighter data-checked:border-primary",
-        "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
+        "data-disabled:pointer-events-none data-disabled:opacity-50",
         "focus-visible:focus-ring focus-visible:z-10",
         !invalid && "dark:data-checked:bg-primary-darker",
         invalid &&

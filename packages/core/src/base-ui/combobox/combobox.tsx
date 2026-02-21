@@ -126,8 +126,6 @@ const ComboboxOption = ({ value, children }: ComboboxOptionProps) => {
     <CommandBase.Item
       className={cn(
         "outline-hidden relative flex w-full cursor-pointer select-none items-center rounded-[0.375rem] py-2 pl-3 pr-8 text-sm font-medium",
-        "data-[selected=true]:bg-background-100",
-        "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0",
         isSelected && "text-primary font-semibold",
       )}

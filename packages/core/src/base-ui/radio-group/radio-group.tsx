@@ -15,7 +15,7 @@ const radioGroupVariants = tv({
       "aspect-sqaure border-border size-4 shrink-0 rounded-full border shadow-xs outline-hidden",
       "focus-visible:focus-ring",
       "data-checked:border-primary data-checked:bg-primary data-checked:text-white",
-      "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
+      "data-disabled:pointer-events-none data-disabled:opacity-50",
     ),
     indicator: "",
     label: "font-medium w-fit",

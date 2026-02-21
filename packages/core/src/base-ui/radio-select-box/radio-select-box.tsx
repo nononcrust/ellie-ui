@@ -48,9 +48,10 @@ const RadioSelectBoxOption = ({ className, children, ...props }: RadioSelectBoxO
     <RadioBase.Root
       id={id}
       className={cn(
-        "border-border flex items-center gap-4 rounded-md border px-4 py-3",
+        "border-border flex cursor-pointer items-center gap-4 rounded-md border px-4 py-3",
+        "focus-visible:focus-ring",
         "data-checked:border-primary data-checked:bg-primary-lighter",
-        "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
+        "data-disabled:pointer-events-none data-disabled:opacity-50",
         !invalid && "dark:data-checked:bg-primary-darker",
         invalid &&
           "border-error focus-visible:ring-ring-error data-checked:border-error data-checked:bg-error-lighter",
