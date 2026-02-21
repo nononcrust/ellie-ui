@@ -100,7 +100,7 @@ const DropdownMenuCheckboxItem = ({
 }: DropdownMenuCheckboxItemProps) => {
   return (
     <DropdownMenuBase.CheckboxItem
-      className={cn(dropdownMenuItemVariants({ variant: "default" }), className)}
+      className={cn(dropdownMenuItemVariants({ variant: "default" }), "justify-between", className)}
       {...props}
     >
       {children}
